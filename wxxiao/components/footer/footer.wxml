@@ -1,0 +1,18 @@
+<!--components/footer/footer.wxml-->
+<view class="footer">
+    <view class="item">
+        <image class="footer_icon" src="../../images/icon_home.png"></image>
+        <text class="text">首页</text>
+    </view>
+    <view class="item poinits">
+        <image class="footer_icon"></image>
+        <view class="text">积分签到</view>
+        <view class="points_position">
+            <image class="points_icon" src="../../images/icon_integral.png"></image>   
+        </view>
+    </view>
+    <view class="item">
+        <image class="footer_icon" src="../../images/icon_mine.png"></image>
+        <text class="text">我的</text>
+    </view>
+</view>

@@ -1,0 +1,26 @@
+<!--pages/catType/carType.wxml-->
+<view class="title">
+    <input class="title_list" value="{{cityName}}" placeholder="城市名称" />
+    <button  class="buttom">确认</button >
+</view>
+<scroll-view scroll-y="true" style="height: {{winHeight}}px;" scroll-into-view="{{scrollTopId}}" class="city_list">
+    <view wx:for="{{city}}" wx:for-index="idx" wx:for-item="cityName">
+        <view id="{{idx}}" class="list_tit">{{idx}}</view>
+        <view wx:for="{{cityName}}">
+          <view  class="list_con" data-city="{{item.name}}" bindtap="bindCity">{{item.name}}</view>  
+        </view>
+    </view>
+</scroll-view>
+<view class="scroll_list"
+bindtouchstart="chStart"
+bindtouchend="chEnd"
+catchtouchmove="chMove"
+style="background: rgba(0,0,0,{{trans}});"
+>
+   <view wx:for="{{city}}" wx:for-index="idx" wx:for-item="cityName">
+        <view wx:if="{{idx != '热门城市'}}">
+            <view  id="{{idx}}" class="scroll_list_chi" style="line-height:{{lineHeight}}px ; height:{{lineHeight}}px ;font-size:{{lineHeight/1.7}}px;" bindtouchstart="getWords" bindtouchend="setWords">{{idx}}</view>
+        </view> 
+    </view>
+</view>
+

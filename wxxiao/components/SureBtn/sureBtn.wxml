@@ -1,0 +1,4 @@
+<!--components/sureBtn/sureBtn.wxml-->
+<view class="sure-content" catchtap='_sureEvent'>
+    <view class="sure-btn">确定</view>
+</view>

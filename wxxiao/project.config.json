@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.9.94",
 	"appid": "wx1afccdc8d6f2f540",
-	"projectname": "zhaofang",
+	"projectname": "zfmini",
 	"isGameTourist": false,
 	"condition": {
 		"search": {

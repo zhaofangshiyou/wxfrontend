@@ -1,12 +1,14 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/carType/carType",
+    "pages/logs/logs",
+    "pages/myCard/myCard"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FD9246",
+    "navigationBarTitleText": "兆方石油",
+    "navigationBarTextStyle": "#fff"
   }
 }
