@@ -1,0 +1,12 @@
+<!--pages/oilStation/oilStation.wxml-->
+<view class="container">
+    <view class="oil_box">
+        <view class="oil_item"  wx:for="{{oilArr}}" wx:for-index="index" wx:for-item="item">
+            <image class="notice_icon" src="../../images/icon_address.png"></image>
+            <view class="oil_text">
+                <view class="title">{{item.name}}</view>
+                <view class="address">{{item.address}}</view>
+            </view>
+        </view>
+    </view>
+</view>

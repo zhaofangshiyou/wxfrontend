@@ -2,10 +2,10 @@
   "pages": [
     "pages/openCard/openCard",
     "pages/index/index",
-    "pages/carType/carType",
     "pages/logs/logs",
-    "pages/myCard/myCard"
-    
+    "pages/myCard/myCard",
+    "pages/oilStation/oilStation",
+    "pages/carType/carType"
   ],
   "window": {
     "backgroundTextStyle": "light",
