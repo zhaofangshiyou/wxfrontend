@@ -50,12 +50,16 @@
             </view>
             <view class="section choose_box">
                 <view class="section_title">验证码</view>
-                <input class="input" name="input" type="number" placeholder-style="color:#BDBDBD" placeholder="请输入验证码" />
+                <input class="input"data-flag="code" bindblur="checkMsg"  name="input" type="number" placeholder-style="color:#BDBDBD" placeholder="请输入验证码" />
                 <view class="getCode" bindtap="sendCode">{{codeText}}</view>
             </view>
     </view>
-    <view class="sureSubmit">
+
+    <view class="sureSubmit" wx:if="{{check.checkName && check.checkID && check.checkCode}}">
         <sureBtn text="确认开卡" bind:sureEvent="submitRegister"></sureBtn>
+    </view>
+    <view class="sureSubmit"  wx:if="{{!check.checkName || !check.checkID || !check.checkCode}}">
+        <disable text="确认开卡"></disable>
     </view>
 </view>
 

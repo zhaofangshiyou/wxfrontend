@@ -1,0 +1,4 @@
+<!--components/Disable/disable.wxml-->
+<view class="sure-content">
+    <view class="sure-btn">{{text}}</view>
+</view>

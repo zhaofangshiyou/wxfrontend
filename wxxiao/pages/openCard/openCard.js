@@ -23,6 +23,17 @@ Page({
       showOilStation: false,
       sexToggle: false
     },
+    check: {
+      checkName: false,
+      checkID: false,
+      checksex: false,
+      chekCartType: false,
+      checkCarNumber: false,
+      checkOilStation: false,
+      checkPassword: false,
+      checkPhone: false,
+      checkCode: false
+    },
     codeText: '获取验证码',
     sendAgain: true
   },
@@ -72,14 +83,16 @@ Page({
       this.setData({
         "userInfo.sex" : '男',
         "show.sexToggle": false,
-        "show.showSex": true
+        "show.showSex": true,
+        "check.checksex": true
       })
       console.log(this.data.userInfo.sex);
     }else {
       this.setData({
         "userInfo.sex" : '女',
         "show.sexToggle": false,
-        "show.showSex": true
+        "show.showSex": true,
+        "check.checksex": true
       })
     }
   },
@@ -99,7 +112,8 @@ Page({
       case 'realName': 
         if(event.detail.value != '') {
           this.setData({
-            "userInfo.realName": event.detail.value
+            "userInfo.realName": event.detail.value,
+            "check.checkName": true
           })
         }else{
           this.warnMsg('请输入您的真实姓名!');
@@ -110,14 +124,16 @@ Page({
           this.warnMsg('请输入正确的身份证号码！');
         }else{
           this.setData({
-            "userInfo.ID": event.detail.value
+            "userInfo.ID": event.detail.value,
+            "check.checkID": true
           })
         }
         break;
       case 'pass':
         if(event.detail.value.length == 6){
           this.setData({
-            "userInfo.password": event.detail.value
+            "userInfo.password": event.detail.value,
+            "check.checkPassword": true
           })
         }else {
           this.warnMsg('请输入6位数字密码！'); 
@@ -133,9 +149,18 @@ Page({
           this.warnMsg('请输入正确的手机号'); 
         }else {
           this.setData({
-            "userInfo.phone": event.detail.value
+            "userInfo.phone": event.detail.value,
+            "check.checkPhone": true
           })
-          console.log(this.data.userInfo);
+        }
+      case 'code':
+        if(event.detail.value == '') {
+          this.warnMsg('请输入正确的验证码'); 
+        }else {
+          this.setData({
+            "userInfo.phone": event.detail.value,
+            "check.checkCode": true
+          })
         }
     }
   },
