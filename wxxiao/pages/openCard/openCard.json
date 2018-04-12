@@ -1,5 +1,6 @@
 {
     "usingComponents": {
-    "sureBtn": "../../components/SureBtn/sureBtn"
-  } 
+        "sureBtn": "../../components/SureBtn/sureBtn"
+    },
+    "navigationBarTitleText": "新用户开卡"  
 }

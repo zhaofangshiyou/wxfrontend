@@ -7,54 +7,61 @@
     <view class="form_box">
             <view class="section">
                 <view class="section_title">真实姓名</view>
-                <input class="input" name="input" placeholder-style="color:#BDBDBD" placeholder="请输入您的真实姓名" />
+                <input class="input" data-flag="realName" bindblur="checkMsg" name="name" placeholder-style="color:#BDBDBD" placeholder="请输入您的真实姓名" />
             </view>
             <view class="section">
                 <view class="section_title">身份证号</view>
-                <input class="input" name="input" placeholder-style="color:#BDBDBD" placeholder="请输入您的身份证号码" />
+                <input class="input" type="idcard" data-flag="ID" bindblur="checkMsg" name="id" placeholder-style="color:#BDBDBD" placeholder="请输入您的身份证号码" />
             </view>
-            <view class="section">
+            <view class="section" bindtap="sexShow">
                 <view class="section_title">性别</view>
                 <view class="choose choose_text" wx:if="{{show.showSex}}">{{userInfo.sex}}</view>
                 <view class="noChoose noChoose_text" wx:if="{{!show.showSex}}">请选择您的性别</view>
             </view>
             <view class="section choose_box">
                 <view class="section_title">车型信息</view>
-                <view class="choose choose_text" wx:if="{{show.showSex}}">{{userInfo.cartType}}</view>
-                <view class="noChoose noChoose_text" wx:if="{{!show.showSex}}">请选择(非必填）</view>
+                <view class="choose choose_text" wx:if="{{show.showCartType}}">{{userInfo.cartType}}</view>
+                <view class="noChoose noChoose_text" wx:if="{{!show.showCartType}}">请选择(非必填）</view>
+                <image class="right_icon" src="../../images/home_icon_enter.png"></image> 
+            </view>
+            <view class="section choose_box">
+                <view class="section_title">车牌号码</view>
+                <view class="choose choose_text" wx:if="{{show.showCartNumber}}">{{userInfo.carNumber}}</view>
+                <view class="noChoose noChoose_text" wx:if="{{!show.showCartNumber}}">请选择</view>
                 <image class="right_icon" src="../../images/home_icon_enter.png"></image> 
             </view>
             <view class="section choose_box">
                 <view class="section_title">取票油站</view>
-                <view class="choose choose_text" wx:if="{{show.showSex}}">{{userInfo.sex}}</view>
-                <view class="noChoose noChoose_text" wx:if="{{!show.showSex}}">请选择</view>
-                <image class="right_icon" src="../../images/home_icon_enter.png"></image> 
-            </view>
-            <view class="section choose_box">
-                <view class="section_title">取票油站</view>
-                <view class="choose choose_text" wx:if="{{show.showSex}}">{{userInfo.sex}}</view>
-                <view class="noChoose noChoose_text" wx:if="{{!show.showSex}}">请选择领取发票油站</view>
+                <view class="choose choose_text" wx:if="{{show.showOilStation}}">{{userInfo.oilStation}}</view>
+                <view class="noChoose noChoose_text" wx:if="{{!show.showOilStation}}">请选择领取发票油站</view>
                 <image class="right_icon" src="../../images/home_icon_enter.png"></image> 
             </view>
             <view class="section">
                 <view class="section_title">设置密码</view>
-                <input class="input" name="input" password type="number" placeholder-style="color:#BDBDBD" placeholder="请设置您的6位数兆方卡支付密码" />
+                <input class="input" data-flag="pass" bindblur="checkMsg" name="password" maxlength="6" password type="number" placeholder-style="color:#BDBDBD" placeholder="请设置您的6位数兆方卡支付密码" />
             </view>
             <view class="section">
                 <view class="section_title">确认密码</view>
-                <input class="input" name="input" password type="number" placeholder-style="color:#BDBDBD" placeholder="请确认您的6位数兆方卡支付密码" />
+                <input class="input" data-flag="comfirmPass" bindblur="checkMsg" name="comfirmpass" maxlength="6" password type="number" placeholder-style="color:#BDBDBD" placeholder="请确认您的6位数兆方卡支付密码" />
             </view>
             <view class="section">
                 <view class="section_title">手机号</view>
-                <input class="input" name="input" type="number" placeholder-style="color:#BDBDBD" placeholder="请输入您的手机号码" />
+                <input class="input" name="input" data-flag="phone" bindblur="checkMsg" type="number"  maxlength="11" placeholder-style="color:#BDBDBD" placeholder="请输入您的手机号码" />
             </view>
             <view class="section choose_box">
                 <view class="section_title">验证码</view>
                 <input class="input" name="input" type="number" placeholder-style="color:#BDBDBD" placeholder="请输入验证码" />
-                <view class="getCode">获取验证码</view>
+                <view class="getCode" bindtap="sendCode">{{codeText}}</view>
             </view>
     </view>
     <view class="sureSubmit">
-        <sureBtn text="确认开卡"></sureBtn>
+        <sureBtn text="确认开卡" bind:sureEvent="submitRegister"></sureBtn>
+    </view>
+</view>
+
+<view catchtap="hideSexBox" class="sex_box" wx:if="{{show.sexToggle}}">
+    <view class="sex_content">
+        <view class="sex_item" catchtap="ChooseSex" data-sex='man'>男</view>
+        <view class="sex_item" catchtap="ChooseSex" data-sex='women'>女</view>
     </view>
 </view>

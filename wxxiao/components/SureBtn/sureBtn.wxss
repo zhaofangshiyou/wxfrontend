@@ -4,6 +4,7 @@
     box-sizing: border-box;
     overflow: hidden;
     padding: 0 30rpx;   
+    border: 0;
 }
 .sure-btn{
     margin: 0 auto;
@@ -18,4 +19,5 @@
     border-radius: 45rpx;
     line-height: 90rpx;
     color: #fff;
+    border: 0;
 }
