@@ -2,15 +2,20 @@
 .sure-content{
     width: 100%;
     box-sizing: border-box;
-    overflow: hidden;   
+    overflow: hidden;
+    padding: 0 30rpx;   
 }
 .sure-btn{
     margin: 0 auto;
-    width: 80vw;
+    width: 100%;
     text-align: center;
-    background: red;
-    height: 50px;
-    border-radius: 25px;
-    line-height: 50px;
+    font-size:30rpx;
+    font-family:PingFangSC-Medium;
+    color:rgba(255,255,255,1);
+    background:linear-gradient(135deg,rgba(249,100,50,1),rgba(253,146,70,1));
+    box-shadow: 0px 4rpx 10rpx 0px rgba(249,100,50,0.3);
+    height: 90rpx;
+    border-radius: 45rpx;
+    line-height: 90rpx;
     color: #fff;
 }

@@ -1,9 +1,11 @@
 {
   "pages": [
+    "pages/openCard/openCard",
     "pages/index/index",
     "pages/carType/carType",
     "pages/logs/logs",
     "pages/myCard/myCard"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

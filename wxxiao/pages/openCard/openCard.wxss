@@ -1,0 +1,107 @@
+/* pages/openCard/openCard.wxss */
+.warn{
+    height: 100rpx;
+    box-sizing: border-box;
+    padding: 16rpx 30rpx 0 30rpx;
+}
+.warn_icon{
+    width: 32rpx;
+    height: 32rpx;
+    line-height: 32rpx;
+    display: inline-block;
+    vertical-align: middle;
+    border: 2rpx solid #F96432;
+    border-radius: 50%;
+    text-align: center;
+    font-size:24rpx;
+    font-family:PingFangSC-Regular;
+    color:rgba(249,100,50,1);
+    margin-right: 10rpx;
+}
+.warn_text{
+    height:32rpx; 
+    font-size:24rpx;
+    font-family:PingFangSC-Regular;
+    color:rgba(153,153,153,1);
+    line-height:32rpx; 
+    color: #999999; 
+}
+.form_box{
+    background: #fff;
+    padding: 0 30rpx;
+}
+.section{
+    width: 100%;
+    overflow: hidden;
+    height: 100rpx;
+    display: flex;
+    align-items: center;
+    border-bottom: 2rpx solid #E0E0E0;
+}
+.section:last-child{
+    border-bottom: 0;
+}
+.section_title{
+    flex:0 0 112rpx;
+    text-align: justify;
+    text-justify: inter-ideograph;
+    font-size: 28rpx;
+    font-family:PingFangSC-Regular;
+    color:rgba(51,51,51,1);
+    line-height:100rpx;
+    height:100rpx;
+}
+.section_title::after{
+    content:"";
+    display: inline-block;
+    width:100%;
+    overflow:hidden;
+    height:0;
+    }
+.input{
+    flex: 1;
+    padding-left: 48rpx;
+    font-family:PingFangSC-Regular;
+    color:rgba(51,51,51,1);
+    font-size: 28rpx;
+}
+.choose,.noChoose{
+    flex: 1;
+    padding-left: 48rpx;
+    font-family:PingFangSC-Regular;
+    font-size: 28rpx;
+    height:100rpx;
+    line-height:100rpx;
+}
+.choose_text{
+    color:rgba(51,51,51,1);
+}
+.noChoose_text{
+    color:#BDBDBD;
+}
+.choose_box{
+    position: relative;
+}
+.right_icon{
+    position: absolute;
+    width: 20rpx;
+    height: 24rpx;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%); 
+}
+.getCode{
+    width: 160rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    border-radius: 30rpx;
+    border: 2rpx solid #F96432;
+    text-align: center;
+    font-size:24rpx;
+    font-family:PingFangSC-Regular;
+    color:rgba(249,100,50,1);
+}
+.sureSubmit{
+    padding-top: 80rpx;
+    padding-bottom: 80rpx;
+}
