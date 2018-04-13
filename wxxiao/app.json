@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/succeCard/succeCrd",
     "pages/carType/carType",
     "pages/bindCard/bindCard",
     "pages/index/index",

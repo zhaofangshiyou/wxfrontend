@@ -1,0 +1,85 @@
+/* pages/succeCard/succeCrd.wxss */
+.header{
+    width: 100%;
+    overflow: hidden;
+    background: #fff;
+    text-align: center;
+    height: 120rpx;
+}
+.success_icon{
+    width: 60rpx;
+    height: 60rpx;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 30rpx;
+}
+.title{
+    display: inline-block;
+    font-size:30rpx;
+    color:rgba(51,51,51,1);
+    padding-left: 10rpx;
+    line-height: 120rpx;
+}
+.card_box{
+    width: 100%;
+    box-sizing: border-box;   
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 20rpx;
+    position: relative;
+}
+.card_icon{
+    width: 690rpx;
+    height: 400rpx;  
+}
+.card_num{
+    z-index: 10;
+    position: absolute;
+    font-size:60rpx;
+    font-family:Ayuthaya;
+    color:rgba(102,102,102,1);
+    top: 160rpx;
+    left: 70rpx;
+}
+.account_box{
+    width: 100%;
+    padding: 20rpx 30rpx;
+    box-sizing: border-box;
+}
+.account_cont{
+    width: 100%;
+    height: 180rpx;
+    background: #fff;
+    box-shadow: 0px 4rpx 10rpx 0px rgba(51,51,51,0.1);
+    border-radius: 16rpx; 
+    box-sizing: border-box;
+    padding: 30rpx 30rpx 36rpx 30rpx;
+}
+.text{
+    font-size:30rpx;
+    height: 30rpx;
+    font-family:PingFangSC-Regular;
+    color:rgba(153,153,153,1);
+    line-height:30rpx;
+}
+.balance{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30rpx;
+}
+.money{
+    font-size:48rpx;
+    font-family:PingFangSC-Medium;
+    color:rgba(51,51,51,1);
+    line-height:48rpx;
+}
+.recharge{
+    width: 120rpx;
+    height: 50rpx;
+    border-radius: 25rpx;
+    border: 2rpx solid #F96432;
+    color: #F96432;
+    font-size: 30rpx;
+    text-align: center;
+    line-height: 50rpx;
+}

@@ -1,0 +1,20 @@
+<!--pages/succeCard/succeCrd.wxml-->
+<view class="container">
+    <view class="header">
+        <image class="success_icon" src="../../images/icon_succeed.png"></image>
+        <view class="title">开卡成功</view>
+    </view>
+    <view class="card_box">
+        <image class="card_icon" src="../../images/zfcard.png" mode="aspectFit"></image>
+        <view class="card_num">1001 8888</view>
+    </view>
+    <view class="account_box">
+        <view class="account_cont">
+            <view class="text">卡内余额</view>
+            <view class="balance">
+                <view class="money">¥0.00</view>
+                <view class="recharge">充值</view>
+            </view>
+        </view>
+    </view>
+</view>
