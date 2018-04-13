@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/bindCard/bindCard",
     "pages/index/index",
     "pages/carType/carType",
     "pages/openCard/openCard",
