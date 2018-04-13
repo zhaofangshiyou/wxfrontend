@@ -1,0 +1,114 @@
+/* pages/invoices/invoices.wxss */
+.invoice_box{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20rpx 30rpx 110rpx 30rpx;
+}
+.list{
+    margin-top: 20rpx;
+    width: 100%;
+    background: #fff;
+    height: 210rpx;
+    box-shadow: 0px 0px 6rpxpx 0px rgba(0,0,0,0.06);
+    border-radius: 16rpx ; 
+    box-sizing: border-box;
+}
+.header {
+    padding:34rpx 20rpx 35rpx 20rpx;
+    display: flex;
+    align-items: center;
+    border-bottom: 2rpx solid #EFEFEF;
+}
+.avatar_icon{
+    flex: 0 0 60rpx;
+    height: 60rpx;
+}
+.company{
+    flex: 1;
+    font-size:30rpx;
+    color:rgba(51,51,51,1);
+    padding-left: 20rpx;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.identity{
+    flex: 0 0 120rpx;
+    text-align: right;
+    font-size:26rpx;
+    color:rgba(102,102,102,1);
+}
+.mssage {
+    padding: 20rpx 20rpx 10rpx 20rpx;
+}
+.default{
+    display: inline-block;
+    float: left;
+    width:120rpx;
+    height:50rpx;
+    line-height: 50rpx;
+    text-align: center;
+    border-radius: 25rpx ; 
+    border: 2rpx solid #F96432;
+    color: #F96432;
+    font-size:26rpx;
+}
+.setDefault{
+    font-size:26rpx;
+    color:rgba(153,153,153,1);
+    display: inline-block;
+    height:50rpx;
+    line-height: 50rpx;
+}
+.edit{
+    display: inline-block;
+    float: right;
+    text-align: right;
+    font-size:26rpx;
+    color:rgba(153,153,153,1);
+    height:50rpx;
+    line-height: 50rpx;
+}
+.delete{
+    display: inline-block;
+    float: right;
+    width: 120rpx;
+    text-align: right;
+    font-size:26rpx;
+    color:rgba(153,153,153,1);
+    height:50rpx;
+    line-height: 50rpx;
+}
+
+.noInvoice{
+    width: 100%;
+    text-align: center;
+    padding-top: 311rpx;
+}
+.noInvoice_icon{
+    width: 180rpx;
+    height: 180rpx;
+    display: block;
+    margin: 0 auto;
+}
+.noText{
+    display: block;
+    height:30rpx; 
+    font-size:30rpx;
+    font-family:PingFangSC-Regular;
+    color:rgba(153,153,153,1);
+    line-height:30rpx;
+    margin-top: 30rpx;
+}
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 90rpx;
+    line-height: 90rpx;
+    background:linear-gradient(135deg,rgba(249,100,50,1),rgba(253,146,70,1));
+    box-shadow: 0px 4px 10px 0px rgba(249,100,50,0.3);
+    font-size:30rpx;
+    color:rgba(255,255,255,1);
+    text-align: center;
+}

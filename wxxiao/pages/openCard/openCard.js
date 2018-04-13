@@ -11,7 +11,7 @@ Page({
       sex: '请选择您的性别',
       cartType: '',
       carNumber: '',
-      oilStation: '',
+      oilStation: '华富加油站',
       password: '',
       phone: '',
       code: ''
