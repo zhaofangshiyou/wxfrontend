@@ -2,8 +2,8 @@
 <scroll-view scroll-y="true" style="height: {{winHeight}}px;" scroll-into-view="{{scrollTopId}}" class="city_list">
     <view wx:for="{{carList}}" wx:for-index="idx" wx:for-item="ABC">
         <view id="{{idx}}" class="list_tit">{{idx}}</view>
-        <view wx:for="{{ABC}}">
-          <view  class="list_con" data-city="{{item.N}}" bindtap="bindCity">{{item.N}}</view>  
+        <view wx:for="{{ABC}}" data-sub="{{item.List}}" bindtap="subType">
+          <view  class="list_con">{{item.N}}</view>  
         </view>
     </view>
 </scroll-view>
@@ -22,33 +22,13 @@ style="background: rgba(0,0,0,{{trans}});"
 
 
 <!-- 二级品牌展示 -->
-<view class="sub_box">
+<view class="sub_box"  wx:if="{{showSub}}" catchtap="hideSub">
   <scroll-view  scroll-y class="sub_conten" >
-        <view>
-            <view class="sub_title">一汽-大众奥迪</view>
-            <view class="sub_item">
-                <view class="sub_text">奥迪A3</view>
-            </view>
-            <view class="sub_item">
-                <view class="sub_text">奥迪A3</view>
-            </view>
-
-            <view class="sub_item">
-                <view class="sub_text">奥迪A3</view>
+        <view wx:for="{{subArr}}" wx:for-item="titleName">
+            <view class="sub_title">{{titleName.N}}</view>
+            <view class="sub_item" wx:for="{{titleName.List}}">
+                <view class="sub_text">{{item.N}}</view>
             </view>
         </view>
-        <view>
-                <view class="sub_title">一汽-大众奥迪</view>
-                <view class="sub_item">
-                    <view class="sub_text">奥迪A3</view>
-                </view>
-                <view class="sub_item">
-                    <view class="sub_text">奥迪A3</view>
-                </view>
-    
-                <view class="sub_item">
-                    <view class="sub_text">奥迪A3</view>
-                </view>
-            </view>
   </scroll-view>  
 </view>

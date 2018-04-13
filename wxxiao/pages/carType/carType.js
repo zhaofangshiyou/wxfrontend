@@ -7,7 +7,21 @@ Page({
 
   data: {
     "hidden": true,
-    cityName:"", //获取选中的城市名
+    cityName:"", //获取选中的城市名,
+    showSub: false,
+    subArr: []
+   },
+   subType: function(event) {
+     console.log(event);
+     this.setData({
+      showSub: true,
+      subArr: event.currentTarget.dataset.sub
+     })
+   },
+   hideSub: function() {
+    this.setData({
+      showSub: false
+    })
    },
    onLoad: function (options) {
     // 生命周期函数--监听页面加载
