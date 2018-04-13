@@ -40,15 +40,21 @@ Page({
   submitRegister(){
     console.log(this.data.userInfo);
   },
+  //跳转到取票油站
+  getOil: function() {
+    wx.navigateTo({
+      url: '../../pages/oilStation/oilStation'
+    })
+  },
   //发送验证码
   sendCode() {
     console.log(this.data.sendAgain,this.data.userInfo.phone);
     if(this.isPoneAvailable(this.data.userInfo.phone) && this.data.sendAgain) {
       this.countDown(60);
     }else if(!this.data.sendAgain){
-      this.warnMsg('稍后重试');
+      this.warnMsg('验证码已发送，稍后重试');
     }else{
-      this.warnMsg('请输入手机号码');
+      this.warnMsg('请输入正确的手机号码');
     }
   },
   //验证码倒计时

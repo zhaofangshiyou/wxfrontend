@@ -30,7 +30,7 @@
                 <view class="noChoose noChoose_text" wx:if="{{!show.showCartNumber}}">请选择</view>
                 <image class="right_icon" src="../../images/home_icon_enter.png"></image> 
             </view>
-            <view class="section choose_box">
+            <view class="section choose_box" bindtap="getOil">
                 <view class="section_title">取票油站</view>
                 <view class="choose choose_text" wx:if="{{show.showOilStation}}">{{userInfo.oilStation}}</view>
                 <view class="noChoose noChoose_text" wx:if="{{!show.showOilStation}}">请选择领取发票油站</view>

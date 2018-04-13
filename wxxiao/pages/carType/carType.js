@@ -1,5 +1,5 @@
 // pages/catType/carType.js
-var city = require('../../common/city.js')
+var carList = require('../../common/sortCar.js')
 var lineHeight = 0;
 var endWords = "";
 var isNum;
@@ -12,17 +12,29 @@ Page({
    onLoad: function (options) {
     // 生命周期函数--监听页面加载
    },
+   //将汽车类型按照字母排序
+   sortCart() {
+    var carArr = ["A", "B", "C", "D", "E", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "W", "X", "Y", "Z"]
+    var sortCar = {};
+    for(let i=0;i<carList.length; i++) {
+      if(sortCar[carList[i].L]){
+        sortCar[carList[i].L].push(carList[i]);
+      }else{
+        sortCar[carList[i].L] = [];
+        sortCar[carList[i].L].push(carList[i]);
+      }    
+    }
+    console.log(JSON.stringify(sortCar));
+  },
    onReady: function () {
     // 生命周期函数--监听页面初次渲染完成
-    var cityChild = city.City[0];
     var that = this;
     wx.getSystemInfo({
      success: function (res) {
-      lineHeight = (res.windowHeight - 100) / 22;
-      console.log(res.windowHeight - 100)
+      lineHeight = (res.windowHeight-100) / 22;
       that.setData({
-       city: cityChild,
-       winHeight: res.windowHeight - 40,
+       carList: carList,
+       winHeight: res.windowHeight,
        lineHeight: lineHeight
       })
      }
@@ -99,11 +111,5 @@ Page({
       showwords: that.endWords
      })
     }
-   },
-   //选择城市，并让选中的值显示在文本框里
-   bindCity: function(e) {
-    console.log(e);
-    var cityName = e.currentTarget.dataset.city;
-    this.setData({ cityName: cityName })
    }
 })

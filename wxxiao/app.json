@@ -1,11 +1,11 @@
 {
   "pages": [
-    "pages/openCard/openCard",
     "pages/index/index",
+    "pages/carType/carType",
+    "pages/openCard/openCard",
     "pages/logs/logs",
     "pages/myCard/myCard",
-    "pages/oilStation/oilStation",
-    "pages/carType/carType"
+    "pages/oilStation/oilStation"
   ],
   "window": {
     "backgroundTextStyle": "light",

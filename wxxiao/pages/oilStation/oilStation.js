@@ -11,7 +11,17 @@ Page({
       {name:'广阳加油站',address:'安徽省黄山市太平湖朝阳村'}
     ]
   },
-
+  back:function(event) {
+    var pages = getCurrentPages()
+    var prevPage = pages[pages.length - 2];
+    prevPage.setData({
+　　　　"userInfo.oilStation": event.currentTarget.dataset.name,
+       "show.showOilStation": true
+　　});
+    wx.navigateBack({//返回
+      delta:1
+    })
+},
   /**
    * 生命周期函数--监听页面加载
    */

@@ -1,13 +1,9 @@
 <!--pages/catType/carType.wxml-->
-<view class="title">
-    <input class="title_list" value="{{cityName}}" placeholder="城市名称" />
-    <button  class="buttom">确认</button >
-</view>
 <scroll-view scroll-y="true" style="height: {{winHeight}}px;" scroll-into-view="{{scrollTopId}}" class="city_list">
-    <view wx:for="{{city}}" wx:for-index="idx" wx:for-item="cityName">
+    <view wx:for="{{carList}}" wx:for-index="idx" wx:for-item="ABC">
         <view id="{{idx}}" class="list_tit">{{idx}}</view>
-        <view wx:for="{{cityName}}">
-          <view  class="list_con" data-city="{{item.name}}" bindtap="bindCity">{{item.name}}</view>  
+        <view wx:for="{{ABC}}">
+          <view  class="list_con" data-city="{{item.N}}" bindtap="bindCity">{{item.N}}</view>  
         </view>
     </view>
 </scroll-view>
@@ -17,10 +13,42 @@ bindtouchend="chEnd"
 catchtouchmove="chMove"
 style="background: rgba(0,0,0,{{trans}});"
 >
-   <view wx:for="{{city}}" wx:for-index="idx" wx:for-item="cityName">
-        <view wx:if="{{idx != '热门城市'}}">
+   <view wx:for="{{carList}}" wx:for-index="idx" wx:for-item="cityName">
+        <view wx:if="{{idx}}">
             <view  id="{{idx}}" class="scroll_list_chi" style="line-height:{{lineHeight}}px ; height:{{lineHeight}}px ;font-size:{{lineHeight/1.7}}px;" bindtouchstart="getWords" bindtouchend="setWords">{{idx}}</view>
         </view> 
     </view>
 </view>
 
+
+<!-- 二级品牌展示 -->
+<view class="sub_box">
+  <scroll-view  scroll-y class="sub_conten" >
+        <view>
+            <view class="sub_title">一汽-大众奥迪</view>
+            <view class="sub_item">
+                <view class="sub_text">奥迪A3</view>
+            </view>
+            <view class="sub_item">
+                <view class="sub_text">奥迪A3</view>
+            </view>
+
+            <view class="sub_item">
+                <view class="sub_text">奥迪A3</view>
+            </view>
+        </view>
+        <view>
+                <view class="sub_title">一汽-大众奥迪</view>
+                <view class="sub_item">
+                    <view class="sub_text">奥迪A3</view>
+                </view>
+                <view class="sub_item">
+                    <view class="sub_text">奥迪A3</view>
+                </view>
+    
+                <view class="sub_item">
+                    <view class="sub_text">奥迪A3</view>
+                </view>
+            </view>
+  </scroll-view>  
+</view>
