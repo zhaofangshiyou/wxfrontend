@@ -89,7 +89,7 @@
                     </view>
                     <view class="section2">
                         <view class="section2_title">电话号码</view>
-                        <input data-flag="4" bindinput="special_invoice_input" class="person_text" name="special_phone" placeholder="请输入抬头名称" placeholder-style="color:#BDBDBD " />
+                        <input data-flag="4" bindblur="checkPhone" bindinput="special_invoice_input" class="person_text" name="special_phone" placeholder="请输入抬头名称" placeholder-style="color:#BDBDBD " />
                     </view>
                     <view class="section2">
                         <view class="section2_title">开户银行</view>

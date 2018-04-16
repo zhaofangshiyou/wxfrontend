@@ -91,10 +91,8 @@ Page({
     (this.data.special.special_bank.length > 0) && 
     (this.data.special.special_account.length > 0)
   ) {
-    console.log(this.data.special);
       return true;
     }else {
-      console.log(this.data.special.special_title.length);
       return false;
     }
   },
@@ -107,6 +105,10 @@ Page({
         this.setData({
           specialDisable: false
         });
+      }else{
+        this.setData({
+          specialDisable: true
+        });
       }
     }else if(e.currentTarget.dataset.flag==2) {
       this.setData({
@@ -115,6 +117,10 @@ Page({
       if(this.checkSpecial()) {
         this.setData({
           specialDisable: false
+        });
+      }else{
+        this.setData({
+          specialDisable: true
         });
       }
     }else if(e.currentTarget.dataset.flag==3) {
@@ -125,6 +131,10 @@ Page({
         this.setData({
           specialDisable: false
         });
+      }else{
+        this.setData({
+          specialDisable: true
+        });
       }
     }else if(e.currentTarget.dataset.flag==4) {
       this.setData({
@@ -133,6 +143,10 @@ Page({
       if(this.checkSpecial()) {
         this.setData({
           specialDisable: false
+        });
+      }else{
+        this.setData({
+          specialDisable: true
         });
       }
     }else if(e.currentTarget.dataset.flag==5) {
@@ -143,6 +157,10 @@ Page({
         this.setData({
           specialDisable: false
         });
+      }else{
+        this.setData({
+          specialDisable: true
+        });
       }
     }else {
       this.setData({
@@ -152,9 +170,24 @@ Page({
         this.setData({
           specialDisable: false
         });
+      }else{
+        this.setData({
+          specialDisable: true
+        });
       }
     }
-    console.log(this.data.specialDisable);
+  },
+  checkPhone: function(e) {
+    if(!this.isPoneAvailable(e.detail.value)){
+      wx.showToast({
+        title: "请输入正确的手机号码",
+        icon: 'none',
+        duration: 2000,
+        mask:true
+    })
+    }else{
+      return false;
+    }
   },
   add_invoice_input: function(e) {
     if(e.currentTarget.dataset.addflag==1) {
@@ -170,7 +203,7 @@ Page({
           })
         }
     }else{
-      if((this.data.add.add_title.length > 0) && this.isTax(e.detail.value)){
+      if((this.data.add.add_title.length > 0) && (e.detail.value.length > 0) && this.isTax(e.detail.value)){
         this.setData({
           addDisable: false,
           "add.add_tax": e.detail.value

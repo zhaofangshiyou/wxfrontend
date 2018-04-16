@@ -137,11 +137,11 @@ button[disabled] {
     height: 100rpx;
     background: #fff;
     box-sizing: border-box;
-    padding: 35rpx 30rpx;
+    padding: 35rpx 30rpx 35rpx 0;
     display: flex;
     font-size: 0;
     align-items:  center; 
-    border-bottom: 2rpx solid #E0E0E0;
+    border-bottom: 2rpx solid #EfEfEf;
 }
 .section2:last-child{
     border-bottom: 0;
