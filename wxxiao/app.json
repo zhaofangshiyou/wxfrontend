@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/invoiceTitle/invoiceTitle",
     "pages/invoices/invoices",
     "pages/openCard/openCard",
     "pages/succeCard/succeCrd",
@@ -9,6 +10,7 @@
     "pages/logs/logs",
     "pages/myCard/myCard",
     "pages/oilStation/oilStation"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
