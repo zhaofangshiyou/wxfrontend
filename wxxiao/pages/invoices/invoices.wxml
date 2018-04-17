@@ -1,7 +1,7 @@
 <!--pages/invoices/invoices.wxml-->
 <view class="container">
     <view class="invoice_box">
-        <view class="list">
+        <view class="list" bindtap="chooseInvoice">
             <view class="header">
                 <image class="avatar_icon" src="../../images/saler_head01.png"></image> 
                 <view class="company">深圳市兆方石油化工股份有限非结构化公积金</view>
@@ -31,5 +31,5 @@
         <image class="noInvoice_icon" src="../../images/Group.png"></image>
         <text class="noText">您还没有录入发票抬头</text>
     </view>
-    <view class="footer">+ 新增发票抬头</view>
+    <view class="footer" bindtap="addInvoice">+ 新增发票抬头</view>
 </view>

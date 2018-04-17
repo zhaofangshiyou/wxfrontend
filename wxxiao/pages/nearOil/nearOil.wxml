@@ -1,0 +1,26 @@
+<!--pages/nearOil/nearOil.wxml-->
+<map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14"  show-location="true"
+ style="width: 100%; height: 50vh;">
+ </map>
+ <view style="height:50vh;overflow:hidden;">
+    <view class="section_title">附近兆方油站</view>
+    <view scroll-y style="height:35vh;overflow-y:scroll" >
+       <view class="oil_box">
+          <view class="oil_item" wx:for="{{oil_list}}" data-name="{{item.name}}" bindtap="goOilStation">
+                <view class="oil_left">
+                    <image class="address_image" src="{{item.img_url}}"></image>
+                     <view class="message">
+                         <view class="title">{{item.name}}</view>
+                         <view class="address">{{item.address}}</view>
+                     </view>
+                </view>
+                <view class="oil_right">
+                    <image class="nav_image" src="../../images/nav.png"></image>
+                    <view class="distance">{{item.distance}}</view>
+                </view>
+          </view>
+       </view> 
+    </view>
+ </view>
+ <footer></footer>
+

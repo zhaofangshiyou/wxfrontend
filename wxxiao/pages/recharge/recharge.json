@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "兆方卡充值",
+    "usingComponents": {
+        "sureBtn": "../../components/SureBtn/sureBtn",
+        "disable": "../../components/Disable/disable"
+    }
+}

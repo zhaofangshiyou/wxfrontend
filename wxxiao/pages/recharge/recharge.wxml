@@ -1,0 +1,50 @@
+<!--pages/recharge/recharge.wxml-->
+<view class="container">
+    <view class="content">
+        <view class="rechage_box">
+            <text class="title">充值金额</text>
+            <view class="rechage_number">
+                <view class="rechage_notice">
+                    <view class="rechage_text">¥ </view>
+                    <input bindblur="input_money" value="{{inputTxt}}" class="input" type="number"   placeholder-style="color:#BDBDBD" placeholder="请输入其他充值金额" />
+                </view>
+            </view>
+            <view class="choose_money">
+                <view class="accounce_box {{money_num==5000?'show_notice':'hide_notice'}}">
+                    <image class="accounce_icon" src="../../images/home_icon_inform.png"></image>
+                    <text class="accounce_text">最高优惠1.2元/升，点击了解详情</text>
+                </view>
+                <view class="money_list">
+                    <view data-moneyNum="500" bindtap="select_money" class="choose_item {{money_num==500?'active':''}}">¥500</view>
+                    <view data-moneyNum="1000" bindtap="select_money" class="choose_item {{money_num==1000?'active':''}}">¥1000</view>
+                    <view data-moneyNum="2000" bindtap="select_money" class="choose_item {{money_num==2000?'active':''}}">¥2000</view>
+                    <view data-moneyNum="5000" bindtap="select_money" class="choose_item {{money_num==5000?'active':''}}">
+                        ¥5000
+                        <view class="discount">
+                            <image class="discount_icon" src="../../images/discount.png"></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="choose_invoice" bindtap="openInvoice">
+            <view class="invoice_title">我要开票</view>
+            <view class="invoice_go">
+                <text class="notice">请选择</text>
+                <image class="right_icon" src="../../images/home_icon_enter.png"></image>
+            </view>
+        </view>
+        <view class="agree_box" bindtap="agree">
+            <image wx:if="{{isAgree}}" class="agree_icon" src="../../images/icon_choice.png"></image>
+            <image  wx:if="{{!isAgree}}" class="agree_icon" src="../../images/icon_normal.png"></image>
+            <text class="agree_text">我已阅读并同意</text>
+            <text class="agree_name">《兆方卡用户协议》</text>
+        </view>
+        <view class="sure_btn" wx:if="{{isAgree}}">
+            <sureBtn text="确认充值" bind:sureEvent="rechargeSubmit"></sureBtn>
+        </view>
+        <view class="sure_btn" wx:if="{{!isAgree}}">
+            <disable text="确认充值"></disable>
+        </view>
+    </view>   
+</view>

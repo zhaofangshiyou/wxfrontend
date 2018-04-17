@@ -68,7 +68,7 @@ Page({
   },
   //个人发票提交
   personSubmit: function(e) {
-    
+    wx.navigateBack();
   },
   //普通发票提交
   normalSubmit: function(e) {

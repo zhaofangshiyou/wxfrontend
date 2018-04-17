@@ -1,0 +1,171 @@
+/* pages/recharge/recharge.wxss */
+.content{
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 20rpx;
+    overflow: hidden;
+}
+.rechage_box{
+    background: #fff;
+    /* padding: 36rpx 30rpx 60rpx 30rpx; */
+    font-size: 0;
+    padding-top: 36rpx;
+    
+}
+.title{
+    height:30rpx; 
+    font-size:30rpx;
+    color:rgba(51,51,51,1);
+    line-height:30rpx;
+    padding-left: 30rpx;
+}
+.rechage_number{
+    padding-left: 30rpx;   
+}
+.rechage_notice{
+    display: flex;
+    align-items: center;
+    padding-bottom:  30rpx;
+    padding-top: 40rpx;
+    border-bottom: 2rpx solid #efefef;
+}
+.rechage_text{
+    flex: 0 0 48rpx;
+    height:48rpx; 
+    font-size:48rpx;
+    color:rgba(51,51,51,1);
+    line-height:48rpx;
+    font-family:PingFangSC-Medium;
+}
+.input{
+    flex: 1;
+    height:48rpx; 
+    font-size:30rpx;
+    color:rgba(51,51,51,1);
+    line-height:48rpx;
+}
+
+.choose_money{
+    padding: 26rpx  30rpx 60rpx 30rpx;
+}
+
+.accounce_icon{
+   width: 36rpx;
+   height: 36rpx;
+   vertical-align: middle;
+}
+.accounce_text{
+    font-size:24rpx;
+    color:rgba(249,100,50,1);
+    vertical-align: middle;
+    margin-left: 10rpx;
+}
+.money_list{
+    margin-top: 26rpx;
+    display: flex;
+    justify-content:space-between;
+}
+.choose_item{
+    width:155rpx;
+    height:72rpx; 
+    border-radius: 8rpx ;
+    border: 2rpx solid #efefef;
+    font-size:30rpx;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 72rpx;
+    color:rgba(102,102,102,1);
+    position: relative;
+    overflow: hidden;
+}
+.discount {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 51rpx;
+    height: 51rpx;
+    /* top: 3rpx;
+    left: -24rpx;
+    width: 82rpx;
+    height: 22rpx;
+    background: #F96432;
+    transform:rotate(-45deg);
+    -ms-transform:rotate(-45deg); /* IE 9 */
+    /* -moz-transform:rotate(-45deg); /* Firefox */
+    /* -webkit-transform:rotate(-45deg); /* Safari 和 Chrome */
+    /* -o-transform:rotate(-45deg); Opera */
+    /* font-size: 18rpx;
+    text-align: center;
+    line-height: 26rpx;
+    color: #fff; */
+} 
+.discount_icon{
+    width: 51rpx;
+    height: 51rpx;
+}
+.choose_item.active{
+    color: #F96432;
+    border: 2rpx solid #F96432;
+    background:rgba(254,221,213,1);
+}
+.choose_invoice{
+    width: 100%;
+    height: 100rpx;
+    box-sizing: border-box;
+    background: #fff;
+    line-height: 100rpx;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20rpx;
+    padding: 0 30rpx;
+}
+.invoice_title{
+    font-size: 30rpx;
+    color:rgba(51,51,51,1);
+}
+.right_icon{
+    width: 20rpx;
+    height: 30rpx;
+    margin-left: 10rpx;
+    vertical-align: middle;
+}
+.notice{
+    font-size:30rpx;
+    color:rgba(189,189,189,1);
+}
+.agree_box{
+    width: 100%;
+    overflow: hidden;
+    padding-left: 30rpx;
+    height: 30rpx;
+    margin-top: 30rpx;
+    font-size: 0;
+}
+.agree_icon{
+    width: 30rpx;
+    height: 30rpx;
+    vertical-align: top;
+}
+.agree_text, .agree_name{
+    font-size: 24rpx;
+    vertical-align: top;
+    height: 30rpx;
+    line-height: 30rpx;
+}
+.agree_text{
+    margin-left: 10rpx;
+   color:rgba(153,153,153,1);
+}
+.agree_name{
+    color:#333333;  
+}
+.sure_btn{
+    margin-top: 83rpx;
+}
+
+.show_notice{
+    visibility:visible;
+}
+.hide_notice{
+    visibility:hidden;   
+}

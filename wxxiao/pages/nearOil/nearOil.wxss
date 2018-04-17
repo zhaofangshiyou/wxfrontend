@@ -1,0 +1,59 @@
+/* pages/nearOil/nearOil.wxss */
+.section_title{
+    height: 80rpx;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 80rpx;
+    font-size: 30rpx;
+    color:rgba(51,51,51,1);
+    border-bottom: 2rpx solid #efefef;
+}
+.oil_box{
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 30rpx;
+    padding-bottom: 98rpx;
+}
+.oil_item{
+    display: flex;
+    padding: 30rpx 30rpx 30rpx 0;
+    height: 150rpx;
+    box-sizing: border-box;
+    justify-content: space-between;
+    border-bottom: 2rpx solid #efefef;
+}
+.oil_left{
+    display: flex;
+    align-items: center;
+}
+.address_image{
+    width: 90rpx;
+    height: 90rpx;
+}
+.message{
+    margin-left: 20rpx;
+}
+.title{
+    font-size:30rpx;
+    color:rgba(36,39,43,1);
+}
+.address{
+    font-size:24rpx;
+    margin-top: 20rpx;
+    color:rgba(153,153,153,1);
+}
+.oil_right{
+    text-align: right;
+}
+.nav_image{
+    width: 32rpx;
+    height: 32rpx;
+    padding-right: 23rpx;
+
+}
+.distance{
+    font-size:24rpx;
+    color:rgba(249,100,50,1);
+    margin-top: 16rpx;
+}
