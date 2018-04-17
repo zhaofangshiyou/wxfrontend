@@ -6,4 +6,18 @@
   position: relative;
   font-family:PingFangSC-Regular;
 }
+.btn_area{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+  margin-top: 80rpx;
+  border: 0;
+}
+button::after{
+  border: none;
+}
+button[disabled] {
+  background:rgba(224,224,224,1) !important;
+  box-shadow: none !important;
+}
 

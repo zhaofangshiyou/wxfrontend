@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/modifyPass/modifyPass",
     "pages/nearOil/nearOil",
     "pages/recharge/recharge",
     "pages/invoiceTitle/invoiceTitle",

@@ -1,0 +1,29 @@
+<!--pages/modifyPass/modifyPass.wxml-->
+<view class="container">
+    <form bindsubmit="formSubmit">
+    <view class="content">
+        <view class="form">    
+            <view class="section">
+                <view class="section_title">手机号码</view>
+                <input class="input_text" bindblur="checkPhone" data-flag="1" bindinput="checkForm" maxlength="11" type="number" name="phone" placeholder="请输入您的手机号码" placeholder-style="color:#BDBDBD" />
+            </view>
+            <view class="section">
+                <view class="section_title">验证码</view>
+                <input type="number" data-flag="2" bindinput="checkForm" class="input_text" name="code" placeholder="请输入验证码" placeholder-style="color:#BDBDBD" />
+                <view class="code" bindtap="sendCode">{{codeText}}</view>
+            </view>
+            <view class="section">
+                <view class="section_title">新密码</view>
+                <input class="input_text" data-flag="3" bindinput="checkForm" maxlength="6" password type="number" name="pass" placeholder="请输入6位数字新密码" placeholder-style="color:#BDBDBD" />
+            </view>
+            <view class="section">
+                <view class="section_title">确认密码</view>
+                <input class="input_text" data-flag="4" bindinput="checkForm" maxlength="6" password type="number" name="comPass" placeholder="请确认6位数字新密码" placeholder-style="color:#BDBDBD" />
+            </view>    
+        </view>
+    </view>
+        <view class="btn_area">
+            <button disabled="{{isDisable}}" style="border: 0px;box-shadow: 0px 4rpx 10rpx 0px rgba(249,100,50,0.3);line-height: 90rpx;font-size: 30rpx;color: #fff;height: 90rpx;border-radius: 45rpx;width: 100%;background: linear-gradient(135deg,rgba(249,100,50,1),rgba(253,146,70,1))" formType="submit"  >完成</button>
+        </view>
+    </form>
+</view>

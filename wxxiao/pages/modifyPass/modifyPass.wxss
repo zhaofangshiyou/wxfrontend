@@ -1,0 +1,49 @@
+/* pages/modifyPass/modifyPass.wxss */
+.content{
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 20rpx;
+}
+.form{
+    background: #fff;
+    padding-left: 30rpx;
+}
+.section{
+    width: 100%;
+    height: 100rpx;
+    border-bottom: 2rpx solid #efefef;
+    display: flex;
+    align-items: center;
+}
+.section_title{
+    flex: 0 0 120rpx;
+    text-align: justify;
+    font-size:30rpx;
+    color:rgba(51,51,51,1);
+    height: 100rpx;
+    line-height: 100rpx;
+
+}
+.section_title:after {
+    display: inline-block;
+    width: 100%;
+    content: '';
+}
+.input_text{
+    font-size:30rpx;
+    color:rgba(51,51,51,1);
+    margin-left: 40rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+}
+.code {
+    width: 160rpx;
+    height: 60rpx;
+    border-radius: 30rpx;
+    border: 2rpx solid #F96432;
+    line-height: 60rpx;
+    text-align: center;
+    font-size:26rpx;
+    color:rgba(249,100,50,1);
+    float: right;
+}
