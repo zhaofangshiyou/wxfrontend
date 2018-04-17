@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/payOrder/payOrder",
     "pages/modifyPass/modifyPass",
     "pages/nearOil/nearOil",
     "pages/recharge/recharge",
@@ -13,6 +14,7 @@
     "pages/logs/logs",
     "pages/myCard/myCard",
     "pages/oilStation/oilStation"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

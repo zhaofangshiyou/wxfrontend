@@ -1,0 +1,37 @@
+<!--pages/payOrder/payOrder.wxml-->
+<view class="container">
+    <view class="title">
+        <image class="pay_icon" src="../../images/icon_succeed.png"></image>
+        <text class="text">支付成功</text>
+    </view>
+    <view class="content">
+       <view class="box">
+            <image class="pay_bg" src="../../images/pay.png"></image>
+            <view class="oil_name">华富加油站</view>
+            <view class="money">¥280</view>
+            <view class="detail_box">
+            <view class="message">
+                <view class="mess_name">油枪号码</view>
+                <view class="detail_name">1号油枪</view>
+            </view>
+            <view class="message">
+                <view class="mess_name">油品类型</view>
+                <view class="detail_name">92号车用汽油(V)</view>
+            </view>
+            <view class="message">
+                <view class="mess_name">加油时间</view>
+                <view class="detail_name">2018-04-16 12:12:12</view>
+            </view>
+            <view class="message">
+                <view class="mess_name">加油升数</view>
+                <view class="detail_name">28.9L</view>
+            </view>
+            <view class="message">
+                <view class="mess_name">优惠金额</view>
+                <view class="detail_name">20元</view>
+            </view>
+        </view>
+       </view> 
+    </view>
+    <sureBtn text="完成" bind:sureEvent="submitFinish"></sureBtn>
+</view>
