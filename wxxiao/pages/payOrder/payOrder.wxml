@@ -33,5 +33,5 @@
         </view>
        </view> 
     </view>
-    <sureBtn text="完成" bind:sureEvent="submitFinish"></sureBtn>
+    <sureBtn text="完成" bind:sureEvent="paySubmi"></sureBtn>
 </view>
