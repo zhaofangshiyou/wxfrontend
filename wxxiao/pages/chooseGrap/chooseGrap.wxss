@@ -1,0 +1,126 @@
+/* pages/chooseGrap/chooseGrap.wxss */
+.oil_station{
+    width: 100%;
+    height: 156rpx;
+    box-sizing: border-box;
+    background: #fff;
+    padding: 42rpx 30rpx;
+}
+.oil_box{
+    display: flex;
+    align-items: center;
+}
+.icon_box{
+    flex:0 0 60rpx;
+}
+.address_icon{
+   width: 60rpx;
+   height: 60rpx; 
+}
+.oil_mess{
+    margin-left: 30rpx;
+    flex: 1;
+}
+.oil_title{
+    font-size:30rpx;
+    color:rgba(51,51,51,1); 
+}
+.oil_distance{
+    font-size:24rpx;
+    color:rgba(153,153,153,1);
+    margin-top: 18rpx;
+}
+.oil_change{
+    flex:0 0 160rpx;
+}
+.change_text{
+    width: 160rpx;
+    height: 60rpx;
+    border-radius: 30rpx;
+    border: 2rpx solid #F96432;
+    line-height: 60rpx;
+    text-align: center;
+    font-size: 26rpx;
+    color: #F96432;
+}
+.grap_box {
+    margin-top: 20rpx;
+    background: #fff;
+    box-sizing: border-box;
+    padding-top: 36rpx;
+}
+.grap_title{
+    height: 30rpx;
+    line-height: 30rpx;
+    font-size: 30rpx;
+    color: #333333;
+    margin-left: 30rpx;
+}
+.grap_notice{
+    height: 26rpx;
+    line-height: 26rpx;
+    font-size: 26rpx;
+    color:rgba(153,153,153,1);
+    margin-top: 18rpx;
+    padding-left: 30rpx;
+}
+.grap_number{
+    width: 100%;
+    box-sizing: border-box;
+    padding:0 18rpx;
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 40rpx;
+
+}
+.grap_list{
+    width: 25%;
+}
+.grap_item{
+    margin: 0 auto;
+    width: 150rpx;
+    height: 68rpx;
+    border:2rpx solid #efefef;
+    line-height: 68rpx;
+    text-align: center;
+    margin-top: 40rpx;
+    font-size: 26rpx;
+    color:rgba(51,51,51,1);
+    border-radius: 8rpx;
+}
+.more{
+   width: 100%;
+   height: 64rpx;
+   line-height: 64rpx;
+   text-align: center;
+   font-size:24rpx;
+   color:rgba(153,153,153,1);
+   border:2rpx solid #efefef;
+}
+
+.noGrap{
+    width: 100%;
+    background: #fff;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+    line-height: 100rpx;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 80rpx;
+}
+.right_icon{
+    width: 12rpx;
+    height: 24rpx;
+    vertical-align: middle;
+}
+.noGrap_mess{
+    font-size:30rpx;
+    color:rgba(51,51,51,1);
+}
+.tip{
+    font-size:30rpx;
+    color:rgba(189,189,189,1);
+    margin-right: 10rpx;
+    vertical-align: middle;
+}
+

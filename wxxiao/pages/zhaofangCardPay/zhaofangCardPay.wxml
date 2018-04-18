@@ -8,7 +8,7 @@
         <view class="title">消费金额</view>
         <view class="number">
             <text class="sign">¥</text>
-            <input class="input_number" placeholder-style="color:#BDBDBD"  bindinput="bindKeyInput" placeholder="请输入消费金额"/>
+            <input class="input_number" type="number" placeholder-style="color:#BDBDBD"  bindinput="bindKeyInput" placeholder="请输入消费金额"/>
         </view>
     </view>
 

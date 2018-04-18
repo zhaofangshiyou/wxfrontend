@@ -1,0 +1,53 @@
+<!--pages/chooseGrap/chooseGrap.wxml-->
+<view class="container">
+    <view class="oil_station">
+        <view class="oil_box">
+            <view class="icon_box">
+                <image class="address_icon" src="../../images/icon_address.png"></image>
+            </view>
+            <view class="oil_mess">
+                <view class="oil_title">华富加油站</view>
+                <view class="oil_distance">距离您<text class="distance_num">0.1</text>公里</view>
+            </view>
+            <view class="oil_change">
+                <view class="change_text">更改加油站</view>
+            </view>
+        </view>
+    </view>
+    <view class="grap_box">
+        <view class="grap_title">请选择您加油使用的油枪号</view>
+        <view class="grap_notice">建议与工作人员核对油枪号</view>
+        <view class="grap_number">
+            <view class="grap_list">
+                <view class="grap_item">1号</view>
+            </view>
+            <view class="grap_list">
+                <view class="grap_item">1号</view>
+            </view>
+            <view class="grap_list">
+                <view class="grap_item">1号</view>
+            </view>
+            <view class="grap_list">
+                <view class="grap_item">1号</view>
+            </view>
+            <view class="grap_list">
+                <view class="grap_item">1号</view>
+            </view>
+            <view class="grap_list">
+                <view class="grap_item">1号</view>
+            </view>
+            <view class="grap_list">
+                <view class="grap_item">1号</view>
+            </view>
+        </view>
+        <view class="more">更多</view>
+    </view>
+    <view class="noGrap">
+        <view class="noGrap_mess">没有油枪号</view>
+        <view class="grap_choose">
+            <text class="tip">请选择</text>
+            <image class="right_icon" src="../../images/home_icon_enter.png"></image>
+        </view>
+    </view>
+    <sureBtn text="完成" bind:sureEvent="nextSubmit"></sureBtn>
+</view>
