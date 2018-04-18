@@ -1,0 +1,16 @@
+<!--pages/zhaofangCardPay/zhaofangCardPay.wxml-->
+<view class="container">
+    <view class="warn">
+        <text class="warn_icon">!</text>
+        <text class="warn_text">没有可选择油枪号，需手动输入金额</text>
+    </view>
+    <view class="consume">
+        <view class="title">消费金额</view>
+        <view class="number">
+            <text class="sign">¥</text>
+            <input class="input_number" placeholder-style="color:#BDBDBD"  bindinput="bindKeyInput" placeholder="请输入消费金额"/>
+        </view>
+    </view>
+
+    <sureBtn text="下一步" bind:sureEvent="nextSumit"></sureBtn>
+</view>

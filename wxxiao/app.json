@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/zhaofangCardPay/zhaofangCardPay",
     "pages/orderDetail/orderDetail",
     "pages/payOrder/payOrder",
     "pages/modifyPass/modifyPass",
