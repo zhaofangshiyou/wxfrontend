@@ -38,78 +38,80 @@
     </view>
     <view class="pay_way">支付方式</view>
     <view class="pay_way_box">
-        <view class="pay_item">
+        <view class="pay_item" bindtap="changePay">
             <view class="pay_left">
                 <image class="pay_icon" src="../../images/carpay.png"></image>
                 <text class="pay_text">兆方车上付</text>
             </view>
             <view class="pay_choose">
-                <image class="choose_icon" src="../../images/icon_choice.png"></image>
+                <image wx:if="{{payWay==1}}" class="choose_icon" src="../../images/icon_choice.png"></image>
+                <image wx:if="{{payWay==2}}" class="choose_icon" src="../../images/icon_normal.png"></image>
             </view>
         </view>
-        <view class="pay_item">
+        <view class="pay_item" bindtap="changePay">
             <view class="pay_left">
                 <image class="wexin_icon" src="../../images/weixin.png"></image>
                 <text class="pay_text">兆方车上付</text>
             </view>
             <view class="pay_choose">
-                <image class="choose_icon" src="../../images/icon_normal.png"></image>
+                <image wx:if="{{payWay==2}}" class="choose_icon" src="../../images/icon_choice.png"></image>
+                <image wx:if="{{payWay==1}}" class="choose_icon" src="../../images/icon_normal.png"></image>
             </view>
         </view>
     </view>
-    <sureBtn text="确认支付" bind:sureEvent="submitFinish"></sureBtn>
+    <sureBtn text="确认支付" bind:sureEvent="paySubmit"></sureBtn>
 </view>
 
 <!-- 输入支付密码键盘 -->
-<view class="keyboard_box">
+<view class="keyboard_box" wx:if="{{showBoard}}">
     <view class="board_content">
         <view class="board_header">
-            <image class="hide_icon" src="../../images/hide.png"></image>
+            <view bindtap="hideBoard"><image class="hide_icon" src="../../images/hide.png"></image></view>
             <text class="board_title">请输入兆方卡支付密码</text>
         </view>
         <view class="board_pass">
             <view class="pass_box">
                 <view class="pass_box_item">
-                    <view class="pass_point"></view>
+                    <view class="pass_point" wx:if="{{passwordArr.length > 0}}"></view>
                 </view>
                 <view class="pass_box_item">
-                    <view class="pass_point"></view>
+                    <view class="pass_point" wx:if="{{passwordArr.length > 1}}"></view>
                 </view>
                 <view class="pass_box_item">
-                    <view class="pass_point"></view>
+                    <view class="pass_point" wx:if="{{passwordArr.length > 2}}"></view>
                 </view>
                 <view class="pass_box_item">
-                    <view class="pass_point"></view>
+                    <view class="pass_point" wx:if="{{passwordArr.length > 3}}"></view>
                 </view>
                 <view class="pass_box_item">
-                    <view class="pass_point"></view>
+                    <view class="pass_point" wx:if="{{passwordArr.length > 4}}"></view>
                 </view>
                 <view class="pass_box_item">
-                    <view class="pass_point"></view>
+                    <view class="pass_point" wx:if="{{passwordArr.length > 5}}"></view>
                 </view>
             </view>
             <view class="forget_pass">忘记密码?</view>
         </view>
         <view class="board_number">
             <view class="board_number_box">
-                <view class="board_number_item">1</view>
-                <view class="board_number_item">2</view>
-                <view class="board_number_item">3</view>
+                <view class="board_number_item" data-number="1" bindtap="inputPass">1</view>
+                <view class="board_number_item" data-number="2" bindtap="inputPass">2</view>
+                <view class="board_number_item" data-number="3" bindtap="inputPass">3</view>
             </view>
             <view class="board_number_box">
-                <view class="board_number_item">4</view>
-                <view class="board_number_item">5</view>
-                <view class="board_number_item">6</view>
+                <view class="board_number_item" data-number="4" bindtap="inputPass">4</view>
+                <view class="board_number_item" data-number="5" bindtap="inputPass">5</view>
+                <view class="board_number_item" data-number="6" bindtap="inputPass">6</view>
             </view>
             <view class="board_number_box">
-                <view class="board_number_item">7</view>
-                <view class="board_number_item">8</view>
-                <view class="board_number_item">9</view>
+                <view class="board_number_item" data-number="7" bindtap="inputPass">7</view>
+                <view class="board_number_item" data-number="8" bindtap="inputPass">8</view>
+                <view class="board_number_item" data-number="9" bindtap="inputPass">9</view>
             </view>
             <view class="board_number_box">
-                <view class="board_number_item">确定</view>
-                <view class="board_number_item">0</view>
-                <view class="board_number_item">
+                <view class="board_number_item" data-number="OK" bindtap="inputPass">确定</view>
+                <view class="board_number_item" data-number="0" bindtap="inputPass">0</view>
+                <view class="board_number_item" data-number="delete" bindtap="inputPass">
                     <image class="delete_icon" src="../../images/delete.png"></image>
                 </view>
             </view>

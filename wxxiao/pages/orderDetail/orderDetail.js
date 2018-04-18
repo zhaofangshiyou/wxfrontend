@@ -5,7 +5,53 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    showBoard: false,
+    passwordArr: [],
+    payWay: 1
+  },
+  changePay: function() {
+    if(this.data.payWay==1) {
+      this.data.payWay = 2;
+      this.setData({
+        payWay: this.data.payWay
+      })
+    }else{
+      this.data.payWay = 1;
+      this.setData({
+        payWay: this.data.payWay
+      })
+    }
+  },
+  paySubmit: function() {
+    this.setData({
+      showBoard: true
+    })
+  },
+  hideBoard: function() {
+    this.data.passwordArr.length=0;
+    this.setData({
+      showBoard: false,
+      passwordArr: this.data.passwordArr
+    })
+  },
+  inputPass: function(e) {
+    if(e.currentTarget.dataset.number == 'OK'){
+      console.log(this.data.passwordArr.join(''))
+    }else if(e.currentTarget.dataset.number == 'delete'){
+      this.data.passwordArr.pop();
+      this.setData({
+        passwordArr: this.data.passwordArr
+      })
+    }else{
+      if(this.data.passwordArr.length < 6) {
+        this.data.passwordArr.push(e.currentTarget.dataset.number);
+        this.setData({
+          passwordArr: this.data.passwordArr
+        })
+      }else{
+        return false;
+      }
+    }
   },
 
   /**

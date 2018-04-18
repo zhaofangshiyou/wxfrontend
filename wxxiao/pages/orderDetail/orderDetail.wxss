@@ -148,9 +148,10 @@
 .hide_icon{
     position: absolute;
     left: 30rpx;
-    top: 35rpx;
-    width: 30rpx;
-    height: 30rpx;
+    top: 25rpx;
+    width: 20rpx;
+    height: 20rpx;
+    padding: 10rpx;
 }
 .board_title{
     font-size:30rpx;
