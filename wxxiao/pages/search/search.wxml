@@ -1,0 +1,63 @@
+<!--pages/search/search.wxml-->
+<view class="container">
+    <view class="tab">
+        <view class="tab_item">
+            <view class="tab_text">消费记录</view>
+        </view>
+        <view class="tab_item">
+            <view class="tab_text active">消费记录</view>
+        </view>
+    </view>
+    <view class="all">
+        <text class="all_text">全部</text>
+        <image class="down_image" src="../../images/down.png"></image>
+    </view>
+    <!-- 充值记录 -->
+    <view class="recharge">
+        <view class="recharge_list">
+            <view class="text_message">
+                <view class="text_title">线上充值</view>
+                <view class="text_tip">2018-04-16 12:12:12</view>
+            </view>
+            <view class="add_number">+3000</view>
+        </view>
+        <view class="recharge_list">
+                <view class="text_message">
+                    <view class="text_title">线上充值</view>
+                    <view class="text_tip">2018-04-16 12:12:12</view>
+                </view>
+                <view class="add_number">+3000</view>
+            </view>
+    </view>
+    <!-- 消费记录 -->
+    <view class="recharge">
+        <view class="recharge_list">
+            <view class="text_message">
+                <view class="text_title">线上充值</view>
+                <view class="text_tip">2018-04-16 12:12:12</view>
+            </view>
+            <view class="reduce_number">+3000</view>
+        </view>
+        <view class="recharge_list">
+                <view class="text_message">
+                    <view class="text_title">线上充值</view>
+                    <view class="text_tip">2018-04-16 12:12:12</view>
+                </view>
+                <view class="reduce_number">+3000</view>
+            </view>
+    </view>
+
+    <!-- 分类 -->
+    <view class="classify">
+        <view class="classify_box">
+            <view class="classify_item choose">全部</view>
+            <view class="classify_item">单位卡</view>
+            <view class="classify_item">个人卡</view>
+        </view>
+    </view>
+
+    <view class="noData" style="display:none">
+        <image class="noData_image" src="../../images/icon_trade.png"></image>
+        <view class="noDataText">暂无充值记录</view>
+    </view>
+</view>

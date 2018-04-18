@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/search/search",
     "pages/chooseGrap/chooseGrap",
     "pages/zhaofangCardPay/zhaofangCardPay",
     "pages/orderDetail/orderDetail",
@@ -17,6 +18,7 @@
     "pages/logs/logs",
     "pages/myCard/myCard",
     "pages/oilStation/oilStation"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

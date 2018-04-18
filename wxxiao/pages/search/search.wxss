@@ -1,0 +1,118 @@
+/* pages/search/search.wxss */
+.tab{
+    width: 100%;
+    background: #fff;
+    font-size: 0;
+}
+.tab_item{
+    width: 50%;
+    display: inline-block;
+}
+.tab_text{
+    margin: 0 auto;
+    width: 120rpx;
+    font-size: 30rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size:30rpx;
+    color:rgba(153,153,153,1);
+}
+.active{
+    border-bottom: 6rpx solid #F96432;
+    color: #F96432;
+}
+.noData{
+    margin-top: 320rpx;
+    box-sizing: border-box;
+    text-align: center;
+}
+.noData_image{
+    width:180rpx;
+    height: 180rpx;
+}
+.noDataText{
+    font-size:30rpx;
+    color:rgba(153,153,153,1);
+    margin-top: 30rpx;
+}
+.all{
+    margin-top:6rpx;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    display: flex;
+    justify-content: space-between;
+    background: #fff;
+    align-items: center;
+}
+.all_text{
+    font-size:30rpx;
+    color:rgba(51,51,51,1);
+}
+.down_image{
+   width: 24rpx;
+   height: 12rpx; 
+}
+.recharge{
+    background: #fff;
+    margin-top: 20rpx;
+    width: 100%;
+}
+.recharge_list{
+    height: 140rpx;
+    box-sizing: border-box;
+    padding-top: 34rpx;
+    padding-bottom: 34rpx;
+    margin-left: 30rpx;
+    padding-right: 30rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2rpx solid #efefef;
+}
+.recharge_list:last-child{
+    border-bottom: none;
+}
+.text_title{
+    font-size:30rpx;
+    color:rgba(51,51,51,1);
+}
+.text_tip{
+    font-size:24rpx;
+    color:rgba(153,153,153,1);
+    margin-top: 18rpx;
+}
+.add_number{
+    font-size:30rpx;
+    color:rgba(249,100,50,1);
+}
+.reduce_number{
+    font-size:30rpx;
+    color:rgba(51,51,51,1);
+}
+.classify{
+    position: absolute;
+    width: 100%;
+    box-sizing: border-box;
+    top: 206rpx;
+    bottom: 0;
+    background:rgba(51,51,51,0.3);
+    z-index: 50;
+    
+}
+.classify_box{
+    background: #fff;  
+}
+.classify_item{
+    height: 100rpx;
+    line-height: 100rpx;
+    margin-left: 30rpx;
+    border-top: 2rpx solid #efefef;
+    font-size:30rpx;
+    color:rgba(102,102,102,1);
+}
+.classify_item.choose{
+    color:rgba(249,100,50,1);  
+}
