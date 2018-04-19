@@ -24,9 +24,9 @@ Page({
       header: app.config.header,
       success: function(res) {
         console.log(res);
-        showRequestInfo();
       }
     })
+  
   },
   goNext(event) {
     wx.navigateTo({

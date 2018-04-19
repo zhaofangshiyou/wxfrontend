@@ -2,6 +2,56 @@
 <view class="content">
    <view class="header">
         <image class="header_bg" src="../../images/bg.png"></image>
+        <view class="header_mess">
+            <image class="avatar" src="../../images/saler_head01.png"></image>
+            <view class="user_name">兆小方</view>
+            <view class="user_id">用户ID：10018888</view>
+        </view>
+   </view>
+   <view class="enter_box">
+       <view class="enter_list">
+           <view class="enter_item">
+                <image class="enter_img" src="../../images/zf_pay.png"></image>
+                <text class="enter_name">兆方车上付</text>
+           </view>
+           <view class="enter_item">
+                <image class="enter_img" src="../../images/zf_card.png"></image>
+                <text class="enter_name">我的兆方卡</text>
+           </view>
+           <view class="enter_item">
+                <image class="enter_img" src="../../images/zf_card1.png"></image>
+                <text class="enter_name">兆方公益</text>
+           </view>
+       </view>
+       <view class="enter_list enter_top">
+            <view class="enter_item">
+                    <image class="enter_img" src="../../images/add_copy.png"></image>
+                    <text class="enter_name">兆方卡充值</text>
+            </view>
+            
+            <view class="enter_item">
+                    <image class="enter_img" src="../../images/password.png"></image>
+                    <text class="enter_name">找回密码</text>
+            </view>
+            <view class="enter_item">
+                    <image class="enter_img" src="../../images/my_copy.png"></image>
+                    <text class="enter_name">完善资料</text>
+            </view>
+        </view>
+        <view class="enter_list enter_top">
+            <view class="enter_item">
+                    <image class="enter_img" src="../../images/icon_invoice.png"></image>
+                    <text class="enter_name">发票管理</text>
+            </view>
+            <view class="enter_item">
+                    <image class="enter_img" src="../../images/icon_consume.png"></image>
+                    <text class="enter_name">消费记录</text>
+            </view>
+            <view class="enter_item">
+                    <image class="enter_img" src="../../images/icon_consume1.png"></image>
+                    <text class="enter_name">充值记录</text>
+            </view>
+        </view>
    </view> 
 </view>
 

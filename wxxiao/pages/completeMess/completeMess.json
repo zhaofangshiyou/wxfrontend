@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "完善资料",
+    "usingComponents": {
+        "sureBtn": "../../components/SureBtn/sureBtn",
+        "disable": "../../components/Disable/disable",
+        "header": "../../components/header/header"
+    }
+}

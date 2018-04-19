@@ -1,0 +1,52 @@
+<!--pages/completeMess/completeMess.wxml-->
+<header></header>
+<view class="container">
+    <view class="form_box">
+        <view class="section">
+            <view class="section_title">真实姓名</view>
+            <input class="input" data-flag="realName" bindblur="checkMsg" name="name" placeholder-style="color:#BDBDBD" placeholder="请输入您的真实姓名" />
+        </view>
+        <view class="section">
+            <view class="section_title">身份证号</view>
+            <input class="input" type="idcard" data-flag="ID" bindblur="checkMsg" name="id" placeholder-style="color:#BDBDBD" placeholder="请输入您的身份证号码" />
+        </view>
+        <view class="section">
+            <view class="section_title">性别</view>
+            <view class="input">
+                <view class="man" data-sex="1" bindtap="changeSex">
+                    <image wx:if="{{chooseSex==2}}" class="sex_icon" src="../../images/icon_normal.png"></image>
+                    <image wx:if="{{chooseSex==1}}"class="sex_icon" src="../../images/icon_choice.png"></image>
+                    <text class="sex_name">先生</text>
+                </view>
+                <view class="man women" data-sex="2" bindtap="changeSex">
+                    <image wx:if="{{chooseSex==1}}" class="sex_icon" src="../../images/icon_normal.png"></image>
+                    <image wx:if="{{chooseSex==2}}" class="sex_icon" src="../../images/icon_choice.png"></image>
+                    <text class="sex_name">女士</text>
+                </view>
+            </view>
+        </view>
+        <view class="section choose_box">
+            <view class="section_title">车型信息</view>
+            <view class="choose choose_text">{{userInfo.cartType}}</view>
+            <view class="noChoose noChoose_text">请选择(非必填）</view>
+            <image class="right_icon" src="../../images/home_icon_enter.png"></image> 
+        </view>
+        <!-- <view class="section choose_box">
+            <view class="section_title">车牌号码</view>
+            <view class="choose choose_text" wx:if="{{show.showCartNumber}}">{{userInfo.carNumber}}</view>
+            <view class="noChoose noChoose_text" wx:if="{{!show.showCartNumber}}">请选择</view>
+            <image class="right_icon" src="../../images/home_icon_enter.png"></image> 
+        </view> -->
+        <view class="section">
+            <view class="section_title">车牌号码</view>
+            <input class="input" data-flag="realName" bindblur="checkMsg" name="car_number" placeholder-style="color:#BDBDBD" placeholder="请输入您的车牌号" />
+        </view>
+    </view>
+
+    <view class="sureSubmit">
+        <sureBtn text="确认开卡" bind:sureEvent="submitRegister"></sureBtn>
+    </view>
+    <view class="sureSubmit">
+        <disable text="确认开卡"></disable>
+    </view>
+</view>

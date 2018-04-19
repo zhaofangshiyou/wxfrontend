@@ -5,31 +5,6 @@
         <text class="warn_text">实名信息错误无法办理清户退款，请如实填写</text>
     </view> -->
     <view class="form_box">
-            <!-- <view class="section">
-                <view class="section_title">真实姓名</view>
-                <input class="input" data-flag="realName" bindblur="checkMsg" name="name" placeholder-style="color:#BDBDBD" placeholder="请输入您的真实姓名" />
-            </view>
-            <view class="section">
-                <view class="section_title">身份证号</view>
-                <input class="input" type="idcard" data-flag="ID" bindblur="checkMsg" name="id" placeholder-style="color:#BDBDBD" placeholder="请输入您的身份证号码" />
-            </view>
-            <view class="section" bindtap="sexShow">
-                <view class="section_title">性别</view>
-                <view class="choose choose_text" wx:if="{{show.showSex}}">{{userInfo.sex}}</view>
-                <view class="noChoose noChoose_text" wx:if="{{!show.showSex}}">请选择您的性别</view>
-            </view>
-            <view class="section choose_box">
-                <view class="section_title">车型信息</view>
-                <view class="choose choose_text" wx:if="{{show.showCartType}}">{{userInfo.cartType}}</view>
-                <view class="noChoose noChoose_text" wx:if="{{!show.showCartType}}">请选择(非必填）</view>
-                <image class="right_icon" src="../../images/home_icon_enter.png"></image> 
-            </view>
-            <view class="section choose_box">
-                <view class="section_title">车牌号码</view>
-                <view class="choose choose_text" wx:if="{{show.showCartNumber}}">{{userInfo.carNumber}}</view>
-                <view class="noChoose noChoose_text" wx:if="{{!show.showCartNumber}}">请选择</view>
-                <image class="right_icon" src="../../images/home_icon_enter.png"></image> 
-            </view> -->
             <view class="section choose_box" bindtap="getOil">
                 <view class="section_title">取票油站</view>
                 <view class="choose choose_text">{{userInfo.oilStation}}</view>
