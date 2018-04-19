@@ -5,6 +5,7 @@
   background: #f5f5f5;
   position: relative;
   font-family:PingFangSC-Regular;
+  margin-top: 128rpx;
 }
 .btn_area{
   width: 100%;

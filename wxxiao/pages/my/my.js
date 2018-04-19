@@ -1,36 +1,11 @@
-// pages/search/search.js
+// pages/my/my.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    showClassify: false,
-    tabIndex: 1
-  },
-  classify: function() {
-    this.setData({
-      showClassify: true
-    })
-  },
-  changeTab: function(e) {
-    if(e.currentTarget.dataset.tabindex == 1) {
-      this.setData({
-        tabIndex: 1,
-        showClassify: false
-      })
-    }else{
-      this.setData({
-        tabIndex: 2,
-        showClassify: false
-      })
-    }
-  },
-  hideClassify: function() {
-    console.log(11);
-    this.setData({
-      showClassify: false
-    })
+  
   },
 
   /**

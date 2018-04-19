@@ -1,0 +1,8 @@
+<!--pages/my/my.wxml-->
+<view class="content">
+   <view class="header">
+        <image class="header_bg" src="../../images/bg.png"></image>
+   </view> 
+</view>
+
+<footer showMy="{{true}}"></footer>

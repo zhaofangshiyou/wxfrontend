@@ -1,5 +1,11 @@
 //app.js
 App({
+  config: {
+    host: 'https://api.zfsyonline.com',
+    header: ` {
+      'Content-Type':  'application/x-www-form-urlencoded'
+    }`
+  },
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []

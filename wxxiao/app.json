@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/search/search",
     "pages/chooseGrap/chooseGrap",
     "pages/zhaofangCardPay/zhaofangCardPay",
@@ -14,16 +15,16 @@
     "pages/succeCard/succeCrd",
     "pages/carType/carType",
     "pages/bindCard/bindCard",
-    "pages/index/index",
     "pages/logs/logs",
     "pages/myCard/myCard",
-    "pages/oilStation/oilStation"
-    
+    "pages/oilStation/oilStation",
+    "pages/my/my"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F96432",
     "navigationBarTitleText": "兆方石油",
-    "navigationBarTextStyle": "#fff"
+    "navigationBarTextStyle": "#fff",
+    "navigationStyle":"custom"
   }
 }

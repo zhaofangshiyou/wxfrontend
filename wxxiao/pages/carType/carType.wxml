@@ -20,7 +20,6 @@ style="background: rgba(0,0,0,{{trans}});"
     </view>
 </view>
 
-
 <!-- 二级品牌展示 -->
 <view class="sub_box"  wx:if="{{showSub}}" catchtap="hideSub">
   <scroll-view  scroll-y class="sub_conten" >

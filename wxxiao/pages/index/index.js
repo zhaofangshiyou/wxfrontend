@@ -17,7 +17,16 @@ Page({
   },
 
   onReady: function () {
-
+    wx.request({
+      url: app.config.host+'/v1/login',
+      method: 'post',
+      data: {name: 'test'},
+      header: app.config.header,
+      success: function(res) {
+        console.log(res);
+        showRequestInfo();
+      }
+    })
   },
   goNext(event) {
     wx.navigateTo({
