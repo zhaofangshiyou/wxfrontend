@@ -1,4 +1,5 @@
 <!--pages/recharge/recharge.wxml-->
+<header></header>
 <view class="container">
     <view class="content">
         <view class="rechage_box">
@@ -27,13 +28,13 @@
                 </view>
             </view>
         </view>
-        <view class="choose_invoice" bindtap="openInvoice">
+        <!-- <view class="choose_invoice" bindtap="openInvoice">
             <view class="invoice_title">我要开票</view>
             <view class="invoice_go">
                 <text class="notice">请选择</text>
                 <image class="right_icon" src="../../images/home_icon_enter.png"></image>
             </view>
-        </view>
+        </view> -->
         <view class="agree_box" bindtap="agree">
             <image wx:if="{{isAgree}}" class="agree_icon" src="../../images/icon_choice.png"></image>
             <image  wx:if="{{!isAgree}}" class="agree_icon" src="../../images/icon_normal.png"></image>

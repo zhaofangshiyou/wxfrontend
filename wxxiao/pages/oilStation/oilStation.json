@@ -1,3 +1,6 @@
 {
-    "navigationBarTitleText": "取票油站"  
+    "navigationBarTitleText": "取票油站",
+    "usingComponents": {
+        "header": "../../components/header/header"
+    }
 }

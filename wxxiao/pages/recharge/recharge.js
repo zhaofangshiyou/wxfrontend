@@ -21,7 +21,9 @@ Page({
     })
   },
   rechargeSubmit: function() {
-    console.log(this.data.money_num);
+    wx.navigateTo({
+      url: '../../pages/succeCard/succeCrd'
+    })
   },
   agree: function() {
     this.setData({

@@ -1,7 +1,9 @@
 {
     "usingComponents": {
         "sureBtn": "../../components/SureBtn/sureBtn",
-        "disable": "../../components/Disable/disable"
+        "disable": "../../components/Disable/disable",
+        "header": "../../components/header/header"
+        
     },
     "navigationBarTitleText": "新用户开卡"  
 }

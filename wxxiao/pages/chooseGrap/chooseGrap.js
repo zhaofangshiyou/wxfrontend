@@ -8,7 +8,14 @@ Page({
   
   },
   nextSubmit: function() {
-    console.log(123);
+    wx.navigateTo({
+      url: '../../pages/orderDetail/orderDetail'
+    })
+  },
+  otherPay:function() {
+    wx.navigateTo({
+      url: '../../pages/zhaofangCardPay/zhaofangCardPay'
+    })
   },
 
   /**

@@ -1,4 +1,5 @@
 <!--pages/zhaofangCardPay/zhaofangCardPay.wxml-->
+<header></header>
 <view class="container">
     <view class="warn">
         <text class="warn_icon">!</text>

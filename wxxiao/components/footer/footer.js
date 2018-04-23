@@ -40,7 +40,7 @@ Component({
         
       }else if(e.currentTarget.dataset.type==2) {
         wx.navigateTo({
-          url: '../../pages/index/index'
+          url: '../../pages/nearOil/nearOil'
         })
       }else{
         if(!this.data.showMy) {

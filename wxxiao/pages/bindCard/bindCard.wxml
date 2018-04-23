@@ -1,4 +1,5 @@
 <!--pages/bindCard/bindCard.wxml-->
+<header title="单位卡绑定"></header>
 <view class="cart_box">
     <view class="content">
         <view class="text">加油卡号</view>

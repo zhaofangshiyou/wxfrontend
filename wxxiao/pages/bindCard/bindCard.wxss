@@ -1,7 +1,7 @@
 /* pages/bindCard/bindCard.wxss */
 .cart_box{
     position: absolute;
-    top: 0;
+    top: 128rpx;
     left: 0;
     width: 100%;
     bottom: 0;

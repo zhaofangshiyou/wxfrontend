@@ -1,4 +1,5 @@
 <!--pages/chooseGrap/chooseGrap.wxml-->
+<header title="兆方车上付"></header>
 <view class="container">
     <view class="oil_station">
         <view class="oil_box">
@@ -42,7 +43,7 @@
         </view>
         <view class="more">更多</view>
     </view>
-    <view class="noGrap">
+    <view class="noGrap" bindtap="otherPay">
         <view class="noGrap_mess">没有油枪号</view>
         <view class="grap_choose">
             <text class="tip">请选择</text>

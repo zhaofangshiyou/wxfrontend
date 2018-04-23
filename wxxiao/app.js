@@ -3,7 +3,7 @@ App({
   config: {
     host: 'https://api.zfsyonline.com',
     header: ` {
-      'Content-Type':  'application/x-www-form-urlencoded'
+      'Content-Type": "application/x-www-form-urlencoded'
     }`
   },
   onLaunch: function () {

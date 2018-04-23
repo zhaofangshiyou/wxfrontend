@@ -1,6 +1,7 @@
 {
     "usingComponents": {
-        "footer": "../../components/footer/footer"
+        "footer": "../../components/footer/footer",
+        "header": "../../components/header/header"
     },
     "navigationBarTitleText": "附近油站" 
 }

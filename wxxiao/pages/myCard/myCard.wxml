@@ -1,17 +1,20 @@
 <!--pages/myCard/myCard.wxml-->
-<view class="content">
-    <view class="home_list" wx:for="{{listArr}}" wx:for-index="index" wx:for-item="item" data-link="{{item.link}}" bindtap="goNext">
-        <view class="list_box">
-            <view class="list-left">
-                <image class="pay_icon" src="{{item.iconUrl}}"></image>
-                <view class="left_text">
-                <text class="title">{{item.name}}</text>
-                <text class="message">{{item.notice}}</text>
+<header title="我的兆方卡"></header>
+<view class="container">
+    <view class="content">
+        <view class="home_list" wx:for="{{listArr}}" wx:for-index="index" wx:for-item="item" data-link="{{item.link}}" bindtap="cardDetail">
+            <view class="list_box">
+                <view class="list-left">
+                    <image class="pay_icon" src="{{item.iconUrl}}"></image>
+                    <view class="left_text">
+                    <text class="title">{{item.name}}</text>
+                    <text class="message">{{item.notice}}</text>
+                    </view>
+                </view>
+                <view class="list-right">
+                    <image class="right_icon" src="../../images/home_icon_enter.png"></image> 
                 </view>
             </view>
-            <view class="list-right">
-                <image class="right_icon" src="../../images/home_icon_enter.png"></image> 
-            </view>
-        </view>
-    </view>  
+        </view>  
+    </view>
 </view>

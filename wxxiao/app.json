@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/completeMess/completeMess",
     "pages/my/my",
-    "pages/index/index",
     "pages/search/search",
     "pages/chooseGrap/chooseGrap",
     "pages/zhaofangCardPay/zhaofangCardPay",

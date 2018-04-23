@@ -38,7 +38,9 @@ Page({
     sendAgain: true
   },
   submitRegister(){
-    console.log(this.data.userInfo);
+    wx.navigateTo({
+      url: '../../pages/succeCard/succeCrd'
+    })
   },
   //跳转到取票油站
   getOil: function() {

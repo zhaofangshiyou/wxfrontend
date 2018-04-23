@@ -36,7 +36,9 @@ Page({
   },
   inputPass: function(e) {
     if(e.currentTarget.dataset.number == 'OK'){
-      console.log(this.data.passwordArr.join(''))
+      wx.navigateTo({
+        url: '../../pages/payOrder/payOrder'
+      })
     }else if(e.currentTarget.dataset.number == 'delete'){
       this.data.passwordArr.pop();
       this.setData({

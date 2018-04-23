@@ -1,4 +1,7 @@
 {
-    "navigationBarTitleText": "开卡成功"  
+    "navigationBarTitleText": "开卡成功",
+    "usingComponents": {
+        "header": "../../components/header/header"
+    }
 }
 

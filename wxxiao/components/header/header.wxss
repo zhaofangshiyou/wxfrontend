@@ -23,8 +23,9 @@
 }
 .goBack{
     position: absolute;
-    top: 70rpx;
-    left: 30rpx;
+    top: 50rpx;
+    left: 10rpx;
+    padding: 20rpx;
 }
 .left_icon{
     width: 15rpx;

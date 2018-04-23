@@ -1,4 +1,5 @@
 <!--pages/modifyPass/modifyPass.wxml-->
+<header></header>
 <view class="container">
     <form bindsubmit="formSubmit">
     <view class="content">

@@ -1,4 +1,5 @@
 <!--pages/succeCard/succeCrd.wxml-->
+<header title="开卡成功"></header>
 <view class="container">
     <view class="header">
         <image class="success_icon" src="../../images/icon_succeed.png"></image>

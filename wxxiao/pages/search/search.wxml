@@ -1,4 +1,5 @@
 <!--pages/search/search.wxml-->
+<header></header>
 <view class="container">
     <view class="tab">
         <view class="tab_item" data-tabIndex="1" bindtap="changeTab">

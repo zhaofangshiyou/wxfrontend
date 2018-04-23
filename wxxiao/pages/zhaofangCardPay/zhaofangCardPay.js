@@ -40,7 +40,9 @@ Page({
   onReady: function () {
     wx.login({
       success: function(res) {
-        console.log(res);
+        wx.navigateTo({
+          url: '../../pages/orderDetail/orderDetail'
+        })
       }
     })
   },

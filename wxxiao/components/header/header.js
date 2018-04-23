@@ -8,6 +8,11 @@ Component({
       type : Boolean,
       value : false
     },
+    title :{
+      type : String,
+      value : '兆方石油'
+    },
+
   },
 
   /**
