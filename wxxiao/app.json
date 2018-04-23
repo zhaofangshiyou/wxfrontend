@@ -1,6 +1,8 @@
 {
   "pages": [
+    "pages/welfare/welfare",
     "pages/index/index",
+    
     "pages/invoiceSearch/invoiceSearch",
     "pages/completeMess/completeMess",
     "pages/chooseGrap/chooseGrap",
@@ -21,7 +23,6 @@
     "pages/logs/logs",
     "pages/myCard/myCard",
     "pages/oilStation/oilStation"
-    
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -6,7 +6,7 @@
     </image>
     <view class="notice">
       <image class="notice_icon" src="../../images/home_icon_inform.png"></image> 
-      <text class="notice_text">所有汽油均已添加欧美进口顶级添加剂</text>
+      <text class="notice_text">所有汽油均已添加法国道达尔添加剂</text>
     </view>
     <view class="home_list" wx:for="{{listArr}}" wx:for-index="index" wx:for-item="item" data-link="{{item.link}}" bindtap="goNext">
       <view class="list_box">

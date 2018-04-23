@@ -1,0 +1,88 @@
+/* pages/welfare/welfare.wxss */
+.welfare_bg{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+}
+.bg_icon{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+}
+.welfare_content{
+    position: absolute;
+    z-index: 10;
+}
+
+.back{
+    position: absolute;
+    z-index: 10;
+    padding: 20rpx;
+    top: 30rpx;
+    left: 10rpx;
+}
+.back_icon{
+    width: 15rpx;
+    height: 30rpx;
+}
+.welfare_content{
+    width: 100%;
+    position: absolute;
+    z-index: 20;
+    top: 740rpx;
+    padding: 30rpx;
+    box-sizing: border-box;
+}
+.gy_notice{
+    position: relative;
+    margin:0 auto;
+    text-align: center;
+}
+.title_icon{
+    width: 100%;
+    height: 240rpx;
+}
+.title{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 95rpx;
+    font-size:30rpx;
+    color:rgba(249,100,50,1);
+}
+.notice{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 140rpx;
+    font-size:30rpx;
+    color:rgba(249,100,50,1); 
+}
+.welfare_acount{
+    margin-top: 48rpx;
+    display: flex;
+    justify-content: space-between;
+}
+.gymess_icon{
+    width: 340rpx;
+    height: 180rpx;
+}
+.acount_left,.acount_right{
+    position: relative;
+}
+.oil_notice {
+    position: absolute;
+    text-align: center;
+    top: 88rpx;
+    width: 100%;
+    font-size:48rpx;
+    color:rgba(255,255,255,1);
+}
+.small{
+    font-size:24rpx;  
+}

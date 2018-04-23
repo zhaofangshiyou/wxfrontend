@@ -6,11 +6,11 @@
         <text class="warn_text">实名信息错误无法办理清户退款，请如实填写</text>
     </view> -->
     <view class="form_box">
-            <view class="section choose_box" bindtap="getOil">
+            <!-- <view class="section choose_box" bindtap="getOil">
                 <view class="section_title">取票油站</view>
                 <view class="choose choose_text">{{userInfo.oilStation}}</view>
                 <image class="right_icon" src="../../images/home_icon_enter.png"></image> 
-            </view>
+            </view> -->
             <view class="section">
                 <view class="section_title">设置密码</view>
                 <input class="input" data-flag="pass" bindblur="checkMsg" name="password" maxlength="6" password type="number" placeholder-style="color:#BDBDBD" placeholder="请设置您的6位数兆方卡支付密码" />

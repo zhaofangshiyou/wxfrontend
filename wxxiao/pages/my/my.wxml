@@ -18,7 +18,7 @@
                 <image class="enter_img" src="../../images/zf_card.png"></image>
                 <text class="enter_name">我的兆方卡</text>
            </view>
-           <view class="enter_item" data-link="../../pages/zhaofangCardPay/zhaofangCardPay" bindtap="goNext">
+           <view class="enter_item" data-link="../../pages/welfare/welfare" bindtap="goNext">
                 <image class="enter_img" src="../../images/zf_card1.png"></image>
                 <text class="enter_name">兆方公益</text>
            </view>

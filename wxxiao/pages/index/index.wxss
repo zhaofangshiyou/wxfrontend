@@ -54,8 +54,8 @@
   align-items: center;
 }
 .pay_icon{
-  width: 68rpx;
-  height: 68rpx;
+  width: 88rpx;
+  height: 60rpx;
   vertical-align: middle;
 }
 .right_icon{

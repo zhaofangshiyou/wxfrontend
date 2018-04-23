@@ -1,12 +1,11 @@
-var sendRrquest = function (url,data,method) {
-    if(method.toUpperCase() == 'POST'){
-        url = url+ json2Form(data);
-    }
+var sendRrquest = function (url,data,params,method) {
+    url = url+ jsonRestFull(data);
+    console.log(url);
     var promise = new Promise(function (resolve, reject) {
        //网络请求
        wx.request({
            url: url,
-           data: data,
+           data: params,
            method: method,
            header: {
             'Content-Type': 'application/x-www-form-urlencoded'
@@ -32,5 +31,14 @@ function json2Form(json) {
     var new_str = '?'+ str.join("&");
     return new_str;
   }
+
+function jsonRestFull(json) {
+  var str = [];
+  for(var p in json) {
+    str.push(encodeURIComponent(p) + "/" + encodeURIComponent(json[p])); 
+  }
+  var new_str = '/'+ str.join("/");
+    return new_str;
+}
 
 module.exports.sendRrquest = sendRrquest 

@@ -1,4 +1,4 @@
-// pages/my/my.js
+// pages/welfare/welfare.js
 Page({
 
   /**
@@ -7,17 +7,12 @@ Page({
   data: {
   
   },
-  goNext: function(event) {
-    wx.navigateTo({
-      url: event.currentTarget.dataset.link
-    })
-  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
+  
   },
 
   /**

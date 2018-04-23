@@ -10,6 +10,9 @@ Page({
       {name:'华富加油站',address:'安徽省铜陵市铜官区滨江大道中段',img_url: '../../images/img01.png',distance: '1.26m'},
       {name:'广阳加油站',address:'安徽省黄山市太平湖朝阳村',img_url: '../../images/img01.png',distance: '1.26m'},
       {name:'雨坛加油站',address:'安徽省枞阳县雨坛乡雨坛村义小公路西侧',img_url: '../../images/img01.png',distance: '1.26m'},
+      {name:'华富加油站',address:'安徽省铜陵市铜官区滨江大道中段',img_url: '../../images/img01.png',distance: '1.26m'},
+      {name:'广阳加油站',address:'安徽省黄山市太平湖朝阳村',img_url: '../../images/img01.png',distance: '1.26m'},
+      {name:'雨坛加油站',address:'安徽省枞阳县雨坛乡雨坛村义小公路西侧',img_url: '../../images/img01.png',distance: '1.26m'},
     ]
   },
   goOilStation: function(e) {
