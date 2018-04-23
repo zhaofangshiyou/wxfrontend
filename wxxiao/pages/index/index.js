@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
-const app = getApp()
+const app = getApp();
+import httpService from '../../http/http.js';
 
 Page({
   data: {
@@ -18,30 +19,15 @@ Page({
 
   onReady: function () {
     var that = this;
-    wx.request({
-      url: app.config.host+'/v1/login',
-      method: 'POST',
-      data: {name: 'test',phone: '18825037130'},
-      header: {
-        'Content-Type':  'application/x-www-form-urlencoded'
-      },
-      success: function(res) {
+    httpService.sendRrquest(app.config.host+'/v1/login/208',{},'GET')
+      .then((res) => {
         console.log(res);
-      }
-    })
-  
+      })
   },
+  
   goNext(event) {
     wx.navigateTo({
       url: event.currentTarget.dataset.link
     })
   },
-  json2Form(json){
-    var str = [];
-    for(var p in json) {
-      str.push(encodeURIComponent(p) + "=" + encodeURIComponent(json[p]));
-    }
-    return str.join("&");
-  },
- 
 })

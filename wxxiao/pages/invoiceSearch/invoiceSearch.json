@@ -1,5 +1,4 @@
 {
-    "navigationBarTitleText": "完善资料",
     "usingComponents": {
         "header": "../../components/header/header"
     }

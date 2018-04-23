@@ -12,7 +12,13 @@ Page({
   },
   nextSumit: function() {
     if(this.data.conMoney.length > 0) {
-      console.log(123,this.data.conMoney.length);
+      wx.login({
+        success: function(res) {
+          wx.navigateTo({
+            url: '../../pages/orderDetail/orderDetail'
+          })
+        }
+      })
     }else{
       this.warnMsg('请输入充值金额');
       return false;
@@ -38,13 +44,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    wx.login({
-      success: function(res) {
-        wx.navigateTo({
-          url: '../../pages/orderDetail/orderDetail'
-        })
-      }
-    })
+    
   },
 
   /**

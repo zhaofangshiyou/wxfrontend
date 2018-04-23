@@ -25,7 +25,7 @@
                 </view>
             </view>
         </view>
-        <view class="section choose_box">
+        <view class="section choose_box" bindtap="cardType">
             <view class="section_title">车型信息</view>
             <view class="choose choose_text">{{userInfo.cartType}}</view>
             <view class="noChoose noChoose_text">请选择(非必填）</view>

@@ -88,6 +88,11 @@
     color:rgba(51,51,51,1);
     border-radius: 8rpx;
 }
+.grap_item.active{
+    border:2rpx solid #F96432;
+    color: #F96432;
+    background: #FEDDD5; 
+}
 .more{
    width: 100%;
    height: 64rpx;

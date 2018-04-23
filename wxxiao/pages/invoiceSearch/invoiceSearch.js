@@ -1,27 +1,24 @@
-// pages/completeMess/completeMess.js
+// pages/invoiceSearch/invoiceSearch.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    chooseSex: 1
+    tabIndex: 1
   },
-  changeSex: function(e) {
-    if(e.currentTarget.dataset.sex==1){
+  changeTab: function(e) {
+    if(e.currentTarget.dataset.tabindex == 1) {
       this.setData({
-        chooseSex: 1
+        tabIndex: 1,
+        showClassify: false
       })
     }else{
       this.setData({
-        chooseSex: 2
+        tabIndex: 2,
+        showClassify: false
       })
     }
-  },
-  cardType: function() {
-    wx.navigateTo({
-      url: '../../pages/carType/carType'
-    })
   },
 
   /**

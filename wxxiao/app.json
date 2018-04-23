@@ -1,10 +1,11 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/invoiceSearch/invoiceSearch",
     "pages/completeMess/completeMess",
+    "pages/chooseGrap/chooseGrap",
     "pages/my/my",
     "pages/search/search",
-    "pages/chooseGrap/chooseGrap",
     "pages/zhaofangCardPay/zhaofangCardPay",
     "pages/orderDetail/orderDetail",
     "pages/payOrder/payOrder",
@@ -20,6 +21,7 @@
     "pages/logs/logs",
     "pages/myCard/myCard",
     "pages/oilStation/oilStation"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

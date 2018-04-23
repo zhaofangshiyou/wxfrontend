@@ -20,6 +20,9 @@
         <view class="grap_notice">建议与工作人员核对油枪号</view>
         <view class="grap_number">
             <view class="grap_list">
+                <view class="grap_item active">1号</view>
+            </view>
+            <view class="grap_list">
                 <view class="grap_item">1号</view>
             </view>
             <view class="grap_list">

@@ -39,7 +39,7 @@
             </view>
         </view>
         <view class="enter_list enter_top">
-            <view class="enter_item" data-link="../../pages/zhaofangCardPay/zhaofangCardPay" bindtap="goNext">
+            <view class="enter_item" data-link="../../pages/invoiceSearch/invoiceSearch" bindtap="goNext">
                     <image class="enter_img" src="../../images/icon_invoice.png"></image>
                     <text class="enter_name">发票管理</text>
             </view>
