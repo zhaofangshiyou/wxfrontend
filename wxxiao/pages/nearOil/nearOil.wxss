@@ -8,6 +8,7 @@
     font-size: 30rpx;
     color:rgba(51,51,51,1);
     border-bottom: 2rpx solid #efefef;
+    background: #fff !important;
 }
 .oil_box{
     width: 100%;

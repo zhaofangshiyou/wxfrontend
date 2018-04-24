@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/openCard/openCard",
     "pages/index/index",
+    "pages/openCard/openCard",
     "pages/welfare/welfare",
     "pages/invoiceSearch/invoiceSearch",
     "pages/completeMess/completeMess",

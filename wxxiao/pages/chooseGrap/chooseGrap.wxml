@@ -7,10 +7,10 @@
                 <image class="address_icon" src="../../images/icon_address.png"></image>
             </view>
             <view class="oil_mess">
-                <view class="oil_title">华富加油站</view>
-                <view class="oil_distance">距离您<text class="distance_num">0.1</text>公里</view>
+                <view class="oil_title">{{oil.station}}</view>
+                <view class="oil_distance">距离您<text class="distance_num">{{oil.distance}}</text>公里</view>
             </view>
-            <view class="oil_change">
+            <view class="oil_change" bindtap="changeStation">
                 <view class="change_text">更改加油站</view>
             </view>
         </view>

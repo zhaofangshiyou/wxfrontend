@@ -15,8 +15,8 @@ Page({
     var pages = getCurrentPages()
     var prevPage = pages[pages.length - 2];
     prevPage.setData({
-　　　　"userInfo.oilStation": event.currentTarget.dataset.name,
-       "show.showOilStation": true
+　　　　"oil.station": event.currentTarget.dataset.name,
+        "oil.address": event.currentTarget.dataset.address
 　　});
     wx.navigateBack({//返回
       delta:1

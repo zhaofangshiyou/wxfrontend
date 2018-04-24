@@ -5,7 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    oil: {
+      station: '华富加油站',
+      distance: 0.1,
+      address: ''
+    }
   },
   nextSubmit: function() {
     wx.navigateTo({
@@ -15,6 +19,11 @@ Page({
   otherPay:function() {
     wx.navigateTo({
       url: '../../pages/zhaofangCardPay/zhaofangCardPay'
+    })
+  },
+  changeStation: function() {
+    wx.navigateTo({
+      url: '../../pages/oilStation/oilStation'
     })
   },
 

@@ -23,12 +23,19 @@
 }
 .oil_title{
     font-size:30rpx;
+    height: 30rpx;
+    line-height: 30rpx;
     color:rgba(51,51,51,1); 
 }
 .oil_distance{
     font-size:24rpx;
+    height: 24rpx;
+    line-height: 24rpx;
     color:rgba(153,153,153,1);
     margin-top: 18rpx;
+}
+.distance_num{
+    color: #F96432;
 }
 .oil_change{
     flex:0 0 160rpx;
@@ -100,7 +107,8 @@
    text-align: center;
    font-size:24rpx;
    color:rgba(153,153,153,1);
-   border:2rpx solid #efefef;
+   border-top:2rpx solid #efefef;
+   margin-bottom: 20rpx; 
 }
 
 .noGrap{

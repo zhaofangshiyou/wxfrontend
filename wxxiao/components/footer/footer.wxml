@@ -3,11 +3,11 @@
     <view class="item" data-type="1" bindtap="goPage">
         <image wx:if="{{showHome}}" class="footer_icon" src="../../images/icon_home.png"></image>
         <image wx:if="{{!showHome}}" class="footer_icon" src="../../images/icon_home_no.png"></image>
-        <text class="text">首页</text>
+        <text class="text {{showHome? 'active': ''}}">首页</text>
     </view>
     <view class="item poinits" data-type="2" bindtap="goPage">
         <image class="footer_icon"></image>
-        <view class="text">附近油站</view>
+        <view class="text {{!showMy && !showHome? 'active': ''}}">附近油站</view>
         <view class="points_position">
             <image class="points_icon" src="../../images/icon_oil.png"></image>   
         </view>
@@ -15,6 +15,6 @@
     <view class="item" data-type="3" bindtap="goPage">
         <image wx:if="{{showMy}}" class="footer_icon" src="../../images/icon_mine_light.png"></image>
         <image wx:if="{{!showMy}}" class="footer_icon" src="../../images/icon_mine@2x.png"></image>
-        <text class="text">我的</text>
+        <text class="text {{showMy? 'active': ''}}">我的</text>
     </view>
 </view>
