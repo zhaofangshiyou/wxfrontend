@@ -30,17 +30,11 @@
             </view>
     </view>
 
-    <view class="sureSubmit" wx:if="{{check.checkCode}}">
+    <view class="sureSubmit" wx:if="{{check.checkCode && check.checkComPassword && check.checkPassword && check.checkPhone}}">
         <sureBtn text="确认开卡" bind:sureEvent="submitRegister"></sureBtn>
     </view>
-    <view class="sureSubmit"  wx:if="{{!check.checkCode}}">
+    <view class="sureSubmit"  wx:if="{{!check.checkCode || !check.checkComPassword || !check.checkPassword || !check.checkPhone}}">
         <disable text="确认开卡"></disable>
     </view>
 </view>
 
-<view catchtap="hideSexBox" class="sex_box" wx:if="{{show.sexToggle}}">
-    <view class="sex_content">
-        <view class="sex_item" catchtap="ChooseSex" data-sex='man'>男</view>
-        <view class="sex_item" catchtap="ChooseSex" data-sex='women'>女</view>
-    </view>
-</view>

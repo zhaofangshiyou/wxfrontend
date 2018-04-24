@@ -32,6 +32,7 @@ Page({
       checkOilStation: false,
       checkPassword: false,
       checkPhone: false,
+      checkComPassword: false,
       checkCode: false
     },
     codeText: '获取验证码',
@@ -144,17 +145,30 @@ Page({
             "check.checkPassword": true
           })
         }else {
-          this.warnMsg('请输入6位数字密码！'); 
+          this.setData({
+            "check.checkPassword": false
+          })
+          this.warnMsg('请输入6位数字密码！');
         }
         break;
       case 'comfirmPass':
         if(event.detail.value != this.data.userInfo.password) {
-          this.warnMsg('两次密码不一致'); 
+          this.warnMsg('两次密码不一致');
+          this.setData({
+            "check.checkComPassword": false
+          })
+        }else{
+          this.setData({
+            "check.checkComPassword": true
+          })
         }
         break;
       case 'phone':
         if(!this.isPoneAvailable(event.detail.value)) {
           this.warnMsg('请输入正确的手机号'); 
+          this.setData({
+            "check.checkPhone": false
+          })
         }else {
           this.setData({
             "userInfo.phone": event.detail.value,
@@ -162,11 +176,14 @@ Page({
           })
         }
       case 'code':
-        if(event.detail.value == '') {
+        if(event.detail.value.length < 1) {
           this.warnMsg('请输入正确的验证码'); 
+          this.setData({
+            "check.checkCode": false
+          })
         }else {
           this.setData({
-            "userInfo.phone": event.detail.value,
+            "userInfo.code": event.detail.value,
             "check.checkCode": true
           })
         }

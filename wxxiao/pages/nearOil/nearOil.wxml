@@ -4,7 +4,7 @@
     <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14"  show-location="true"
     style="width: 100%; height: 50vh;">
     </map>
-    <view style="height:50vh;overflow:hidden;background:#fff">
+    <view style="height:50vh;overflow:hidden;background:#fff !important">
         <view class="section_title">附近兆方油站</view>
         <view scroll-y style="height:35vh;overflow-y:scroll" >
         <view class="oil_box">

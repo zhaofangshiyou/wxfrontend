@@ -31,7 +31,7 @@ Component({
     goPage: function(e) {
       if(e.currentTarget.dataset.type==1){
         if(!this.data.showHome) {
-          wx.navigateTo({
+          wx.redirectTo({
             url: '../../pages/index/index'
           })
         }else{
@@ -39,12 +39,12 @@ Component({
         }
         
       }else if(e.currentTarget.dataset.type==2) {
-        wx.navigateTo({
+        wx.redirectTo({
           url: '../../pages/nearOil/nearOil'
         })
       }else{
         if(!this.data.showMy) {
-          wx.navigateTo({
+          wx.redirectTo({
             url: '../../pages/my/my'
           })
         }else{

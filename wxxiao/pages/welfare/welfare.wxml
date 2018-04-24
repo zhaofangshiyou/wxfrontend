@@ -1,6 +1,6 @@
 <!--pages/welfare/welfare.wxml-->
 <view class="welfare_bg">
-    <view class="back">
+    <view class="back" bindtap="goBack">
         <image class="back_icon" src="../../images/Shape@2x.png"></image>
     </view>
     <image class="bg_icon" src="../../images/gy_bg.png"></image>

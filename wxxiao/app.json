@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/welfare/welfare",
+    "pages/openCard/openCard",
     "pages/index/index",
-    
+    "pages/welfare/welfare",
     "pages/invoiceSearch/invoiceSearch",
     "pages/completeMess/completeMess",
     "pages/chooseGrap/chooseGrap",
@@ -16,7 +16,6 @@
     "pages/recharge/recharge",
     "pages/invoiceTitle/invoiceTitle",
     "pages/invoices/invoices",
-    "pages/openCard/openCard",
     "pages/succeCard/succeCrd",
     "pages/carType/carType",
     "pages/bindCard/bindCard",
