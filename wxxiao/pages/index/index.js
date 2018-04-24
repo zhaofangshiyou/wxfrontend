@@ -19,10 +19,10 @@ Page({
 
   onReady: function () {
     var that = this;
-    httpService.sendRrquest(app.config.host+'/v1/login',{user: 1},{name: '11111'},'DELETE')
-      .then((res) => {
-        console.log(res);
-      })
+    // httpService.sendRrquest(app.config.host+'/v1/login',{user: 1},{name: '11111'},'DELETE')
+    //   .then((res) => {
+    //     console.log(res);
+    //   })
   },
   
   goNext(event) {

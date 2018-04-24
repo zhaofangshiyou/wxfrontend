@@ -3,9 +3,11 @@
    <view class="header">
         <image class="header_bg" src="../../images/bg.png"></image>
         <view class="header_mess">
-            <image class="avatar" src="../../images/saler_head01.png"></image>
-            <view class="user_name">兆小方</view>
-            <view class="user_id">用户ID：10018888</view>
+            <view class="avatar_box">
+                <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+            </view>
+            <view class="user_name">{{userInfo.nickName}}</view>
+            <view class="user_id">兆方VIP会员</view>
         </view>
    </view>
    <view class="enter_box">

@@ -1,11 +1,12 @@
 // pages/my/my.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    userInfo: {}
   },
   goNext: function(event) {
     wx.navigateTo({
@@ -18,13 +19,20 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    wx.getUserInfo({
+      success: res => {
+        that.setData({
+          userInfo: res.userInfo
+        })
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    
   },
 
   /**
