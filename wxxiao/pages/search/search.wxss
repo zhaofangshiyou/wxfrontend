@@ -3,7 +3,7 @@
     width: 100%;
     background: #fff;
     font-size: 0;
-    box-shadow: 0px 4px 10px 0px rgba(51,51,51,0.1);
+    box-shadow: 0px 4rpx 10rpx 0px rgba(51,51,51,0.1);
     z-index: 100;
     position: fixed;
     top: 128rpx;
@@ -40,6 +40,7 @@
     margin-top: 30rpx;
 }
 .all{
+    margin-top: 110rpx;
     width: 100%;
     box-sizing: border-box;
     padding: 0 30rpx;
@@ -61,6 +62,7 @@
 .recharge{
     background: #fff;
     width: 100%;
+    margin-top: 20rpx;
 }
 .recharge_list{
     height: 140rpx;

@@ -60,7 +60,7 @@
 }
 .recharge{
     background: #fff;
-    margin-top: 100rpx;
+    margin-top: 110rpx;
     width: 100%;
 }
 .recharge_list{

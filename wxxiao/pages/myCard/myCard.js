@@ -6,8 +6,8 @@ Page({
    */
   data: {
     listArr: [
-      {name:'单位卡',notice:'持有单位分配的加油卡用户请选择',iconUrl: '../../images/home_icon_zfcar.png',link: '../../pages/bindCard/bindCard'},
       {name:'个人卡',notice:'个人办理的加油卡用户请选择',iconUrl: '../../images/home_icon_zfcar.png',link: '../../pages/openCard/openCard'},
+      {name:'单位卡',notice:'持有单位分配的加油卡用户请选择',iconUrl: '../../images/home_icon_zfcar.png',link: '../../pages/bindCard/bindCard'},
     ]
   },
   cardDetail: function(e) {
