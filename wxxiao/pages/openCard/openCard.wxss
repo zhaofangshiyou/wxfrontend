@@ -43,7 +43,7 @@
     border-bottom: 0;
 }
 .section_title{
-    flex:0 0 112rpx;
+    flex:0 0 120rpx;
     text-align: justify;
     text-justify: inter-ideograph;
     font-size: 30rpx;

@@ -7,8 +7,9 @@
 .detail_box{
     background: #fff;
     box-sizing: border-box;
-    padding-left: 30rpx;
-    box-sizing: border-box;
+    padding-left: 30rpx;    
+    padding-top: 30rpx;
+
 }
 .detail_title{
     width: 100%;
@@ -96,7 +97,7 @@
 }
 .pay_icon{
     width: 60rpx;
-    height: 36rpx;
+    height: 60rpx;
     vertical-align: middle;
 }
 .pay_text{
@@ -114,8 +115,8 @@
     border-bottom: none;
 }
 .wexin_icon{
-    width: 48rpx;
-    height: 43rpx;
+    width: 60rpx;
+    height: 60rpx;
     vertical-align: middle;
 }
 

@@ -7,12 +7,13 @@ Page({
 
   data: {
     "hidden": true,
-    cityName:"", //获取选中的城市名,
-    showSub: false,
+    brand:"", 
+    subBrand: "",
     subArr: []
    },
    subType: function(event) {
-     console.log(event);
+     this.data.brand = event.currentTarget.dataset.brand;
+     console.log(this.data.brand);
      this.setData({
       showSub: true,
       subArr: event.currentTarget.dataset.sub
@@ -22,6 +23,23 @@ Page({
     this.setData({
       showSub: false
     })
+   },
+   chooseSub: function(event) {
+    this.data.subBrand = event.currentTarget.dataset.subbrand;
+    this.setData({
+      showSub: false
+    })
+    var pages = getCurrentPages();
+    var currentPage = pages[pages.length - 1]  // 获取当前页面
+　　var prevPage = pages[pages.length - 2]    //获取上一个页面
+    prevPage.setData({
+      carTypeBrand: this.data.brand+'/'+this.data.subBrand ,
+      showCar: true
+  　　})
+    wx.navigateBack({
+  　　　　delta:  1     // 表示返回到上一个页面（如果值为2表示回退到上上一个页面）
+  　　});
+    
    },
    onLoad: function (options) {
     // 生命周期函数--监听页面加载

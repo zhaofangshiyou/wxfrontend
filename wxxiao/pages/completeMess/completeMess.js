@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    chooseSex: 1
+    chooseSex: 1,
+    carTypeBrand: '',
+    showCar: false
   },
   changeSex: function(e) {
     if(e.currentTarget.dataset.sex==1){

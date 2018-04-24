@@ -27,8 +27,8 @@
         </view>
         <view class="section choose_box" bindtap="cardType">
             <view class="section_title">车型信息</view>
-            <view class="choose choose_text">{{userInfo.cartType}}</view>
-            <view class="noChoose noChoose_text">请选择(非必填）</view>
+            <view class="choose choose_text" hidden="{{!showCar}}">{{carTypeBrand}}</view>
+            <view class="noChoose noChoose_text" hidden="{{showCar}}">请选择</view>
             <image class="right_icon" src="../../images/home_icon_enter.png"></image> 
         </view>
         <!-- <view class="section choose_box">
@@ -44,9 +44,6 @@
     </view>
 
     <view class="sureSubmit">
-        <sureBtn text="确认开卡" bind:sureEvent="submitRegister"></sureBtn>
-    </view>
-    <view class="sureSubmit">
-        <disable text="确认开卡"></disable>
+        <sureBtn text="保存" bind:sureEvent="submitRegister"></sureBtn>
     </view>
 </view>

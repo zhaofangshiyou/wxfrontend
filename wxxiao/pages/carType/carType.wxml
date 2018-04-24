@@ -3,7 +3,7 @@
 <scroll-view scroll-y="true" style="height: {{winHeight}}px;margin-top:128rpx;" scroll-into-view="{{scrollTopId}}" class="city_list">
     <view wx:for="{{carList}}" wx:for-index="idx" wx:for-item="ABC">
         <view id="{{idx}}" class="list_tit">{{idx}}</view>
-        <view wx:for="{{ABC}}" data-sub="{{item.List}}" bindtap="subType">
+        <view wx:for="{{ABC}}" data-sub="{{item.List}}" data-brand="{{item.N}}" bindtap="subType">
           <view  class="list_con">{{item.N}}</view>  
         </view>
     </view>
@@ -26,7 +26,7 @@ style="background: rgba(0,0,0,{{trans}});"
   <scroll-view  scroll-y class="sub_conten" >
         <view wx:for="{{subArr}}" wx:for-item="titleName">
             <view class="sub_title">{{titleName.N}}</view>
-            <view class="sub_item" wx:for="{{titleName.List}}">
+            <view class="sub_item" wx:for="{{titleName.List}}" data-subbrand="{{item.N}}" catchtap="chooseSub">
                 <view class="sub_text">{{item.N}}</view>
             </view>
         </view>
