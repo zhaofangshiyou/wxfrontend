@@ -1,5 +1,5 @@
 <!--pages/completeMess/completeMess.wxml-->
-<header></header>
+<header title="完善资料"></header>
 <view class="container">
     <view class="form_box">
         <view class="section">

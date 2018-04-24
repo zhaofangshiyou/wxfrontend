@@ -1,5 +1,5 @@
 <!--pages/recharge/recharge.wxml-->
-<header></header>
+<header title="兆方卡充值"></header>
 <view class="container">
     <view class="content">
         <view class="rechage_box">
@@ -7,7 +7,7 @@
             <view class="rechage_number">
                 <view class="rechage_notice">
                     <view class="rechage_text">¥ </view>
-                    <input bindblur="input_money" value="{{inputTxt}}" class="input" type="number"   placeholder-style="color:#BDBDBD" placeholder="请输入其他充值金额" />
+                    <input bindblur="input_money" value="{{inputTxt}}" class="input" type="number" placeholder-class="placeholder_size"  placeholder-style="color:#BDBDBD;" placeholder="请输入其他充值金额" />
                 </view>
             </view>
             <view class="choose_money">

@@ -40,9 +40,12 @@
 .input{
     flex: 1;
     height:48rpx; 
-    font-size:30rpx;
+    font-size:48rpx;
     color:rgba(51,51,51,1);
     line-height:48rpx;
+}
+.placeholder_size{
+    font-size: 30rpx;
 }
 
 .choose_money{
