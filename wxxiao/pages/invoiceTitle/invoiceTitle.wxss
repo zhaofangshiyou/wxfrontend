@@ -110,7 +110,7 @@ button[disabled] {
 .invoice_item{
     width: 208rpx;
     height: 72rpx;
-    border: 2rpx solid #BDBDBD;
+    border: 1rpx solid #efefef;
     border-radius: 8rpx;
     text-align: center;
     line-height: 72rpx;
@@ -120,7 +120,7 @@ button[disabled] {
 .invoice_item.active{
     color: #F96432;
     background:rgba(254,221,213,1);
-    border: 2rpx solid #F96432;
+    border: 1rpx solid #F96432;
 }
 
 .add_tax{
@@ -141,7 +141,7 @@ button[disabled] {
     display: flex;
     font-size: 0;
     align-items:  center; 
-    border-bottom: 2rpx solid #EfEfEf;
+    border-bottom: 1rpx solid #EfEfEf;
 }
 .section2:last-child{
     border-bottom: 0;

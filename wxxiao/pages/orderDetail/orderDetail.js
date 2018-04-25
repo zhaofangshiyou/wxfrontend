@@ -9,6 +9,11 @@ Page({
     passwordArr: [],
     payWay: 1
   },
+  forgetPass: function() {
+    wx.navigateTo({
+      url: '../../pages/modifyPass/modifyPass'
+    })
+  },
   changePay: function() {
     if(this.data.payWay==1) {
       this.data.payWay = 2;
@@ -35,9 +40,10 @@ Page({
     })
   },
   inputPass: function(e) {
-    if(e.currentTarget.dataset.number == 'OK'){
-      wx.navigateTo({
-        url: '../../pages/payOrder/payOrder'
+    if(e.currentTarget.dataset.number == 'deleteAll'){
+      this.data.passwordArr.length = 0;
+      this.setData({
+        passwordArr: this.data.passwordArr
       })
     }else if(e.currentTarget.dataset.number == 'delete'){
       this.data.passwordArr.pop();
@@ -47,6 +53,11 @@ Page({
     }else{
       if(this.data.passwordArr.length < 6) {
         this.data.passwordArr.push(e.currentTarget.dataset.number);
+        if(this.data.passwordArr.length==6) {
+          wx.navigateTo({
+            url: '../../pages/payOrder/payOrder'
+          })
+        }
         this.setData({
           passwordArr: this.data.passwordArr
         })

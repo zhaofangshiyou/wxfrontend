@@ -44,7 +44,7 @@
     width: 160rpx;
     height: 60rpx;
     border-radius: 30rpx;
-    border: 2rpx solid #F96432;
+    border: 1rpx solid #F96432;
     line-height: 60rpx;
     text-align: center;
     font-size: 26rpx;
@@ -87,7 +87,7 @@
     margin: 0 auto;
     width: 150rpx;
     height: 68rpx;
-    border:2rpx solid #efefef;
+    border:1rpx solid #efefef;
     line-height: 68rpx;
     text-align: center;
     margin-top: 40rpx;
@@ -96,7 +96,7 @@
     border-radius: 8rpx;
 }
 .grap_item.active{
-    border:2rpx solid #F96432;
+    border:1rpx solid #F96432;
     color: #F96432;
     background: #FEDDD5; 
 }
@@ -107,7 +107,7 @@
    text-align: center;
    font-size:24rpx;
    color:rgba(153,153,153,1);
-   border-top:2rpx solid #efefef;
+   border-top:1rpx solid #efefef;
    margin-bottom: 20rpx; 
 }
 

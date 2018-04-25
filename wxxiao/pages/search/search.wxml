@@ -1,5 +1,5 @@
 <!--pages/search/search.wxml-->
-<header></header>
+<header title="交易查询"></header>
 <view class="container">
     <view class="tab">
         <view class="tab_item" data-tabIndex="1" bindtap="changeTab">

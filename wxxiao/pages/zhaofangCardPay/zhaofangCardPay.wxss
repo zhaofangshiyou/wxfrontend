@@ -11,7 +11,7 @@
     line-height: 32rpx;
     display: inline-block;
     vertical-align: middle;
-    border: 2rpx solid #F96432;
+    border: 1rpx solid #F96432;
     border-radius: 50%;
     text-align: center;
     font-size:24rpx;

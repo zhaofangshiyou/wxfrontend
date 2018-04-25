@@ -17,7 +17,7 @@
     padding:34rpx 20rpx 35rpx 20rpx;
     display: flex;
     align-items: center;
-    border-bottom: 2rpx solid #EFEFEF;
+    border-bottom: 1rpx solid #EFEFEF;
 }
 .avatar_icon{
     flex: 0 0 60rpx;
@@ -49,7 +49,7 @@
     line-height: 50rpx;
     text-align: center;
     border-radius: 25rpx ; 
-    border: 2rpx solid #F96432;
+    border: 1rpx solid #F96432;
     color: #F96432;
     font-size:26rpx;
 }

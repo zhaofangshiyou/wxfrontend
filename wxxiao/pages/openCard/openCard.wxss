@@ -11,7 +11,7 @@
     line-height: 32rpx;
     display: inline-block;
     vertical-align: middle;
-    border: 2rpx solid #F96432;
+    border: 1rpx solid #F96432;
     border-radius: 50%;
     text-align: center;
     font-size:24rpx;
@@ -37,7 +37,7 @@
     height: 100rpx;
     display: flex;
     align-items: center;
-    border-bottom: 2rpx solid #EFEFEF;
+    border-bottom: 1rpx solid #EFEFEF;
 }
 .section:last-child{
     border-bottom: 0;
@@ -96,7 +96,7 @@
     height: 60rpx;
     line-height: 60rpx;
     border-radius: 30rpx;
-    border: 2rpx solid #F96432;
+    border: 1rpx solid #F96432;
     text-align: center;
     font-size:24rpx;
     font-family:PingFangSC-Regular;
@@ -131,7 +131,7 @@
     font-size:30rpx;
     font-family:PingFangSC-Regular;
     color:rgba(51,51,51,1);
-    border-bottom: 2rpx solid #EFEFEF;
+    border-bottom: 1rpx solid #EFEFEF;
 }
 .sex_item:last-child{
     border-bottom: none;

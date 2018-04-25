@@ -74,7 +74,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2rpx solid #efefef;
+    border-bottom: 1rpx solid #efefef;
 }
 .recharge_list:last-child{
     border-bottom: none;
@@ -110,7 +110,7 @@
     background: #fff;  
 }
 .classify_item{
-    height: 100rpx;
+    /* height: 100rpx; */
     line-height: 100rpx;
     margin-left: 30rpx;
     border-top: 2rpx solid #efefef;

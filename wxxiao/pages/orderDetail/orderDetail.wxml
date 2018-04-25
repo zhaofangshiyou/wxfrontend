@@ -91,7 +91,7 @@
                     <view class="pass_point" wx:if="{{passwordArr.length > 5}}"></view>
                 </view>
             </view>
-            <view class="forget_pass">忘记密码?</view>
+            <view class="forget_pass" bindtap="forgetPass">忘记密码?</view>
         </view>
         <view class="board_number">
             <view class="board_number_box">
@@ -110,7 +110,7 @@
                 <view class="board_number_item" data-number="9" bindtap="inputPass">9</view>
             </view>
             <view class="board_number_box">
-                <view class="board_number_item" data-number="OK" bindtap="inputPass">确定</view>
+                <view class="board_number_item" data-number="deleteAll" bindtap="inputPass">C</view>
                 <view class="board_number_item" data-number="0" bindtap="inputPass">0</view>
                 <view class="board_number_item" data-number="delete" bindtap="inputPass">
                     <image class="delete_icon" src="../../images/delete.png"></image>

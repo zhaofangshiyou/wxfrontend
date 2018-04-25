@@ -12,20 +12,23 @@
   margin: 0;
   padding: 0;
   background: #FFF;
+  display: flex;
+  align-items: center;
 }
 .notice_icon{
-  display: inline-block;
-  width: 36rpx;
+  flex:0 0 36rpx;
   height: 36rpx;
   margin-left: 70rpx;
   vertical-align: middle;
 }
 .notice_text{
-  display: inline-block;
+  height: 60rpx;
+  flex: 1;
   font-size: 24rpx;
   color: #F96432;
   line-height: 60rpx;
   margin-left: 18rpx;
+  vertical-align: middle;
 }
 
 .content{
@@ -33,6 +36,7 @@
   background: #f5f5f5;
   min-height: 100VH;
   padding-bottom: 58rpx;
+  font-size: 0;
 }
 .home_list{
   margin:20rpx 30rpx;
@@ -72,6 +76,7 @@
   font-family:PingFangSC-Semibold;
   color:rgba(249,100,50,1);
   line-height:30rpx;
+  margin-bottom: 20rpx;
 }
 .message{
   height:26rpx; 

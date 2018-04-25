@@ -77,7 +77,7 @@
     width: 120rpx;
     height: 50rpx;
     border-radius: 25rpx;
-    border: 2rpx solid #F96432;
+    border: 1rpx solid #F96432;
     color: #F96432;
     font-size: 30rpx;
     text-align: center;
