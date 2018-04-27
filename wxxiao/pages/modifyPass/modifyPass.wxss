@@ -35,6 +35,7 @@
     margin-left: 40rpx;
     height: 100rpx;
     line-height: 100rpx;
+    flex: 1;
 }
 .code {
     width: 160rpx;
@@ -45,5 +46,5 @@
     text-align: center;
     font-size:26rpx;
     color:rgba(249,100,50,1);
-    float: right;
+    margin-right: 30rpx;
 }
