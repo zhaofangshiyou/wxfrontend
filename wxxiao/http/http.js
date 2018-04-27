@@ -1,4 +1,5 @@
 var sendRrquest = function (url,data,params,method) {
+  console.log(wx.getStorageSync('token'));
     url = url+ jsonRestFull(data);
     console.log(url);
     var promise = new Promise(function (resolve, reject) {
@@ -8,7 +9,8 @@ var sendRrquest = function (url,data,params,method) {
            data: params,
            method: method,
            header: {
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': 'Bearer'+wx.getStorageSync('token')
            },
            success: function(res) {
             resolve(res);

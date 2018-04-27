@@ -34,7 +34,7 @@
     position: absolute;
     width: 108rpx;
     height: 108rpx;
-    border-radius: 50%;
+    border-radius: 54rpx;
     left: 6rpx;
     top: 6rpx;
 }

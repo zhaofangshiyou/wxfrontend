@@ -66,7 +66,7 @@
   /*城市选择 右边*/
   .scroll_list {
     background: rgba(0,0,0,0);
-    position: absolute;
+    position: fixed;
     height: calc(100% - 166rpx);
     width: 25rpx;
     top: 186rpx;

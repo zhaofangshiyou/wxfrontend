@@ -1,4 +1,6 @@
 //app.js
+import httpService from './http/http.js';
+const app = getApp();
 App({
   config: {
     host: 'https://api.zfsyonline.com',
@@ -15,7 +17,14 @@ App({
     // 登录
     wx.login({
       success: res => {
+        console.log(res);
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        httpService.sendRrquest('https://api.zfsyonline.com/v1/user',{},{code: res.code},'POST')
+        .then((res) => {
+          if(res.status===0) {
+            wx.setStorageSync('token', res.data.token);
+          }
+        })
       }
     })
     // 获取用户信息

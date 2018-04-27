@@ -23,10 +23,22 @@ Page({
 
   onReady: function () {
     var that = this;
-    // httpService.sendRrquest(app.config.host+'/v1/login',{user: 1},{name: '11111'},'DELETE')
+    // wx.login({
+    //   success: res => {
+    //     console.log(res);
+    //     // 发送 res.code 到后台换取 openId, sessionKey, unionId
+    //     httpService.sendRrquest('https://api.zfsyonline.com/v1/token',{},{code: res.code},'GET')
+    //     .then((res) => {
+    //       if(res.data.status==0) {
+    //         wx.setStorageSync('token', res.data.data.token);
+    //         httpService.sendRrquest(app.config.host+'/v1/message',{},{user_id: 1111},'POST')
     //   .then((res) => {
     //     console.log(res);
     //   })
+    //       }
+    //     })
+    //   }
+    // })
   },
   
   goNext(event) {

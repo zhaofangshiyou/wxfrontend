@@ -63,7 +63,7 @@ Page({
     var that = this;
     wx.getSystemInfo({
      success: function (res) {
-      lineHeight = (res.windowHeight-100) / 22;
+      lineHeight = (res.windowHeight-150) / 22;
       that.setData({
        carList: carList,
        winHeight: res.windowHeight,
