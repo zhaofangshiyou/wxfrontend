@@ -17,12 +17,12 @@ App({
     // 登录
     wx.login({
       success: res => {
-        console.log(res);
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         httpService.sendRrquest('https://api.zfsyonline.com/v1/user',{},{code: res.code},'POST')
         .then((res) => {
-          if(res.status===0) {
-            wx.setStorageSync('token', res.data.token);
+          if(res.data.status===0) {
+            console.log(res);
+            wx.setStorageSync('user_id', res.data.data.user.id);
           }
         })
       }

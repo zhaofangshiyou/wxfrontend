@@ -1,5 +1,4 @@
 var sendRrquest = function (url,data,params,method) {
-  console.log(wx.getStorageSync('token'));
     url = url+ jsonRestFull(data);
     console.log(url);
     var promise = new Promise(function (resolve, reject) {

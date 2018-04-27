@@ -1,4 +1,5 @@
 // pages/openCard/openCard.js
+import httpService from '../../http/http.js';
 Page({
 
   /**
@@ -51,8 +52,11 @@ Page({
   },
   //发送验证码
   sendCode() {
-    console.log(this.data.sendAgain,this.data.userInfo.phone);
     if(this.isPoneAvailable(this.data.userInfo.phone) && this.data.sendAgain) {
+      httpService.sendRrquest(app.config.host+'/v1/message',{},
+      {
+        'user_id': wx.getStorageSync('user_id')
+      })
       this.countDown(60);
     }else if(!this.data.sendAgain){
       this.warnMsg('验证码已发送，稍后重试');
