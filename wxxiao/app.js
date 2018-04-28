@@ -3,7 +3,7 @@ import httpService from './http/http.js';
 const app = getApp();
 App({
   config: {
-    host: 'https://api.zfsyonline.com',
+    host: 'https://api.zfsyonline.com/v1',
     header: ` {
       'Content-Type": "application/x-www-form-urlencoded'
     }`
