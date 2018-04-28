@@ -53,7 +53,7 @@ Page({
           url: '../../pages/succeCard/succeCrd'
         })
       }else{
-        this.warnMsg(res.data.message);
+        this.warnMsg(res.data.msg);
       }
     })
     
@@ -112,14 +112,12 @@ Page({
   //性别选择相关
   ChooseSex: function(e){
     if(e.currentTarget.dataset.sex=='man') {
-      console.log(e);
       this.setData({
         "userInfo.sex" : '男',
         "show.sexToggle": false,
         "show.showSex": true,
         "check.checksex": true
       })
-      console.log(this.data.userInfo.sex);
     }else {
       this.setData({
         "userInfo.sex" : '女',
@@ -199,8 +197,9 @@ Page({
             "check.checkPhone": true
           })
         }
+        break;
       case 'code':
-        if(event.detail.value.length < 1) {
+        if(event.detail.value.length == 0 ) {
           this.warnMsg('请输入正确的验证码'); 
           this.setData({
             "check.checkCode": false
@@ -211,6 +210,9 @@ Page({
             "check.checkCode": true
           })
         }
+        break;
+      default:
+        return;
     }
   },
   //验证身份证
