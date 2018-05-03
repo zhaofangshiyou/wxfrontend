@@ -4,11 +4,11 @@
     <view class="form_box">
         <view class="section">
             <view class="section_title">真实姓名</view>
-            <input class="input" data-flag="realName" bindblur="checkMsg" name="name" placeholder-style="color:#BDBDBD" placeholder="请输入您的真实姓名" />
+            <input class="input" value="{{realName}}" data-flag="realName" bindinput="checkMsg" name="name" placeholder-style="color:#BDBDBD" placeholder="请输入您的真实姓名" />
         </view>
         <view class="section">
             <view class="section_title">身份证号</view>
-            <input class="input" type="idcard" data-flag="ID" bindblur="checkMsg" name="id" placeholder-style="color:#BDBDBD" placeholder="请输入您的身份证号码" />
+            <input class="input"  value="{{IDcard}}" type="idcard" data-flag="ID" bindblur="checkMsg" name="id" placeholder-style="color:#BDBDBD" placeholder="请输入您的身份证号码" />
         </view>
         <view class="section">
             <view class="section_title">性别</view>
@@ -39,11 +39,11 @@
         </view> -->
         <view class="section">
             <view class="section_title">车牌号码</view>
-            <input class="input" data-flag="realName" bindblur="checkMsg" name="car_number" placeholder-style="color:#BDBDBD" placeholder="请输入您的车牌号" />
+            <input value="{{carNum}}" class="input" data-flag="carNum" bindblur="checkMsg" name="car_number" placeholder-style="color:#BDBDBD" placeholder="请输入您的车牌号" />
         </view>
     </view>
 
     <view class="sureSubmit">
-        <sureBtn text="保存" bind:sureEvent="submitRegister"></sureBtn>
+        <sureBtn text="保存" bind:sureEvent="submitComplete"></sureBtn>
     </view>
 </view>
