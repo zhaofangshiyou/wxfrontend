@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/search/search",
     "pages/index/index",
     "pages/openCard/openCard",
     "pages/welfare/welfare",
@@ -7,7 +8,6 @@
     "pages/completeMess/completeMess",
     "pages/chooseGrap/chooseGrap",
     "pages/my/my",
-    "pages/search/search",
     "pages/zhaofangCardPay/zhaofangCardPay",
     "pages/orderDetail/orderDetail",
     "pages/payOrder/payOrder",

@@ -1,12 +1,17 @@
 /* pages/search/search.wxss */
+.header_box{
+    position: fixed;
+    top: 128rpx;
+    width: 100%;
+    z-index: 999;
+    background: #f5f5f5;
+    border-bottom: 20rpx solid #f5f5f5;
+}
 .tab{
     width: 100%;
     background: #fff;
     font-size: 0;
     box-shadow: 0px 4rpx 10rpx 0px rgba(51,51,51,0.1);
-    z-index: 100;
-    position: fixed;
-    top: 128rpx;
 }
 .tab_item{
     width: 50%;
@@ -40,7 +45,7 @@
     margin-top: 30rpx;
 }
 .all{
-    margin-top: 110rpx;
+    margin-top: 6rpx;
     width: 100%;
     box-sizing: border-box;
     padding: 0 30rpx;
@@ -50,6 +55,7 @@
     justify-content: space-between;
     background: #fff;
     align-items: center;
+
 }
 .all_text{
     font-size:30rpx;
@@ -62,7 +68,10 @@
 .recharge{
     background: #fff;
     width: 100%;
-    margin-top: 20rpx;
+    top: 220rpx;
+    bottom: 0;
+    position: absolute;
+    overflow: hidden;
 }
 .recharge_list{
     height: 140rpx;
@@ -75,9 +84,6 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: 1rpx solid #efefef;
-}
-.recharge_list:last-child{
-    border-bottom: none;
 }
 .text_title{
     font-size:30rpx;
@@ -100,10 +106,10 @@
     position: absolute;
     width: 100%;
     box-sizing: border-box;
-    top: 206rpx;
+    top: 210rpx;
     bottom: 0;
     background:rgba(51,51,51,0.3);
-    z-index: 50;
+    z-index: 99999;
     
 }
 .classify_box{

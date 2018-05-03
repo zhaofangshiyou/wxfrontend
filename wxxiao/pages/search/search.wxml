@@ -1,63 +1,52 @@
 <!--pages/search/search.wxml-->
+<wxs module="dateFr" src="../../filter/dateFilter.wxs"></wxs>
 <header title="交易查询"></header>
 <view class="container">
-    <view class="tab">
-        <view class="tab_item" data-tabIndex="1" bindtap="changeTab">
-            <view class="tab_text {{tabIndex==1?'active':''}}">充值记录</view>
-        </view>
-        <view class="tab_item" data-tabIndex="2" bindtap="changeTab">
-            <view class="tab_text {{tabIndex==2?'active':''}}">消费记录</view>
-        </view>
-    </view>
-    <view class="all" bindtap="classify">
-        <text class="all_text">全部</text>
-        <image class="down_image" src="../../images/down.png"></image>
-    </view>
-    <!-- 充值记录 -->
-    <view class="recharge" hidden="{{tabIndex==2}}">
-        <view class="recharge_list">
-            <view class="text_message">
-                <view class="text_title">线上充值</view>
-                <view class="text_tip">2018-04-16 12:12:12</view>
+    <view class="header_box">
+        <view class="tab">
+            <view class="tab_item" data-tabIndex="1" bindtap="changeTab">
+                <view class="tab_text {{tabIndex==1?'active':''}}">充值记录</view>
             </view>
-            <view class="add_number">+3000</view>
+            <view class="tab_item" data-tabIndex="2" bindtap="changeTab">
+                <view class="tab_text {{tabIndex==2?'active':''}}">消费记录</view>
+            </view>
         </view>
-        <view class="recharge_list">
-                <view class="text_message">
-                    <view class="text_title">线上充值</view>
-                    <view class="text_tip">2018-04-16 12:12:12</view>
-                </view>
-                <view class="add_number">+3000</view>
-            </view>
-    </view>
-    <!-- 消费记录 -->
-    <view class="recharge" hidden="{{tabIndex==1}}">
-        <view class="recharge_list">
-            <view class="text_message">
-                <view class="text_title">线上充值</view>
-                <view class="text_tip">2018-04-16 12:12:12</view>
-            </view>
-            <view class="reduce_number">+3000</view>
+        <view class="all" bindtap="classify">
+            <text class="all_text">{{typeName}}</text>
+            <image class="down_image" src="../../images/down.png"></image>
         </view>
-        <view class="recharge_list">
-                <view class="text_message">
-                    <view class="text_title">线上充值</view>
-                    <view class="text_tip">2018-04-16 12:12:12</view>
-                </view>
-                <view class="reduce_number">+3000</view>
-            </view>
     </view>
 
+    <!-- 充值记录 -->
+    <scroll-view scroll-y="true"  bindscrolltolower="loadMoreCharge"  class="recharge" hidden="{{tabIndex==2}}">
+        <view class="recharge_list"  wx:for="{{rechageList}}" wx:for-index="index">
+            <view class="text_message">
+                <view class="text_title">线上充值</view>
+                <view class="text_tip">{{dateFr.getDate(item.created_at,'-')}}</view>
+            </view>
+            <view class="add_number">+{{item.money}}</view>
+        </view>
+    </scroll-view>
+    <!-- 消费记录 -->
+    <scroll-view scroll-y="true"  bindscrolltolower="loadMoreComsume"  class="recharge" hidden="{{tabIndex==1}}">
+        <view class="recharge_list" wx:for="{{comsumeList}}" wx:for-index="index">
+                <view class="text_message">
+                    <view class="text_title">华富油站</view>
+                    <view class="text_tip">{{dateFr.getDate(item.created_at,'-')}}</view>
+                </view>
+                <view class="reduce_number">-{{item.money}}</view>
+            </view>
+    </scroll-view>
     <!-- 分类 -->
     <view class="classify" hidden="{{!showClassify}}" catchtap="hideClassify">
         <view class="classify_box">
-            <view class="classify_item choose">全部</view>
-            <view class="classify_item">单位卡</view>
-            <view class="classify_item">个人卡</view>
+            <view class="classify_item {{typeValue==0? 'choose': ''}}" data-index="0" catchtap="changeType">全部</view>
+            <view class="classify_item {{typeValue==1? 'choose': ''}}" data-index="1" catchtap="changeType">个人卡</view>
+            <view class="classify_item {{typeValue==2? 'choose': ''}}" data-index="2" catchtap="changeType">单位卡</view>
         </view>
     </view>
 
-    <view class="noData" style="display:none">
+    <view class="noData" hidden="{{noData}}">
         <image class="noData_image" src="../../images/icon_trade.png"></image>
         <view class="noDataText">暂无充值记录</view>
     </view>
