@@ -1,4 +1,8 @@
 // pages/modifyPass/modifyPass.js
+import httpService from '../../http/http.js';
+import util from '../../utils/util.js'
+const app = getApp();
+
 Page({
 
   /**
@@ -14,6 +18,21 @@ Page({
       pass: "",
       comPass: ""
     }
+  },
+  formSubmit: function(e) {
+    let url = app.config.host+'/password';
+    let data = {userId: wx.getStorageSync('user_id')};
+    let params = {
+      code: e.detail.value.code,
+      mobile: e.detail.value.phone,
+      password: e.detail.value.pass
+    };
+    let method = 'PUT';
+    httpService.sendRrquest(url,data,params,method).then(res => {
+      if(res.data.status === 0) {
+        util.warnMsg('修改成功');
+      }
+    })
   },
    //发送验证码
    sendCode() {

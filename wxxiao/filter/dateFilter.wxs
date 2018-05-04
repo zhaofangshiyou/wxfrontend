@@ -8,9 +8,13 @@ var DateFr = {
         var seconds = d.getSeconds() < 10? '0'+d.getSeconds(): d.getSeconds();
         var dateTime=d.getFullYear() + sign + month + sign + date + ' ' + hours + ':' + min + ':' + seconds; 
         return dateTime;
-    } 
+    }
+    toFix: function (value) {
+        return value.toFixed(2)
+    }
 }
 
 module.exports = {
-    getDate: DateFr.getDate
+    getDate: DateFr.getDate,
+    toFix: DateFr.toFix
   }

@@ -42,15 +42,19 @@ Page({
     sendAgain: true
   },
   submitRegister(){
-    httpService.sendRrquest(app.config.host+'/card',{},{
+    let url = app.config.host+'/card';
+    let params = {
       'user_id': wx.getStorageSync('user_id'),
       'password': this.data.userInfo.password,
       'unit_card_type': 0,
-      'code': this.data.userInfo.code
-    },'POST').then(res => {
+      'code': this.data.userInfo.code,
+      'mobile': this.data.userInfo.phone
+    };
+    let method = 'POST';
+    httpService.sendRrquest(url,{},params,method).then(res => {
       if(res.data.status === 0) {
         wx.navigateTo({
-          url: '../../pages/succeCard/succeCrd'
+          url: '../../pages/succeCard/succeCrd?title=开卡成功&type=0&balance=0'
         })
       }else{
         this.warnMsg(res.data.msg);
@@ -67,10 +71,13 @@ Page({
   //发送验证码
   sendCode() {
     if(this.isPoneAvailable(this.data.userInfo.phone) && this.data.sendAgain) {
-      httpService.sendRrquest(app.config.host+'/message',{},
-      {
+      let url = app.config.host+'/message';
+      let params = {
         'mobile': this.data.userInfo.phone
-      },'POST').then(res=> {
+      };
+      let method = 'POST'
+      httpService.sendRrquest(url,{},
+      params,method).then(res=> {
         if(res.data.status === 0) {
           this.countDown(60);
           this.warnMsg('验证码已发送'); 

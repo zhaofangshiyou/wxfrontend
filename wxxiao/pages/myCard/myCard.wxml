@@ -2,7 +2,7 @@
 <header title="我的兆方卡"></header>
 <view class="container">
     <view class="content">
-        <view class="home_list" wx:for="{{listArr}}" wx:for-index="index" wx:for-item="item" data-link="{{item.link}}" bindtap="cardDetail">
+        <view class="home_list" wx:for="{{listArr}}" wx:for-index="index" wx:for-item="item" data-index="{{index}}" bindtap="cardDetail">
             <view class="list_box">
                 <view class="list-left">
                     <image class="pay_icon" src="{{item.iconUrl}}"></image>

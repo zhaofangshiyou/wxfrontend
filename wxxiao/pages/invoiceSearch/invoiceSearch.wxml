@@ -3,7 +3,7 @@
 <view class="container">
     <view class="tab">
         <view class="tab_item" data-tabIndex="1" bindtap="changeTab">
-            <view class="tab_text {{tabIndex==1?'active':''}}">可开发票</view>
+            <view class="tab_text {{tabIndex==1?'active':''}}">未开发票</view>
         </view>
         <view class="tab_item" data-tabIndex="2" bindtap="changeTab">
             <view class="tab_text {{tabIndex==2?'active':''}}">已开发票</view>

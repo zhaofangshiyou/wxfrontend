@@ -21,7 +21,7 @@ Page({
       content: '是否前往：兆方石油' + e.currentTarget.dataset.name,
       success: function (sm) {
         if (sm.confirm) {
-            // 用户点击了确定 可以调用删除方法了
+            // 用户点击了确定 
             wx.openLocation({ //出发wx.openLocation API
 
               latitude: Number(22.54387), //坐标纬度（从地图获取坐标）
@@ -44,6 +44,7 @@ Page({
     wx.getLocation({
       type: 'wgs84',
       success: function(res) {
+        console.log(res);
         that.setData({
           latitude: res.latitude,
           longitude: res.longitude

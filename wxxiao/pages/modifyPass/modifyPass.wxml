@@ -15,11 +15,11 @@
             </view>
             <view class="section">
                 <view class="section_title">新密码</view>
-                <input class="input_text" data-flag="3" bindinput="checkForm" maxlength="6" password type="number" name="pass" placeholder="请输入6位数字新密码" placeholder-style="color:#BDBDBD" />
+                <input class="input_text" data-flag="3" bindinput="checkForm" maxlength="6" password type="number" name="pass" placeholder="请输入6位数兆方卡新密码" placeholder-style="color:#BDBDBD" />
             </view>
             <view class="section">
                 <view class="section_title">确认密码</view>
-                <input class="input_text" data-flag="4" bindinput="checkForm" maxlength="6" password type="number" name="comPass" placeholder="请确认6位数字新密码" placeholder-style="color:#BDBDBD" />
+                <input class="input_text" data-flag="4" bindinput="checkForm" maxlength="6" password type="number" name="comPass" placeholder="请确认6位数兆方卡新密码" placeholder-style="color:#BDBDBD" />
             </view>    
         </view>
     </view>

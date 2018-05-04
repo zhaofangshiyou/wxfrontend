@@ -38,11 +38,15 @@ Page({
   },
   //获取充值流水
   getRechageData: function(page,limit,typeValue) {
-    httpService.sendRrquest(app.config.host+ '/query/flow/charge',{userId: wx.getStorageSync('user_id')},{
+    let url = app.config.host+ '/query/flow/charge';
+    let data = {userId: wx.getStorageSync('user_id')};
+    let params = {
       page: this.data.page,
       limit: this.data.limit,
       msg_type: this.data.typeValue
-    },'GET').then(res => {
+    };
+    let method = 'GET';
+    httpService.sendRrquest(url,data,params,method).then(res => {
       if(res.data.status === 0) {
         var list = res.data.data.flow;
         if(list=='') {
@@ -78,11 +82,15 @@ Page({
   },
   //获取加油流水
   getComsumeData: function(page,limit,typeValue) {
-    httpService.sendRrquest(app.config.host+ '/query/flow/oil',{userId: 1},{
+    let url = app.config.host+ '/query/flow/oil';
+    let data = {userId: wx.getStorageSync('user_id')};
+    let params = {
       page: this.data.page2,
       limit: this.data.limit,
       msg_type: this.data.typeValue
-    },'GET').then(res => {
+    };
+    let method = 'GET';
+    httpService.sendRrquest(url,data,params,method).then(res => {
       if(res.data.status === 0) {
         var list = res.data.data.flow;
         if(list=='') {

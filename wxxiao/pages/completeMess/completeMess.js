@@ -31,12 +31,27 @@ Page({
               chooseSex: user.sex
             })
           }
-          this.setData({
-            realName: user.name,
-            IDcard: user.id_card,
-            carTypeBrand: user.car_type,
-            carNum: user.car_num
-          })
+          if(user.car_type != 'null') {
+            this.setData({
+              carTypeBrand: user.car_type,
+              showCar: true
+            })
+          }
+          if(user.id_card != 'null') {
+            this.setData({
+              IDcard: user.id_card,
+            })
+          }
+          if(user.car_num != 'null') {
+            this.setData({
+              carNum: user.car_num,
+            })
+          }
+          if(user.realName != 'null') {
+            this.setData({
+              realName: user.name, 
+            })
+          }
         }
       })
   },
