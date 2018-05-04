@@ -22,7 +22,10 @@ Page({
   },
   //H获取用户信息
   getUserInfo: function() {
-    httpService.sendRrquest(app.config.host+'/user',{userId: wx.getStorageSync('user_id')},{},'GET')
+    let url = app.config.host+'/user';
+    let data = {userId: wx.getStorageSync('user_id')};
+    let method = 'GET';
+    httpService.sendRrquest(url,data,{},method)
       .then(res => {
         if(res.data.status === 0) {
           var user = res.data.data.user;
@@ -31,27 +34,17 @@ Page({
               chooseSex: user.sex
             })
           }
-          if(user.car_type != 'null') {
+          if(JSON.stringify(user.car_type) != 'null') {
             this.setData({
               carTypeBrand: user.car_type,
               showCar: true
             })
           }
-          if(user.id_card != 'null') {
-            this.setData({
-              IDcard: user.id_card,
-            })
-          }
-          if(user.car_num != 'null') {
-            this.setData({
-              carNum: user.car_num,
-            })
-          }
-          if(user.realName != 'null') {
-            this.setData({
-              realName: user.name, 
-            })
-          }
+          this.setData({
+            IDcard: user.id_card,
+            carNum: user.car_num,
+            realName: user.name
+          })
         }
       })
   },
@@ -66,14 +59,19 @@ Page({
           return false;
       }
     }
-    httpService.sendRrquest(app.config.host+'/user',{userId: wx.getStorageSync('user_id')},{
+    let url = app.config.host+'/user';
+    let data = {userId: wx.getStorageSync('user_id')};
+    let params = {
       name: that.data.realName,
       sex: that.data.chooseSex,
       id_card: that.data.IDcard,
       car_num: that.data.carNum,
       car_type: that.data.carTypeBrand
-    },'PUT').then( res => {
+    };
+    let method = 'PUT';
+    httpService.sendRrquest(url,data,params,method).then( res => {
       if(res.data.status === 0) {
+        this.warnMsg('修改成功');
         this.getUserInfo();
       }
     })

@@ -1,4 +1,14 @@
 /* pages/search/search.wxss */
+.noMore{
+    width: 100%;
+    overflow: hidden;
+    height: 100rpx;
+    background: #f5f5f5;
+    text-align: center;
+    line-height: 100rpx;
+    font-size: 24rpx;
+    color: #bdbdbd;
+}
 .header_box{
     position: fixed;
     top: 128rpx;
@@ -34,6 +44,8 @@
     margin-top: 320rpx;
     box-sizing: border-box;
     text-align: center;
+    position:relative;
+
 }
 .noData_image{
     width:180rpx;
@@ -66,12 +78,14 @@
    height: 12rpx; 
 }
 .recharge{
-    background: #fff;
     width: 100%;
     top: 220rpx;
-    bottom: 0;
+    bottom: 5px;
     position: absolute;
     overflow: hidden;
+}
+.recharge_box{
+    background: #fff;
 }
 .recharge_list{
     height: 140rpx;
@@ -83,7 +97,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1rpx solid #efefef;
+    border-top: 1rpx solid #efefef;
+}
+.recharge_list:first-child{
+    border: none;
 }
 .text_title{
     font-size:30rpx;

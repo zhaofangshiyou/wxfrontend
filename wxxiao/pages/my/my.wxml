@@ -45,11 +45,11 @@
                     <image class="enter_img" src="../../images/icon_invoice.png"></image>
                     <text class="enter_name">发票管理</text>
             </view>
-            <view class="enter_item" data-link="../../pages/search/search" bindtap="goNext">
+            <view class="enter_item" data-link="../../pages/search/search?tabIndex=2" bindtap="goNext">
                     <image class="enter_img" src="../../images/icon_consume.png"></image>
                     <text class="enter_name">消费记录</text>
             </view>
-            <view class="enter_item" data-link="../../pages/search/search" bindtap="goNext">
+            <view class="enter_item" data-link="../../pages/search/search?tabIndex=1" bindtap="goNext">
                     <image class="enter_img" src="../../images/icon_consume1.png"></image>
                     <text class="enter_name">充值记录</text>
             </view>

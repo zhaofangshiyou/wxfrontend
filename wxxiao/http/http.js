@@ -1,4 +1,6 @@
+//var app = getApp();
 var sendRrquest = function (url,data,params,method) {
+  //wx.showLoading({});
     url = url+ jsonRestFull(data);
     console.log(url);
     var promise = new Promise(function (resolve, reject) {
@@ -13,6 +15,7 @@ var sendRrquest = function (url,data,params,method) {
            },
            success: function(res) {
             resolve(res);
+            //wx.hideLoading()
            },
            fail: function(res) {
                 reject({error:'网络错误',code:0}); 

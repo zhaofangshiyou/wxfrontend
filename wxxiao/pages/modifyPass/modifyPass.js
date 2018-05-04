@@ -20,7 +20,7 @@ Page({
     }
   },
   formSubmit: function(e) {
-    let url = app.config.host+'/password';
+    let url = app.config.host+'/card/password';
     let data = {userId: wx.getStorageSync('user_id')};
     let params = {
       code: e.detail.value.code,
@@ -31,13 +31,31 @@ Page({
     httpService.sendRrquest(url,data,params,method).then(res => {
       if(res.data.status === 0) {
         util.warnMsg('修改成功');
+        setTimeout( () => {
+          wx.navigateBack();
+        },2000);
+      }else{
+        util.warnMsg(res.data.msg);
       }
     })
   },
    //发送验证码
    sendCode() {
     if(this.isPoneAvailable(this.data.formValue.phone) && this.data.sendAgain) {
-      this.countDown(60);
+      let url = app.config.host+'/message';
+      let params = {
+        'mobile': this.data.formValue.phone
+      };
+      let method = 'POST'
+      httpService.sendRrquest(url,{},
+      params,method).then(res=> {
+        if(res.data.status === 0) {
+          this.countDown(60);
+          this.warnMsg('验证码已发送'); 
+        }else{
+          this.warnMsg('验证码已发送失败'); 
+        }
+      })
     }else if(!this.data.sendAgain){
       this.warnMsg('验证码已发送，稍后重试');
     }else{

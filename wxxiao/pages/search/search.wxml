@@ -18,24 +18,30 @@
     </view>
 
     <!-- 充值记录 -->
-    <scroll-view scroll-y="true"  bindscrolltolower="loadMoreCharge"  class="recharge" hidden="{{tabIndex==2}}">
-        <view class="recharge_list"  wx:for="{{rechageList}}" wx:for-index="index">
-            <view class="text_message">
-                <view class="text_title">线上充值</view>
-                <view class="text_tip">{{dateFr.getDate(item.created_at,'-')}}</view>
+    <scroll-view scroll-y="true" scroll-top="{{scrollTop}}" bindscrolltolower="loadMoreCharge"  class="recharge" hidden="{{tabIndex==2}}">
+        <view class="recharge_box">    
+            <view class="recharge_list"  wx:for="{{rechageList}}" wx:for-index="index">
+                <view class="text_message">
+                    <view class="text_title">线上充值</view>
+                    <view class="text_tip">{{dateFr.getDate(item.created_at,'-')}}</view>
+                </view>
+                <view class="add_number">+{{item.money}}</view>
             </view>
-            <view class="add_number">+{{item.money}}</view>
         </view>
+        <view class="noMore" wx:if="{{noMore}}">没有更多记录～</view>
     </scroll-view>
     <!-- 消费记录 -->
-    <scroll-view scroll-y="true"  bindscrolltolower="loadMoreComsume"  class="recharge" hidden="{{tabIndex==1}}">
-        <view class="recharge_list" wx:for="{{comsumeList}}" wx:for-index="index">
+    <scroll-view scroll-y="true" scroll-top="{{scrollTop}}" bindscrolltolower="loadMoreComsume"  class="recharge" hidden="{{tabIndex==1}}">
+        <view class="recharge_box">   
+            <view class="recharge_list" wx:for="{{comsumeList}}" wx:for-index="index">
                 <view class="text_message">
                     <view class="text_title">华富油站</view>
                     <view class="text_tip">{{dateFr.getDate(item.created_at,'-')}}</view>
                 </view>
                 <view class="reduce_number">-{{item.money}}</view>
             </view>
+        </view>
+        <view class="noMore" wx:if="{{noMore}}">没有更多记录～</view>
     </scroll-view>
     <!-- 分类 -->
     <view class="classify" hidden="{{!showClassify}}" catchtap="hideClassify">
@@ -45,7 +51,6 @@
             <view class="classify_item {{typeValue==2? 'choose': ''}}" data-index="2" catchtap="changeType">单位卡</view>
         </view>
     </view>
-
     <view class="noData" hidden="{{noData}}">
         <image class="noData_image" src="../../images/icon_trade.png"></image>
         <view class="noDataText">暂无充值记录</view>

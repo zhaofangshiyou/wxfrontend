@@ -18,50 +18,72 @@ Page({
     page: 1,
     limit: 8,
     noData: true,
-    listHeight: ''
+    noMore: false,
+    listHeight: '',
+    scrollTop: 0
   },
    /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.getRechageData(this.data.page,this.data.limit,this.data.typeValue);
     var that = this;
     wx.getSystemInfo({
      success: function (res) {
-       console.log(res);
-      var listHeight = res.screenHeight*2 - 350;
+      var listHeight = (res.screenHeight - 170)/res.screenHeight*100;
       that.setData({
         listHeight: listHeight
       })
      }
     })
   },
+    /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    var that = this;
+    that.setData({
+      tabIndex: options.tabIndex
+    })
+    if(options.tabIndex == 1) {
+      this.getRechageData(this.data.page,this.data.limit,this.data.typeValue);
+    }else{
+      this.getComsumeData(this.data.page2,this.data.limit,this.data.typeValue);
+    }
+  },
   //获取充值流水
   getRechageData: function(page,limit,typeValue) {
     let url = app.config.host+ '/query/flow/charge';
-    let data = {userId: wx.getStorageSync('user_id')};
+    let data = {userId: 1};
     let params = {
       page: this.data.page,
       limit: this.data.limit,
       msg_type: this.data.typeValue
     };
     let method = 'GET';
+    this.setData({
+      noData: true,
+      noMore: false
+    })
     httpService.sendRrquest(url,data,params,method).then(res => {
       if(res.data.status === 0) {
         var list = res.data.data.flow;
         if(list=='') {
-          console.log('没有更多数据');
-        }else {
-          var newArr = this.data.rechageList.concat(list);
-          if(newArr.length == 0) {
+          if(this.data.rechageList.length == 0) {
             this.setData({
               noData: false
             })
           }else{
-            this.setData({
-              rechageList: newArr
-            })
-          } 
+            if(this.data.rechageList.length > 7) {
+              this.setData({
+                noMore: true
+              })
+            }
+          }
+        }else {
+          var newArr = this.data.rechageList.concat(list);
+          this.setData({
+            rechageList: newArr
+          }) 
         }
       }
     })
@@ -94,19 +116,18 @@ Page({
       if(res.data.status === 0) {
         var list = res.data.data.flow;
         if(list=='') {
-          console.log('没有更多数据');
-          return;
-        }else {
-          var newArr = this.data.comsumeList.concat(list);
-          if(newArr.length == 0) {
+          if(this.data.comsumeList.length == 0) {
             this.setData({
               noData: false
             })
           }else{
+            console.log(1233);
+          }
+        }else {
+          var newArr = this.data.comsumeList.concat(list);
             this.setData({
               comsumeList: newArr
             })
-          } 
         }
       }
     })
@@ -118,12 +139,17 @@ Page({
   },
   //切换导航
   changeTab: function(e) {
+    this.setData({
+      noData: true,
+      noMore: false,
+      scrollTop: 0,
+    })
     if(e.currentTarget.dataset.tabindex == 1) {
       this.setData({
         tabIndex: 1,
         showClassify: false,
         typeValue: 0,
-        typeName: '全部'
+        typeName: '全部'   
       })
       if(this.data.rechageList.length == 0) {
         this.getRechageData(this.data.page,this.data.limit,this.data.typeValue);
@@ -177,12 +203,7 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
-  },
+
 
 
   /**
