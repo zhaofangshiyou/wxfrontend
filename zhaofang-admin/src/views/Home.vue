@@ -75,7 +75,7 @@
 	export default {
 		data() {
 			return {
-				sysName:'VUEADMIN',
+				sysName:'兆方石油',
 				collapsed:false,
 				sysUserName: '',
 				sysUserAvatar: '',
