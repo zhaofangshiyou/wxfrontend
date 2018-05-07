@@ -12,9 +12,9 @@ Page({
       {name:'兆方公益',notice:'兆方公益，与爱同行',iconUrl: '../../images/zf_card@2x.png',link: '../../pages/welfare/welfare'}
     ],
     msgList: [
-      { url: "url", title: "公告：多地首套房贷利率上浮 热点城市渐迎零折扣时代" },
-      { url: "url", title: "公告：悦如公寓三周年生日趴邀你免费吃喝欢唱" },
-      { url: "url", title: "公告：你想和一群有志青年一起过生日嘛？" }]
+      { url: "url", title: "多地首套房贷利率上浮 热点城市渐迎零折扣时代" },
+      { url: "url", title: "悦如公寓三周年生日趴邀你免费吃喝欢唱" },
+      { url: "url", title: "你想和一群有志青年一起过生日嘛？" }]
   },
 
   onLoad: function () {

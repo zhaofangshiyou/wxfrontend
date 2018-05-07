@@ -9,14 +9,7 @@ Page({
    */
   data: {
     tipText: '',
-    oil_list:[
-      {name:'华富加油站',address:'安徽省铜陵市铜官区滨江大道中段',img_url: '../../images/img01.png',distance: '1.26m'},
-      {name:'广阳加油站',address:'安徽省黄山市太平湖朝阳村',img_url: '../../images/img01.png',distance: '1.26m'},
-      {name:'雨坛加油站',address:'安徽省枞阳县雨坛乡雨坛村义小公路西侧',img_url: '../../images/img01.png',distance: '1.26m'},
-      {name:'华富加油站',address:'安徽省铜陵市铜官区滨江大道中段',img_url: '../../images/img01.png',distance: '1.26m'},
-      {name:'广阳加油站',address:'安徽省黄山市太平湖朝阳村',img_url: '../../images/img01.png',distance: '1.26m'},
-      {name:'雨坛加油站',address:'安徽省枞阳县雨坛乡雨坛村义小公路西侧',img_url: '../../images/img01.png',distance: '1.26m'},
-    ]
+    oil_list:[]
   },
   getData: function() {
     var that = this;
@@ -28,15 +21,19 @@ Page({
           latitude: res.latitude,
           longitude: res.longitude
         })
-        let url = app.config.host + '/query/welfareAmount';
-        let data = {userId: wx.getStorageSync('user_id')};
+        let url = app.config.host + '/station';
+        let data = {};
         let params = {
-          'latitude': res.latitude,
-          'longitude': res.longitude
+          'lat': res.latitude,
+          'lon': res.longitude
         };
         let method = 'GET';
         httpService.sendRrquest(url,data,params,method).then(res => {
-          console.log(res);
+          if(res.data.status === 0) {
+            that.setData({
+              oil_list: res.data.data.stations
+            })
+          }
         })
       }
     })
@@ -50,13 +47,13 @@ Page({
             // 用户点击了确定 
             wx.openLocation({ //出发wx.openLocation API
 
-              latitude: Number(22.54387), //坐标纬度（从地图获取坐标）
+              latitude: Number(e.currentTarget.dataset.lat), //坐标纬度（从地图获取坐标）
               
-              longitude: Number(113.950339), //坐标经度（从地图获取坐标）
+              longitude: Number(e.currentTarget.dataset.lon), //坐标经度（从地图获取坐标）
               
-              name: '深大地铁站', //打开后显示的地址名称
+              name: e.currentTarget.dataset.name, //打开后显示的地址名称
               
-              address: '深大地铁站' //打开后显示的地址汉字
+              address: e.currentTarget.dataset.address //打开后显示的地址汉字
               
               }) 
           } else if (sm.cancel) {
