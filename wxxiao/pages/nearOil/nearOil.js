@@ -1,4 +1,7 @@
 // pages/nearOil/nearOil.js
+import httpService from '../../http/http.js';
+
+const app = getApp();
 Page({
 
   /**
@@ -14,6 +17,29 @@ Page({
       {name:'广阳加油站',address:'安徽省黄山市太平湖朝阳村',img_url: '../../images/img01.png',distance: '1.26m'},
       {name:'雨坛加油站',address:'安徽省枞阳县雨坛乡雨坛村义小公路西侧',img_url: '../../images/img01.png',distance: '1.26m'},
     ]
+  },
+  getData: function() {
+    var that = this;
+    wx.getLocation({
+      type: 'wgs84',
+      success: function(res) {
+        console.log(res);
+        that.setData({
+          latitude: res.latitude,
+          longitude: res.longitude
+        })
+        let url = app.config.host + '/query/welfareAmount';
+        let data = {userId: wx.getStorageSync('user_id')};
+        let params = {
+          'latitude': res.latitude,
+          'longitude': res.longitude
+        };
+        let method = 'GET';
+        httpService.sendRrquest(url,data,params,method).then(res => {
+          console.log(res);
+        })
+      }
+    })
   },
   goOilStation: function(e) {
     wx.showModal({
@@ -44,7 +70,6 @@ Page({
     wx.getLocation({
       type: 'wgs84',
       success: function(res) {
-        console.log(res);
         that.setData({
           latitude: res.latitude,
           longitude: res.longitude
@@ -64,7 +89,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.getLocation();
+    this.getData();
   },
 
   /**

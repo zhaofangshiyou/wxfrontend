@@ -53,7 +53,7 @@ Page({
   //获取充值流水
   getRechageData: function(page,limit,typeValue) {
     let url = app.config.host+ '/query/flow/charge';
-    let data = {userId: 1};
+    let data = {userId: wx.getStorageSync('user_id')};
     let params = {
       page: this.data.page,
       limit: this.data.limit,
