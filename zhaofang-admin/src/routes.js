@@ -4,6 +4,7 @@ import Home from './views/Home.vue'
 import Main from './views/Main.vue'
 import OilInit from './views/nav1/oil_init.vue'
 import OilgunEdit from './views/nav1/oilgun_edit'
+import OilPrice from './views/nav1/oil_price.vue'
 import Table from './views/nav1/Table.vue'
 import Form from './views/nav1/Form.vue'
 import user from './views/nav1/user.vue'
@@ -36,6 +37,7 @@ let routes = [
             { path: '/main', component: Main, name: '主页', hidden: true },
             { path: '/oil_init', component: OilInit, name: '油站初始化',id: '1-1' },
             { path: '/oilgun_edit', component: OilgunEdit, name: '油枪油品设置',id: '1-2' },
+            { path: '/oil_price', component: OilPrice, name: '油品价格设置',id: '1-3' },
             { path: '/table', component: Table, name: 'Table' },
             { path: '/form', component: Form, name: 'Form' },
             { path: '/user', component: user, name: '列表' },

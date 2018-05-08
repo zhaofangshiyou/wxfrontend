@@ -77,7 +77,7 @@
                         </el-option>
                     </el-select>
                 </el-form-item>
-                <el-form-item label="油品信息" class="btn_right">
+                <el-form-item label="油品信息" class="btn_left">
                     <el-select v-model="addForm.oil_product" placeholder="请选择">
                         <el-option
                         v-for="item in oilProduct_option"
