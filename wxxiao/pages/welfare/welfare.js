@@ -1,16 +1,35 @@
 // pages/welfare/welfare.js
+import httpService from '../../http/http.js';
+
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    welfare_amount:'',
+    total_vol: ''
   },
   goBack: function() {
     wx.navigateBack();
   },
 
+  getData: function() {
+    let url = app.config.host + '/query/welfareAmount';
+    let data = {userId: wx.getStorageSync('user_id')};
+    let params = {};
+    let method = 'GET';
+    httpService.sendRrquest(url,data,params,method).then(res => {
+      if(res.data.status === 0) {
+        this.setData({
+          welfare_amount: Number(res.data.data.user.welfare_amount).toFixed(2),
+          total_vol: Number(res.data.data.user.total_vol).toFixed(2)
+        })
+      }
+
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -22,7 +41,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    this.getData();
   },
 
   /**

@@ -13,11 +13,11 @@
         <view class="welfare_acount">
             <view class="acount_left">
                 <image class="gymess_icon" src="../../images/gymess.png"></image>
-                <view class="oil_notice">88<text class="small">升</text></view>
+                <view class="oil_notice">{{total_vol}}<text class="small">升</text></view>
             </view>
             <view class="acount_right">
                 <image class="gymess_icon" src="../../images/gymoney.png"></image>
-                <view class="oil_notice">1.76<text class="small">元</text></view>
+                <view class="oil_notice">{{welfare_amount}}<text class="small">元</text></view>
             </view>
         </view>
     </view>
