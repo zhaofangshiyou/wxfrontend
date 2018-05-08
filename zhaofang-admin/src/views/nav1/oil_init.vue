@@ -270,17 +270,5 @@
 </script>
 
 <style scoped>
-    .tab_header{
-        height: 48px;
-        line-height: 48px;
-        font-size: 14px;
-        padding: 0 20px;
-        border-top: 1px solid #dfe6ec;
-        border-left: 1px solid #dfe6ec;
-        border-right: 1px solid #dfe6ec;
-    }
-    .tab_head_title{
-        display: inline-block;
-        margin-right: 10px;
-    }
+    
 </style>
