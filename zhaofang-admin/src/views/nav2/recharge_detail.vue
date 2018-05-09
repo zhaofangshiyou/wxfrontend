@@ -4,67 +4,47 @@
 		<el-col :span="24" class="toolbar" style="padding-bottom: 0px;">
 			<el-form :inline="true">
 				<el-form-item label="省份">
-					<el-select v-model="value" placeholder="请选择">
-            <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value">
-            </el-option>
-          </el-select>
-				</el-form-item>
-        <el-form-item label="站点名称">
-					<el-select v-model="value" placeholder="请选择">
-            <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value">
-            </el-option>
-          </el-select>
-				</el-form-item>
-        <el-form-item label="时间">
-          <el-date-picker
-            v-model="value4"
-            type="datetimerange"
-            range-separator="至"
-            start-placeholder="开始日期"
-            end-placeholder="结束日期">
-          </el-date-picker>
-        </el-form-item>
-        <el-form-item label="油品信息">
-					<el-select v-model="value" placeholder="请选择">
-            <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value">
-            </el-option>
-          </el-select>
-				</el-form-item>
-        <el-form-item label="加油升数">
-					<el-select v-model="value" placeholder="请选择">
-            <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value">
-            </el-option>
-          </el-select>
-				</el-form-item>
-        <el-form-item label="支付方式">
-					<el-select v-model="value" placeholder="请选择">
-            <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value">
-            </el-option>
-          </el-select>
-				</el-form-item>
-				<el-form-item>
-					<el-button type="primary">查询</el-button>
-				</el-form-item>
+                        <el-select v-model="value" placeholder="请选择">
+                            <el-option
+                            v-for="item in options"
+                            :key="item.value"
+                            :label="item.label"
+                            :value="item.value">
+                            </el-option>
+                        </el-select>
+                </el-form-item>
+                <el-form-item label="站点名称">
+                            <el-select v-model="value" placeholder="请选择">
+                    <el-option
+                    v-for="item in options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+                    </el-option>
+                </el-select>
+                        </el-form-item>
+                <el-form-item label="时间">
+                <el-date-picker
+                    v-model="value4"
+                    type="datetimerange"
+                    range-separator="至"
+                    start-placeholder="开始日期"
+                    end-placeholder="结束日期">
+                </el-date-picker>
+                </el-form-item>
+                <el-form-item label="卡号">
+                <el-select v-model="value" placeholder="请选择">
+                    <el-option
+                    v-for="item in options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+                    </el-option>
+            </el-select>
+            </el-form-item>
+            <el-form-item>
+                <el-button type="primary">查询</el-button>
+            </el-form-item>
 			</el-form>
 		</el-col>
 
@@ -90,23 +70,11 @@
 			</el-table-column>
 			<el-table-column prop="id" label="卡号">
 			</el-table-column>
-			<el-table-column prop="oil_gum_nums" label="消费时间">
+			<el-table-column prop="oil_gum_nums" label="充值金额">
 			</el-table-column>
-			<el-table-column prop="oil_product" label="油枪号">
+			<el-table-column prop="oil_product" label="手续费">
 			</el-table-column>
-      <el-table-column prop="oil_product" label="油品信息">
-			</el-table-column>
-			<el-table-column prop="oil_product" label="升数" >
-			</el-table-column>
-      <el-table-column prop="oil_product" label="应收金额" >
-			</el-table-column>
-      <el-table-column prop="oil_product" label="优惠金额">
-			</el-table-column>
-      <el-table-column prop="oil_product" label="手续费" >
-			</el-table-column>
-      <el-table-column prop="oil_product" label="实收金额">
-			</el-table-column>
-      <el-table-column prop="oil_product" label="支付方式" >
+            <el-table-column prop="oil_product" label="充值时间">
 			</el-table-column>
 		</el-table>
     

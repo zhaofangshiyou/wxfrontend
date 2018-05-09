@@ -9,7 +9,8 @@ import Table from './views/nav1/Table.vue'
 import Form from './views/nav1/Form.vue'
 import user from './views/nav1/user.vue'
 import consumerDetail from './views/nav2/consumerDetail.vue'
-import Page5 from './views/nav2/Page5.vue'
+import consumerAll from './views/nav2/consumerAll.vue'
+import rechageDetail from './views/nav2/recharge_detail'
 import Page6 from './views/nav3/Page6.vue'
 import echarts from './views/charts/echarts.vue'
 
@@ -50,7 +51,8 @@ let routes = [
         iconCls: 'fa fa-id-card-o',
         children: [
             { path: '/consumer_detail', component: consumerDetail, name: '消费明细' },
-            { path: '/page5', component: Page5, name: '页面5' }
+            { path: '/consumer_all', component: consumerAll, name: '消费汇总' },
+            { path: '/recharge_detail', component: rechageDetail, name: '充值明细' }
         ]
     },
     {
