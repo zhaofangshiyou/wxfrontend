@@ -8,7 +8,7 @@ import OilPrice from './views/nav1/oil_price.vue'
 import Table from './views/nav1/Table.vue'
 import Form from './views/nav1/Form.vue'
 import user from './views/nav1/user.vue'
-import Page4 from './views/nav2/Page4.vue'
+import consumerDetail from './views/nav2/consumerDetail.vue'
 import Page5 from './views/nav2/Page5.vue'
 import Page6 from './views/nav3/Page6.vue'
 import echarts from './views/charts/echarts.vue'
@@ -46,10 +46,10 @@ let routes = [
     {
         path: '/',
         component: Home,
-        name: '导航二',
+        name: '财务管理',
         iconCls: 'fa fa-id-card-o',
         children: [
-            { path: '/page4', component: Page4, name: '页面4' },
+            { path: '/consumer_detail', component: consumerDetail, name: '消费明细' },
             { path: '/page5', component: Page5, name: '页面5' }
         ]
     },

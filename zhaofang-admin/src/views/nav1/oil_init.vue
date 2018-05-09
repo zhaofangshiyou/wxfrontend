@@ -43,13 +43,13 @@
 			</el-table-column>
 			<el-table-column type="index" label="序号" width="100">
 			</el-table-column>
-			<el-table-column prop="provice" label="省份" width="150">
+			<el-table-column prop="province" label="省份" width="150">
 			</el-table-column>
-			<el-table-column prop="oil_name" label="站点名称" width="150">
+			<el-table-column prop="name" label="站点名称" width="150">
 			</el-table-column>
-			<el-table-column prop="site_id" label="站点ID" width="150">
+			<el-table-column prop="id" label="站点ID" width="150">
 			</el-table-column>
-			<el-table-column prop="gun_number" label="枪数" width="100">
+			<el-table-column prop="oil_gum_nums" label="枪数" width="100">
 			</el-table-column>
 			<el-table-column prop="oil_product" label="油品信息" min-width="180">
 			</el-table-column>
@@ -72,10 +72,10 @@
 				<el-form-item label="省份" prop="name">
 					<el-select v-model="addForm.provice" size="100" placeholder="请选择">
                         <el-option
-                        v-for="(item,index) in add_provice_list"
+                        v-for="(item) in add_provice_list"
                         :key="item"
                         :label="item"
-                        :value="index">
+                        :value="item">
                         </el-option>
                     </el-select>
 				</el-form-item>
@@ -84,6 +84,9 @@
 				</el-form-item>
 				<el-form-item label="枪数">
 					<el-input v-model="addForm.gun_number" size="100" auto-complete="off"></el-input>
+				</el-form-item>
+                <el-form-item label="地址">
+					<el-input v-model="addForm.address" size="100" auto-complete="off"></el-input>
 				</el-form-item>
                 <el-form-item label="油品信息">
                     <el-select v-model="addForm.oil_product" multiple placeholder="请选择" size="100">
@@ -142,7 +145,8 @@
 </template>
 
 <script>
-    import pro_oil from '../../common/js/pro_oil';
+    import { getStation, addStation } from '../../api/api';
+    import { messageWarn } from '../../common/js/commonMethod';
     export default {
         data() {
             return {
@@ -169,22 +173,7 @@
                         ]
                     }
                 ],
-                initList: [
-                    {
-                        provice: '北京',
-                        oil_name: '华富油站',
-                        site_id: '10010',
-                        oil_product: ['15','45','82'],
-                        gun_number: 10
-                    },
-                    {
-                        provice: '北京',
-                        oil_name: '华富油站',
-                        site_id: '10010',
-                        oil_product: ['15','45','82'],
-                        gun_number: 10
-                    }
-                ],
+                initList: [],
                 provice: '',
                 station: '',
                 oil_station: [],
@@ -196,6 +185,7 @@
                     provice: '',
 					oil_name: '',
                     gun_number: '',
+                    address: '',
                     oil_product: []
                 },
                 editFormVisible: false,//编辑界面是否显示
@@ -214,26 +204,54 @@
                 total: 0,
             }
         },
+        created:function() {
+            
+            this.getList();
+        },
         methods: {
             selectOil(event) {
                 this.station = '';
                 this.oil_station = this.pro_list[event].children;
             },
-            getList() {
-                this.listLoading = true,
-                this.total = this.initList.length;
-                setTimeout(() => {
+            getList(province,station) {
+                this.listLoading = true;
+                let params = {
+                    province: province,
+                    station: station
+                };
+                getStation(params).then(res => {
                     this.listLoading = false;
-                },2000)
+                    if(res.data.status===0) {
+                        this.initList = res.data.data.stations;
+                    }else{
+
+                    }
+                })
             },
-            selsChange: function (sels) {
-                console.log(sels);
-				this.sels = sels;
+            addStation(name,oil_gum_nums,province,address,oil_product,avatar_url,city) {
+                let params = {
+                    name: name,
+                    oil_gum_nums: oil_gum_nums,
+                    province: province,
+                    address: address,
+                    oil_product: oil_product,
+                    avatar_url: avatar_url,
+                    city: city
+                }
+                addStation(params).then(res =>{
+                    if(res.data.status === 0) {
+                        messageWarn('添加成功');
+                        this.addFormVisible = false;
+                    }else{
+                        messageWarn('添加失败');
+                    }
+                })
             },
-            handleCurrentChange(val) {
-				console.log(val);
-            },
-            batchRemove() {
+            //提交新增
+            addSubmit: function() {
+                console.log(this.addForm);
+                let oil_product = this.addForm.oil_product.join(',');
+                this.addStation(this.addForm.oil_name,this.addForm.oil_gum_nums,this.addForm.province,this.addForm.address,oil_product,oil_product);
 
             },
             //显示新增界面
@@ -246,11 +264,6 @@
                     oil_product: []
                 };
             },
-            //提交新增
-            addSubmit: function() {
-                console.log(this.addForm);
-                this.addFormVisible = false;
-            },
             //编辑
             handleEdit(index, row) {
                 this.editFormVisible = true;
@@ -262,10 +275,17 @@
             editSubmit() {
                 
             },
+            selsChange: function (sels) {
+                console.log(sels);
+				this.sels = sels;
+            },
+            handleCurrentChange(val) {
+				console.log(val);
+            },
+            batchRemove() {
+
+            },
         },
-        created: function() {
-            this.getList();
-        }
     }
 </script>
 
