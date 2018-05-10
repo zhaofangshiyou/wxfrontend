@@ -35,7 +35,7 @@ Page({
     wx.request({
         url: 'https://api.zfsyonline.com/v1/pay/unifiedorder',
         data: {
-            openid: 'o1kxJ5PQ1yuwvS-5BrZUo9PBNOWA'  // 这里正常项目不会只有openid一个参数
+            openid: wx.getStorageSync('open_id')  // 这里正常项目不会只有openid一个参数
         },
         success: function(res){
             if(res.data.status == 100){

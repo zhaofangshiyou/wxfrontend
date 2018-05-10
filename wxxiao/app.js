@@ -21,8 +21,8 @@ App({
         httpService.sendRrquest('https://api.zfsyonline.com/v1/user',{},{code: res.code},'POST')
         .then((res) => {
           if(res.data.status===0) {
-            console.log(res);
             wx.setStorageSync('user_id', res.data.data.user.id);
+            wx.setStorageSync('open_id', res.data.data.user.open_id);
           }
         })
       }
