@@ -13,7 +13,7 @@ import consumerAll from './views/nav2/consumerAll.vue'
 import rechageDetail from './views/nav2/recharge_detail'
 import rechargeAll from './views/nav2/recharge_all'
 import runAccount from './views/nav2/runAccount.vue'
-import Page6 from './views/nav3/Page6.vue'
+import specialMess from './views/nav3/specialMess.vue'
 import echarts from './views/charts/echarts.vue'
 
 
@@ -66,7 +66,7 @@ let routes = [
         iconCls: 'fa fa-address-card',
         leaf: true,//只有一个节点
         children: [
-            { path: '/page6', component: Page6, name: '导航三' }
+            { path: '/special_mess', component: specialMess, name: '优惠信息' }
         ]
     },
     {
