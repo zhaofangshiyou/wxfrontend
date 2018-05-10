@@ -112,6 +112,10 @@ Page({
       msg_type: this.data.typeValue
     };
     let method = 'GET';
+    this.setData({
+      noData: true,
+      noMore: false
+    })
     httpService.sendRrquest(url,data,params,method).then(res => {
       if(res.data.status === 0) {
         var list = res.data.data.flow;

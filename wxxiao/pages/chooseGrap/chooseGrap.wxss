@@ -87,7 +87,7 @@
     margin: 0 auto;
     width: 150rpx;
     height: 68rpx;
-    border:1rpx solid #efefef;
+    border:2rpx solid #e0e0e0;
     line-height: 68rpx;
     text-align: center;
     margin-top: 40rpx;
@@ -96,7 +96,7 @@
     border-radius: 8rpx;
 }
 .grap_item.active{
-    border:1rpx solid #F96432;
+    border:2rpx solid #F96432;
     color: #F96432;
     background: #FEDDD5; 
 }

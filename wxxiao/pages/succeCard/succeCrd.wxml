@@ -12,7 +12,7 @@
     </view>
     <view class="account_box">
         <view class="account_cont">
-            <view class="text">卡内余额{{title}}</view>
+            <view class="text">卡内余额</view>
             <view class="balance">
                 <view class="money">¥{{dateFr.toFix(balance)}}</view>
                 <view class="recharge" wx:if="{{type != 2}}">充值</view>

@@ -10,13 +10,13 @@
         </view>
     </view>
     <!-- 充值记录 -->
-    <view class="recharge" hidden="{{tabIndex==2}}">
+    <scroll-view scroll-y="true" class="recharge" hidden="{{tabIndex==2}}">
         <view class="recharge_list">
             <view class="text_message">
                 <view class="text_title">华富加油站</view>
                 <view class="text_tip">2018-04-16 12:12:12</view>
             </view>
-            <view class="add_number">+3000</view>
+            <view class="reduce_number">+3000</view>
         </view>
         <view class="recharge_list">
                 <view class="text_message">
@@ -25,7 +25,7 @@
                 </view>
                 <view class="add_number">+3000</view>
             </view>
-    </view>
+    </scroll-view>
     <!-- 消费记录 -->
     <view class="recharge" hidden="{{tabIndex==1}}">
         <view class="recharge_list">

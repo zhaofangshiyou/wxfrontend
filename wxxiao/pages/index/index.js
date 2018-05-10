@@ -11,10 +11,10 @@ Page({
       {name:'交易查询',notice:'实时交易查询，更便捷',iconUrl: '../../images/icon_consume@2x.png',link: '../../pages/search/search'},
       {name:'兆方公益',notice:'兆方公益，与爱同行',iconUrl: '../../images/zf_card@2x.png',link: '../../pages/welfare/welfare'}
     ],
-    msgList: [
-      { url: "url", title: "多地首套房贷利率上浮 热点城市渐迎零折扣时代" },
-      { url: "url", title: "悦如公寓三周年生日趴邀你免费吃喝欢唱" },
-      { url: "url", title: "你想和一群有志青年一起过生日嘛？" }]
+    msgList: [ 
+      { url: "url", title: "所有汽油均已添加法国道达尔添加剂" },
+      { url: "url", title: "您每加一升油，兆方将捐赠1分钱公益金" },
+      ]
   },
 
   onLoad: function () {

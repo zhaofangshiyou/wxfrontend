@@ -8,7 +8,7 @@
         <view class="gy_notice">
             <image class="title_icon" src="../../images/gy_title.png" widthFix></image>
             <view class="title">您每加一升油</view>
-            <view class="notice">兆方将为本地教育事业捐赠2分钱</view>
+            <view class="notice">兆方将为本地教育事业捐赠1分钱公益金</view>
         </view>
         <view class="welfare_acount">
             <view class="acount_left">

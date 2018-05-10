@@ -72,7 +72,7 @@
     width:155rpx;
     height:72rpx; 
     border-radius: 8rpx ;
-    border: 1rpx solid #efefef;
+    border:2rpx solid #e0e0e0;
     font-size:30rpx;
     margin: 0 auto;
     text-align: center;
@@ -108,7 +108,7 @@
 }
 .choose_item.active{
     color: #F96432;
-    border: 1rpx solid #F96432;
+    border: 2rpx solid #F96432;
     background:rgba(254,221,213,1);
 }
 .choose_invoice{
