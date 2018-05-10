@@ -14,6 +14,7 @@ import rechageDetail from './views/nav2/recharge_detail'
 import rechargeAll from './views/nav2/recharge_all'
 import runAccount from './views/nav2/runAccount.vue'
 import specialMess from './views/nav3/specialMess.vue'
+import invoiceManage from './views/nav4/invoiceManage'
 import echarts from './views/charts/echarts.vue'
 
 
@@ -67,6 +68,16 @@ let routes = [
         leaf: true,//只有一个节点
         children: [
             { path: '/special_mess', component: specialMess, name: '优惠信息' }
+        ]
+    },
+    {
+        path: '/',
+        component: Home,
+        name: '',
+        iconCls: 'fa fa-address-card',
+        leaf: true,//只有一个节点
+        children: [
+            { path: '/invoice_manage', component: invoiceManage, name: '发票管理' }
         ]
     },
     {
