@@ -15,6 +15,8 @@ import rechargeAll from './views/nav2/recharge_all'
 import runAccount from './views/nav2/runAccount.vue'
 import specialMess from './views/nav3/specialMess.vue'
 import invoiceManage from './views/nav4/invoiceManage'
+import userManage from './views/nav5/userManage.vue'
+import userConsumerDetail from './views/nav5/userConsumerDetail.vue'
 import echarts from './views/charts/echarts.vue'
 
 
@@ -78,6 +80,16 @@ let routes = [
         leaf: true,//只有一个节点
         children: [
             { path: '/invoice_manage', component: invoiceManage, name: '发票管理' }
+        ]
+    },
+    {
+        path: '/',
+        component: Home,
+        name: '用户管理',
+        iconCls: 'fa fa-id-card-o',
+        children: [
+            { path: '/user_manage', component: userManage, name: '用户管理' },
+            { path: '/user_consumer_detail', component: userConsumerDetail, name: '用户消费明细' },
         ]
     },
     {
