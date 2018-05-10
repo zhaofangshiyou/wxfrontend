@@ -11,6 +11,8 @@ import user from './views/nav1/user.vue'
 import consumerDetail from './views/nav2/consumerDetail.vue'
 import consumerAll from './views/nav2/consumerAll.vue'
 import rechageDetail from './views/nav2/recharge_detail'
+import rechargeAll from './views/nav2/recharge_all'
+import runAccount from './views/nav2/runAccount.vue'
 import Page6 from './views/nav3/Page6.vue'
 import echarts from './views/charts/echarts.vue'
 
@@ -52,7 +54,9 @@ let routes = [
         children: [
             { path: '/consumer_detail', component: consumerDetail, name: '消费明细' },
             { path: '/consumer_all', component: consumerAll, name: '消费汇总' },
-            { path: '/recharge_detail', component: rechageDetail, name: '充值明细' }
+            { path: '/recharge_detail', component: rechageDetail, name: '充值明细' },
+            { path: '/recharge_all', component: rechargeAll, name: '充值汇总' },
+            { path: '/run_account', component: runAccount, name: '往来账' }
         ]
     },
     {

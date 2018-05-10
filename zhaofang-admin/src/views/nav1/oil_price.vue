@@ -45,7 +45,7 @@
 			</el-table-column>
             <el-table-column prop="num_10" label="-10号" width="150">
 			</el-table-column>
-            <el-table-column prop="time" label="生效时间" width="150">
+            <el-table-column prop="time" label="生效时间" min-width="150">
 			</el-table-column>
 			<el-table-column label="操作" width="150">
 				<template scope="scope">
