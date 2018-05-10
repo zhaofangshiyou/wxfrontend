@@ -28,9 +28,41 @@ Page({
     }
   },
   paySubmit: function() {
-    this.setData({
-      showBoard: true
+    // this.setData({
+    //   showBoard: true
+    // })
+    var self = this;
+    wx.request({
+        url: 'https://api.zfsyonline.com/v1/pay/unifiedorder',
+        data: {
+            openid: 'o1kxJ5PQ1yuwvS-5BrZUo9PBNOWA'  // 这里正常项目不会只有openid一个参数
+        },
+        success: function(res){
+            if(res.data.status == 100){
+                var payModel = res.data;
+                wx.requestPayment({
+                    'timeStamp': payModel.timestamp,
+                    'nonceStr': payModel.nonceStr,
+                    'package': payModel.package,
+                    'signType': 'MD5',
+                    'paySign': payModel.paySign,
+                    'success': function (res) {
+                        wx.showToast({
+                            title: '支付成功',
+                            icon: 'success',
+                            duration: 2000
+                        })
+                    },
+                    'fail': function (res) {
+                    }
+                })
+            }
+        },
+        fail: function(){
+
+        }
     })
+
   },
   hideBoard: function() {
     this.data.passwordArr.length=0;
