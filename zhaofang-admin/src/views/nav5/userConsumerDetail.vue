@@ -7,7 +7,7 @@
                 <el-input v-model="card_number" placeholder="请选择"></el-input>
             </el-form-item>
             <el-form-item>
-                <el-button type="primary"  v-on:click="getUsers">查询</el-button>
+                <el-button type="primary"  v-on:click="search">查询</el-button>
             </el-form-item>
 			</el-form>
 		</el-col>
@@ -61,7 +61,7 @@
       handleCurrentChange(val) {
 				console.log(val);
       },
-      getUsers() {
+      search() {
         console.log(this.card_number);
       }
     }

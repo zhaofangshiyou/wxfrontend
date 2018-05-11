@@ -4,10 +4,10 @@
 		<el-col :span="24" class="toolbar" style="padding-bottom: 0px;">
 			<el-form :inline="true">
                 <el-form-item label="卡号">
-                <el-input v-model="value" placeholder="请选择"></el-input>
+                <el-input v-model="card_number" placeholder="请选择"></el-input>
             </el-form-item>
             <el-form-item>
-                <el-button type="primary">查询</el-button>
+                <el-button type="primary" @click="search">查询</el-button>
             </el-form-item>
 			</el-form>
 		</el-col>
@@ -17,20 +17,32 @@
         <div class="tab_head_title">消费列表</div>
         <el-button type="success" size="small">&nbsp;&nbsp;导出&nbsp;&nbsp;</el-button>
     </el-col>
-    <el-table :data="initList" highlight-current-row v-loading="listLoading" @selection-change="selsChange" style="width: 100%;">
+    <el-table :data="initList" highlight-current-row v-loading="listLoading" style="width: 100%;">
         <el-table-column type="index" label="序号" width="100">
-        </el-table-column>
-        <el-table-column prop="province" label="省份">
-        </el-table-column>
-        <el-table-column prop="name" label="站点名称">
         </el-table-column>
         <el-table-column prop="id" label="卡号">
         </el-table-column>
-        <el-table-column prop="oil_gum_nums" label="充值金额">
+        <el-table-column prop="province" label="姓名">
         </el-table-column>
-        <el-table-column prop="oil_product" label="手续费">
+        <el-table-column prop="name" label="身份证">
         </el-table-column>
-        <el-table-column prop="oil_product" label="充值时间">
+        <el-table-column prop="oil_gum_nums" label="用户类型">
+        </el-table-column>
+        <el-table-column prop="oil_product" label="当前余额">
+        </el-table-column>
+        <el-table-column prop="oil_product" label="退款状态">
+        </el-table-column>
+        <el-table-column prop="oil_product" label="用户状态">
+        </el-table-column>
+        <el-table-column prop="oil_product" label="开卡时间">
+        </el-table-column>
+        <el-table-column prop="oil_product" label="销户时间">
+        </el-table-column>
+        <el-table-column prop="oil_product" label="操作时间">
+        </el-table-column>
+        <el-table-column prop="oil_product" label="发起人">
+        </el-table-column>
+        <el-table-column prop="oil_product" label="确认人">
         </el-table-column>
         <el-table-column label="操作" width="200">
             <template scope="scope">
@@ -53,66 +65,18 @@
   export default {
     data() {
       return {
-         options: [{
-          value: '选项1',
-          label: '不限'
-        }, {
-          value: '选项2',
-          label: '双皮奶'
-        }, {
-          value: '选项3',
-          label: '蚵仔煎'
-        }, {
-          value: '选项4',
-          label: '龙须面'
-        }, {
-          value: '选项5',
-          label: '北京烤鸭'
-        }],
-        value: '',
-        value4:  [new Date(), new Date()],
-         initList: [
-                    {
-                        provice: '北京',
-                        pinying: 'beijing',
-                        num_92: '7.8元/升',
-                        num_95: '7.9元/升',
-                        num_98: '7.6元/升',
-                        num_0: '7.3元/升',
-                        num_10: '7.7元/升',
-                        time: '2018-02-15'
-                    },
-                   {
-                        provice: '广东',
-                         pinying: 'beijing2',
-                        num_92: '7.8元/升',
-                        num_95: '7.9元/升',
-                        num_98: '7.6元/升',
-                        num_0: '7.3元/升',
-                        num_10: '7.7元/升',
-                        time: '2018-02-15'
-                    },
-                    {
-                        provice: '安徽',
-                         pinying: 'beijing3',
-                        num_92: '7.8元/升',
-                        num_95: '7.9元/升',
-                        num_98: '7.6元/升',
-                        num_0: '7.3元/升',
-                        num_10: '7.7元/升',
-                        time: '2018-02-15'
-                    },
-                    {
-                        provice: '广西',
-                         pinying: 'beijing4',
-                        num_92: '7.8元/升',
-                        num_95: '7.9元/升',
-                        num_98: '7.6元/升',
-                        num_0: '7.3元/升',
-                        num_10: '7.7元/升',
-                        time: '2018-02-15'
-                    }
-                ],
+        card_number: '',
+        initList: [],
+        listLoading: false,
+        total: 0
+      }
+    },
+    methods: {
+      handleCurrentChange(val) {
+        console.log(val);
+      },
+      search() {
+        console.log(this.card_number);
       }
     }
   }
