@@ -6,7 +6,7 @@
         <div class="tab_head_title">往来账列表</div>
         <el-button type="success" size="small">&nbsp;&nbsp;导出&nbsp;&nbsp;</el-button>
     </el-col>
-    <el-table :data="initList" highlight-current-row v-loading="listLoading" @selection-change="selsChange" style="width: 100%;">
+    <el-table :data="initList" highlight-current-row v-loading="listLoading" style="width: 100%;">
         <el-table-column type="index" label="" width="100">
         </el-table-column>
         <el-table-column prop="province" label="">
@@ -32,7 +32,7 @@
         <div class="tab_head_title">往来账列表</div>
         <el-button type="success" size="small">&nbsp;&nbsp;导出&nbsp;&nbsp;</el-button>
     </el-col>
-    <el-table :data="initList" highlight-current-row v-loading="listLoading" @selection-change="selsChange" style="width: 100%;">
+    <el-table :data="initList" highlight-current-row v-loading="listLoading"  style="width: 100%;">
         <el-table-column type="index" label="" width="100">
         </el-table-column>
         <el-table-column prop="province" label="">
@@ -58,7 +58,7 @@
         <div class="tab_head_title">往来账列表</div>
         <el-button type="success" size="small">&nbsp;&nbsp;导出&nbsp;&nbsp;</el-button>
     </el-col>
-    <el-table :data="initList" highlight-current-row v-loading="listLoading" @selection-change="selsChange" style="width: 100%;">
+    <el-table :data="initList" highlight-current-row v-loading="listLoading" style="width: 100%;">
         <el-table-column type="index" label="" width="100">
         </el-table-column>
         <el-table-column prop="province" label="">
@@ -84,7 +84,7 @@
         <div class="tab_head_title">往来账列表</div>
         <el-button type="success" size="small">&nbsp;&nbsp;导出&nbsp;&nbsp;</el-button>
     </el-col>
-    <el-table :data="initList" highlight-current-row v-loading="listLoading" @selection-change="selsChange" style="width: 100%;">
+    <el-table :data="initList" highlight-current-row v-loading="listLoading" style="width: 100%;">
         <el-table-column type="index" label="" width="100">
         </el-table-column>
         <el-table-column prop="province" label="">
@@ -110,7 +110,7 @@
         <div class="tab_head_title">往来账列表</div>
         <el-button type="success" size="small">&nbsp;&nbsp;导出&nbsp;&nbsp;</el-button>
     </el-col>
-    <el-table :data="initList" highlight-current-row v-loading="listLoading" @selection-change="selsChange" style="width: 100%;">
+    <el-table :data="initList" highlight-current-row v-loading="listLoading" style="width: 100%;">
         <el-table-column type="index" label="" width="100">
         </el-table-column>
         <el-table-column prop="province" label="">
@@ -136,7 +136,7 @@
         <div class="tab_head_title">往来账列表</div>
         <el-button type="success" size="small">&nbsp;&nbsp;导出&nbsp;&nbsp;</el-button>
     </el-col>
-    <el-table :data="initList" highlight-current-row v-loading="listLoading" @selection-change="selsChange" style="width: 100%;">
+    <el-table :data="initList" highlight-current-row v-loading="listLoading" style="width: 100%;">
         <el-table-column type="index" label="" width="100">
         </el-table-column>
         <el-table-column prop="province" label="">
@@ -163,12 +163,18 @@
   export default {
     data() {
       return {
-        activeName2: 'first'
+        activeName2: 'first',
+        listLoading: false,
+        initList: [],
+        total: 0
       };
     },
     methods: {
       handleClick(tab, event) {
         console.log(tab, event);
+      },
+      handleCurrentChange(val) {
+        
       }
     }
   };
