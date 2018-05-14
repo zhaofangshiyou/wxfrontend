@@ -22,7 +22,6 @@ Page({
   },
 
   onReady: function () {
-    var that = this;
     // wx.login({
     //   success: res => {
     //     console.log(res);
@@ -39,6 +38,17 @@ Page({
     //     })
     //   }
     // })
+    let  that = this;  
+    wx.getSystemInfo({  
+      success:  res=>{  
+        console.log('手机信息res'+res.model);
+        let modelmes = res.model;  
+        if (modelmes.search('iPhone X') != -1) {  
+          //that.globalData.isIphoneX = true;  
+        }  
+    
+      }  
+    })  
   },
   
   goNext(event) {
