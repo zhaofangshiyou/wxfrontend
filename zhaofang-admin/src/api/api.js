@@ -29,3 +29,6 @@ export const getStation = params => { return instance.get(`${url}/v1/backen/stat
 
 //添加油站
 export const addStation = params => { return instance.post(`${url}/v1/backen/station`, qs.stringify(params)); };
+
+//导出excel表格
+//export const outExcel = params => { return instance.get(`${url}/v1/backen/station/excel`, { params: params }); };

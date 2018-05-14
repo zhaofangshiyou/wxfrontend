@@ -4,22 +4,22 @@
 		<el-col :span="24" class="toolbar" style="padding-bottom: 0px;">
 			<el-form :inline="true">
 				<el-form-item label="省份">
-					<el-select v-model="value" placeholder="请选择">
+					<el-select v-model="provice" placeholder="请选择">
 						<el-option
-						v-for="item in options"
-						:key="item.value"
-						:label="item.label"
-						:value="item.value">
+						v-for="item in 6"
+						:key="item"
+						:label="item"
+						:value="item">
 						</el-option>
 					</el-select>
 				</el-form-item>
         <el-form-item label="站点名称">
-					<el-select v-model="value" placeholder="请选择">
+					<el-select v-model="station_name" placeholder="请选择">
             <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value">
+              v-for="item in 10"
+              :key="item"
+              :label="item"
+              :value="item">
             </el-option>
           </el-select>
 				</el-form-item>
@@ -204,23 +204,8 @@
   export default {
     data() {
       return {
-         options: [{
-          value: '选项1',
-          label: '不限'
-        }, {
-          value: '选项2',
-          label: '双皮奶'
-        }, {
-          value: '选项3',
-          label: '蚵仔煎'
-        }, {
-          value: '选项4',
-          label: '龙须面'
-        }, {
-          value: '选项5',
-          label: '北京烤鸭'
-        }],
-		value: "",
+		provice: '',
+		station_name: '',
 		listLoading: false,
 		total: 10,
 		addFormVisible: false,
@@ -235,48 +220,7 @@
 		editFormVisible: false,
 		editLoading: false,
         value4:  [new Date(), new Date()],
-        initList: [
-                    {
-                        provice: '北京',
-                        pinying: 'beijing',
-                        num_92: '7.8元/升',
-                        num_95: '7.9元/升',
-                        num_98: '7.6元/升',
-                        num_0: '7.3元/升',
-                        num_10: '7.7元/升',
-                        time: '2018-02-15'
-                    },
-                   {
-                        provice: '广东',
-                         pinying: 'beijing2',
-                        num_92: '7.8元/升',
-                        num_95: '7.9元/升',
-                        num_98: '7.6元/升',
-                        num_0: '7.3元/升',
-                        num_10: '7.7元/升',
-                        time: '2018-02-15'
-                    },
-                    {
-                        provice: '安徽',
-                         pinying: 'beijing3',
-                        num_92: '7.8元/升',
-                        num_95: '7.9元/升',
-                        num_98: '7.6元/升',
-                        num_0: '7.3元/升',
-                        num_10: '7.7元/升',
-                        time: '2018-02-15'
-                    },
-                    {
-                        provice: '广西',
-                         pinying: 'beijing4',
-                        num_92: '7.8元/升',
-                        num_95: '7.9元/升',
-                        num_98: '7.6元/升',
-                        num_0: '7.3元/升',
-                        num_10: '7.7元/升',
-                        time: '2018-02-15'
-                    }
-                ],
+        initList: [],
       }
 	},
 	methods: {

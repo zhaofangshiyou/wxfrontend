@@ -35,7 +35,7 @@
         <!--列表-->
         <el-col :span="24" class="tab_header">
             <div class="tab_head_title">油站分布列表</div>
-            <el-button type="success" size="small">&nbsp;&nbsp;导出&nbsp;&nbsp;</el-button>
+            <el-button type="success" size="small" @click="outExcelTable">&nbsp;&nbsp;导出&nbsp;&nbsp;</el-button>
             <el-button type="danger" size="small"  @click="batchRemove">批量删除</el-button>
         </el-col>
 		<el-table :data="initList" highlight-current-row v-loading="listLoading" @selection-change="selsChange" style="width: 100%;">
@@ -234,7 +234,7 @@
                     oil_gum_nums: oil_gum_nums,
                     province: province,
                     address: address,
-                    oil_product: oil_product,
+                    oils_list: oil_product,
                     avatar_url: avatar_url,
                     city: city
                 }
@@ -251,7 +251,7 @@
             addSubmit: function() {
                 console.log(this.addForm);
                 let oil_product = this.addForm.oil_product.join(',');
-                this.addStation(this.addForm.oil_name,this.addForm.oil_gum_nums,this.addForm.province,this.addForm.address,oil_product,oil_product);
+                this.addStation(this.addForm.oil_name,this.addForm.gun_number,this.addForm.provice,this.addForm.address,oil_product,oil_product);
 
             },
             //显示新增界面
@@ -285,6 +285,10 @@
             batchRemove() {
 
             },
+            //导出表格
+            outExcelTable() {
+                window.open('https://api.zfsyonline.com/v1/backen/station/excel', '_blank');
+            }
         },
     }
 </script>

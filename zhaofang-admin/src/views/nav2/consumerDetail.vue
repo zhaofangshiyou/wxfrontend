@@ -31,7 +31,7 @@
             start-placeholder="开始日期"
             end-placeholder="结束日期">
           </el-date-picker>
-        </el-form-item>
+        </el-form-item><br>
         <el-form-item label="油品信息">
 					<el-select v-model="value" placeholder="请选择">
             <el-option
@@ -188,3 +188,5 @@
   }
 
 </script>
+
+
