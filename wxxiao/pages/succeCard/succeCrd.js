@@ -9,6 +9,11 @@ Page({
     title: '',
     type: ''
   },
+  finishSubmi: function() {
+    wx.reLaunch({
+      url: '../../pages/index/index'
+    })
+  },
   recharge: function() {
     wx.navigateTo({
       url: '../../pages/recharge/recharge'

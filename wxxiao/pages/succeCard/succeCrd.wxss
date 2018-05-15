@@ -45,6 +45,7 @@
     width: 100%;
     padding: 20rpx 30rpx;
     box-sizing: border-box;
+    margin-bottom: 80rpx;
 }
 .account_cont{
     width: 100%;

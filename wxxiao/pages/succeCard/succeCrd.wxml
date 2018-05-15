@@ -19,4 +19,5 @@
             </view>
         </view>
     </view>
+    <sureBtn text="完成" bind:sureEvent="finishSubmi" wx:if="{{type==6}}"></sureBtn>
 </view>
