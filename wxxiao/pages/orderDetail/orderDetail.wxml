@@ -52,7 +52,7 @@
         <view class="pay_item" bindtap="changePay">
             <view class="pay_left">
                 <image class="wexin_icon" src="../../images/weixin.png"></image>
-                <text class="pay_text">兆方车上付</text>
+                <text class="pay_text">微信支付</text>
             </view>
             <view class="pay_choose">
                 <image wx:if="{{payWay==2}}" class="choose_icon" src="../../images/icon_choice.png"></image>

@@ -2,9 +2,9 @@
 <wxs module="dateFr" src="../../filter/dateFilter.wxs"></wxs>
 <header title="{{title}}"></header>
 <view class="container">
-    <view class="header" wx:if="{{type==0}}">
+    <view class="header" wx:if="{{type==0 || type==6}}">
         <image class="success_icon" src="../../images/icon_succeed.png"></image>
-        <view class="title">开卡成功</view>
+        <view class="title">{{title}}</view>
     </view>
     <view class="card_box">
         <image class="card_icon" src="../../images/zfcard.png" mode="aspectFit"></image>
@@ -15,7 +15,7 @@
             <view class="text">卡内余额</view>
             <view class="balance">
                 <view class="money">¥{{dateFr.toFix(balance)}}</view>
-                <view class="recharge" wx:if="{{type != 2}}">充值</view>
+                <view class="recharge" wx:if="{{type != 2}}" bindtap="recharge">充值</view>
             </view>
         </view>
     </view>

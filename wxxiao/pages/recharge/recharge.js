@@ -22,7 +22,7 @@ Page({
   },
   rechargeSubmit: function() {
     wx.navigateTo({
-      url: '../../pages/succeCard/succeCrd'
+      url: '../../pages/succeCard/succeCrd?title=充值成功&type=6&balance=0'
     })
   },
   agree: function() {

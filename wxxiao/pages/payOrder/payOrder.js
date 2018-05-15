@@ -7,8 +7,10 @@ Page({
   data: {
     
   },
-  submitFinish: function() {
-    console.log(123);
+  paySubmi: function() {
+    wx.navigateTo({
+      url: '../../pages/index/index'
+    })
   },
 
   /**

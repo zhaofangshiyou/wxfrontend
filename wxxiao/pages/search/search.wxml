@@ -53,6 +53,6 @@
     </view>
     <view class="noData" hidden="{{noData}}">
         <image class="noData_image" src="../../images/icon_trade.png"></image>
-        <view class="noDataText">暂无充值记录</view>
+        <view class="noDataText">{{noDataText}}</view>
     </view>
 </view>

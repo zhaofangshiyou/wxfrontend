@@ -20,7 +20,8 @@ Page({
     noData: true,
     noMore: false,
     listHeight: '',
-    scrollTop: 0
+    scrollTop: 0,
+    noDataText: ''
   },
    /**
    * 生命周期函数--监听页面初次渲染完成
@@ -46,8 +47,14 @@ Page({
     })
     if(options.tabIndex == 1) {
       this.getRechageData(this.data.page,this.data.limit,this.data.typeValue);
+      this.setData({
+        noDataText: '暂无充值记录'
+      })
     }else{
       this.getComsumeData(this.data.page2,this.data.limit,this.data.typeValue);
+      this.setData({
+        noDataText: '暂无消费记录'
+      })
     }
   },
   //获取充值流水
@@ -153,7 +160,8 @@ Page({
         tabIndex: 1,
         showClassify: false,
         typeValue: 0,
-        typeName: '全部'   
+        typeName: '全部',
+        noDataText: '暂无充值记录'
       })
       if(this.data.rechageList.length == 0) {
         this.getRechageData(this.data.page,this.data.limit,this.data.typeValue);
@@ -163,7 +171,8 @@ Page({
         tabIndex: 2,
         showClassify: false,
         typeValue: 0,
-        typeName: '全部'
+        typeName: '全部',
+        noDataText: '暂无消费记录'
       })
       if(this.data.comsumeList.length == 0) {
         this.getComsumeData(this.data.page2,this.data.limit,this.data.typeValue);
