@@ -145,7 +145,7 @@ Page({
   },
   classify: function() {
     this.setData({
-      showClassify: true
+      showClassify: !this.data.showClassify
     })
   },
   //切换导航

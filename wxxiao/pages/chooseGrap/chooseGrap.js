@@ -12,19 +12,21 @@ Page({
     },
     grapList: [
       {value: 1,'name': '1号'},
-      {value: 2,'name': '1号'},
-      {value: 3,'name': '1号'},
-      {value: 4,'name': '1号'},
-      {value: 5,'name': '1号'},
-      {value: 6,'name': '1号'},
-      {value: 7,'name': '1号'},
-      {value: 8,'name': '1号'},
-      {value: 9,'name': '1号'},
-      {value: 10,'name': '1号'},
-      {value: 11,'name': '1号'},
-      {value: 12,'name': '1号'},
-      {value: 13,'name': '1号'},
-      {value: 14,'name': '1号'},
+      {value: 2,'name': '2号'},
+      {value: 3,'name': '3号'},
+      {value: 4,'name': '4号'},
+      {value: 5,'name': '5号'},
+      {value: 6,'name': '6号'},
+      {value: 7,'name': '7号'},
+      {value: 8,'name': '8号'},
+      {value: 9,'name': '9号'},
+      {value: 10,'name': '10号'},
+      {value: 11,'name': '11号'},
+      {value: 12,'name': '12号'},
+      {value: 13,'name': '13号'},
+      {value: 14,'name': '14号'},
+      {value: 13,'name': '15号'},
+      {value: 14,'name': '16号'},
     ],
     chooseIndex: 0,
     grapText: '更多',
@@ -82,7 +84,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    
   },
 
   /**

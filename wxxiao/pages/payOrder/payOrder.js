@@ -8,7 +8,7 @@ Page({
     
   },
   paySubmi: function() {
-    wx.navigateTo({
+    wx.reLaunch({
       url: '../../pages/index/index'
     })
   },

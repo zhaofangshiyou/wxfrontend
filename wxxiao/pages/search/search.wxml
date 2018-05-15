@@ -13,7 +13,8 @@
         </view>
         <view class="all" bindtap="classify">
             <text class="all_text">{{typeName}}</text>
-            <image class="down_image" src="../../images/down.png"></image>
+            <image class="down_image" src="../../images/down.png" hidden="{{showClassify}}"></image>
+            <image class="down_image" src="../../images/top.png" hidden="{{!showClassify}}"></image>
         </view>
     </view>
 

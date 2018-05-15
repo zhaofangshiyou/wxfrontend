@@ -14,9 +14,18 @@ Page({
   back:function(event) {
     var pages = getCurrentPages()
     var prevPage = pages[pages.length - 2];
+    let list = [
+      {value: 1,'name': '1号'},
+      {value: 2,'name': '2号'},
+      {value: 3,'name': '3号'},
+      {value: 4,'name': '4号'},
+      {value: 5,'name': '5号'},
+      {value: 6,'name': '6号'}
+    ]
     prevPage.setData({
 　　　　"oil.station": event.currentTarget.dataset.name,
-        "oil.address": event.currentTarget.dataset.address
+        "oil.address": event.currentTarget.dataset.address,
+        "grapList": list
 　　});
     wx.navigateBack({//返回
       delta:1
