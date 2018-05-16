@@ -58,6 +58,7 @@ Page({
         if(res.data.status === 0) {
           if(JSON.stringify(res.data.data.card) == 'null') {
             that.data.haveCard = false;
+            this.data.haveMenuCard = false;
           }else{
             this.data.person_balance = res.data.data.card.person_balance;
             if(JSON.stringify(res.data.data.card.parent_id) == 'null') {
