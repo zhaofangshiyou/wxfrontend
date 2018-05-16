@@ -32,10 +32,19 @@ const CheckStr = value => {
   }
 }
 
-
+//将某个对象里面的null undefined 转化成""
+const objectNull = object => {
+ for(let key in object) {
+   if(object[key] == null || object[key]== undefined || JSON.stringify(object[key]) == 'null') {
+    object[key] = "";
+   }
+ }
+ return object;
+}
 
 module.exports = {
   formatTime: formatTime,
   warnMsg: warnMsg,
   CheckStr: CheckStr,
+  objectNull: objectNull
 }

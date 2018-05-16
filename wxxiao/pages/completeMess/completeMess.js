@@ -1,6 +1,6 @@
 // pages/completeMess/completeMess.js
 import httpService from '../../http/http.js';
-import { CheckStr } from '../../utils/util.js';
+import { CheckStr,objectNull } from '../../utils/util.js';
 const app = getApp();
 Page({
 
@@ -30,32 +30,19 @@ Page({
       .then(res => {
         if(res.data.status === 0) {
           var user = res.data.data.user;
+          objectNull(user);
           if(user.sex) {
             this.setData({
               chooseSex: user.sex
             })
           }
-          if(CheckStr(user.car_type)) {
-            this.setData({
-              carTypeBrand: user.car_type,
-              showCar: true
-            })
-          }
-          if(CheckStr(user.id_card)) {
-            this.setData({
-              IDcard: user.id_card,
-            })
-          }
-          if(CheckStr(user.car_num)) {
-            this.setData({
-              carNum: user.car_num
-            })
-          }
-          if(CheckStr(user.name)) {
-            this.setData({
-              realName: user.name
-            })
-          }
+          this.setData({
+            carTypeBrand: user.car_type,
+            IDcard: user.id_card,
+            showCar: true,
+            carNum: user.car_num,
+            realName: user.name
+         })
         }
       })
   },
