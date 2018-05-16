@@ -35,6 +35,12 @@ Page({
       url: '../../pages/invoices/invoices'
     })
   },
+  shoFavourable: function() {
+    this.alert.showDialog();
+  },
+  _confirmEvent: function() {
+    this.alert.hideDialog();
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -46,7 +52,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    console.log(234);
+    this.alert = this.selectComponent("#alert");
   },
 
   /**
