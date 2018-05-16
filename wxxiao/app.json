@@ -21,7 +21,8 @@
     "pages/bindCard/bindCard",
     "pages/logs/logs",
     "pages/myCard/myCard",
-    "pages/oilStation/oilStation"
+    "pages/oilStation/oilStation",
+    "pages/agreement/agreement"
   ],
   "window": {
     "backgroundTextStyle": "light",
