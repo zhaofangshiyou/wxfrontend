@@ -57,7 +57,7 @@
     margin-top: 30rpx;
 }
 .all{
-    margin-top: 6rpx;
+    margin-top: 10rpx;
     width: 100%;
     box-sizing: border-box;
     padding: 0 30rpx;
@@ -120,10 +120,10 @@
     color:rgba(51,51,51,1);
 }
 .classify{
-    position: absolute;
+    position: fixed;
     width: 100%;
     box-sizing: border-box;
-    top: 210rpx;
+    top: 330rpx;
     bottom: 0;
     background:rgba(51,51,51,0.3);
     z-index: 99999;
