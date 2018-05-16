@@ -14,7 +14,7 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
-var warnMsg = text => {
+const warnMsg = text => {
   wx.showToast({
     title: text,
     icon: 'none',
@@ -23,7 +23,19 @@ var warnMsg = text => {
 })
 }
 
+//判断某个字符串是否为空
+const CheckStr = value => {
+  if(value == '' || value == null || value== undefined || JSON.stringify(value) == 'null') {
+    return false;
+  }else{
+    return true;
+  }
+}
+
+
+
 module.exports = {
   formatTime: formatTime,
-  warnMsg: warnMsg
+  warnMsg: warnMsg,
+  CheckStr: CheckStr,
 }

@@ -172,3 +172,7 @@
 .hide_notice{
     visibility:hidden;   
 }
+
+.toggleAgreement{
+    display: inline-block;
+}
