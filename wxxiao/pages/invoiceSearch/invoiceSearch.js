@@ -52,8 +52,8 @@ Page({
   //获取发票列表
   getDataList: function(page,limit,is_invoicing) {
     let url = app.config.host+ '/query/flow/consume';
-    // let data = {userId: wx.getStorageSync('user_id')};
-    let data = {userId: 1};
+    let data = {userId: wx.getStorageSync('user_id')};
+    // let data = {userId: 1};
     let params = {
       page: page,
       limit: limit,
