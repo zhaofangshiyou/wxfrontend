@@ -26,7 +26,7 @@ Page({
         })
       }else{
         wx.navigateTo({
-          url: '../../pages/succeCard/succeCrd?title=个人卡&type=1&balance='+ this.data.person_balance
+          url: '../../pages/succeCard/succeCrd?title=个人卡&type=1'
         })
       }
     }else{
@@ -37,7 +37,7 @@ Page({
         })
       }else{
         wx.navigateTo({
-          url: '../../pages/succeCard/succeCrd?title=单位卡&type=2&balance='+this.data.company_balance
+          url: '../../pages/succeCard/succeCrd?title=单位卡&type=2'
         })
       }
     }
