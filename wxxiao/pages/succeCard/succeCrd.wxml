@@ -8,7 +8,7 @@
     </view>
     <view class="card_box">
         <image class="card_icon" src="../../images/zfcard.png" mode="aspectFit"></image>
-        <view class="card_num">1001 8888</view>
+        <view class="card_num">{{card_num}}</view>
     </view>
     <view class="account_box">
         <view class="account_cont">
