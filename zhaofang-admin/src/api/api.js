@@ -32,3 +32,12 @@ export const addStation = params => { return instance.post(`${url}/v1/backen/sta
 
 //导出excel表格
 //export const outExcel = params => { return instance.get(`${url}/v1/backen/station/excel`, { params: params }); };
+
+//获取城市列表
+export const getProvince = params => { return instance.get(`${url}/v1/backen/region/provinces`, { params: params }); };
+
+//油站初始化-编辑
+export const editInitOil = (params,id) => { return instance.put(`${url}/v1/backen/station/upd/${id}`, qs.stringify(params)); };
+
+//油站初始化-删除
+export const deleteInitOil = (params,id) => { return instance.delete(`${url}/v1/backen/station/del/${id}`, qs.stringify(params)); };

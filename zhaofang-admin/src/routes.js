@@ -41,9 +41,9 @@ let routes = [
         iconCls: 'el-icon-message',//图标样式class
         children: [
             { path: '/main', component: Main, name: '主页', hidden: true },
-            { path: '/oil_init', component: OilInit, name: '油站初始化',id: '1-1' },
-            { path: '/oilgun_edit', component: OilgunEdit, name: '油枪油品设置',id: '1-2' },
-            { path: '/oil_price', component: OilPrice, name: '油品价格设置',id: '1-3' },
+            { path: '/oil_init', component: OilInit, name: '油站初始化' },
+            { path: '/oilgun_edit', component: OilgunEdit, name: '油枪油品设置' },
+            { path: '/oil_price', component: OilPrice, name: '油品价格设置' },
             { path: '/table', component: Table, name: 'Table' },
             { path: '/form', component: Form, name: 'Form' },
             { path: '/user', component: user, name: '列表' },

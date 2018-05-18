@@ -6,10 +6,10 @@
 				<el-form-item label="省份">
 					<el-select v-model="provice" clearable placeholder="请选择" @change="selectOil($event)">
                         <el-option
-                        v-for="(item,index) in pro_list"
-                        :key="item.value"
-                        :label="item.pro"
-                        :value="index">
+                        v-for="item in pro_list"
+                        :key="item.id"
+                        :label="item.name"
+                        :value="item.id">
                         </el-option>
                     </el-select>
 				</el-form-item>
@@ -17,14 +17,14 @@
 					<el-select v-model="station" clearable placeholder="请选择">
                         <el-option
                         v-for="item in oil_station"
-                        :key="item.name"
+                        :key="item.id"
                         :label="item.name"
-                        :value="item.name">
+                        :value="item.id">
                         </el-option>
                     </el-select>
 				</el-form-item>
 				<el-form-item>
-					<el-button type="primary">查询</el-button>
+					<el-button type="primary" @click="searchList">查询</el-button>
 				</el-form-item>
 				<el-form-item>
 					<el-button type="primary" @click="handleAdd">新增</el-button>
@@ -51,7 +51,7 @@
 			</el-table-column>
 			<el-table-column prop="oil_gum_nums" label="枪数" width="100">
 			</el-table-column>
-			<el-table-column prop="oil_product" label="油品信息" min-width="180">
+			<el-table-column prop="oil_list" label="油品信息" min-width="180">
 			</el-table-column>
 			<el-table-column label="操作" width="150">
 				<template scope="scope">
@@ -70,26 +70,26 @@
 		<el-dialog title="新增" v-model="addFormVisible" :close-on-click-modal="false">
 			<el-form :model="addForm" label-width="80px" ref="addForm">
 				<el-form-item label="省份" prop="name">
-					<el-select v-model="addForm.provice" size="100" placeholder="请选择">
+					<el-select v-model="addForm.province_id" @change="selectGet" size="100" placeholder="请选择">
                         <el-option
-                        v-for="(item) in add_provice_list"
-                        :key="item"
-                        :label="item"
-                        :value="item">
+                        v-for="item in add_provice_list"
+                        :key="item.id"
+                        :label="item.name"
+                        :value="item.id">
                         </el-option>
                     </el-select>
 				</el-form-item>
 				<el-form-item label="油站名称">
-					<el-input v-model="addForm.oil_name" size="100" placeholder="请输入油站名称" auto-complete="off"></el-input>
+					<el-input v-model="addForm.name" size="100" placeholder="请输入油站名称" auto-complete="off"></el-input>
 				</el-form-item>
 				<el-form-item label="枪数">
-					<el-input v-model="addForm.gun_number" size="100" auto-complete="off"></el-input>
+					<el-input v-model="addForm.oil_gum_nums" size="100" auto-complete="off"></el-input>
 				</el-form-item>
                 <el-form-item label="地址">
 					<el-input v-model="addForm.address" size="100" auto-complete="off"></el-input>
 				</el-form-item>
                 <el-form-item label="油品信息">
-                    <el-select v-model="addForm.oil_product" multiple placeholder="请选择" size="100">
+                    <el-select v-model="addForm.oil_list" multiple placeholder="请选择" size="100">
                         <el-option
                         v-for="item in oil_product"
                         :key="item"
@@ -109,23 +109,23 @@
 		<el-dialog title="编辑" v-model="editFormVisible" :close-on-click-modal="false">
 			<el-form :model="editForm" label-width="80px" ref="addForm">
 				<el-form-item label="省份" prop="name">
-					<el-select v-model="editForm.provice" size="100" placeholder="请选择">
+					<el-select disabled="true" v-model="editForm.province" size="100" placeholder="请选择">
                         <el-option
-                        v-for="(item,index) in add_provice_list"
-                        :key="item"
-                        :label="item"
-                        :value="index">
+                        v-for="item in add_provice_list"
+                        :key="item.id"
+                        :label="item.name"
+                        :value="item.id">
                         </el-option>
                     </el-select>
 				</el-form-item>
 				<el-form-item label="油站名称">
-					<el-input v-model="editForm.oil_name" size="100" placeholder="请输入油站名称" auto-complete="off"></el-input>
+					<el-input v-model="editForm.name" size="100" placeholder="请输入油站名称" auto-complete="off"></el-input>
 				</el-form-item>
 				<el-form-item label="枪数">
-					<el-input v-model="editForm.gun_number" size="100" auto-complete="off"></el-input>
+					<el-input v-model="editForm.oil_gum_nums" size="100" auto-complete="off"></el-input>
 				</el-form-item>
                 <el-form-item label="油品信息">
-                    <el-select v-model="editForm.oil_product" multiple placeholder="请选择" size="100">
+                    <el-select v-model="editForm.oil_list" multiple placeholder="请选择" size="100">
                         <el-option
                         v-for="item in oil_product"
                         :key="item"
@@ -145,34 +145,12 @@
 </template>
 
 <script>
-    import { getStation, addStation } from '../../api/api';
+    import { getStation, addStation, getProvince, editInitOil,deleteInitOil } from '../../api/api';
     import { messageWarn } from '../../common/js/commonMethod';
     export default {
         data() {
             return {
-                pro_list: [
-                    {
-                        'pro': '北京',
-                        'children' : [
-                            {'name':'北京-加油站1',},
-                            {'name':'北京-加油站2'}
-                        ]
-                    },
-                    {
-                        'pro': '安徽',
-                        'children' : [
-                            {'name':'安徽-加油站1'},
-                            {'name':'安徽-加油站2'}
-                        ]
-                    },
-                    {
-                        'pro': '广东',
-                        'children' : [
-                            {'name':'广东-加油站1'},
-                            {'name':'广东-加油站2'}
-                        ]
-                    }
-                ],
+                pro_list: [],
                 initList: [],
                 provice: '',
                 station: '',
@@ -182,98 +160,181 @@
                 addFormVisible: false,
                 addLoading: false,
 				addForm: {
-                    provice: '',
-					oil_name: '',
-                    gun_number: '',
+                    province_id: '',
+					name: '',
+                    oil_gum_nums: '',
                     address: '',
-                    oil_product: []
+                    province: '',
+                    oil_list: [],
+                    avatar_url: '',
+                    city: '',
+                    type: ''
                 },
                 editFormVisible: false,//编辑界面是否显示
 				editLoading: false,
 				//编辑界面数据
 				editForm: {
-                    id: 0,
-					provice: '',
-					oil_name: '',
-                    gun_number: '',
-                    oil_product: []
+                    id: '',
+                    province_id: '',
+					name: '',
+                    oil_gum_nums: '',
+                    address: '',
+                    province: '',
+                    oil_list: [],
+                    avatar_url: '',
+                    city: '',
+                    type: ''
 				},
-                add_provice_list: ['北京','天津','河北','山西','内蒙古','辽宁','吉林','黑龙江','上海','江苏','浙江省','安徽','福建','江西','山东','河南','湖北','湖南','广东','广西','海南','重庆','四川','贵州','云南','西藏','陕西','甘肃省','青海','宁夏','新疆','台湾','香港特别行政区','澳门'],
+                add_provice_list: [],
                 oil_product: ['92号','95号','98号','0号','-10号'],
                 list: [],
                 total: 0,
             }
         },
         created:function() {
-            
+            this.getProvince();
             this.getList();
         },
         methods: {
-            selectOil(event) {
-                this.station = '';
-                this.oil_station = this.pro_list[event].children;
+            getProvince() {
+                getProvince().then(res => {
+                    if(res.data.status === 0) {
+                        this.add_provice_list = res.data.data.provinces;
+                    }else {
+                        messageWarn('获取城市失败');
+                    }
+                })
             },
-            getList(province,station) {
+            selectGet(vId) {
+               let obj = {};
+                obj = this.add_provice_list.find((item)=>{
+                   return item.id === vId;
+                });
+                this.addForm.province = obj.name;
+            },
+            selectOil(event) {
+                let obj = {};
+                this.station = '';
+                obj = this.pro_list.find((item)=>{
+                   return item.id === event;
+                });
+                this.oil_station = obj.stations;
+            },
+            getList(province_id,id,page_num,num) {
                 this.listLoading = true;
                 let params = {
-                    province: province,
-                    station: station
+                    province_id: province_id,
+                    id: id,
+                    page_num: page_num,
+                    num: num
                 };
                 getStation(params).then(res => {
                     this.listLoading = false;
                     if(res.data.status===0) {
-                        this.initList = res.data.data.stations;
+                        this.initList = res.data.data.station_list;
+                        this.pro_list = res.data.data.province_list;
                     }else{
-
+                        messageWarn(res.data.msg);
                     }
                 })
             },
-            addStation(name,oil_gum_nums,province,address,oil_product,avatar_url,city) {
+            addStation(province_id,name,oil_gum_nums,address,province,oil_list,avatar_url,city,type) {
                 let params = {
+                    id: '',
+                    province_id: province_id,
                     name: name,
                     oil_gum_nums: oil_gum_nums,
                     province: province,
                     address: address,
-                    oils_list: oil_product,
-                    avatar_url: avatar_url,
-                    city: city
+                    oil_list: oil_list,
+                    avatar_url: this.editForm.avatar_url,
+                    city: this.editForm.city,
+                    type: this.editForm.type
                 }
                 addStation(params).then(res =>{
                     if(res.data.status === 0) {
                         messageWarn('添加成功');
                         this.addFormVisible = false;
+                        this.getList();
                     }else{
-                        messageWarn('添加失败');
+                        messageWarn(res.data.msg);
                     }
                 })
             },
             //提交新增
             addSubmit: function() {
-                console.log(this.addForm);
-                let oil_product = this.addForm.oil_product.join(',');
-                this.addStation(this.addForm.oil_name,this.addForm.gun_number,this.addForm.provice,this.addForm.address,oil_product,oil_product);
+                let  oil_list = this.addForm.oil_list.join('、');
+                this.addStation(this.addForm.province_id,this.addForm.name,this.addForm.oil_gum_nums,this.addForm.address,this.addForm.province,oil_list);
 
             },
             //显示新增界面
 			handleAdd: function () {
 				this.addFormVisible = true;
 				this.addForm = {
-                    provice: '',
-					oil_name: '',
-                    gun_number: '',
-                    oil_product: []
+                    province_id: '',
+					name: '',
+                    oil_gum_nums: '',
+                    address: '',
+                    province: '',
+                    oil_list: [],
+                    avatar_url: '',
+                    city: '',
+                    type: ''
                 };
+            },
+            //查询
+            searchList: function() {
+                this.getList(this.provice,this.station); 
             },
             //编辑
             handleEdit(index, row) {
                 this.editFormVisible = true;
-                console.log(row);
                 this.editForm = Object.assign({}, row);
-                console.log(this.editForm);
+               this.editForm.oil_list = row.oil_list.split('、');
+            },
+
+            //删除
+            handleDel: function(index,row) {
+                this.$confirm('确认删除该记录吗?', '提示', {
+					type: 'warning'
+				}).then(() => {
+					this.listLoading = true;
+					//NProgress.start();
+					deleteInitOil({}, row.id).then((res) => {
+						this.listLoading = false;
+						//NProgress.done();
+						this.$message({
+							message: '删除成功',
+							type: 'success'
+						});
+						this.getList();
+					});
+				}).catch(() => {
+
+				});
             },
             //编辑提交
             editSubmit() {
-                
+                let oil_list = this.editForm.oil_list.join('、');
+                let param = {
+                    province_id: this.editForm.province_id,
+                    name: this.editForm.name,
+                    oil_gum_nums: this.editForm.oil_gum_nums,
+                    address: this.editForm.address,
+                    province: this.editForm.province,
+                    oil_list: oil_list,
+                    avatar_url: this.editForm.avatar_url,
+                    city: this.editForm.city,
+                    type: this.editSubmit.type
+                }
+               editInitOil(param,this.editForm.id).then(res => {
+                   if(res.status.data === 0) {
+                       messageWarn('添加成功'); 
+                       this.getList();
+                   }else{
+                       messageWarn(res.data.msg); 
+                   }
+               })    
             },
             selsChange: function (sels) {
                 console.log(sels);

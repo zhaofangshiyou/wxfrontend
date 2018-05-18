@@ -1,8 +1,7 @@
-//var app = getApp();
+var app = getApp();
 var sendRrquest = function (url,data,params,method) {
-  //wx.showLoading({});
+  wx.showLoading({});
     url = url+ jsonRestFull(data);
-    console.log(url);
     var promise = new Promise(function (resolve, reject) {
        //网络请求
        wx.request({
@@ -15,12 +14,14 @@ var sendRrquest = function (url,data,params,method) {
            },
            success: function(res) {
             resolve(res);
-            //wx.hideLoading()
            },
            fail: function(res) {
                 reject({error:'网络错误',code:0}); 
            },
            complete: function(res) {
+             setTimeout(res =>{
+              wx.hideLoading()
+             },1000)
            }
        })
     });
