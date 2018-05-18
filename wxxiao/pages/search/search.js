@@ -80,7 +80,7 @@ Page({
               noData: false
             })
           }else{
-            if(this.data.rechageList.length > 7) {
+            if(this.data.rechageList.length > this.data.limit) {
               this.setData({
                 noMore: true
               })
