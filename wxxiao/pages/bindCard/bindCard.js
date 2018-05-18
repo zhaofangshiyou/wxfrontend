@@ -9,7 +9,7 @@ Page({
   },
   bindCard: function() {
     wx.navigateTo({
-      url: '../../pages/succeCard/succeCrd?title=单位卡&type=2&balance=0'
+      url: '../../pages/succeCard/succeCrd?title=单位卡&type=2'
     })
   },
 
