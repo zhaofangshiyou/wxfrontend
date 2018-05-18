@@ -1,4 +1,5 @@
 <!--pages/invoiceSearch/invoiceSearch.wxml-->
+<wxs module="dateFr" src="../../filter/dateFilter.wxs"></wxs>
 <header title="发票管理"></header>
 <view class="container">
     <view class="tab">
@@ -9,44 +10,36 @@
             <view class="tab_text {{tabIndex==2?'active':''}}">已开发票</view>
         </view>
     </view>
-    <!-- 充值记录 -->
-    <scroll-view scroll-y="true" class="recharge" hidden="{{tabIndex==2}}">
-        <view class="recharge_list">
-            <view class="text_message">
-                <view class="text_title">华富加油站</view>
-                <view class="text_tip">2018-04-16 12:12:12</view>
-            </view>
-            <view class="reduce_number">+3000</view>
-        </view>
-        <view class="recharge_list">
+    <!-- 未开发票 -->
+    <scroll-view scroll-y="true" bindscrolltolower="loadMoreInvoice" class="recharge" hidden="{{tabIndex==2}}">
+        <view class="box">
+            <view class="recharge_list" wx:for="{{notOpenInvoice}}">
                 <view class="text_message">
-                    <view class="text_title">雨坛加油站</view>
-                    <view class="text_tip">2018-04-16 12:12:12</view>
+                    <view class="text_title">华富加油站</view>
+                    <view class="text_tip">{{dateFr.getDate(item.created_at,'-')}}</view>
                 </view>
-                <view class="add_number">+3000</view>
+                <view class="reduce_number">{{item.money}}</view>
             </view>
-    </scroll-view>
-    <!-- 消费记录 -->
-    <view class="recharge" hidden="{{tabIndex==1}}">
-        <view class="recharge_list">
-            <view class="text_message">
-                <view class="text_title">线上充值</view>
-                <view class="text_tip">2018-04-16 12:12:12</view>
-            </view>
-            <view class="reduce_number">+3000</view>
         </view>
-        <view class="recharge_list">
+        <view class="noMore" wx:if="{{noMore}}">没有更多记录～</view>
+    </scroll-view>
+    <!-- 已开发票 -->
+    <scroll-view scroll-y="true" bindscrolltolower="loadMoreInvoice" class="recharge" hidden="{{tabIndex==1}}">
+        <view class="box">
+            <view class="recharge_list" wx:for="{{openInvoice}}">
                 <view class="text_message">
                     <view class="text_title">线上充值</view>
                     <view class="text_tip">2018-04-16 12:12:12</view>
                 </view>
                 <view class="reduce_number">+3000</view>
             </view>
-    </view>
+        </view>
+        <view class="noMore" wx:if="{{noMore}}">没有更多记录～</view>
+    </scroll-view>
 
-    <view class="noData" style="display:none">
+    <view class="noData" hidden="{{noData}}">
         <image class="noData_image" src="../../images/icon_trade.png"></image>
-        <view class="noDataText">暂无充值记录</view>
+        <view class="noDataText">{{noDataText}}</view>
     </view>
 </view>
 

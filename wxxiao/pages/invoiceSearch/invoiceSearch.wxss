@@ -1,4 +1,14 @@
 /* pages/invoiceSearch/invoiceSearch.wxss */
+.noMore{
+    width: 100%;
+    overflow: hidden;
+    height: 100rpx;
+    background: #f5f5f5;
+    text-align: center;
+    line-height: 100rpx;
+    font-size: 24rpx;
+    color: #bdbdbd;
+}
 .tab{
     width: 100%;
     background: #fff;
@@ -59,9 +69,21 @@
    height: 12rpx; 
 }
 .recharge{
-    background: #fff;
-    margin-top: 110rpx;
+    /* margin-top: 110rpx;
     width: 100%;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-bottom: 140rpx; */
+    width: 100%;
+    top: 110rpx;
+    bottom: 5px;
+    position: absolute;
+    overflow: hidden;
+}
+.box{
+    background: #fff;
 }
 .recharge_list{
     height: 140rpx;
