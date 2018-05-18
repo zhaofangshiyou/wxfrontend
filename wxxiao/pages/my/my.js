@@ -1,5 +1,7 @@
 // pages/my/my.js
-const app = getApp()
+import httpService from '../../http/http.js';
+
+const app = getApp();
 Page({
 
   /**
@@ -26,6 +28,24 @@ Page({
         })
       }
     })
+  },
+//../../pages/recharge/recharge
+  goRecharge: function() {
+    var that = this;
+    httpService.sendRrquest(app.config.host+'/card',{userId: wx.getStorageSync('user_id')},{},'GET')
+      .then(res => {
+        if(res.data.status === 0) {
+          if(JSON.stringify(res.data.data.card) == 'null') {
+            wx.navigateTo({
+              url: '../../pages/openCard/openCard'
+            }) 
+          }else{
+            wx.navigateTo({
+              url: '../../pages/recharge/recharge'
+            }) 
+          }
+        }
+      })
   },
 
   /**

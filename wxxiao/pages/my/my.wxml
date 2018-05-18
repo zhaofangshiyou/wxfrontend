@@ -26,7 +26,7 @@
            </view>
        </view>
        <view class="enter_list enter_top">
-            <view class="enter_item" data-link="../../pages/recharge/recharge" bindtap="goNext">
+            <view class="enter_item"  bindtap="goRecharge">
                     <image class="enter_img" src="../../images/add_copy.png"></image>
                     <text class="enter_name">兆方卡充值</text>
             </view>
