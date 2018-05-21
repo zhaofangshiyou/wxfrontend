@@ -41,3 +41,5 @@ export const editInitOil = (params,id) => { return instance.put(`${url}/v1/backe
 
 //油站初始化-删除
 export const deleteInitOil = (params,id) => { return instance.delete(`${url}/v1/backen/station/del/${id}`, qs.stringify(params)); };
+
+//油枪油品设置-获取油品列表

@@ -139,10 +139,10 @@
                 oilProduct_option: [],
                 station_list: [
                     {name: '不限',value: 0},
-                    {name: '中兴加油站',value: 1,number: 8,oil_product: "92号,0号,95号"},
-                    {name: '雨坛加油站',value: 2,number: 6,oil_product: "92号,-10号,95号"},
-                    {name: '华富加油站',value: 3,number: 16,oil_product: "0号,92号,-10号,95号,98号"},
-                    {name: '广阳加油站',value: 4,number: 20,oil_product: "0号,92号,-10号,95号,98号"}
+                    {name: '中兴加油站',value: 1,number: 8},
+                    {name: '雨坛加油站',value: 2,number: 6},
+                    {name: '华富加油站',value: 3,number: 16},
+                    {name: '广阳加油站',value: 4,number: 20}
                 ],
                 listLoading: false,
                 oilList: [

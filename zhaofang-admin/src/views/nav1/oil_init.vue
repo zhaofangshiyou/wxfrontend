@@ -62,7 +62,7 @@
 		</el-table>
         <!--工具条-->
 		<el-col :span="24" class="toolbar">
-			<el-pagination layout="prev, pager, next" @current-change="handleCurrentChange" :page-size="10" :total="total" style="float:right;">
+			<el-pagination layout="prev, pager, next" @current-change="handleCurrentChange" :page-size="num" :total="total" style="float:right;">
 			</el-pagination>
 		</el-col>
 
@@ -189,11 +189,13 @@
                 oil_product: ['92号','95号','98号','0号','-10号'],
                 list: [],
                 total: 0,
+                page_num: 1,
+                num: 10
             }
         },
         created:function() {
             this.getProvince();
-            this.getList();
+            this.getList(this.provice,this.station,this.page_num,this.num);
         },
         methods: {
             getProvince() {
@@ -233,6 +235,7 @@
                     if(res.data.status===0) {
                         this.initList = res.data.data.station_list;
                         this.pro_list = res.data.data.province_list;
+                        this.total = res.data.data.station_num;
                     }else{
                         messageWarn(res.data.msg);
                     }
@@ -255,7 +258,7 @@
                     if(res.data.status === 0) {
                         messageWarn('添加成功');
                         this.addFormVisible = false;
-                        this.getList();
+                        this.getList(this.provice,this.station,this.page_num,this.num);
                     }else{
                         messageWarn(res.data.msg);
                     }
@@ -284,7 +287,9 @@
             },
             //查询
             searchList: function() {
-                this.getList(this.provice,this.station); 
+                this.page_num = 1;
+                this.num = 1;
+                this.getList(this.provice,this.station,this.page_num,this.num); 
             },
             //编辑
             handleEdit(index, row) {
@@ -307,7 +312,7 @@
 							message: '删除成功',
 							type: 'success'
 						});
-						this.getList();
+						this.getList(this.province,this.station,this.page_num,this.num);
 					});
 				}).catch(() => {
 
@@ -329,7 +334,8 @@
                 }
                editInitOil(param,this.editForm.id).then(res => {
                    if(res.status.data === 0) {
-                       messageWarn('添加成功'); 
+                       messageWarn('添加成功');
+                       this.editFormVisible = false;
                        this.getList();
                    }else{
                        messageWarn(res.data.msg); 
@@ -341,7 +347,8 @@
 				this.sels = sels;
             },
             handleCurrentChange(val) {
-				console.log(val);
+                this.page_num = val;
+                this.getList(this.province,this.station,this.page_num,this.num);
             },
             batchRemove() {
 
