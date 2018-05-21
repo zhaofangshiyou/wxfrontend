@@ -57,7 +57,7 @@
 		<el-dialog title="新增" v-model="addFormVisible" :close-on-click-modal="false">
 			<el-form :model="addForm" label-width="80px" ref="addForm">
 				<el-form-item label="站点名称">
-					<el-select v-model="addForm.name" size="100" placeholder="请选择" @change="stationChange($event)">
+					<el-select v-model="addForm.station_id" size="100" placeholder="请选择" @change="stationChange($event)">
                         <el-option
                         v-for="(item,index) in station_list" v-if="index > 0"
                         :key="item.value"
@@ -67,7 +67,7 @@
                     </el-select>
 				</el-form-item>
                 <el-form-item label="枪号" class="btn_left">
-					<el-select v-model="addForm.gun_number" placeholder="请选择">
+					<el-select v-model="addForm.gum_num" placeholder="请选择">
                         <el-option
                         v-for="item in gunNum_option"
                         :key="item.number"
@@ -78,12 +78,12 @@
                     </el-select>
                 </el-form-item>
                 <el-form-item label="油品信息" class="btn_left">
-                    <el-select v-model="addForm.oil_product" placeholder="请选择">
+                    <el-select v-model="addForm.oil_id" placeholder="请选择">
                         <el-option
                         v-for="item in oilProduct_option"
-                        :key="item"
-                        :label="item"
-                        :value="item">
+                        :key="item.id"
+                        :label="item.name"
+                        :value="item.id">
                         </el-option>
                     </el-select>
 				</el-form-item>
@@ -102,7 +102,7 @@
                     </el-input>
 				</el-form-item>
                 <el-form-item label="枪号" class="btn_left">
-					<el-select v-model="editForm.gun_number" placeholder="请选择">
+					<el-select v-model="editForm.gum_num" placeholder="请选择">
                         <el-option
                         v-for="item in editGunNum"
                         :key="item"
@@ -115,9 +115,9 @@
                     <el-select v-model="editForm.oil_product" placeholder="请选择">
                         <el-option
                         v-for="item in oilProduct_option"
-                        :key="item"
-                        :label="item"
-                        :value="item">
+                        :key="item.id"
+                        :label="item.name"
+                        :value="item.id">
                         </el-option>
                     </el-select>
 				</el-form-item>
@@ -131,6 +131,7 @@
 </template>
 
 <script>
+    import { getOilProduct, addOilGun } from '../../api/api';
      export default {
          data() {
              return {
@@ -160,9 +161,9 @@
                 addFormVisible: false,
                 addLoading: false,
                 addForm: {
-					name: '',
-					gun_number: '',
-					oil_product: ''
+					station_id: '',
+					gum_num: '',
+					oil_id: ''
 				},
                 //编辑
                 editForm: {
@@ -177,10 +178,40 @@
 
              }
          },
+         created: function() {
+            this.getOilProduct();
+         },
          methods: {
+             //获取油品信息列表
+             getOilProduct: function() {
+                 getOilProduct().then(res => {
+                     if(res.data.status === 0) {
+                        this.oilProduct_option = res.data.data;
+                        console.log(this.oilProduct_option);
+                     }
+                 })
+             },
              //新增提交
              addSubmit: function() {
-                 console.log(this.addForm);
+                let params = {
+                    station_id: this.addForm.station_id,
+                    oil_id: this.addForm.oil_id,
+                    gum_num: this.addForm.gum_num 
+                }
+                addOilGun(params).then( res=> {
+                    if(res.data.status === 0) {
+                        this.$message({
+                            message: '添加成功',
+                            type: 'success'
+                        });
+                        this.addFormVisible = false;
+                    }else {
+                        this.$message({
+                            message: res.data.msg,
+                            type: 'warning'
+                        });
+                    }
+                })
              },
              //显示新增界面
             stationChange: function(event) {
@@ -202,7 +233,7 @@
                                 this.gunNum_option.push({'number': j,'disabled': false});
                             }
                         }
-                        this.oilProduct_option = this.sliceString(this.station_list[i].oil_product);
+                       // this.oilProduct_option = this.sliceString(this.station_list[i].oil_product);
                         return;
                     }
                 }
@@ -216,9 +247,9 @@
 			handleAdd: function () {
 				this.addFormVisible = true;
 				this.addForm = {
-					name: '',
-					gun_number: '',
-					oil_product: ''
+					station_id: '',
+					gum_num: '',
+					oil_id: ''
 				};
 			},
             handleEdit(index,row) {
