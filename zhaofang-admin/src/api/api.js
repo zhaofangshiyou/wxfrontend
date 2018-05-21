@@ -40,6 +40,12 @@ export const getProvince = params => { return instance.get(`${url}/v1/backen/reg
 export const editInitOil = (params,id) => { return instance.put(`${url}/v1/backen/station/upd/${id}`, qs.stringify(params)); };
 
 //油站初始化-删除
-export const deleteInitOil = (params,id) => { return instance.delete(`${url}/v1/backen/station/del/${id}`, qs.stringify(params)); };
+export const deleteInitOil = (params) => { return instance.delete(`${url}/v1/backen/station/del`, {data : qs.stringify(params)}); };
 
 //油枪油品设置-获取油品列表
+
+//获取油品列表
+export const getOilProduct = params => { return instance.get(`${url}/v1/backen/oil`, { params: params }); };
+
+//新增油品油枪关系 /gum/add
+export const addOilGun = params => { return instance.post(`${url}/v1/backen/oil/gum/add`, qs.stringify(params)); };

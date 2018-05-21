@@ -109,7 +109,7 @@
 		<el-dialog title="编辑" v-model="editFormVisible" :close-on-click-modal="false">
 			<el-form :model="editForm" label-width="80px" ref="addForm">
 				<el-form-item label="省份" prop="name">
-					<el-select disabled="true" v-model="editForm.province" size="100" placeholder="请选择">
+					<el-select :disabled="true" v-model="editForm.province" size="100" placeholder="请选择">
                         <el-option
                         v-for="item in add_provice_list"
                         :key="item.id"
@@ -159,6 +159,8 @@
                  //新增界面数据
                 addFormVisible: false,
                 addLoading: false,
+                //del_ids
+                del_ids: [],
 				addForm: {
                     province_id: '',
 					name: '',
@@ -288,7 +290,6 @@
             //查询
             searchList: function() {
                 this.page_num = 1;
-                this.num = 1;
                 this.getList(this.provice,this.station,this.page_num,this.num); 
             },
             //编辑
@@ -304,15 +305,23 @@
 					type: 'warning'
 				}).then(() => {
 					this.listLoading = true;
-					//NProgress.start();
-					deleteInitOil({}, row.id).then((res) => {
+                    //NProgress.start();
+                    let arr_id = JSON.stringify([row.id]);
+                    let params = {
+                        station_id: arr_id
+                    }
+					deleteInitOil(params).then((res) => {
 						this.listLoading = false;
-						//NProgress.done();
-						this.$message({
-							message: '删除成功',
-							type: 'success'
-						});
-						this.getList(this.province,this.station,this.page_num,this.num);
+                        //NProgress.done();
+                            if(res.data.status === 0){
+                                this.$message({
+                                message: '删除成功',
+                                type: 'success'
+                            });
+                            this.getList(this.province,this.station,this.page_num,this.num);
+                        }else{
+                            messageWarn(res.data.msg);
+                        }
 					});
 				}).catch(() => {
 
@@ -333,7 +342,7 @@
                     type: this.editSubmit.type
                 }
                editInitOil(param,this.editForm.id).then(res => {
-                   if(res.status.data === 0) {
+                   if(res.data.status === 0) {
                        messageWarn('添加成功');
                        this.editFormVisible = false;
                        this.getList();
@@ -343,15 +352,43 @@
                })    
             },
             selsChange: function (sels) {
+                this.del_ids.length = 0;
                 console.log(sels);
-				this.sels = sels;
+                for(let i=0; i<sels.length; i++) {
+                    this.del_ids.push(sels[i].id)
+                }
+				//this.sels = sels;
+            },
+            //批量删除
+            batchRemove: function() {
+                this.$confirm('确认删除选中记录吗?', '提示', {
+					type: 'warning'
+				}).then(() => {
+					this.listLoading = true;
+                    //NProgress.start();
+                    let params = {
+                        station_id: JSON.stringify(this.del_ids)
+                    }
+					deleteInitOil(params).then((res) => {
+						this.listLoading = false;
+                        //NProgress.done();
+                            if(res.data.status === 0){
+                                this.$message({
+                                message: '删除成功',
+                                type: 'success'
+                            });
+                            this.getList(this.province,this.station,this.page_num,this.num);
+                        }else{
+                            messageWarn(res.data.msg);
+                        }
+					});
+				}).catch(() => {
+
+				});
             },
             handleCurrentChange(val) {
                 this.page_num = val;
                 this.getList(this.province,this.station,this.page_num,this.num);
-            },
-            batchRemove() {
-
             },
             //导出表格
             outExcelTable() {
