@@ -14,6 +14,7 @@ import rechageDetail from './views/nav2/recharge_detail'
 import rechargeAll from './views/nav2/recharge_all'
 import runAccount from './views/nav2/runAccount.vue'
 import specialMess from './views/nav3/specialMess.vue'
+import discountUE from './views/nav3/discountUE.vue'
 import invoiceManage from './views/nav4/invoiceManage'
 import userManage from './views/nav5/userManage.vue'
 import userConsumerDetail from './views/nav5/userConsumerDetail.vue'
@@ -65,11 +66,12 @@ let routes = [
     {
         path: '/',
         component: Home,
-        name: '',
+        name: '优惠信息',
         iconCls: 'fa fa-address-card',
-        leaf: true,//只有一个节点
+        // leaf: true,//只有一个节点
         children: [
-            { path: '/special_mess', component: specialMess, name: '优惠信息' }
+            { path: '/special_mess', component: specialMess, name: '优惠信息' },
+            { path: '/discountUE', component: discountUE, name: '优惠规则文案表' }
         ]
     },
     {
