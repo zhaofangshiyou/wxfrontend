@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/discount/discount",
     "pages/index/index",
     "pages/openCard/openCard",
     "pages/welfare/welfare",
