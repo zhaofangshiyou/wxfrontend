@@ -1,4 +1,5 @@
 // components/footer/footer.js
+const app = getApp();
 Component({
   /**
    * 组件的属性列表
@@ -22,7 +23,9 @@ Component({
    * 组件的初始数据
    */
   data: {
+    img_url: 'http://123.207.109.73/upload/weChat'
   },
+
 
   /**
    * 组件的方法列表

@@ -9,8 +9,8 @@ Page({
    */
   data: {
     listArr: [
-      {name:'个人卡',notice:'个人办理的加油卡用户请选择',iconUrl: '../../images/person_card.png',link: '../../pages/openCard/openCard'},
-      {name:'单位卡',notice:'持有单位分配的加油卡用户请选择',iconUrl: '../../images/company_card.png',link: '../../pages/bindCard/bindCard'},
+      {name:'个人卡',notice:'个人办理的加油卡用户请选择',iconUrl: app.config.img_url+'/person_card.png',link: '../../pages/openCard/openCard'},
+      {name:'单位卡',notice:'持有单位分配的加油卡用户请选择',iconUrl: app.config.img_url+'/company_card.png',link: '../../pages/bindCard/bindCard'},
     ],
     haveCard: true,
     haveMenuCard: true,
@@ -75,7 +75,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var that = this;
+    that.setData({
+      img_url: app.config.img_url
+    })
   },
 
 

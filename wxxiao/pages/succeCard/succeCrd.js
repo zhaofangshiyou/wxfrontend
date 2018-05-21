@@ -71,6 +71,7 @@ Page({
       // balance: parseInt(res.balance),
       title: res.title,
       type: res.type,
+      img_url: app.config.img_url
       // card_num: res.card_number
     })
   },

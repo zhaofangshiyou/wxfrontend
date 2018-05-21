@@ -24,7 +24,8 @@ Page({
     wx.getUserInfo({
       success: res => {
         that.setData({
-          userInfo: res.userInfo
+          userInfo: res.userInfo,
+          img_url: app.config.img_url
         })
       }
     })

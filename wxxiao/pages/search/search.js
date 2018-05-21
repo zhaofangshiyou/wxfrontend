@@ -43,7 +43,8 @@ Page({
   onLoad: function (options) {
     var that = this;
     that.setData({
-      tabIndex: options.tabIndex
+      tabIndex: options.tabIndex,
+      img_url: app.config.img_url
     })
     if(options.tabIndex == 1) {
       this.getRechageData(this.data.page,this.data.limit,this.data.typeValue);

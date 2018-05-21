@@ -4,7 +4,7 @@
     <view class="content">
         <view class="detail_box">
             <view class="detail_title">
-                <image class="address_icon" src="../../images/icon_address.png"></image>
+                <image class="address_icon" src="{{img_url}}/icon_address.png"></image>
                 <text class="detail_text">华富加油站</text>
             </view>
             <view class="detail_mess">
@@ -26,7 +26,7 @@
                 </view>
                 <view class="meaasge_item">
                     <view class="name">优惠金额
-                        <image class="help_icon" src="../../images/gathering_icon_help.png"></image>
+                        <image class="help_icon" src="{{img_url}}/gathering_icon_help.png"></image>
                     </view>
                     <view class="amount">10元</view>
                 </view>
@@ -41,22 +41,22 @@
     <view class="pay_way_box">
         <view class="pay_item" bindtap="changePay">
             <view class="pay_left">
-                <image class="pay_icon" src="../../images/carpay.png"></image>
+                <image class="pay_icon" src="{{img_url}}/carpay.png"></image>
                 <text class="pay_text">兆方车上付</text>
             </view>
             <view class="pay_choose">
-                <image wx:if="{{payWay==1}}" class="choose_icon" src="../../images/icon_choice.png"></image>
-                <image wx:if="{{payWay==2}}" class="choose_icon" src="../../images/icon_normal.png"></image>
+                <image wx:if="{{payWay==1}}" class="choose_icon" src="{{img_url}}/icon_choice.png"></image>
+                <image wx:if="{{payWay==2}}" class="choose_icon" src="{{img_url}}/icon_normal.png"></image>
             </view>
         </view>
         <view class="pay_item" bindtap="changePay">
             <view class="pay_left">
-                <image class="wexin_icon" src="../../images/weixin.png"></image>
+                <image class="wexin_icon" src="{{img_url}}/weixin.png"></image>
                 <text class="pay_text">微信支付</text>
             </view>
             <view class="pay_choose">
-                <image wx:if="{{payWay==2}}" class="choose_icon" src="../../images/icon_choice.png"></image>
-                <image wx:if="{{payWay==1}}" class="choose_icon" src="../../images/icon_normal.png"></image>
+                <image wx:if="{{payWay==2}}" class="choose_icon" src="{{img_url}}/icon_choice.png"></image>
+                <image wx:if="{{payWay==1}}" class="choose_icon" src="{{img_url}}/icon_normal.png"></image>
             </view>
         </view>
     </view>
@@ -67,7 +67,7 @@
 <view class="keyboard_box" wx:if="{{showBoard}}">
     <view class="board_content">
         <view class="board_header">
-            <view bindtap="hideBoard"><image class="hide_icon" src="../../images/hide.png"></image></view>
+            <view bindtap="hideBoard"><image class="hide_icon" src="{{img_url}}/hide.png"></image></view>
             <text class="board_title">请输入兆方卡支付密码</text>
         </view>
         <view class="board_pass">
@@ -113,7 +113,7 @@
                 <view class="board_number_item" data-number="deleteAll" bindtap="inputPass">C</view>
                 <view class="board_number_item" data-number="0" bindtap="inputPass">0</view>
                 <view class="board_number_item" data-number="delete" bindtap="inputPass">
-                    <image class="delete_icon" src="../../images/delete.png"></image>
+                    <image class="delete_icon" src="{{img_url}}/delete.png"></image>
                 </view>
             </view>
         </view>

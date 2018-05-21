@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/discount/discount",
     "pages/index/index",
     "pages/openCard/openCard",
     "pages/welfare/welfare",
@@ -23,7 +22,8 @@
     "pages/logs/logs",
     "pages/myCard/myCard",
     "pages/oilStation/oilStation",
-    "pages/agreement/agreement"
+    "pages/agreement/agreement",
+    "pages/discount/discount"
   ],
   "window": {
     "backgroundTextStyle": "light",

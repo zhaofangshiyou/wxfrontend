@@ -1,22 +1,22 @@
 <!--pages/welfare/welfare.wxml-->
 <view class="welfare_bg">
     <view class="back" bindtap="goBack">
-        <image class="back_icon" src="../../images/Shape@2x.png"></image>
+        <image class="back_icon" src="{{img_url}}/Shape@2x.png"></image>
     </view>
-    <image class="bg_icon" src="../../images/gy_bg.png" mode="widthFix"></image>
+    <image class="bg_icon" src="http://123.207.109.73/upload/weChat/gy_bg.png" mode="widthFix"></image>
     <view class="welfare_content">
         <view class="gy_notice">
-            <image class="title_icon" src="../../images/gy_title.png" widthFix></image>
+            <image class="title_icon" src="{{img_url}}/gy_title.png" widthFix></image>
             <view class="title">您每加一升油</view>
             <view class="notice">兆方将为本地教育事业捐赠1分钱公益金</view>
         </view>
         <view class="welfare_acount">
             <view class="acount_left">
-                <image class="gymess_icon" src="../../images/gymess.png"></image>
+                <image class="gymess_icon" src="{{img_url}}/gymess.png"></image>
                 <view class="oil_notice">{{total_vol}}<text class="small">升</text></view>
             </view>
             <view class="acount_right">
-                <image class="gymess_icon" src="../../images/gymoney.png"></image>
+                <image class="gymess_icon" src="{{img_url}}/gymoney.png"></image>
                 <view class="oil_notice">{{welfare_amount}}<text class="small">元</text></view>
             </view>
         </view>

@@ -12,7 +12,7 @@
             </view>
             <view class="choose_money">
                 <view class="accounce_box {{money_num==5000?'show_notice':'hide_notice'}}">
-                    <image class="accounce_icon" src="../../images/home_icon_inform.png"></image>
+                    <image class="accounce_icon" src="{{img_url}}/home_icon_inform.png"></image>
                     <text class="accounce_text">最高优惠1.2元/升，点击了解详情</text>
                 </view>
                 <view class="money_list">
@@ -22,7 +22,7 @@
                     <view data-moneyNum="5000" bindtap="select_money" class="choose_item {{money_num==5000?'active':''}}">
                         ¥5000
                         <view class="discount">
-                            <image class="discount_icon" src="../../images/discount.png"></image>
+                            <image class="discount_icon" src="{{img_url}}/discount.png"></image>
                         </view>
                     </view>
                 </view>
@@ -32,13 +32,13 @@
             <view class="invoice_title">我要开票</view>
             <view class="invoice_go">
                 <text class="notice">请选择</text>
-                <image class="right_icon" src="../../images/home_icon_enter.png"></image>
+                <image class="right_icon" src="{{img_url}}/home_icon_enter.png"></image>
             </view>
         </view> -->
         <view class="agree_box">
             <view bindtap="agree" class="toggleAgreement">
-                <image wx:if="{{isAgree}}" class="agree_icon" src="../../images/icon_choice.png"></image>
-                <image  wx:if="{{!isAgree}}" class="agree_icon" src="../../images/icon_normal.png"></image>
+                <image wx:if="{{isAgree}}" class="agree_icon" src="{{img_url}}/icon_choice.png"></image>
+                <image  wx:if="{{!isAgree}}" class="agree_icon" src="{{img_url}}/icon_normal.png"></image>
                 <text class="agree_text">我已阅读并同意</text>
             </view>
             <navigator url="../../pages/agreement/agreement" style="display:inline-block">

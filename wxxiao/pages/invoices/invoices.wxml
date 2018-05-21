@@ -3,7 +3,7 @@
     <view class="invoice_box">
         <view class="list" bindtap="chooseInvoice">
             <view class="header">
-                <image class="avatar_icon" src="../../images/saler_head01.png"></image> 
+                <image class="avatar_icon" src="{{img_url}}/saler_head01.png"></image> 
                 <view class="company">深圳市兆方石油化工股份有限非结构化公积金</view>
                 <view class="identity">单位</view>
             </view>
@@ -15,7 +15,7 @@
         </view>
         <view class="list">
             <view class="header">
-                <image class="avatar_icon" src="../../images/saler_head01.png"></image> 
+                <image class="avatar_icon" src="{{img_url}}/saler_head01.png"></image> 
                 <view class="company">深圳市兆方石油化工股份有限非结构化公积金</view>
                 <view class="identity">单位</view>
             </view>
@@ -28,7 +28,7 @@
               
     </view>
     <view class="noInvoice" style="display:none">
-        <image class="noInvoice_icon" src="../../images/Group.png"></image>
+        <image class="noInvoice_icon" src="{{img_url}}/Group.png"></image>
         <text class="noText">您还没有录入发票抬头</text>
     </view>
     <view class="footer" bindtap="addInvoice">+ 新增发票抬头</view>

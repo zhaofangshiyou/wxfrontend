@@ -3,11 +3,11 @@
 <header title="{{title}}"></header>
 <view class="container">
     <view class="header" wx:if="{{type==0 || type==6}}">
-        <image class="success_icon" src="../../images/icon_succeed.png"></image>
+        <image class="success_icon" src="{{img_url}}/icon_succeed.png"></image>
         <view class="title">{{title}}</view>
     </view>
     <view class="card_box">
-        <image class="card_icon" src="../../images/zfcard.png" mode="aspectFit"></image>
+        <image class="card_icon" src="{{img_url}}/zfcard.png" mode="aspectFit"></image>
         <view class="card_num">{{card_num}}</view>
     </view>
     <view class="account_box">

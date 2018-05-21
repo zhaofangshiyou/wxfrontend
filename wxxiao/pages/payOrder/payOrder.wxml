@@ -2,12 +2,12 @@
 <header title="支付订单"></header>
 <view class="container">
     <view class="title">
-        <image class="pay_icon" src="../../images/icon_succeed.png"></image>
+        <image class="pay_icon" src="{{img_url}}/icon_succeed.png"></image>
         <text class="text">支付成功</text>
     </view>
     <view class="content">
        <view class="box">
-            <image class="pay_bg" src="../../images/pay.png"></image>
+            <image class="pay_bg" src="{{img_url}}/pay.png"></image>
             <view class="oil_name">华富加油站</view>
             <view class="money">¥280</view>
             <view class="detail_box">

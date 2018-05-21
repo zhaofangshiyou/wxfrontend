@@ -12,7 +12,7 @@
                     </view>
                 </view>
                 <view class="list-right">
-                    <image class="right_icon" src="../../images/home_icon_enter.png"></image> 
+                    <image class="right_icon" src="{{img_url}}/home_icon_enter.png"></image> 
                 </view>
             </view>
         </view>  

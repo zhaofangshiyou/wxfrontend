@@ -3,13 +3,13 @@
     <view class="tab">
         <view class="tabType">抬头类型</view>
         <view class="tab_item" data-index="1" bindtap="changeTab">
-            <image wx:if="{{showPerson}}" class="choose_icon" src="../../images/icon_choice.png"></image>
-            <image wx:if="{{!showPerson}}" class="choose_icon" src="../../images/icon_normal.png"></image>
+            <image wx:if="{{showPerson}}" class="choose_icon" src="{{img_url}}/icon_choice.png"></image>
+            <image wx:if="{{!showPerson}}" class="choose_icon" src="{{img_url}}/icon_normal.png"></image>
             <view class="tab_text">个人</view>
         </view>
         <view class="tab_item company" data-index="2" bindtap="changeTab">
-            <image wx:if="{{!showPerson}}" class="choose_icon" src="../../images/icon_choice.png"></image>
-            <image wx:if="{{showPerson}}" class="choose_icon" src="../../images/icon_normal.png"></image>
+            <image wx:if="{{!showPerson}}" class="choose_icon" src="{{img_url}}/icon_choice.png"></image>
+            <image wx:if="{{showPerson}}" class="choose_icon" src="{{img_url}}/icon_normal.png"></image>
             <text class="tab_text">公司</text>
         </view>
     </view>
