@@ -6,7 +6,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    conMoney: ""
+    conMoney: "",
+    oil_index: 1
+  },
+  selectOil: function(e) {
+    this.setData({
+      oil_index: e.currentTarget.dataset.index
+    })
   },
   bindKeyInput: function(e) {
     this.data.conMoney = e.detail.value;

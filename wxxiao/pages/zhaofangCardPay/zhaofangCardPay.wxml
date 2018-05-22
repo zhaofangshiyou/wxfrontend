@@ -5,6 +5,23 @@
         <text class="warn_icon">!</text>
         <text class="warn_text">没有可选择油枪号，需手动输入金额</text>
     </view>
+    <view class="choose_oil">
+        <view class="oil_text">请选择油品类型</view>
+        <view class="oil_box">
+            <view class="oil_item" data-index="1" bindtap="selectOil">
+                <view class="item_text {{oil_index==1?'active':''}}" >92号</view>
+            </view>
+            <view class="oil_item" data-index="2" bindtap="selectOil">
+                <view class="item_text {{oil_index==2?'active':''}}">95号</view>
+            </view>
+            <view class="oil_item" data-index="3" bindtap="selectOil">
+                <view class="item_text {{oil_index==3?'active':''}}">98号</view>
+            </view>
+            <view class="oil_item" data-index="4" bindtap="selectOil">
+                <view class="item_text {{oil_index==4?'active':''}}">0号</view>
+            </view>
+        </view>
+    </view>
     <view class="consume">
         <view class="title">消费金额</view>
         <view class="number">
