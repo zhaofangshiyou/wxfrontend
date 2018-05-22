@@ -81,9 +81,9 @@
                     <el-select v-model="addForm.oil_id" placeholder="请选择">
                         <el-option
                         v-for="item in oilProduct_option"
-                        :key="item.id"
-                        :label="item.name"
-                        :value="item.id">
+                        :key="item.oil_id"
+                        :label="item.oil_name"
+                        :value="item.oil_id">
                         </el-option>
                     </el-select>
 				</el-form-item>
@@ -108,9 +108,9 @@
                     <el-select v-model="editForm.oil_name" placeholder="请选择">
                         <el-option
                         v-for="item in oilProduct_option"
-                        :key="item.id"
-                        :label="item.name"
-                        :value="item.id">
+                        :key="item.oil_id"
+                        :label="item.oil_name"
+                        :value="item.oil_id">
                         </el-option>
                     </el-select>
 				</el-form-item>
@@ -162,7 +162,7 @@
              }
          },
          created: function() {
-            this.getOilProduct();
+           // this.getOilProduct();
             this.getList(this.oil_station,this.page_num,this.num);
             this.getStationList();
          },
@@ -277,7 +277,9 @@
             stationChange: function(event) {
                 getGunStatus({},event).then(res => {
                     if(res.data.status === 0) {
-                        this.gunNum_option = res.data.data;
+                        console.log(res.data.data.oil_list);
+                        this.gunNum_option = res.data.data.gum_list;
+                        this.oilProduct_option = res.data.data.oil_list;
                     }else{
                         messageWarn(res.data.msg); 
                     }

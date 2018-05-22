@@ -92,9 +92,9 @@
                     <el-select v-model="addForm.oil_list" multiple placeholder="请选择" size="100">
                         <el-option
                         v-for="item in oil_product"
-                        :key="item"
-                        :label="item"
-                        :value="item">
+                        :key="item.id"
+                        :label="item.name"
+                        :value="item.id">
                         </el-option>
                     </el-select>
                 </el-form-item>
@@ -128,9 +128,9 @@
                     <el-select v-model="editForm.oil_list" multiple placeholder="请选择" size="100">
                         <el-option
                         v-for="item in oil_product"
-                        :key="item"
-                        :label="item"
-                        :value="item">
+                        :key="item.id"
+                        :label="item.name"
+                        :value="item.id">
                         </el-option>
                     </el-select>
                 </el-form-item>
@@ -145,7 +145,7 @@
 </template>
 
 <script>
-    import { getStation, addStation, getProvince, editInitOil,deleteInitOil } from '../../api/api';
+    import { getOilProduct,getStation, addStation, getProvince, editInitOil,deleteInitOil } from '../../api/api';
     import { messageWarn } from '../../common/js/commonMethod';
     export default {
         data() {
@@ -188,7 +188,7 @@
                     type: ''
 				},
                 add_provice_list: [],
-                oil_product: ['92号','95号','98号','0号','-10号'],
+                oil_product: [],
                 list: [],
                 total: 0,
                 page_num: 1,
@@ -197,9 +197,19 @@
         },
         created:function() {
             this.getProvince();
+            this.getOilProduct();
             this.getList(this.provice,this.station,this.page_num,this.num);
         },
         methods: {
+            getOilProduct: function() {
+                getOilProduct().then(res => {
+                    if(res.data.status === 0) {
+                        this.oil_product = res.data.data;
+                    }else{
+                       messageWarn(res.data.msg); 
+                    }
+                })
+            },
             getProvince() {
                 getProvince().then(res => {
                     if(res.data.status === 0) {
@@ -268,7 +278,7 @@
             },
             //提交新增
             addSubmit: function() {
-                let  oil_list = this.addForm.oil_list.join('、');
+                let  oil_list = this.addForm.oil_list.join(',');
                 this.addStation(this.addForm.province_id,this.addForm.name,this.addForm.oil_gum_nums,this.addForm.address,this.addForm.province,oil_list);
 
             },
@@ -296,7 +306,8 @@
             handleEdit(index, row) {
                 this.editFormVisible = true;
                 this.editForm = Object.assign({}, row);
-               this.editForm.oil_list = row.oil_list.split('、');
+                console.log(row);
+                this.editForm.oil_list = [1,3,4];
             },
 
             //删除
@@ -329,7 +340,7 @@
             },
             //编辑提交
             editSubmit() {
-                let oil_list = this.editForm.oil_list.join('、');
+                let oil_list = this.editForm.oil_list.join(',');
                 let param = {
                     province_id: this.editForm.province_id,
                     name: this.editForm.name,
@@ -343,7 +354,7 @@
                 }
                editInitOil(param,this.editForm.id).then(res => {
                    if(res.data.status === 0) {
-                       messageWarn('添加成功');
+                       messageWarn('编辑成功');
                        this.editFormVisible = false;
                        this.getList();
                    }else{
