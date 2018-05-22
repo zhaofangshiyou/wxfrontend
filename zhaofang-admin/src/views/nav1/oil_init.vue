@@ -353,7 +353,6 @@
             },
             selsChange: function (sels) {
                 this.del_ids.length = 0;
-                console.log(sels);
                 for(let i=0; i<sels.length; i++) {
                     this.del_ids.push(sels[i].id)
                 }

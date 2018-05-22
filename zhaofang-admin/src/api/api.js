@@ -43,9 +43,22 @@ export const editInitOil = (params,id) => { return instance.put(`${url}/v1/backe
 export const deleteInitOil = (params) => { return instance.delete(`${url}/v1/backen/station/del`, {data : qs.stringify(params)}); };
 
 //油枪油品设置-获取油品列表
+export const getOilGunList = params => { return instance.get(`${url}/v1/backen/oil/gum`, { params: params }); };
 
 //获取油品列表
 export const getOilProduct = params => { return instance.get(`${url}/v1/backen/oil`, { params: params }); };
 
 //新增油品油枪关系 /gum/add
 export const addOilGun = params => { return instance.post(`${url}/v1/backen/oil/gum/add`, qs.stringify(params)); };
+
+//获取油站接口
+export const getStationList = params => { return instance.get(`${url}/v1/backen/station/site`, { params: params }); };
+
+//油站油枪状接口获取
+export const getGunStatus = (params,id) => { return instance.get(`${url}/v1/backen/oil/gum/status/${id}`, { params: params }); };
+
+//修改油品与油枪关系
+export const editGunOil = (params,id) => { return instance.put(`${url}/v1/backen/oil/gum/upd/${id}`, qs.stringify(params)); };
+
+//删除油品油枪关系
+export const deleteOilGun = (params) => { return instance.delete(`${url}/v1/backen/oil/gum/del`, {data : qs.stringify(params)}); };
