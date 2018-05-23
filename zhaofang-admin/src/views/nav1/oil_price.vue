@@ -125,8 +125,8 @@
                     </el-row> 
                 </el-form-item>
 				<el-form-item label="生效时间" class="input_right">
-					<el-date-picker v-model="addForm.time" type="datetime" placeholder="选择日期时间"></el-date-picker>
-				</el-form-item>
+                    <el-date-picker v-model="addForm.date" type="date" placeholder="选择日期" style="width: 80%"></el-date-picker>
+                </el-form-item>
 			</el-form>
 			<div slot="footer" class="dialog-footer clearfloat">
 				<el-button @click.native="addFormVisible = false">取消</el-button>
@@ -156,7 +156,7 @@
 					<el-input v-model="editForm.num_98" placeholder=""  auto-complete="off"></el-input>
 				</el-form-item>
 				<el-form-item label="生效时间" class="input_right">
-					<el-date-picker v-model="editForm.time" type="datetime" placeholder="选择日期时间"></el-date-picker>
+					<el-date-picker v-model="editForm.time"  type="datetime" placeholder="选择日期时间" default-time="12:00:00"></el-date-picker>
 				</el-form-item>
 			</el-form>
 			<div slot="footer" class="dialog-footer clearfloat">
@@ -251,7 +251,7 @@
                     num_98: '',
                     num_0: '',
                     num_10: '',
-                    time: ''
+                    date: ''
                 },
                 editFormVisible: false,//编辑界面是否显示
 				editLoading: false,
@@ -304,7 +304,6 @@
                 oil_product: ['92号','95号','98号','0号','-10号'],
                 list: [],
                 total: 0,
-                time: ''
             }
         },
         methods: {
@@ -313,7 +312,7 @@
                 this.total = this.initList.length;
                 setTimeout(() => {
                     this.listLoading = false;
-                },2000)
+                },1000)
             },
             selsChange: function (sels) {
                 console.log(sels);
@@ -343,12 +342,14 @@
                     num_98: '',
                     num_0: '',
                     num_10: '',
-                    time: ''
+                    date: ''
                 };
             },
             //提交新增
             addSubmit: function() {
                 console.log(this.addForm);
+                let tempDate = Date.parse(this.addForm.date)/1000;
+                console.log(tempDate);
                 this.addFormVisible = false;
             },
             //编辑
@@ -374,7 +375,8 @@
         float: left;
     }
     .input_right {
+        margin-left: 20px;
         width: 40%;
-        float: right;
+        float: left;
     }
 </style>

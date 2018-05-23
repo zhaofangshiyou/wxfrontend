@@ -17,7 +17,7 @@
 					<el-button type="primary" @click="search">查询</el-button>
 				</el-form-item>
 				<el-form-item>
-					<el-button type="primary" @click="handleAdd">新增</el-button>
+					<el-button type="primary" @click.stop="handleAdd">新增</el-button>
 				</el-form-item>
 			</el-form>
 		</el-col>
@@ -275,9 +275,9 @@
             //     }
             // },
             stationChange: function(event) {
+                console.log(event);
                 getGunStatus({},event).then(res => {
                     if(res.data.status === 0) {
-                        console.log(res.data.data.oil_list);
                         this.gunNum_option = res.data.data.gum_list;
                         this.oilProduct_option = res.data.data.oil_list;
                     }else{
