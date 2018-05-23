@@ -75,20 +75,55 @@
                     </el-select>
 				</el-form-item>
 				<el-form-item label="92号" class="input_left">
-					<el-input v-model="addForm.num_92" placeholder="" auto-complete="off"></el-input>
-				</el-form-item>
+                    <el-row>
+				        <el-col :span="19">
+                            <el-input v-model="addForm.num_92" type="number" placeholder="" auto-complete="off"></el-input>
+                        </el-col>
+                        <el-col :span="5">
+                            元/升
+                        </el-col>
+                    </el-row>
+                </el-form-item>
 				<el-form-item label="0号" class="input_right">
-					<el-input v-model="addForm.num_0" placeholder="" auto-complete="off"></el-input>
-				</el-form-item>
+                    <el-row>
+				        <el-col :span="19">
+					        <el-input v-model="addForm.num_0" type="number" placeholder="" auto-complete="off"></el-input>
+                        </el-col>
+                        <el-col :span="5">
+                            元/升
+                        </el-col>
+                    </el-row>    
+                </el-form-item>
                 <el-form-item label="95号" class="input_left">
-					<el-input v-model="addForm.num_95" placeholder=""  auto-complete="off"></el-input>
-				</el-form-item>
+                    <el-row>
+				        <el-col :span="19">
+					        <el-input v-model="addForm.num_95" type="number" placeholder=""  auto-complete="off"></el-input>
+                        </el-col>
+                        <el-col :span="5">
+                            元/升
+                        </el-col>
+                    </el-row> 
+                </el-form-item>
 				<el-form-item label="-10号" class="input_right">
-					<el-input v-model="addForm.num_10" placeholder="" auto-complete="off"></el-input>
-				</el-form-item>
+                    <el-row>
+				        <el-col :span="19">
+					        <el-input v-model="addForm.num_10" type="number" placeholder="" auto-complete="off"></el-input>
+                        </el-col>
+                        <el-col :span="5">
+                            元/升
+                        </el-col>
+                    </el-row> 
+                </el-form-item>
                 <el-form-item label="98号" class="input_left">
-					<el-input v-model="addForm.num_98" placeholder=""  auto-complete="off"></el-input>
-				</el-form-item>
+                    <el-row>
+				        <el-col :span="19">
+					        <el-input v-model="addForm.num_98" type="number" placeholder=""  auto-complete="off"></el-input>
+                        </el-col>
+                        <el-col :span="5">
+                            元/升
+                        </el-col>
+                    </el-row> 
+                </el-form-item>
 				<el-form-item label="生效时间" class="input_right">
 					<el-date-picker v-model="addForm.time" type="datetime" placeholder="选择日期时间"></el-date-picker>
 				</el-form-item>
