@@ -227,12 +227,14 @@
                 this.addForm.province = obj.name;
             },
             selectOil(event) {
-                let obj = {};
-                this.station = '';
-                obj = this.pro_list.find((item)=>{
-                   return item.id === event;
-                });
-                this.oil_station = obj.stations;
+                if(event) {
+                    let obj = {};
+                    this.station = '';
+                    obj = this.pro_list.find((item)=>{
+                    return item.id === event;
+                    });
+                    this.oil_station = obj.stations;
+                }
             },
             getList(province_id,id,page_num,num) {
                 this.listLoading = true;
