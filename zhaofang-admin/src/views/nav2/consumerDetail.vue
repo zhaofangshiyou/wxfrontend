@@ -4,7 +4,7 @@
 		<el-col :span="24" class="toolbar" style="padding-bottom: 0px;">
 			<el-form :inline="true">
 				<el-form-item label="省份">
-					<el-select v-model="value" placeholder="请选择">
+					<el-select v-model="value" placeholder="请选择省份">
             <el-option
               v-for="item in options"
               :key="item.value"
@@ -14,7 +14,7 @@
           </el-select>
 				</el-form-item>
         <el-form-item label="站点名称">
-					<el-select v-model="value" placeholder="请选择">
+					<el-select v-model="value" placeholder="请选择站点名称">
             <el-option
               v-for="item in options"
               :key="item.value"
@@ -32,8 +32,8 @@
             end-placeholder="结束日期">
           </el-date-picker>
         </el-form-item><br>
-        <el-form-item label="油品信息">
-					<el-select v-model="value" placeholder="请选择">
+        <el-form-item label="油品">
+					<el-select v-model="value" placeholder="请选择油品信息">
             <el-option
               v-for="item in options"
               :key="item.value"
@@ -43,7 +43,7 @@
           </el-select>
 				</el-form-item>
         <el-form-item label="加油升数">
-					<el-select v-model="value" placeholder="请选择">
+					<el-select v-model="value" placeholder="请选择加油升数">
             <el-option
               v-for="item in options"
               :key="item.value"
@@ -53,7 +53,7 @@
           </el-select>
 				</el-form-item>
         <el-form-item label="支付方式">
-					<el-select v-model="value" placeholder="请选择">
+					<el-select v-model="value" placeholder="请选择支付方式">
             <el-option
               v-for="item in options"
               :key="item.value"
