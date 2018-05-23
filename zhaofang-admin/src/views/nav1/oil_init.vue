@@ -306,8 +306,11 @@
             handleEdit(index, row) {
                 this.editFormVisible = true;
                 this.editForm = Object.assign({}, row);
-                console.log(row);
-                this.editForm.oil_list = [1,3,4];
+                let temp_arr = [];
+                for(let i=0; i<row.oil_id_list.length; i++) {
+                    temp_arr.push(row.oil_id_list[i].oil_id);
+                }
+                this.editForm.oil_list = temp_arr;
             },
 
             //删除
