@@ -39,6 +39,7 @@ Page({
           success: function(res){
               if(res.data.status == 100){
                   var payModel = res.data;
+                  console.log(111);
                   wx.requestPayment({
                       'timeStamp': payModel.timestamp,
                       'nonceStr': payModel.nonceStr,
@@ -53,12 +54,13 @@ Page({
                           })
                       },
                       'fail': function (res) {
+                        console.log(res);
                       }
                   })
               }
           },
           fail: function(){
-
+            console.log(2222);
           }
       })
     }else{
