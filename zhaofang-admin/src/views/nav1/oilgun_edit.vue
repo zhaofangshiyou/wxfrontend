@@ -275,8 +275,8 @@
             //     }
             // },
             stationChange: function(event) {
-                console.log(event);
-                getGunStatus({},event).then(res => {
+                if(event) {
+                    getGunStatus({},event).then(res => {
                     if(res.data.status === 0) {
                         this.gunNum_option = res.data.data.gum_list;
                         this.oilProduct_option = res.data.data.oil_list;
@@ -284,6 +284,7 @@
                         messageWarn(res.data.msg); 
                     }
                 })
+                }
             },
             //分割字符串为数组
             sliceString: function(str) {

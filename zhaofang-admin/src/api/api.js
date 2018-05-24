@@ -62,3 +62,16 @@ export const editGunOil = (params,id) => { return instance.put(`${url}/v1/backen
 
 //删除油品油枪关系
 export const deleteOilGun = (params) => { return instance.delete(`${url}/v1/backen/oil/gum/del`, {data : qs.stringify(params)}); };
+
+//油品价格设置
+//初始化及分页
+export const getOilPrice = (params) => { return instance.get(`${url}/v1/backen/oil/price`, { params: params }); };
+
+//新增油品油价关系 /price/add
+export const addOilPrice = params => { return instance.post(`${url}/v1/backen/oil/price/add`, qs.stringify(params)); };
+
+//根据省份ID修改油品与油枪价关系 
+export const editOilPrice = (params,id) => { return instance.put(`${url}/v1/backen/oil/price/upd/province/${id}`, qs.stringify(params)); };
+
+//删除油品油价关系 /price/del
+export const deleteOilPrice = (params) => { return instance.delete(`${url}/v1/backen/oil/price/del`, {data : qs.stringify(params)}); };
