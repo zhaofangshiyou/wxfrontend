@@ -4,7 +4,7 @@
     <view class="oil_station">
         <view class="oil_box">
             <view class="icon_box">
-                <image class="address_icon" src="{{img_url}}/icon_address.png"></image>
+                <image class="address_icon" wx:if="{{img_url}}" src="{{img_url}}/icon_address.png"></image>
             </view>
             <view class="oil_mess">
                 <view class="oil_title">{{oil.station}}</view>
@@ -29,7 +29,7 @@
         <view class="noGrap_mess">没有油枪号</view>
         <view class="grap_choose">
             <text class="tip">请选择</text>
-            <image class="right_icon" src="{{img_url}}/home_icon_enter.png"></image>
+            <image class="right_icon" wx:if="{{img_url}}" src="{{img_url}}/home_icon_enter.png"></image>
         </view>
     </view>
     <sureBtn text="完成" bind:sureEvent="nextSubmit"></sureBtn>

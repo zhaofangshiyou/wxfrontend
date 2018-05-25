@@ -1,7 +1,7 @@
 <!--pages/my/my.wxml-->
 <view class="content">
    <view class="header">
-        <image class="header_bg" src="{{img_url}}/bg.png"></image>
+        <image class="header_bg" wx:if="{{img_url}}" src="{{img_url}}/bg.png"></image>
         <view class="header_mess">
             <view class="avatar_box">
                 <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
@@ -10,8 +10,8 @@
             <view class="user_id">兆方VIP会员</view>
         </view>
    </view>
-   <view class="enter_box">
-       <view class="enter_list">
+   <view class="enter_box" wx:if="{{img_url}}">
+       <view class="enter_list" >
            <view class="enter_item" data-link="../../pages/chooseGrap/chooseGrap" bindtap="goNext">
                 <image class="enter_img" src="{{img_url}}/zf_pay.png"></image>
                 <text class="enter_name">兆方车上付</text>

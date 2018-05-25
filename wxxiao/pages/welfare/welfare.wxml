@@ -1,5 +1,5 @@
 <!--pages/welfare/welfare.wxml-->
-<view class="welfare_bg">
+<view class="welfare_bg" wx:if="{{img_url}}">
     <view class="back" bindtap="goBack">
         <image class="back_icon" src="{{img_url}}/Shape@2x.png"></image>
     </view>

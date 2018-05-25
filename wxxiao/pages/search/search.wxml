@@ -13,8 +13,8 @@
         </view>
         <view class="all" bindtap="classify">
             <text class="all_text">{{typeName}}</text>
-            <image class="down_image" src="{{img_url}}/down.png" hidden="{{showClassify}}"></image>
-            <image class="down_image" src="{{img_url}}/top.png" hidden="{{!showClassify}}"></image>
+            <image class="down_image" wx:if="{{img_url}}" src="{{img_url}}/down.png" hidden="{{showClassify}}"></image>
+            <image class="down_image" wx:if="{{img_url}}" src="{{img_url}}/top.png" hidden="{{!showClassify}}"></image>
         </view>
     </view>
 
@@ -53,7 +53,7 @@
         </view>
     </view>
     <view class="noData" hidden="{{noData}}">
-        <image class="noData_image" src="{{img_url}}/icon_trade.png"></image>
+        <image class="noData_image" wx:if="{{img_url}}" src="{{img_url}}/icon_trade.png"></image>
         <view class="noDataText">{{noDataText}}</view>
     </view>
 </view>

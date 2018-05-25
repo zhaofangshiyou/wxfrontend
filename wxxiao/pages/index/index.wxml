@@ -2,10 +2,10 @@
 <header showBack="false"></header>
 <view class="container">
   <view class="content">
-    <image class="banner" src="{{img_url}}/home_banner.png" mode="widthFix">  
+    <image class="banner" wx:if="{{img_url}}" src="{{img_url}}/home_banner.png" mode="widthFix">  
     </image>
     <view class="notice">
-        <image  class="notice_icon" src="{{img_url}}/home_icon_inform.png"></image>
+        <image  class="notice_icon" wx:if="{{img_url}}" src="{{img_url}}/home_icon_inform.png"></image>
         <view class="notice_text">   
           <swiper vertical="true" autoplay="true" circular="true" interval="3000" class="notice_text">
               <block wx:for="{{msgList}}">
@@ -26,7 +26,7 @@
             </view>
         </view>
         <view class="list-right">
-            <image class="right_icon" src="{{img_url}}/home_icon_enter.png"></image> 
+            <image class="right_icon" wx:if="{{img_url}}" src="{{img_url}}/home_icon_enter.png"></image> 
         </view>
       </view>
     </view>

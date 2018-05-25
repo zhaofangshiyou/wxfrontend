@@ -9,14 +9,14 @@
         <view class="oil_box">
             <view class="oil_item" wx:for="{{oil_list}}" data-address="{{item.address}}" data-name="{{item.name}}" data-lon="{{item.longitude}}" data-lat="{{item.latitude}}" bindtap="goOilStation">
                     <view class="oil_left">
-                        <image class="address_image" src="{{img_url}}/img01.png"></image>
+                        <image class="address_image" wx:if="{{img_url}}" src="{{img_url}}/img01.png"></image>
                         <view class="message">
                             <view class="title">{{item.name}}</view>
                             <view class="address">{{item.address}}</view>
                         </view>
                     </view>
                     <view class="oil_right">
-                        <image class="nav_image" src="{{img_url}}/nav.png"></image>
+                        <image class="nav_image" wx:if="{{img_url}}" src="{{img_url}}/nav.png"></image>
                         <view class="distance">{{item.distance/1000}}km</view>
                     </view>
             </view>
