@@ -75,3 +75,8 @@ export const editOilPrice = (params,id) => { return instance.put(`${url}/v1/back
 
 //删除油品油价关系 /price/del
 export const deleteOilPrice = (params) => { return instance.delete(`${url}/v1/backen/oil/price/del`, {data : qs.stringify(params)}); };
+
+//财务管理模块
+
+//消费明细
+export const getConsumeDetail = (params) => { return instance.get(`${url}/v1/backen/consume/detail`, { params: params }); };
