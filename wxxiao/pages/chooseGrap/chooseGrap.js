@@ -1,4 +1,5 @@
 // pages/chooseGrap/chooseGrap.js
+import httpService from '../../http/http.js';
 const app = getApp();
 Page({
 
@@ -7,31 +8,16 @@ Page({
    */
   data: {
     oil: {
-      station: '华富加油站',
-      distance: 0.1,
+      station: '',
+      distance: '',
       address: ''
     },
-    grapList: [
-      {value: 1,'name': '1号'},
-      {value: 2,'name': '2号'},
-      {value: 3,'name': '3号'},
-      {value: 4,'name': '4号'},
-      {value: 5,'name': '5号'},
-      {value: 6,'name': '6号'},
-      {value: 7,'name': '7号'},
-      {value: 8,'name': '8号'},
-      {value: 9,'name': '9号'},
-      {value: 10,'name': '10号'},
-      {value: 11,'name': '11号'},
-      {value: 12,'name': '12号'},
-      {value: 13,'name': '13号'},
-      {value: 14,'name': '14号'},
-      {value: 13,'name': '15号'},
-      {value: 14,'name': '16号'},
-    ],
+    grapList: [],
+    station_list: [],
     chooseIndex: 0,
     grapText: '更多',
-    max_show: 7
+    max_show: 7,
+    img_url: app.config.img_url
   },
   chooseGrap: function(e) {
     this.setData({
@@ -62,26 +48,57 @@ Page({
     })
   },
   changeStation: function() {
+    let station_str = JSON.stringify(this.data.station_list);
     wx.navigateTo({
-      url: '../../pages/oilStation/oilStation'
+      url: '../../pages/oilStation/oilStation?station_list='+ station_str
     })
   },
-
+  //获取初始化数据
+  getInitData: function() {
+    var that = this;
+    wx.getLocation({
+      type: 'wgs84',
+      success: function(res) {
+        that.setData({
+          latitude: res.latitude,
+          longitude: res.longitude
+        })
+        let url = app.config.host + '/station';
+        let data = {};
+        let params = {
+          'lat': res.latitude,
+          'lon': res.longitude
+        };
+        let method = 'GET';
+        httpService.sendRrquest(url,data,params,method).then(res => {
+          if(res.data.status === 0) {
+            that.data.station_list = res.data.data.stations;
+            let temp = [];
+            for(let i=1; i< parseInt(res.data.data.stations[0].oil_gum_nums)+1; i++ ) {
+              temp.push(i);
+            }
+            that.setData({
+              "oil.station" : res.data.data.stations[0].name,
+              "oil.distance": res.data.data.stations[0].distance/1000,
+              "grapList": temp
+            })
+          }
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    that.setData({
-      img_url: app.config.img_url
-    })
+   
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    this.getInitData();
   },
 
   /**
