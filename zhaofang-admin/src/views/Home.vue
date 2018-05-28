@@ -28,7 +28,7 @@
 					<template v-for="(item,index) in $router.options.routes" v-if="!item.hidden">
 						<el-submenu :index="index+''" v-if="!item.leaf">
 							<template slot="title"><i :class="item.iconCls"></i>{{item.name}}</template>
-							<el-menu-item v-for="child in item.children" :index="child.path" :key="child.path" v-if="!child.hidden">{{child.name}}</el-menu-item>
+							<el-menu-item v-for="child in item.children" :index="child.path" :key="child.path" v-if="!child.hidden && showNav(child.id)">{{child.name}}</el-menu-item>
 						</el-submenu>
 						<el-menu-item v-if="item.leaf&&item.children.length>0" :index="item.children[0].path"><i :class="item.iconCls"></i>{{item.children[0].name}}</el-menu-item>
 					</template>
@@ -88,7 +88,8 @@
 					type: [],
 					resource: '',
 					desc: ''
-				}
+				},
+				authId: [10,11,20,30,40,50,51]
 			}
 		},
 		methods: {
@@ -123,6 +124,13 @@
 			},
 			showMenu(i,status){
 				this.$refs.menuCollapsed.getElementsByClassName('submenu-hook-'+i)[0].style.display=status?'block':'none';
+			},
+			showNav: function(value) {
+				if(this.authId.indexOf(value) != -1) {
+					return true;
+				}else{
+					return false;
+				}
 			}
 		},
 		mounted() {
