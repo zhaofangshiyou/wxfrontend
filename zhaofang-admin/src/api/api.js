@@ -83,3 +83,6 @@ export const getConsumeDetail = (params) => { return instance.get(`${url}/v1/bac
 
 //消费汇总列表 /consume
 export const getConsumeAll = (params) => { return instance.get(`${url}/v1/backen/consume`, { params: params }); };
+
+//充值明细列表 /recharge/detail
+export const getRechargeDetail = (params) => { return instance.get(`${url}/v1/backen/recharge/detail`, { params: params }); };
