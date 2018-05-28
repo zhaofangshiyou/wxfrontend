@@ -1,0 +1,53 @@
+<!--pages/points/points.wxml-->
+<view class="page_content">
+    <view class="header_box">
+        <view class="header">
+            <view class="goBack" bindtap="goBack">
+                <image class="left_icon" src="{{img_url}}/left.png"></image>
+            </view>
+            <view class="header_title">积分查询</view> 
+        </view>
+        <view class="header_msg">
+            <view class="header_msg_left">
+                <image class="avatar" src="{{img_url}}/zf_card1.png"></image>
+                <view class="header_notice">
+                    <view class="curr_points">当前积分</view>
+                    <view class="point_number">2000<text class="point_text">积分</text></view>
+                </view>
+            </view>
+            <view class="header_msg_right">积分规则</view>
+        </view>
+    </view>
+    <scroll-view class="point_box">
+        <view class="point_list">
+            <view class="point_item">
+               <view>
+                   <view class="pay_type">兆方卡支付</view>
+                   <view class="pay_time">2018-04-16 12:12:12</view>
+               </view>
+               <view class="pay_point">+30</view>
+            </view>
+            <view class="point_item">
+                <view>
+                    <view class="pay_type">兆方卡支付</view>
+                    <view class="pay_time">2018-04-16 12:12:12</view>
+                </view>
+                <view class="pay_point">+30</view>
+             </view>
+             <view class="point_item">
+                <view>
+                    <view class="pay_type">兆方卡支付</view>
+                    <view class="pay_time">2018-04-16 12:12:12</view>
+                </view>
+                <view class="pay_point">+30</view>
+             </view>
+             <view class="point_item">
+                <view>
+                    <view class="pay_type">兆方卡支付</view>
+                    <view class="pay_time">2018-04-16 12:12:12</view>
+                </view>
+                <view class="pay_point">+30</view>
+             </view>
+        </view>
+    </scroll-view>
+</view>
