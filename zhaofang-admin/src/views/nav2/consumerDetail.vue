@@ -212,7 +212,6 @@
             this.initList = res.data.data.consume_list;
             this.total = res.data.data.consume_list_cnt;
             this.consume_total = res.data.data.consume_total;
-            console.log(this.consume_total,res.data.consume_total);
           }
         })
       },

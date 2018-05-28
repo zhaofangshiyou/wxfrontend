@@ -80,3 +80,6 @@ export const deleteOilPrice = (params) => { return instance.delete(`${url}/v1/ba
 
 //消费明细
 export const getConsumeDetail = (params) => { return instance.get(`${url}/v1/backen/consume/detail`, { params: params }); };
+
+//消费汇总列表 /consume
+export const getConsumeAll = (params) => { return instance.get(`${url}/v1/backen/consume`, { params: params }); };
