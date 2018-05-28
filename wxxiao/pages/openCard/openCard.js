@@ -39,7 +39,8 @@ Page({
       checkCode: false
     },
     codeText: '获取验证码',
-    sendAgain: true
+    sendAgain: true,
+    img_url: app.config.img_url
   },
   submitRegister(){
     let url = app.config.host+'/card';
@@ -252,10 +253,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    that.setData({
-      img_url: app.config.img_url
-    })
+    
   },
 
   /**

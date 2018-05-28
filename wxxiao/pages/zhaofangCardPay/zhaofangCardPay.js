@@ -7,7 +7,8 @@ Page({
    */
   data: {
     conMoney: "",
-    oil_index: 1
+    oil_index: 1,
+    img_url: app.config.img_url
   },
   selectOil: function(e) {
     this.setData({
@@ -44,10 +45,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    that.setData({
-      img_url: app.config.img_url
-    })
+    
   },
 
   /**

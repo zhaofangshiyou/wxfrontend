@@ -1,4 +1,5 @@
 // components/header/header.js
+const app = getApp();
 Component({
   /**
    * 组件的属性列表
@@ -19,7 +20,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    img_url: 'https://www.zfsyonline.com/upload/weChat'
+    img_url: app.config.img_url
   },
 
   /**

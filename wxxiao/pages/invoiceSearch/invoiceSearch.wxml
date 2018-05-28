@@ -38,7 +38,7 @@
     </scroll-view>
 
     <view class="noData" hidden="{{noData}}">
-        <image class="noData_image" wx:if="{{img_url}}" src="{{img_url}}/icon_trade.png"></image>
+        <image class="noData_image"  src="{{img_url}}/icon_trade.png"></image>
         <view class="noDataText">{{noDataText}}</view>
     </view>
 </view>

@@ -21,7 +21,8 @@ Page({
     noMore: false,
     listHeight: '',
     scrollTop: 0,
-    noDataText: ''
+    noDataText: '',
+    img_url: app.config.img_url
   },
    /**
    * 生命周期函数--监听页面初次渲染完成
@@ -43,8 +44,7 @@ Page({
   onLoad: function (options) {
     var that = this;
     that.setData({
-      tabIndex: options.tabIndex,
-      img_url: app.config.img_url
+      tabIndex: options.tabIndex
     })
     if(options.tabIndex == 1) {
       this.getRechageData(this.data.page,this.data.limit,this.data.typeValue);

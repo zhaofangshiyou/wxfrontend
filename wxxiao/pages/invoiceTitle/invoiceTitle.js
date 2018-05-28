@@ -27,7 +27,8 @@ Page({
       normal: false,
       add_normal: false,
       add_special: false
-    }
+    },
+    img_url: app.config.img_url
   },
   //切换个人、公司导航
   changeTab: function(e) {
@@ -73,15 +74,15 @@ Page({
   },
   //普通发票提交
   normalSubmit: function(e) {
-    console.log(e);
+    
   },
   //增值税普通发票
   addSubmit: function(e) {
-    console.log(e);
+    
   },
   //增值税专票提交
   specialSubmit: function(e) {
-    console.log(e);
+    
   },
   //验证专票表单是否输入完整
   checkSpecial: function() {
@@ -261,10 +262,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    that.setData({
-      img_url: app.config.img_url
-    })
+ 
   },
 
   /**

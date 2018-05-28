@@ -17,7 +17,8 @@ Page({
     limit: 10,
     is_invoicing: 1,
     noDataText: '暂无可开发票',
-    noMore: false
+    noMore: false,
+    img_url: app.config.img_url
   },
   changeTab: function(e) {
     if(e.currentTarget.dataset.tabindex == 1) {
@@ -46,10 +47,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    that.setData({
-      img_url: app.config.img_url
-    })
+    
   },
 
   //获取发票列表

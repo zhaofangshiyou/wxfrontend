@@ -23,7 +23,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    img_url: 'https://www.zfsyonline.com/upload/weChat'
+    img_url: app.config.img_url
   },
 
 

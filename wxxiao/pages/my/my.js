@@ -8,7 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: {}
+    userInfo: {},
+    img_url: app.config.img_url
   },
   goNext: function(event) {
     wx.navigateTo({
@@ -24,8 +25,7 @@ Page({
     wx.getUserInfo({
       success: res => {
         that.setData({
-          userInfo: res.userInfo,
-          img_url: app.config.img_url
+          userInfo: res.userInfo
         })
       }
     })

@@ -15,7 +15,8 @@ Page({
     haveCard: true,
     haveMenuCard: true,
     person_balance: 0,
-    company_balance: 0
+    company_balance: 0,
+    img_url: app.config.img_url
   },
   cardDetail: function(e) {
     if(e.currentTarget.dataset.index == 0) {
@@ -75,10 +76,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    that.setData({
-      img_url: app.config.img_url
-    })
+   
   },
 
 

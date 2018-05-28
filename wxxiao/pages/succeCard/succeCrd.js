@@ -14,6 +14,7 @@ Page({
     haveCard: true,
     haveMenuCard: true,
     balance: 0,
+    img_url: app.config.img_url
   },
   finishSubmi: function() {
     wx.reLaunch({
@@ -65,13 +66,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (res) {
-    console.log(res);
     var that = this;
     that.setData({
       // balance: parseInt(res.balance),
       title: res.title,
-      type: res.type,
-      img_url: app.config.img_url
+      type: res.type
       // card_num: res.card_number
     })
   },

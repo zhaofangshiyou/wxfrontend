@@ -14,14 +14,12 @@ Page({
     msgList: [ 
       { url: "url", title: "所有汽油均已添加法国道达尔添加剂" },
       { url: "url", title: "您每加一升油，兆方将捐赠1分钱公益金" },
-      ]
+      ],
+      img_url: app.config.img_url
   },
 
   onLoad: function () {
-    var that = this;
-    that.setData({
-      img_url: app.config.img_url
-    })
+    
   },
 
   onReady: function () {

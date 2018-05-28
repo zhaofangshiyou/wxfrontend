@@ -13,7 +13,8 @@ Page({
     showCar: false,
     realName: '',
     IDcard: '',
-    carNum: ''
+    carNum: '',
+    img_url: app.config.img_url
   },
    /**
    * 生命周期函数--监听页面初次渲染完成
@@ -141,10 +142,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    that.setData({
-      img_url: app.config.img_url
-    })
+   
   },
 
  
