@@ -8,13 +8,15 @@ Page({
    * 页面的初始数据
    */
   data: {
+    station_list: [],
     userInfo: {
       realName: '',
       ID: '',
       sex: '请选择您的性别',
       cartType: '',
       carNumber: '',
-      oilStation: '华富加油站',
+      oilStation: '',
+      station_id: '',
       password: '',
       phone: '',
       code: ''
@@ -49,7 +51,8 @@ Page({
       'password': this.data.userInfo.password,
       'unit_card_type': 0,
       'code': this.data.userInfo.code,
-      'mobile': this.data.userInfo.phone
+      'mobile': this.data.userInfo.phone,
+      'station_id': this.data.userInfo.station_id,
     };
     let method = 'POST';
     httpService.sendRrquest(url,{},params,method).then(res => {
@@ -65,8 +68,9 @@ Page({
   },
   //跳转到取票油站
   getOil: function() {
+    let station_str = JSON.stringify(this.data.station_list);
     wx.navigateTo({
-      url: '../../pages/oilStation/oilStation'
+      url: '../../pages/oilStation/oilStation?station_list='+ station_str
     })
   },
   //发送验证码
@@ -249,6 +253,40 @@ Page({
       mask:true
   })
   },
+
+  //获取初始化数据
+  getInitData: function() {
+    var that = this;
+    wx.getLocation({
+      type: 'wgs84',
+      success: function(res) {
+        that.setData({
+          latitude: res.latitude,
+          longitude: res.longitude
+        })
+        let url = app.config.host + '/station';
+        let data = {};
+        let params = {
+          'lat': res.latitude,
+          'lon': res.longitude
+        };
+        let method = 'GET';
+        httpService.sendRrquest(url,data,params,method).then(res => {
+          if(res.data.status === 0) {
+            that.data.station_list = res.data.data.stations;
+            let temp = [];
+            for(let i=1; i< parseInt(res.data.data.stations[0].oil_gum_nums)+1; i++ ) {
+              temp.push(i);
+            }
+            that.setData({
+              "userInfo.oilStation" : res.data.data.stations[0].name,
+              "userInfo.station_id" : res.data.data.stations[0].id
+            })
+          }
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -260,14 +298,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    this.getInitData();
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    
   },
 
   /**

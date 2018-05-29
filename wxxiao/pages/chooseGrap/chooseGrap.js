@@ -10,7 +10,8 @@ Page({
     oil: {
       station: '',
       distance: '',
-      address: ''
+      address: '',
+      station_id: ''
     },
     grapList: [],
     station_list: [],
@@ -80,7 +81,8 @@ Page({
             that.setData({
               "oil.station" : res.data.data.stations[0].name,
               "oil.distance": res.data.data.stations[0].distance/1000,
-              "grapList": temp
+              "grapList": temp,
+              "oil.station_id": res.data.data.stations[0].id
             })
           }
         })
@@ -105,7 +107,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+
   },
 
   /**

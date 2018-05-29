@@ -21,7 +21,10 @@ Page({
 　　　　"oil.station": event.currentTarget.dataset.name,
         "oil.address": event.currentTarget.dataset.address,
         "oil.distance": event.currentTarget.dataset.distance/1000,
-        "grapList": list
+        "oil.station_id": event.currentTarget.dataset.id,
+        "grapList": list,
+        "userInfo.oilStation": event.currentTarget.dataset.name,
+        "userInfo.station_id": event.currentTarget.dataset.id
 　　});
     wx.navigateBack({//返回
       delta:1
