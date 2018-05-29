@@ -9,6 +9,10 @@ Page({
     img_url: app.config.img_url
   },
 
+  goBack: function() {
+    wx.navigateBack();
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

@@ -52,6 +52,7 @@
     width: 100%;
     box-sizing: border-box;
     padding: 40rpx 16rpx;
+    margin-bottom: 98rpx;
 }
 .enter_list{
     font-size: 0;
