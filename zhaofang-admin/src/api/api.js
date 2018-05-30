@@ -89,3 +89,6 @@ export const getRechargeDetail = (params) => { return instance.get(`${url}/v1/ba
 
 //充值汇总列表 /recharge
 export const getRechargeAll = (params) => { return instance.get(`${url}/v1/backen/recharge`, { params: params }); };
+
+//往来账列表 /acounts
+export const getRunAcounts = (params) => { return instance.get(`${url}/v1/backen/accounts`, { params: params }); };
