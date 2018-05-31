@@ -95,7 +95,7 @@
                         </el-col>
                     </el-row> 
                 </el-form-item>
-				<el-form-item label="93号" class="input_right">
+				<el-form-item label="0号" class="input_right">
                     <el-row>
 				        <el-col :span="19">
 					        <el-input v-model="addForm.num_93.price" type="number" placeholder="" auto-complete="off"></el-input>
@@ -105,7 +105,7 @@
                         </el-col>
                     </el-row> 
                 </el-form-item>
-                <el-form-item label="97号" class="input_left">
+                <el-form-item label="-10号" class="input_left">
                     <el-row>
 				        <el-col :span="19">
 					        <el-input v-model="addForm.num_97.price" type="number" placeholder=""  auto-complete="off"></el-input>
@@ -161,7 +161,7 @@
                         </el-col>
                     </el-row> 
                 </el-form-item>
-				<el-form-item label="93号" class="input_right">
+				<el-form-item label="0号" class="input_right">
                     <el-row>
 				        <el-col :span="19">
 					        <el-input v-model="editForm.num_93.price" type="number" placeholder="" auto-complete="off"></el-input>
@@ -171,7 +171,7 @@
                         </el-col>
                     </el-row> 
                 </el-form-item>
-                <el-form-item label="97号" class="input_left">
+                <el-form-item label="-10号" class="input_left">
                     <el-row>
 				        <el-col :span="19">
 					        <el-input v-model="editForm.num_97.price" type="number" placeholder=""  auto-complete="off"></el-input>

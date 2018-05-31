@@ -3,8 +3,11 @@ import qs from 'qs';
 
 let base = '';
 let instance = axios.create({
-    headers: {'content-type': 'application/x-www-form-urlencoded'}
- 
+    headers: {
+      'content-type': 'application/x-www-form-urlencoded',
+      'user_id': '1'
+    }
+    
   })
 
 let url = 'https://api.zfsyonline.com';
