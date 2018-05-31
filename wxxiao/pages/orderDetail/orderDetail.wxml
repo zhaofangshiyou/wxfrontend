@@ -10,30 +10,30 @@
             <view class="detail_mess">
                 <view class="meaasge_item">
                     <view class="name">油枪号码</view>
-                    <view class="amount">1号油枪</view>
+                    <view class="amount">{{gun_id}}号油枪</view>
                 </view>
                 <view class="meaasge_item">
                     <view class="name">油品类型</view>
-                    <view class="amount">92号车用汽油(V)</view>
+                    <view class="amount">{{orderDetail.Oiltype}}(V)</view>
                 </view>
                 <view class="meaasge_item">
                     <view class="name">加油升数</view>
-                    <view class="amount">28.9L</view>
+                    <view class="amount">{{orderDetail.Lit}}L</view>
                 </view>
                 <view class="meaasge_item">
                     <view class="name">订单金额</view>
-                    <view class="amount">300元</view>
+                    <view class="amount">{{orderDetail.OilMount}}元</view>
                 </view>
                 <view class="meaasge_item">
                     <view class="name">优惠金额
                         <image class="help_icon" src="{{img_url}}/gathering_icon_help.png"></image>
                     </view>
-                    <view class="amount">10元</view>
+                    <view class="amount">{{orderDetail.discount}}元</view>
                 </view>
             </view>
             <view class="payment">
                 <view class="payment_title">实际支付金额</view>
-                <view class="payment_num">¥280</view>
+                <view class="payment_num">¥{{orderDetail.PayMount}}</view>
             </view>
         </view>
     </view>

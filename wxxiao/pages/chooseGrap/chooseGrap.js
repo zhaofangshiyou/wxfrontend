@@ -15,7 +15,7 @@ Page({
     },
     grapList: [],
     station_list: [],
-    chooseIndex: 0,
+    chooseIndex: 1,
     grapText: '更多',
     max_show: 7,
     img_url: app.config.img_url
@@ -40,7 +40,7 @@ Page({
   },
   nextSubmit: function() {
     wx.navigateTo({
-      url: '../../pages/orderDetail/orderDetail'
+      url: '../../pages/orderDetail/orderDetail?station_id='+this.data.oil.station_id+'&gun_id='+this.data.chooseIndex
     })
   },
   otherPay:function() {

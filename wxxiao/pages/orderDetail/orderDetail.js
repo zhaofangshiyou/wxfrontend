@@ -1,4 +1,6 @@
 // pages/orderDetail/orderDetail.js
+
+import httpService from '../../http/http.js';
 const app = getApp();
 Page({
 
@@ -9,7 +11,10 @@ Page({
     img_url: app.config.img_url,
     showBoard: false,
     passwordArr: [],
-    payWay: 1
+    payWay: 1,
+    station_id: '',
+    gun_id: '',
+    orderDetail: {},
   },
   forgetPass: function() {
     wx.navigateTo({
@@ -110,7 +115,30 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.data.station_id = options.station_id;
+    this.data.gun_id = options.gun_id;
+    this.getDetail();
+  },
+
+  //获取订单详情信息
+  getDetail: function() {
+    let url = app.config.host + '/pay/flow/order';
+    let data = {};
+    let params = {
+      'station_id': this.data.station_id,
+      'gun_id': this.data.gun_id
+    };
+    let method = 'GET';
+    httpService.sendRrquest(url,data,params,method).then(res => {
+      if(res.data.status === 0) {
+        this.setData({
+          orderDetail: res.data.data,
+          gun_id: this.data.gun_id
+        })
+      }
+      console.log(this.data.orderDetail);
+    })
+
   },
 
   /**
