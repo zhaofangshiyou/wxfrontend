@@ -2,7 +2,7 @@
 <header title="取票油站"></header>
 <view class="container">
     <view class="oil_box">
-        <view class="oil_item"  wx:for="{{oilArr}}" wx:for-index="index" wx:for-item="item" data-id="{{item.id}}" data-distance="{{item.distance}}" data-gunNumber="{{item.oil_gum_nums}}" data-address="{{item.address}}" data-name="{{item.name}}" bindtap="back">
+        <view class="oil_item"  wx:for="{{oilArr}}" wx:for-index="index" wx:for-item="item" data-type="{{item.type}}" data-id="{{item.id}}" data-distance="{{item.distance}}" data-gunNumber="{{item.oil_gum_nums}}" data-address="{{item.address}}" data-name="{{item.name}}" bindtap="back">
             <image class="notice_icon"  src="{{img_url}}/icon_address.png"></image>
             <view class="oil_text">
                 <view class="title">{{item.name}}</view>

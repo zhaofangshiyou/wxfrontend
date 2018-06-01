@@ -10,7 +10,7 @@
             <view class="detail_mess">
                 <view class="meaasge_item">
                     <view class="name">油枪号码</view>
-                    <view class="amount">{{gun_id}}号油枪</view>
+                    <view class="amount">{{orderDetail.gun_id}}号油枪</view>
                 </view>
                 <view class="meaasge_item">
                     <view class="name">油品类型</view>

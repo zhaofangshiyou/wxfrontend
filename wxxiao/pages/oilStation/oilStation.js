@@ -22,6 +22,7 @@ Page({
         "oil.address": event.currentTarget.dataset.address,
         "oil.distance": event.currentTarget.dataset.distance/1000,
         "oil.station_id": event.currentTarget.dataset.id,
+        "oil.type":  event.currentTarget.dataset.type,
         "grapList": list,
         "userInfo.oilStation": event.currentTarget.dataset.name,
         "userInfo.station_id": event.currentTarget.dataset.id

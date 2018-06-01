@@ -15,22 +15,54 @@
             </view>
         </view>
     </view>
-    <view class="grap_box">
-        <view class="grap_title">请选择您加油使用的油枪号</view>
-        <view class="grap_notice">建议与工作人员核对油枪号</view>
-        <view class="grap_number">
-            <view class="grap_list" wx:for="{{grapList}}" wx:for-index="key" hidden="{{key > max_show}}" data-index="{{item}}" bindtap="chooseGrap">
-                <view class="grap_item {{chooseIndex==item?'active':''}}">{{item}}号</view>
+    <view class="have_gun" wx:if="{{oil.type==1}}">
+        <view class="grap_box">
+            <view class="grap_title">请选择您加油使用的油枪号</view>
+            <view class="grap_notice">建议与工作人员核对油枪号</view>
+            <view class="grap_number">
+                <view class="grap_list" wx:for="{{grapList}}" wx:for-index="key" hidden="{{key > max_show}}" data-index="{{item}}" bindtap="chooseGrap">
+                    <view class="grap_item {{chooseIndex==item?'active':''}}">{{item}}号</view>
+                </view>
+            </view>
+            <view class="more" bindtap="toggleDrap">{{grapText}}</view>
+        </view>
+    </view>
+    <view class="no_gun" wx:if="{{oil.type==2}}">
+        <!-- <view class="warn">
+            <text class="warn_icon">!</text>
+            <text class="warn_text">没有可选择油枪号，需手动输入金额</text>
+        </view> -->
+        <view class="choose_oil">
+            <view class="oil_text">请选择油品类型</view>
+            <view class="oil_box">
+                <view class="oil_item" wx:for="{{oil_list}}" hidden="{{oil_list.length == item.id}}" data-index="{{item.id}}" bindtap="selectOil">
+                    <view class="item_text {{oil_index==item.id?'active':''}}" >{{item.name}}</view>
+                </view>
+                <!-- <view class="oil_item" data-index="2" bindtap="selectOil">
+                    <view class="item_text {{oil_index==2?'active':''}}">95号</view>
+                </view>
+                <view class="oil_item" data-index="3" bindtap="selectOil">
+                    <view class="item_text {{oil_index==3?'active':''}}">98号</view>
+                </view>
+                <view class="oil_item" data-index="4" bindtap="selectOil">
+                    <view class="item_text {{oil_index==4?'active':''}}">0号</view>
+                </view> -->
             </view>
         </view>
-        <view class="more" bindtap="toggleDrap">{{grapText}}</view>
+        <view class="consume">
+            <view class="title">消费金额</view>
+            <view class="number">
+                <text class="sign">¥</text>
+                <input class="input_number" cursor-spacing ='0' placeholder-class="placeholder_size"  type="number" placeholder-style="color:#BDBDBD"  bindinput="bindKeyInput" placeholder="请输入消费金额"/>
+            </view>
+        </view>
     </view>
-    <view class="noGrap" bindtap="otherPay">
+    <!-- <view class="noGrap" bindtap="otherPay">
         <view class="noGrap_mess">没有油枪号</view>
         <view class="grap_choose">
             <text class="tip">请选择</text>
             <image class="right_icon" wx:if="{{img_url}}" src="{{img_url}}/home_icon_enter.png"></image>
         </view>
-    </view>
-    <sureBtn text="完成" bind:sureEvent="nextSubmit"></sureBtn>
+    </view> -->
+    <view class="sureBtn"><sureBtn text="完成" bind:sureEvent="nextSubmit"></sureBtn></view>
 </view>

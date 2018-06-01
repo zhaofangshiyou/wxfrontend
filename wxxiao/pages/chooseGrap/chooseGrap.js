@@ -11,14 +11,18 @@ Page({
       station: '',
       distance: '',
       address: '',
-      station_id: ''
+      station_id: '',
+      type: 1
     },
     grapList: [],
     station_list: [],
     chooseIndex: 1,
     grapText: '更多',
     max_show: 7,
-    img_url: app.config.img_url
+    img_url: app.config.img_url,
+    conMoney: "",
+    oil_index: 1,
+    oil_list: []
   },
   chooseGrap: function(e) {
     this.setData({
@@ -39,9 +43,25 @@ Page({
     }
   },
   nextSubmit: function() {
-    wx.navigateTo({
-      url: '../../pages/orderDetail/orderDetail?station_id='+this.data.oil.station_id+'&gun_id='+this.data.chooseIndex
-    })
+
+    if(this.data.oil.type == 1) {
+      wx.navigateTo({
+        url: '../../pages/orderDetail/orderDetail?station_id='+this.data.oil.station_id+'&gun_id='+this.data.chooseIndex
+      })
+    }else{
+      if(this.data.conMoney.length > 0) {
+        wx.login({
+          success: function(res) {
+            wx.navigateTo({
+              url: '../../pages/orderDetail/orderDetail'
+            })
+          }
+        })
+      }else{
+        this.warnMsg('请输入充值金额');
+        return false;
+      }
+    }
   },
   otherPay:function() {
     wx.navigateTo({
@@ -82,10 +102,44 @@ Page({
               "oil.station" : res.data.data.stations[0].name,
               "oil.distance": res.data.data.stations[0].distance/1000,
               "grapList": temp,
+              "type": res.data.data.stations[0].type,
               "oil.station_id": res.data.data.stations[0].id
             })
           }
         })
+      }
+    })
+  },
+
+  selectOil: function(e) {
+    this.setData({
+      oil_index: e.currentTarget.dataset.index
+    })
+  },
+  bindKeyInput: function(e) {
+    this.data.conMoney = e.detail.value;
+  },
+  warnMsg: function(text) {
+    wx.showToast({
+      title: text,
+      icon: 'none',
+      duration: 2000,
+      mask:true
+    })
+  },
+  //获取油枪号
+  getOil: function() {
+    let url = app.config.host + '/backen/oil';
+    let data = {};
+    let params = {};
+    let method = 'GET';
+    httpService.sendRrquest(url,data,params,method).then(res => {
+      if(res.data.status === 0) {
+        this.setData({
+          oil_list: res.data.data
+        })
+      }else{
+        this.warnMsg(res.data.msg);
       }
     })
   },
@@ -101,6 +155,7 @@ Page({
    */
   onReady: function () {
     this.getInitData();
+    this.getOil();
   },
 
   /**

@@ -1,6 +1,7 @@
 // pages/orderDetail/orderDetail.js
 
 import httpService from '../../http/http.js';
+import util from '../../utils/util.js';
 const app = getApp();
 Page({
 
@@ -45,7 +46,6 @@ Page({
           success: function(res){
               if(res.data.status == 100){
                   var payModel = res.data;
-                  console.log(res);
                   wx.requestPayment({
                       'timeStamp': payModel.timestamp,
                       'nonceStr': payModel.nonceStr,
@@ -53,20 +53,24 @@ Page({
                       'signType': 'MD5',
                       'paySign': payModel.paySign,
                       'success': function (res) {
-                          wx.showToast({
-                              title: '支付成功',
-                              icon: 'success',
-                              duration: 2000
+                          // wx.showToast({
+                          //     title: '支付成功',
+                          //     icon: 'success',
+                          //     duration: 2000
+                          // })
+                          let orderDetail = JSON.stringify(self.data.orderDetail);
+                          wx.navigateTo({
+                            url: '../../pages/payOrder/payOrder?orderDetail='+orderDetail
                           })
                       },
                       'fail': function (res) {
-                        console.log(res);
+                        util.warnMsg(res.err_desc);
                       }
                   })
               }
           },
           fail: function(){
-            console.log(2222);
+           
           }
       })
     }else{
@@ -98,8 +102,9 @@ Page({
       if(this.data.passwordArr.length < 6) {
         this.data.passwordArr.push(e.currentTarget.dataset.number);
         if(this.data.passwordArr.length==6) {
+          let orderDetail = JSON.stringify(this.data.orderDetail);
           wx.navigateTo({
-            url: '../../pages/payOrder/payOrder'
+            url: '../../pages/payOrder/payOrder?orderDetail='+orderDetail
           })
         }
         this.setData({
@@ -132,11 +137,11 @@ Page({
     httpService.sendRrquest(url,data,params,method).then(res => {
       if(res.data.status === 0) {
         this.setData({
-          orderDetail: res.data.data,
-          gun_id: this.data.gun_id
+          orderDetail: res.data.data
         })
+      }else{
+        util.warnMsg(res.data.msg);
       }
-      console.log(this.data.orderDetail);
     })
 
   },
