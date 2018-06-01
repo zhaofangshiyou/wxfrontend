@@ -9,7 +9,7 @@ Page({
       {name:'兆方车上付',notice:'一键加油，更省心',iconUrl: app.config.img_url+'/zf_pay_index.png',link: '../../pages/chooseGrap/chooseGrap'},
       {name:'我的兆方卡',notice:'一键充值，享更高优惠',iconUrl: app.config.img_url+'/zf_card1@2x.png',link: '../../pages/myCard/myCard'},
       {name:'交易查询',notice:'实时交易查询，更便捷',iconUrl: app.config.img_url+'/icon_consume@2x.png',link: '../../pages/search/search?tabIndex=1'},
-      {name:'兆方公益',notice:'兆方公益，与爱同行',iconUrl: app.config.img_url+'/zf_card@2x.png',link: '../../pages/welfare/welfare'}
+      {name:'兆方公益',notice:'兆方公益，与爱同行',iconUrl: app.config.img_url+'/zf_card1.png',link: '../../pages/welfare/welfare'}
     ],
     msgList: [ 
       { url: "url", title: "所有汽油均已添加法国道达尔添加剂" },

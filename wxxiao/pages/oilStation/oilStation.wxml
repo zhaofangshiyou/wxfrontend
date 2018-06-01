@@ -1,5 +1,5 @@
 <!--pages/oilStation/oilStation.wxml-->
-<header title="取票油站"></header>
+<header title="消费油站"></header>
 <view class="container">
     <view class="oil_box">
         <view class="oil_item"  wx:for="{{oilArr}}" wx:for-index="index" wx:for-item="item" data-type="{{item.type}}" data-id="{{item.id}}" data-distance="{{item.distance}}" data-gunNumber="{{item.oil_gum_nums}}" data-address="{{item.address}}" data-name="{{item.name}}" bindtap="back">

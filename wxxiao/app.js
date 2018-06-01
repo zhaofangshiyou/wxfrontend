@@ -4,7 +4,7 @@ const app = getApp();
 App({
   config: {
     host: 'https://api.zfsyonline.com/v1',
-    img_url: 'https://www.zfsyonline.com/upload/weChat',
+    img_url: 'https://api.zfsyonline.com/images',
     header: ` {
       'Content-Type": "application/x-www-form-urlencoded'
     }`

@@ -9,7 +9,7 @@
         </view>
         <view class="header_msg">
             <view class="header_msg_left">
-                <image class="avatar" src="{{img_url}}/zf_card1.png"></image>
+                <image class="avatar" src="{{img_url}}/point_avatar.png"></image>
                 <view class="header_notice">
                     <view class="curr_points">当前积分</view>
                     <view class="point_number">2000<text class="point_text">积分</text></view>

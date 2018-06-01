@@ -56,7 +56,7 @@
         </view>
         <view class="enter_list enter_top">
                 <view class="enter_item" data-link="../../pages/points/points" bindtap="goNext">
-                        <image class="enter_img" src="{{img_url}}/icon_consume1.png"></image>
+                        <image class="enter_img" src="{{img_url}}/icon_point.png"></image>
                         <text class="enter_name">积分查询</text>
                 </view>
                 <view class="enter_item"></view>
