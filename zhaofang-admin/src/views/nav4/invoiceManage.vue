@@ -3,8 +3,8 @@
     <!--工具条-->
 		<el-col :span="24" class="toolbar" style="padding-bottom: 0px;">
 			<el-form :inline="true">
-                <el-form-item label="卡号">
-                <el-input v-model="card_num" placeholder="请选择"></el-input>
+            <el-form-item label="卡号">
+                <el-input v-model="card_no" placeholder="输入卡号" clearable="true"></el-input>
             </el-form-item>
             <el-form-item>
                 <el-button type="primary" @click="search">查询</el-button>
@@ -18,38 +18,38 @@
         <el-button type="success" size="small">&nbsp;&nbsp;导出&nbsp;&nbsp;</el-button>
     </el-col>
     <el-table :data="initList" highlight-current-row v-loading="listLoading" style="width: 100%;">
-        <el-table-column type="index" label="序号" width="100">
+        <el-table-column type="index" label="序号" width="50">
         </el-table-column>
-        <el-table-column prop="name" label="站点名称">
+        <el-table-column prop="station_name" label="站点名称">
         </el-table-column>
-        <el-table-column prop="id" label="卡号">
+        <el-table-column prop="card_no" label="卡号" width="150">
         </el-table-column>
-        <el-table-column prop="oil_gum_nums" label="消费流水ID">
+        <el-table-column prop="cc_flow_id" label="消费流水ID">
         </el-table-column>
-        <el-table-column prop="oil_product" label="消费时间">
+        <el-table-column prop="consume_time" label="消费时间" width="180">
         </el-table-column>
-        <el-table-column prop="oil_product" label="油品信息">
+        <el-table-column prop="oil_name" label="油品信息">
         </el-table-column>
-        <el-table-column prop="oil_product" label="升数">
+        <el-table-column prop="vol" label="升数">
         </el-table-column>
-        <el-table-column prop="oil_product" label="金额">
+        <el-table-column prop="money" label="金额">
         </el-table-column>
-        <el-table-column prop="oil_product" label="发票状态">
+        <el-table-column prop="is_invoicing_name" label="发票状态">
         </el-table-column>
-        <el-table-column prop="oil_product" label="开票时间">
+        <el-table-column prop="invoice_time" label="开票时间" width="180">
         </el-table-column>
-        <el-table-column prop="oil_product" label="操作员">
+        <el-table-column prop="operator_name" label="操作员">
         </el-table-column>
         <el-table-column label="操作" width="150">
             <template scope="scope">
-                <el-button size="small" type="primary" @click="handleEdit(scope.$index, scope.row)">确认开票</el-button>
+                <el-button size="small" :disabled="scope.row.is_invoicing==0? false: true" type="primary" @click="handleEdit(scope.$index, scope.row)">确认开票</el-button>
             </template>
         </el-table-column>
     </el-table>
     
     <!--工具条-->
 		<el-col :span="24" class="toolbar">
-			<el-pagination layout="prev, pager, next" @current-change="handleCurrentChange" :page-size="10" :total="total" style="float:right;">
+			<el-pagination layout="prev, pager, next" @current-change="handleCurrentChange" :page-size="num" :total="total" style="float:right;">
 			</el-pagination>
 		</el-col>
   </section>
@@ -57,21 +57,69 @@
 
 <script>
 
+  import { getInvoice, operatorInvoice } from '../../api/api';
+  import { messageWarn } from '../../common/js/commonMethod';
   export default {
     data() {
       return {
          initList: [],
          listLoading: false,
-         card_num: '',
-         total: 0
+         total: 0,
+         card_no: '',
+         page_num: 1,
+         num: 15
       }
     },
+    created: function() {
+      this.getList(this.card_no,this.page_num,this.num);
+    },
     methods: {
+      handleEdit(index,row) {
+        let that = this;
+        this.$confirm('确认开票吗?', '提示', {
+					type: 'warning'
+				}).then(() => {
+          console.log(123);
+           that.operatorInvoice(row.cc_flow_id);
+				}).catch(() => {
+
+				});
+      },
+      operatorInvoice: function(cc_flow_id) {
+        let user_id = localStorage.getItem('user_id');
+        let params = {
+          cc_flow_id: cc_flow_id,
+          user_id: user_id
+        }
+        operatorInvoice(params).then(res => {
+          if(res.data.status === 0) {
+            this.getList(this.card_no,this.page_num,this.num);
+          }else{
+            messageWarn(res.data.msg);
+          }
+        })
+      },
+      getList: function(card_no, page_num, num) {
+        let params = {
+          card_no: card_no,
+          page_num: page_num,
+          num: num
+        }
+        getInvoice(params).then(res => {
+          if(res.data.status === 0) {
+            this.initList = res.data.data.invoice_list;
+            this.total = res.data.data.invoice_total;
+          }else{
+            messageWarn(res.data.msg);
+          }
+        })
+      },
       handleCurrentChange(val) {
-				console.log(val);
+        this.page_num = val;
+        this.getList(this.card_no,this.page_num,this.num);
       },
       search() {
-        console.log(this.card_num);
+        this.getList(this.card_no,this.page_num,this.num);
       }
     }
   }

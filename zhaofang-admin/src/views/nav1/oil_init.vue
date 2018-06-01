@@ -79,6 +79,12 @@
                         </el-option>
                     </el-select>
 				</el-form-item>
+                <el-form-item label="油站类型">
+                    <el-radio-group v-model="addForm.type">
+                    <el-radio label="1">自有油站</el-radio>
+                    <el-radio label="2">共享油站</el-radio>
+                    </el-radio-group>
+                </el-form-item>
 				<el-form-item label="油站名称">
 					<el-input v-model="addForm.name" size="100" placeholder="请输入油站名称" auto-complete="off"></el-input>
 				</el-form-item>
@@ -118,6 +124,12 @@
                         </el-option>
                     </el-select>
 				</el-form-item>
+                <el-form-item label="油站类型">
+                    <el-radio-group v-model="editForm.type">
+                    <el-radio :label="1">自有油站</el-radio>
+                    <el-radio :label="2">共享油站</el-radio>
+                    </el-radio-group>
+                </el-form-item>
 				<el-form-item label="油站名称">
 					<el-input v-model="editForm.name" size="100" placeholder="请输入油站名称" auto-complete="off"></el-input>
 				</el-form-item>
@@ -255,7 +267,7 @@
                     }
                 })
             },
-            addStation(province_id,name,oil_gum_nums,address,province,oil_list,avatar_url,city,type) {
+            addStation(province_id,name,oil_gum_nums,address,province,oil_list,type,avatar_url,city) {
                 let params = {
                     id: '',
                     province_id: province_id,
@@ -266,7 +278,7 @@
                     oil_list: oil_list,
                     avatar_url: this.editForm.avatar_url,
                     city: this.editForm.city,
-                    type: this.editForm.type
+                    type: type
                 }
                 addStation(params).then(res =>{
                     if(res.data.status === 0) {
@@ -281,7 +293,7 @@
             //提交新增
             addSubmit: function() {
                 let  oil_list = this.addForm.oil_list.join(',');
-                this.addStation(this.addForm.province_id,this.addForm.name,this.addForm.oil_gum_nums,this.addForm.address,this.addForm.province,oil_list);
+                this.addStation(this.addForm.province_id,this.addForm.name,this.addForm.oil_gum_nums,this.addForm.address,this.addForm.province,oil_list,this.addForm.type);
 
             },
             //显示新增界面
@@ -290,7 +302,7 @@
 				this.addForm = {
                     province_id: '',
 					name: '',
-                    oil_gum_nums: '',
+                    oil_gum_nums: 0,
                     address: '',
                     province: '',
                     oil_list: [],

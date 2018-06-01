@@ -4,8 +4,7 @@ import qs from 'qs';
 let base = '';
 let instance = axios.create({
     headers: {
-      'content-type': 'application/x-www-form-urlencoded',
-      'user_id': '1'
+      'content-type': 'application/x-www-form-urlencoded'
     }
     
   })
@@ -95,3 +94,9 @@ export const getRechargeAll = (params) => { return instance.get(`${url}/v1/backe
 
 //往来账列表 /acounts
 export const getRunAcounts = (params) => { return instance.get(`${url}/v1/backen/accounts`, { params: params }); };
+
+//发票接口 /v1/backen/invoice
+export const getInvoice = (params) => { return instance.get(`${url}/v1/backen/invoice`, { params: params }); };
+
+//开发票 
+export const operatorInvoice = params => { return instance.post(`${url}/v1/backen/invoice`, qs.stringify(params)); };
