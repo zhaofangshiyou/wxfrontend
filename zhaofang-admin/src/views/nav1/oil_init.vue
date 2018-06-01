@@ -367,7 +367,7 @@
                     oil_list: oil_list,
                     avatar_url: this.editForm.avatar_url,
                     city: this.editForm.city,
-                    type: this.editSubmit.type
+                    type: this.editForm.type
                 }
                editInitOil(param,this.editForm.id).then(res => {
                    if(res.data.status === 0) {
