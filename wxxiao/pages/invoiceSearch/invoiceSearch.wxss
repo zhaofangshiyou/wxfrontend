@@ -36,7 +36,7 @@
     color: #F96432;
 }
 .noData{
-    margin-top: 320rpx;
+    margin-top: 420rpx;
     box-sizing: border-box;
     text-align: center;
 }

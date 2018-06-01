@@ -16,10 +16,12 @@
 .address_icon{
    width: 60rpx;
    height: 60rpx; 
+   vertical-align: middle;
 }
 .oil_mess{
     margin-left: 30rpx;
     flex: 1;
+    vertical-align: middle;
 }
 .oil_title{
     font-size:30rpx;
