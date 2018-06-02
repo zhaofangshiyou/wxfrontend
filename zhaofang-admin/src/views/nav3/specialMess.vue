@@ -15,9 +15,9 @@
                     </el-select>
 				</el-form-item>
 				<el-form-item label="站点名称">
-					<el-select v-model="provice_id" clearable placeholder="请选择">
+					<el-select v-model="station_id" clearable placeholder="请选择">
                         <el-option
-                        v-for="item in add_provice_list"
+                        v-for="item in station_list"
                         :key="item.id"
                         :label="item.name"
                         :value="item.id"
@@ -54,9 +54,21 @@
 			</el-table-column>
 			<el-table-column type="index" label="序号" width="100">
 			</el-table-column>
-            <el-table-column 
-                v-for="col in oilCols"
-                :prop="col.prop" :label="col.lable" >
+            <el-table-column prop="province" label="省份" >
+            </el-table-column>
+            <el-table-column prop="station_name" label="油站名称" >
+            </el-table-column>
+            <el-table-column prop="oil_92" label="92号" >
+            </el-table-column>
+            <el-table-column prop="oil_95" label="95号" >
+            </el-table-column>
+            <el-table-column prop="oil_98" label="98号" >
+            </el-table-column>
+            <el-table-column prop="oil_0" label="0号" >
+            </el-table-column>
+            <el-table-column prop="oil_10" label="-10号" >
+            </el-table-column>
+            <el-table-column prop="discount_begin_time" label="生效时间" >
             </el-table-column>
             <el-table-column label="操作" width="150">
 				<template scope="scope">
@@ -75,24 +87,24 @@
 		<el-dialog title="新增" v-model="addFormVisible" :close-on-click-modal="false">
 			<el-form :model="addForm" label-width="80px" ref="addForm">
 				<el-form-item label="省份" prop="name">
-					<el-select v-model="addForm.province_ids" size="100" multiple  placeholder="请选择">
+					<el-select v-model="addForm.province_id" size="100" placeholder="请选择">
                         <el-option
                         v-for="item in add_provice_list"
                         :key="item.id"
                         :label="item.name"
                         :value="item.id"
-                        :disabled="item.disable">
+                        >
                         </el-option>
                     </el-select>
 				</el-form-item>
 				<el-form-item label="油站名称" prop="name">
-					<el-select v-model="addForm.province_ids" size="100" multiple  placeholder="请选择">
+					<el-select v-model="addForm.station_ids" size="100" multiple  placeholder="请选择">
                         <el-option
-                        v-for="item in add_provice_list"
+                        v-for="item in station_list"
                         :key="item.id"
                         :label="item.name"
                         :value="item.id"
-                        :disabled="item.disable">
+                        >
                         </el-option>
                     </el-select>
 				</el-form-item>
@@ -129,7 +141,7 @@
 				<el-form-item label="0号" class="input_right">
                     <el-row>
 				        <el-col :span="19">
-					        <el-input v-model="addForm.num_93.price" type="number" placeholder="" auto-complete="off"></el-input>
+					        <el-input v-model="addForm.num_0.price" type="number" placeholder="" auto-complete="off"></el-input>
                         </el-col>
                         <el-col :span="5">
                             元/升
@@ -139,7 +151,7 @@
                 <el-form-item label="-10号" class="input_left">
                     <el-row>
 				        <el-col :span="19">
-					        <el-input v-model="addForm.num_97.price" type="number" placeholder=""  auto-complete="off"></el-input>
+					        <el-input v-model="addForm.num_10.price" type="number" placeholder=""  auto-complete="off"></el-input>
                         </el-col>
                         <el-col :span="5">
                             元/升
@@ -149,7 +161,7 @@
 				<el-form-item label="阈值" class="input_right">
                     <el-row>
 				        <el-col :span="19">
-					        <el-input v-model="addForm.num_97.price" type="number" placeholder=""  auto-complete="off"></el-input>
+					        <el-input v-model="addForm.total_money" type="number" placeholder=""  auto-complete="off"></el-input>
                         </el-col>
                         <el-col :span="5">
                             元
@@ -159,7 +171,7 @@
 				<el-form-item label="优惠天数" class="input_left">
                     <el-row>
 				        <el-col :span="19">
-					        <el-input v-model="addForm.num_97.price" type="number" placeholder=""  auto-complete="off"></el-input>
+					        <el-input v-model="addForm.date" type="number" placeholder=""  auto-complete="off"></el-input>
                         </el-col>
                         <el-col :span="5">
                             天
@@ -168,18 +180,15 @@
                 </el-form-item>
 				<el-form-item label="有效日期" class="input_right">
 					<el-row>
-				        <el-col :span="19">
+				        <el-col :span="24">
 							 <el-date-picker
-								v-model="time"
+								v-model="addForm.time"
 								type="daterange"
 								range-separator="至"
 								start-placeholder="开始日期"
-								end-placeholder="结束日期" style="width:100%">
+								end-placeholder="结束日期" >
 								</el-date-picker>
 						</el-col>
-                        <el-col :span="5">
-                            
-                        </el-col>
                     </el-row> 
                 </el-form-item>
 			</el-form>
@@ -193,7 +202,10 @@
 		<el-dialog title="编辑" v-model="editFormVisible" :close-on-click-modal="false">
 			<el-form :model="editForm" label-width="80px" ref="addForm">
 				<el-form-item label="省份" prop="name">
-					<el-input v-model="editForm.province" size="100" multiple :disabled="true" placeholder="请选择"></el-input>
+					<el-input v-model="editForm.province_id" :disabled="true"></el-input>
+				</el-form-item>
+				<el-form-item label="油站名称" prop="name">
+					<el-input v-model="editForm.station_id" :disabled="true" ></el-input>
 				</el-form-item>
 				<el-form-item label="92号" class="input_left">
                     <el-row>
@@ -228,7 +240,7 @@
 				<el-form-item label="0号" class="input_right">
                     <el-row>
 				        <el-col :span="19">
-					        <el-input v-model="editForm.num_93.price" type="number" placeholder="" auto-complete="off"></el-input>
+					        <el-input v-model="editForm.num_0.price" type="number" placeholder="" auto-complete="off"></el-input>
                         </el-col>
                         <el-col :span="5">
                             元/升
@@ -238,22 +250,46 @@
                 <el-form-item label="-10号" class="input_left">
                     <el-row>
 				        <el-col :span="19">
-					        <el-input v-model="editForm.num_97.price" type="number" placeholder=""  auto-complete="off"></el-input>
+					        <el-input v-model="editForm.num_10.price" type="number" placeholder=""  auto-complete="off"></el-input>
                         </el-col>
                         <el-col :span="5">
                             元/升
                         </el-col>
                     </el-row> 
                 </el-form-item>
-				<el-form-item label="生效时间" class="input_right">
-					<el-date-picker
-						v-model="time"
-						type="datetimerange"
-						range-separator="至"
-						start-placeholder="开始日期"
-						end-placeholder="结束日期">
-					</el-date-picker>         
-				</el-form-item>
+				<el-form-item label="阈值" class="input_right">
+                    <el-row>
+				        <el-col :span="19">
+					        <el-input v-model="editForm.total_money" type="number" placeholder=""  auto-complete="off"></el-input>
+                        </el-col>
+                        <el-col :span="5">
+                            元
+                        </el-col>
+                    </el-row> 
+                </el-form-item>
+				<el-form-item label="优惠天数" class="input_left">
+                    <el-row>
+				        <el-col :span="19">
+					        <el-input v-model="editForm.date" type="number" placeholder=""  auto-complete="off"></el-input>
+                        </el-col>
+                        <el-col :span="5">
+                            天
+                        </el-col>
+                    </el-row> 
+                </el-form-item>
+				<el-form-item label="有效日期" class="input_right">
+					<el-row>
+				        <el-col :span="24">
+							 <el-date-picker
+								v-model="editForm.time"
+								type="daterange"
+								range-separator="至"
+								start-placeholder="开始日期"
+								end-placeholder="结束日期" >
+								</el-date-picker>
+						</el-col>
+                    </el-row> 
+                 </el-form-item>
 			</el-form>
 			<div slot="footer" class="dialog-footer clearfloat">
 				<el-button @click.native="editFormVisible = false">取消</el-button>
@@ -265,42 +301,50 @@
 </template>
 
 <script>
-    import { deleteOilPrice, editOilPrice, getOilPrice, getProvince, addOilPrice, getOilProduct } from '../../api/api';
+    import {editDiscount,deleteDiscount, getDiscount, getStationList,  deleteOilPrice, discountAdd,  getProvince, addOilPrice, getOilProduct } from '../../api/api';
     import { messageWarn } from '../../common/js/commonMethod';
     import {formatDate} from '../../common/js/dateFilter.js';
     export default {
         data() {
             return {
-				time: '',
+				time: [],
                 pro_list: [],
                 initList: [],
+                station_list: [],
                 provice_id: '',
+                station_id: '',
                 station: '',
                 listLoading: false,
                  //新增界面数据
                 addFormVisible: false,
                 addLoading: false,
 				addForm: {
-                    province_ids: [],
+                    province_id: '',
+                    station_ids: [],
 					num_92: {"oil_id":1,"price": ''},
                     num_95: {"oil_id":2,"price": ''},
                     num_98: {"oil_id":3,"price": ''},
-                    num_93: {"oil_id":4,"price": ''},
-                    num_97: {"oil_id":5,"price": ''},
-                    date: ''
+                    num_0: {"oil_id":4,"price": ''},
+                    num_10: {"oil_id":5,"price": ''},
+                    date: '',
+                    total_money: '',
+                    time: []
                 },
                 editFormVisible: false,//编辑界面是否显示
 				editLoading: false,
 				//编辑界面数据
 				editForm: {
                     id: 0,
-					province: '',
+					province_id: '',
+                    station_id: '',
 					num_92: {"oil_id":1,"price": ''},
                     num_95: {"oil_id":2,"price": ''},
                     num_98: {"oil_id":3,"price": ''},
-                    num_93: {"oil_id":4,"price": ''},
-                    num_97: {"oil_id":5,"price": ''},
-                    active_at: ''
+                    num_0: {"oil_id":4,"price": ''},
+                    num_10: {"oil_id":5,"price": ''},
+                    date: '',
+                    total_money: '',
+                    time: []
 				},
                 add_provice_list: [],
                 oil_product: [],
@@ -320,27 +364,50 @@
             }
         },
         created: function() {
-            this.getList(this.provice_id,this.page_num,this.num);
+            this.getList(this.provice_id,this.station_id,this.begin_time,this.end_time,this.page_num,this.num);
             this.getProvice();
+            this.getStation();
         },
         methods: {
+            //获取油站
+            getStation: function() {
+                getStationList().then(res => {
+                    if(res.data.status === 0) {
+                        this.station_list = res.data.data.station_site;
+                    }else{
+                        messageWarn(res.data.msg);
+                    }
+                })
+            },
             search: function() {
-                this.getList(this.provice_id,this.page_num,this.num);
+                this.begin_time = "";
+                this.end_time = "";
+                if(this.time[0]) {
+                    let begin_date = new Date(this.time[0]);
+                    this.begin_time = begin_date.getFullYear() + '-' + (begin_date.getMonth() + 1) + '-' + begin_date.getDate() + ' ' + begin_date.getHours() + ':' + begin_date.getMinutes() + ':' + begin_date.getSeconds(); 
+                }
+                if(this.time[1]) {
+                    let end_date = new Date(this.time[1]);
+                    this.end_time = end_date.getFullYear() + '-' + (end_date.getMonth() + 1) + '-' + end_date.getDate() + ' ' + end_date.getHours() + ':' + end_date.getMinutes() + ':' + end_date.getSeconds(); 
+                }
+            this.getList(this.provice_id,this.station_id,this.begin_time,this.end_time,this.page_num,this.num);
             },
             //获取列表数据
-            getList(province_id,page_num,num) {
+            getList(province_id,station_id,begin_time,end_time,page_num,num) {
                 this.listLoading = true;
                 let params = {
                     province_id: province_id,
+                    station_id: station_id,
+                    begin_time: begin_time,
+                    end_time: end_time,
                     page_num: page_num,
                     num: num
                 }
-                getOilPrice(params).then(res => {
+                getDiscount(params).then(res => {
                     this.listLoading = false;
                     if(res.data.status === 0) {
-                        this.total = res.data.data.list_cnt;
-                        this.initList = res.data.data.oil_price_list;
-                        this.oilCols = res.data.data.header;
+                        this.total = res.data.data.discount_rule_cnt;
+                        this.initList = res.data.data.discount_rule_list;
                     }
                 })
             },
@@ -359,14 +426,13 @@
             },
             selsChange: function (sels) {
                this.del_ids.length = 0;
-               console.log(sels);
                 for(let i=0; i<sels.length; i++) {
-                    this.del_ids.push(sels[i].province_id)
+                    this.del_ids.push(sels[i].id)
                 }
             },
             handleCurrentChange(val) {
                 this.page_num = val;
-                this.getList(this.provice_id,this.page_num,this.num);
+                 this.getList(this.provice_id,this.station_id,this.begin_time,this.end_time,this.page_num,this.num);
             },
             batchRemove() {
                  this.$confirm('确认删除选中记录吗?', '提示', {
@@ -375,9 +441,9 @@
 					this.listLoading = true;
                     //NProgress.start();
                     let params = {
-                        province_ids: JSON.stringify(this.del_ids)
+                        ids: JSON.stringify(this.del_ids)
                     }
-					deleteOilPrice(params).then((res) => {
+					deleteDiscount(params).then((res) => {
 						this.listLoading = false;
                         //NProgress.done();
                             if(res.data.status === 0){
@@ -385,7 +451,7 @@
                                 message: '删除成功',
                                 type: 'success'
                             });
-                            this.getList(this.provice_id,this.page_num,this.num);
+                            this.getList(this.provice_id,this.station_id,this.begin_time,this.end_time,this.page_num,this.num);
                         }else{
                             messageWarn(res.data.msg);
                         }
@@ -398,15 +464,18 @@
 			handleAdd: function () {
                 this.addFormVisible = true;
 				this.addForm = {
-                    province_ids: [],
+                    province_id: '',
+                    station_ids: [],
 					num_92: {"oil_id":1,"price": ''},
                     num_95: {"oil_id":2,"price": ''},
                     num_98: {"oil_id":3,"price": ''},
-                    num_93: {"oil_id":4,"price": ''},
-                    num_97: {"oil_id":5,"price": ''},
-                    date: ''
+                    num_0: {"oil_id":4,"price": ''},
+                    num_10: {"oil_id":5,"price": ''},
+                    date: '',
+                    total_money: '',
+                    time: []
                 };
-                this.getProvice();
+                
             },
             //提交新增
             addSubmit: function() {
@@ -414,18 +483,34 @@
                     messageWarn('请选择时间');
                     return false;
                 }
-                let active_at = Date.parse(this.addForm.date);
-                let oil_price = [this.addForm.num_92,this.addForm.num_95,this.addForm.num_98,this.addForm.num_93,this.addForm.num_97];
-                let params = {
-                    province_ids: JSON.stringify(this.addForm.province_ids),
-                    oil_price: JSON.stringify(oil_price),
-                    active_at: active_at
+                    let temp_begin_time = "";
+                    let temp_end_time = "";
+                    if(this.addForm.time[0]) {
+                        let begin_date = new Date(this.addForm.time[0]);
+                        temp_begin_time = begin_date.getFullYear() + '-' + (begin_date.getMonth() + 1) + '-' + begin_date.getDate() + ' ' + begin_date.getHours() + ':' + begin_date.getMinutes() + ':' + begin_date.getSeconds(); 
+                    }
+                    if(this.addForm.time[1]) {
+                        let end_date = new Date(this.addForm.time[1]);
+                        temp_end_time = end_date.getFullYear() + '-' + (end_date.getMonth() + 1) + '-' + end_date.getDate() + ' ' + end_date.getHours() + ':' + end_date.getMinutes() + ':' + end_date.getSeconds();             
                 }
-                addOilPrice(params).then(res => {
+                let oil_price = [this.addForm.num_92,this.addForm.num_95,this.addForm.num_98,this.addForm.num_0,this.addForm.num_10];
+                let params = {
+                    province_id: this.addForm.province_id,
+                    station_ids: JSON.stringify(this.addForm.station_ids),
+                    begin_time: temp_begin_time,
+                    end_time: temp_end_time,
+                    discount_type: '1',
+                    discount_days: this.addForm.date,
+                    oil_price: JSON.stringify(oil_price),
+                    amount_start: this.addForm.total_money
+                };
+                discountAdd(params).then(res => {
                     if(res.data.status === 0) {
                         this.addFormVisible = false;
                         messageWarn('添加成功');
-                        this.getList(this.provice_id,this.page_num,this.num);
+                         this.getList(this.provice_id,this.station_id,this.begin_time,this.end_time,this.page_num,this.num);
+
+//this.getList(this.provice_id,this.page_num,this.num);
                     }else{
                         messageWarn(res.data.msg);
                     }
@@ -434,31 +519,53 @@
             //编辑
             handleEdit(index, row) {
                 this.editForm = {
-                    id: 0,
-					province: '',
-					num_92: {"oil_id":1,"price": row['1']},
-                    num_95: {"oil_id":2,"price": row['2']},
-                    num_98: {"oil_id":3,"price": row['3']},
-                    num_93: {"oil_id":4,"price": row['4']},
-                    num_97: {"oil_id":5,"price": row['5']},
-                    active_at: ''
+                    id: row.id,
+					province_id: row.province_id,
+                    station_id: row.station_id,
+					num_92: {"oil_id":1,"price": row.oil_92},
+                    num_95: {"oil_id":2,"price": row.oil_95},
+                    num_98: {"oil_id":3,"price": row.oil_98},
+                    num_0: {"oil_id":4,"price": row.oil_0},
+                    num_10: {"oil_id":5,"price": row.oil_10},
+                    date: row.discount_days,
+                    total_money: row.amount_start,
+                    time: [row.discount_begin_time,row.discount_end_time]
 				};
                 this.editFormVisible = true;
-                this.editForm = Object.assign(this.editForm, row);
+                // this.editForm = Object.assign(this.editForm, row);
+                console.log(this.editForm);
             },
             //编辑提交
             editSubmit() {
-                let active_at = Date.parse(this.editForm.active_at);
-                let oil_price = [this.editForm.num_92,this.editForm.num_95,this.editForm.num_98,this.editForm.num_93,this.editForm.num_97];
-                let params = {
-                    oil_price: JSON.stringify(oil_price),
-                    active_at: active_at
+                 if(this.editForm.date == '') {
+                    messageWarn('请选择时间');
+                    return false;
                 }
-                editOilPrice(params,this.editForm.province_id).then(res => {
+                    let temp_begin_time = "";
+                    let temp_end_time = "";
+                    if(this.editForm.time[0]) {
+                        let begin_date = new Date(this.editForm.time[0]);
+                        temp_begin_time = begin_date.getFullYear() + '-' + (begin_date.getMonth() + 1) + '-' + begin_date.getDate() + ' ' + begin_date.getHours() + ':' + begin_date.getMinutes() + ':' + begin_date.getSeconds(); 
+                    }
+                    if(this.editForm.time[1]) {
+                        let end_date = new Date(this.editForm.time[1]);
+                        temp_end_time = end_date.getFullYear() + '-' + (end_date.getMonth() + 1) + '-' + end_date.getDate() + ' ' + end_date.getHours() + ':' + end_date.getMinutes() + ':' + end_date.getSeconds();             
+                }
+                let oil_price = [this.editForm.num_92,this.editForm.num_95,this.editForm.num_98,this.editForm.num_0,this.editForm.num_10];
+                let params = {
+                    id: this.editForm.id,
+                    begin_time: temp_begin_time,
+                    end_time: temp_end_time,
+                    discount_type: '1',
+                    discount_days: this.editForm.date,
+                    oil_price: JSON.stringify(oil_price),
+                    amount_start: this.editForm.total_money
+                };
+                editDiscount(params,this.editForm.id).then(res => {
                     if(res.data.status === 0) {
                         this.editFormVisible = false;
                         messageWarn('编辑成功');
-                        this.getList(this.provice_id,this.page_num,this.num);
+                        this.getList(this.provice_id,this.station_id,this.begin_time,this.end_time,this.page_num,this.num);
                     }else{
                         messageWarn(res.data.msg);
                     }
@@ -470,11 +577,11 @@
 				}).then(() => {
 					this.listLoading = true;
                     //NProgress.start();
-                    let arr_id = JSON.stringify([row.province_id]);
+                    let arr_id = JSON.stringify([row.id]);
                     let params = {
-                        province_ids: arr_id
+                        ids: arr_id
                     }
-					deleteOilPrice(params).then((res) => {
+					deleteDiscount(params).then((res) => {
 						this.listLoading = false;
                         //NProgress.done();
                             if(res.data.status === 0){
@@ -482,7 +589,8 @@
                                 message: '删除成功',
                                 type: 'success'
                             });
-                            this.getList(this.provice_id,this.page_num,this.num);
+                            this.getList(this.provice_id,this.station_id,this.begin_time,this.end_time,this.page_num,this.num);
+
                         }else{
                             messageWarn(res.data.msg);
                         }

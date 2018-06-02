@@ -100,3 +100,15 @@ export const getInvoice = (params) => { return instance.get(`${url}/v1/backen/in
 
 //开发票 
 export const operatorInvoice = params => { return instance.post(`${url}/v1/backen/invoice`, qs.stringify(params)); };
+
+//获取优惠信息列表 /
+export const getDiscount = (params) => { return instance.get(`${url}/v1/backen/discount/`, { params: params }); };
+
+//新增优惠 /add
+export const discountAdd = params => { return instance.post(`${url}/v1/backen/discount/add`, qs.stringify(params)); };
+
+//修改优惠  /upd/:id
+export const editDiscount = (params,id) => { return instance.put(`${url}/v1/backen/discount/upd/${id}`, qs.stringify(params)); };
+
+//删除列表 /del
+export const deleteDiscount = (params) => { return instance.delete(`${url}/v1/backen/discount/del`, {data : qs.stringify(params)}); };
