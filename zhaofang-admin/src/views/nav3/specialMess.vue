@@ -448,9 +448,9 @@
                         //NProgress.done();
                             if(res.data.status === 0){
                                 this.$message({
-                                message: '删除成功',
-                                type: 'success'
-                            });
+                                    message: '删除成功',
+                                    type: 'success'
+                                });
                             this.getList(this.provice_id,this.station_id,this.begin_time,this.end_time,this.page_num,this.num);
                         }else{
                             messageWarn(res.data.msg);
@@ -554,6 +554,7 @@
                 let oil_price = [this.editForm.num_92,this.editForm.num_95,this.editForm.num_98,this.editForm.num_0,this.editForm.num_10];
                 let params = {
                     id: this.editForm.id,
+                    station_id: this.editForm.station_id,
                     begin_time: temp_begin_time,
                     end_time: temp_end_time,
                     discount_type: '1',

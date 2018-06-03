@@ -1,5 +1,10 @@
 <template>
   <div class="components-container">
+    <el-form ref="form"  label-width="80px">
+  <el-form-item label="活动名称">
+    <el-input v-model="title"></el-input>
+  </el-form-item>
+    </el-form>
     <div class="editor-container">
       <UE :defaultMsg=defaultMsg :config=config ref="ue"></UE>
     </div>
@@ -7,6 +12,9 @@
   </div>
 </template>
 <style>
+  .components-container {
+    margin-top: 30px;
+  }
   .info{
     border-radius: 10px;
     line-height: 20px;
@@ -26,12 +34,15 @@
   }
 </style>
 <script>
+  import { discountDocAdd } from '../../api/api';
+  import { messageWarn } from '../../common/js/commonMethod';
   import UE from '../../components/ue.vue';
   export default {
     components: {UE},
     data() {
       return {
-        defaultMsg: '这里是UE测试',
+        title: '',
+        defaultMsg: '',
         config: {
           initialFrameWidth: null,
           initialFrameHeight: 350
@@ -41,12 +52,20 @@
     methods: {
       getUEContent() {
         let content = this.$refs.ue.getUEContent();
-        this.$notify({
-          title: '获取成功，可在控制台查看！',
-          message: content,
-          type: 'success'
-        });
-        console.log(content)
+        let params = {
+          title: this.title,
+          content: content
+        }
+        discountDocAdd(params).then(res => {
+          if(res.data.status === 0) {
+            this.$message({
+                message: '添加成功',
+                type: 'success'
+            });
+          }else{
+            messageWarn(res.data.msg);
+          }
+        })
       }
     }
   };

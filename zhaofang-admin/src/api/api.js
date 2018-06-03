@@ -112,3 +112,6 @@ export const editDiscount = (params,id) => { return instance.put(`${url}/v1/back
 
 //删除列表 /del
 export const deleteDiscount = (params) => { return instance.delete(`${url}/v1/backen/discount/del`, {data : qs.stringify(params)}); };
+
+//优惠文案bianji编辑
+export const discountDocAdd = params => { return instance.post(`${url}/v1/backen/discount/doc/add`, qs.stringify(params)); };
