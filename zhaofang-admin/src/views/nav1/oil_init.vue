@@ -182,7 +182,7 @@
                     oil_list: [],
                     avatar_url: '',
                     city: '',
-                    type: ''
+                    type: '1'
                 },
                 editFormVisible: false,//编辑界面是否显示
 				editLoading: false,
@@ -308,7 +308,7 @@
                     oil_list: [],
                     avatar_url: '',
                     city: '',
-                    type: ''
+                    type: '1'
                 };
             },
             //查询

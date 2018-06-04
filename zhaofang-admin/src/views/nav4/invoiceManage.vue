@@ -79,7 +79,6 @@
         this.$confirm('确认开票吗?', '提示', {
 					type: 'warning'
 				}).then(() => {
-          console.log(123);
            that.operatorInvoice(row.cc_flow_id);
 				}).catch(() => {
 
