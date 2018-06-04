@@ -58,6 +58,14 @@
             </el-table-column>
             <el-table-column prop="station_name" label="油站名称" >
             </el-table-column>
+            <el-table-column prop="discount_days" label="有效天数" >
+            </el-table-column>
+            <el-table-column prop="discount_begin_time" label="开始时间" width="180">
+            </el-table-column>
+            <el-table-column prop="discount_end_time" label="结束时间" width="180">
+            </el-table-column>
+            <el-table-column prop="amount_start" label="阈值" >
+            </el-table-column>
             <el-table-column prop="oil_92" label="92号" >
             </el-table-column>
             <el-table-column prop="oil_95" label="95号" >
@@ -67,8 +75,6 @@
             <el-table-column prop="oil_0" label="0号" >
             </el-table-column>
             <el-table-column prop="oil_10" label="-10号" >
-            </el-table-column>
-            <el-table-column prop="discount_begin_time" label="生效时间" >
             </el-table-column>
             <el-table-column label="操作" width="150">
 				<template scope="scope">
@@ -87,7 +93,7 @@
 		<el-dialog title="新增" v-model="addFormVisible" :close-on-click-modal="false">
 			<el-form :model="addForm" label-width="80px" ref="addForm">
 				<el-form-item label="省份" prop="name">
-					<el-select v-model="addForm.province_id" size="100" placeholder="请选择">
+					<el-select v-model="addForm.province_id" size="100" placeholder="请选择" @change="selectSite($event)">
                         <el-option
                         v-for="item in add_provice_list"
                         :key="item.id"
@@ -100,7 +106,7 @@
 				<el-form-item label="油站名称" prop="name">
 					<el-select v-model="addForm.station_ids" size="100" multiple  placeholder="请选择">
                         <el-option
-                        v-for="item in station_list"
+                        v-for="item in station_site"
                         :key="item.id"
                         :label="item.name"
                         :value="item.id"
@@ -310,6 +316,7 @@
 				time: [],
                 pro_list: [],
                 initList: [],
+                station_site: [],
                 station_list: [],
                 provice_id: '',
                 station_id: '',
@@ -369,6 +376,19 @@
             this.getStation();
         },
         methods: {
+            //新增获取油站
+            selectSite: function(event) {
+                this.station_site.length = 0;
+                this.addForm.station_ids.length = 0;
+                let params = {
+                province_id: event
+                }
+                getStationList(params).then(res => {
+                if(res.data.status === 0) {
+                    this.station_site = res.data.data.station_site;
+                }
+                })
+            },
             //获取油站
             getStation: function() {
                 getStationList().then(res => {
