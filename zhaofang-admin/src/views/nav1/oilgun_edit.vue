@@ -4,7 +4,7 @@
 		<el-col :span="24" class="toolbar" style="padding-bottom: 0px;">
 			<el-form :inline="true">
 				<el-form-item label="站点名称">
-					<el-select v-model="oil_station" placeholder="请选择">
+					<el-select v-model="oil_station" clearable placeholder="请选择">
                         <el-option
                         v-for="item in station_list"
                         :key="item.id"
@@ -57,7 +57,7 @@
 		<el-dialog title="新增" v-model="addFormVisible" :close-on-click-modal="false">
 			<el-form :model="addForm" label-width="80px" ref="addForm">
 				<el-form-item label="站点名称">
-					<el-select v-model="addForm.station_id" size="100" placeholder="请选择" @change="stationChange($event)">
+					<el-select v-model="addForm.station_id" clearable size="100" placeholder="请选择" @change="stationChange($event)">
                         <el-option
                         v-for="(item,index) in station_list" v-if="index > 0"
                         :key="item.id"
@@ -132,9 +132,7 @@
                 oil_station: '',
                 gunNum_option: [],
                 oilProduct_option: [],
-                station_list: [
-                    {name: '不限',id: ''}
-                ],
+                station_list: [],
                 listLoading: false,
                 oilList: [],
                 total: 0,
