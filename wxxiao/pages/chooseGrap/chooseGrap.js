@@ -21,7 +21,7 @@ Page({
     max_show: 7,
     img_url: app.config.img_url,
     conMoney: "",
-    oil_index: 1,
+    oil_index: '1',
     oil_list: []
   },
   chooseGrap: function(e) {
@@ -160,7 +160,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.data.oil_index = '1';
+    this.data.conMoney = '';
   },
 
   /**

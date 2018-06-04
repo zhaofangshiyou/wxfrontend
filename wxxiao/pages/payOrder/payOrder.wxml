@@ -11,7 +11,7 @@
             <view class="oil_name">华富加油站</view>
             <view class="money">¥{{orderDetail.PayMount}}</view>
             <view class="detail_box">
-            <view class="message">
+            <view class="message" wx:if="{{orderDetail.station_type==1}}">
                 <view class="mess_name">油枪号码</view>
                 <view class="detail_name">{{orderDetail.gun_id}}号油枪</view>
             </view>
@@ -24,7 +24,7 @@
                 <view class="detail_name">2018-04-16 12:12:12</view>
             </view>
             <view class="message">
-                <view class="mess_name">加油升数</view>
+                <view class="mess_name" wx:if="{{orderDetail.station_type==1}}">加油升数</view>
                 <view class="detail_name">{{orderDetail.Lit}}L</view>
             </view>
             <view class="message">
