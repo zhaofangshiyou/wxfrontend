@@ -15,7 +15,9 @@
                     <view class="point_number">2000<text class="point_text">积分</text></view>
                 </view>
             </view>
-            <view class="header_msg_right">积分规则</view>
+            <navigator url="../../pages/pointRule/pointRule">
+                <view class="header_msg_right">积分规则</view>
+            </navigator>    
         </view>
     </view>
     <scroll-view class="point_box">

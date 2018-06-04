@@ -15,7 +15,10 @@ Page({
     payWay: 1,
     station_id: '',
     gun_id: '',
+    oil_id: '',
+    write_money: '',
     orderDetail: {},
+
   },
   forgetPass: function() {
     wx.navigateTo({
@@ -144,8 +147,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options);
     this.data.station_id = options.station_id;
     this.data.gun_id = options.gun_id;
+    this.data.write_money = options.write_money;
+    this.data.oil_id = options.oil_id
     this.getDetail();
   },
 
@@ -155,7 +161,9 @@ Page({
     let data = {};
     let params = {
       'station_id': this.data.station_id,
-      'gun_id': this.data.gun_id
+      'gun_id': this.data.gun_id,
+      'write_money': this.data.write_money,
+      'oil_id': this.data.oil_id
     };
     let method = 'GET';
     httpService.sendRrquest(url,data,params,method).then(res => {

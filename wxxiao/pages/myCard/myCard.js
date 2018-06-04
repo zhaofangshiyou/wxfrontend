@@ -20,7 +20,6 @@ Page({
   },
   cardDetail: function(e) {
     if(e.currentTarget.dataset.index == 0) {
-      console.log(this.data.haveCard);
       if(!this.data.haveCard) {
         wx.navigateTo({
           url: this.data.listArr[0].link
@@ -31,7 +30,6 @@ Page({
         })
       }
     }else{
-      console.log(this.data.haveMenuCard);
       if(!this.data.haveMenuCard) {
         wx.navigateTo({
           url: this.data.listArr[1].link

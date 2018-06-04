@@ -44,13 +44,16 @@ Page({
   },
   nextSubmit: function() {
     if(this.data.oil.type == 1) {
+      this.data.conMoney = '';
+      this.data.oil_index = '';
       wx.navigateTo({
-        url: '../../pages/orderDetail/orderDetail?station_id='+this.data.oil.station_id+'&gun_id='+this.data.chooseIndex
+        url: '../../pages/orderDetail/orderDetail?station_id='+this.data.oil.station_id+'&gun_id='+this.data.chooseIndex+'&write_money='+this.data.conMoney+'&oil_id='+this.data.oil_index
       })
     }else{
       if(this.data.conMoney.length > 0) {
+        this.data.chooseIndex = '';
         wx.navigateTo({
-          url: '../../pages/orderDetail/orderDetail?station_id='+this.data.oil.station_id+'&gun_id='+this.data.chooseIndex
+          url: '../../pages/orderDetail/orderDetail?station_id='+this.data.oil.station_id+'&gun_id='+this.data.chooseIndex+'&write_money='+this.data.conMoney+'&oil_id='+this.data.oil_index
         })
       }else{
         this.warnMsg('请输入充值金额');

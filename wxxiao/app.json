@@ -19,12 +19,12 @@
     "pages/succeCard/succeCrd",
     "pages/carType/carType",
     "pages/bindCard/bindCard",
-    "pages/logs/logs",
     "pages/myCard/myCard",
     "pages/oilStation/oilStation",
     "pages/agreement/agreement",
     "pages/discount/discount",
-    "pages/points/points"
+    "pages/points/points",
+    "pages/pointRule/pointRule"
   ],
   "window": {
     "backgroundTextStyle": "light",
