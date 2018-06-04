@@ -5,7 +5,7 @@
         <view class="detail_box">
             <view class="detail_title">
                 <image class="address_icon" src="{{img_url}}/icon_address.png"></image>
-                <text class="detail_text">华富加油站</text>
+                <text class="detail_text">{{orderDetail.name}}</text>
             </view>
             <view class="detail_mess">
                 <view class="meaasge_item">

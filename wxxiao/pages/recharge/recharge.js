@@ -26,8 +26,8 @@ Page({
       wx.request({
         url: app.config.host+'/pay/unifiedorder',
         data: {
-            openid: wx.getStorageSync('open_id'),  // 这里正常项目不会只有openid一个参数
             pay_target: 'charge',
+            openid: wx.getStorageSync('open_id'),  // 这里正常项目不会只有openid一个参数
             total_fee: this.data.money_num
         },
         success: function(res){

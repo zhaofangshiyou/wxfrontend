@@ -43,19 +43,14 @@ Page({
     }
   },
   nextSubmit: function() {
-
     if(this.data.oil.type == 1) {
       wx.navigateTo({
         url: '../../pages/orderDetail/orderDetail?station_id='+this.data.oil.station_id+'&gun_id='+this.data.chooseIndex
       })
     }else{
       if(this.data.conMoney.length > 0) {
-        wx.login({
-          success: function(res) {
-            wx.navigateTo({
-              url: '../../pages/orderDetail/orderDetail'
-            })
-          }
+        wx.navigateTo({
+          url: '../../pages/orderDetail/orderDetail?station_id='+this.data.oil.station_id+'&gun_id='+this.data.chooseIndex
         })
       }else{
         this.warnMsg('请输入充值金额');

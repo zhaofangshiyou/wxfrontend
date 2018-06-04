@@ -39,9 +39,11 @@ Page({
     var self = this;
     if(this.data.payWay == 2) {
         wx.request({
-          url: 'https://api.zfsyonline.com/v1/pay/unifiedorder',
+          url: app.config.host+'/pay/unifiedorder',
           data: {
-              openid: wx.getStorageSync('open_id')  // 这里正常项目不会只有openid一个参数
+              openid: wx.getStorageSync('open_id'),  // 这里正常项目不会只有openid一个参数
+              pay_target: 'pay',
+              total_fee: this.data.orderDetail.PayMount
           },
           success: function(res){
               if(res.data.status == 100){
@@ -102,9 +104,31 @@ Page({
       if(this.data.passwordArr.length < 6) {
         this.data.passwordArr.push(e.currentTarget.dataset.number);
         if(this.data.passwordArr.length==6) {
-          let orderDetail = JSON.stringify(this.data.orderDetail);
-          wx.navigateTo({
-            url: '../../pages/payOrder/payOrder?orderDetail='+orderDetail
+          let tempPass = '';
+            for(let i=0; i<this.data.passwordArr.length; i++) {
+            tempPass += this.data.passwordArr[i];
+          }
+          let url = app.config.host + '/pay/card';
+          let data = {};
+          let params = {
+            'station_id': this.data.station_id,
+            'gun_id': this.data.gun_id,
+            'pay_money': this.data.orderDetail.PayMount,
+            'user_id': wx.getStorageSync('user_id'),
+            'new_password': tempPass,
+            'discount': this.data.orderDetail.discount,
+            'pay_channel': 1
+          };
+          let method = 'POST';
+          httpService.sendRrquest(url,data,params,method).then(res => {
+            if(res.data.status === 0) {
+              let orderDetail = JSON.stringify(this.data.orderDetail);
+              wx.navigateTo({
+                url: '../../pages/payOrder/payOrder?orderDetail='+orderDetail
+              })
+            }else{
+              util.warnMsg(res.data.msg);
+            }
           })
         }
         this.setData({
