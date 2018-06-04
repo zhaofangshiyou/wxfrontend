@@ -23,8 +23,41 @@ Page({
     })
   },
   rechargeSubmit: function() {
-    wx.navigateTo({
-      url: '../../pages/succeCard/succeCrd?title=充值成功&type=6&balance=0'
+      wx.request({
+        url: app.config.host+'/pay/unifiedorder',
+        data: {
+            openid: wx.getStorageSync('open_id'),  // 这里正常项目不会只有openid一个参数
+            pay_target: 'charge',
+            total_fee: this.data.money_num
+        },
+        success: function(res){
+            if(res.data.status == 100){
+                var payModel = res.data;
+                wx.requestPayment({
+                    'timeStamp': payModel.timestamp,
+                    'nonceStr': payModel.nonceStr,
+                    'package': payModel.package,
+                    'signType': 'MD5',
+                    'paySign': payModel.paySign,
+                    'success': function (res) {
+                        // wx.showToast({
+                        //     title: '支付成功',
+                        //     icon: 'success',
+                        //     duration: 2000
+                        // })
+                        wx.navigateTo({
+                          url: '../../pages/succeCard/succeCrd?title=充值成功&type=6&balance=0'
+                        })
+                    },
+                    'fail': function (res) {
+                      util.warnMsg(res.err_desc);
+                    }
+                })
+            }
+        },
+        fail: function(){
+        
+        }
     })
   },
   agree: function() {
