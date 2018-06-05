@@ -98,14 +98,14 @@ Page({
   },
   //充值加载更多
   loadMoreCharge: function() {
-    if(this.data.noData) {
+    if(!this.data.noMore) {
       ++this.data.page;
       this.getRechageData(this.data.page,this.data.limit,this.data.typeValue);
     }
   },
   //消费加载更多
   loadMoreComsume: function() {
-    if(this.data.noData) {
+    if(!this.data.noMore) {
       ++this.data.page2;
       this.getComsumeData(this.data.page2,this.data.limit,this.data.typeValue);
     }
@@ -133,7 +133,9 @@ Page({
               noData: false
             })
           }else{
-            console.log(1233);
+            this.setData({
+              noMore: true
+            })
           }
         }else {
           var newArr = this.data.comsumeList.concat(list);
@@ -202,12 +204,18 @@ Page({
       })
     }
     if(this.data.tabIndex == 1) {
-      this.data.rechageList.length = 0;
+     // this.data.rechageList.length = 0;
       this.data.page = 1;
+      this.setData({
+        rechageList: []
+      })
       this.getRechageData(this.data.page,this.data.limit,this.data.typeValue);
     }else{
       this.data.page2 = 1;
-      this.data.comsumeList.length = 0;
+      //this.data.comsumeList.length = 0;
+      this.setData({
+        comsumeList: []
+      })
       this.getComsumeData(this.data.page2,this.data.limit,this.data.typeValue);
     }
   },
