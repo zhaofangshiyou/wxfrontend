@@ -17,6 +17,7 @@
     font-size:24rpx;
     color:rgba(249,100,50,1);
     line-height:36rpx;
+    font-weight: 700;
 }
 .rule_context{
     font-size:24rpx;
