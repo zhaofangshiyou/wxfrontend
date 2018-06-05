@@ -7,7 +7,7 @@
             <view class="rechage_number">
                 <view class="rechage_notice">
                     <view class="rechage_text">¥ </view>
-                    <input bindinput="input_money" value="{{inputTxt}}" class="input" type="number" placeholder-class="placeholder_size"  placeholder-style="color:#BDBDBD;" placeholder="请输入其他充值金额" />
+                    <input bindinput="input_money" auto-focus value="{{money_num}}" class="input" type="number" placeholder-class="placeholder_size"  placeholder-style="color:#BDBDBD;" placeholder="请输入其他充值金额" />
                 </view>
             </view>
             <view class="choose_money">
