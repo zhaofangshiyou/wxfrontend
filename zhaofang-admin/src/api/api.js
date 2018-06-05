@@ -115,3 +115,15 @@ export const deleteDiscount = (params) => { return instance.delete(`${url}/v1/ba
 
 //优惠文案bianji编辑
 export const discountDocAdd = params => { return instance.post(`${url}/v1/backen/discount/doc/add`, qs.stringify(params)); };
+
+//用户管获取列表 /
+export const getManageList = (params) => { return instance.get(`${url}/v1/backen/users`, { params: params }); };
+
+//注销卡号  /card/del
+export const deleteCard = (params) => { return instance.delete(`${url}/v1/backen/users/card/del`, {data : qs.stringify(params)}); };
+
+//申请退款  /refund/apply
+export const refundApply = params => { return instance.post(`${url}/v1/backen/users/refund/apply`, qs.stringify(params)); };
+
+//认退款  /refund/confirm
+export const confirmApply = params => { return instance.post(`${url}/v1/backen/users/refund/confirm`, qs.stringify(params)); };
