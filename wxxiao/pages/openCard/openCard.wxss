@@ -103,6 +103,10 @@
     color:rgba(249,100,50,1);
     margin-right: 30rpx;
 }
+.getCode.active{
+    color: #999999;
+    border: 2rpx solid #BDBDBD;
+}
 .sureSubmit{
     padding-top: 80rpx;
     padding-bottom: 80rpx;

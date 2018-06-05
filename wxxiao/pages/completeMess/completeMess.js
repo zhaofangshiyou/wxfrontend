@@ -51,10 +51,12 @@ Page({
     var that = this;
     if(this.data.IDcard) {
       if(!this.ValidatID(this.data.IDcard)) {
+        this.warnMsg('请输入正确的身份证');
         return false;
       }
     }else if(this.data.carNum) {
       if(!this.validaCar(this.data.carNum)) {
+          this.warnMsg('请输入正确的车牌号');
           return false;
       }
     }

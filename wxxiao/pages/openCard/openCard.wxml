@@ -26,7 +26,7 @@
             <view class="section choose_box">
                 <view class="section_title">验证码</view>
                 <input class="input"data-flag="code" bindinput="checkMsg"  name="input" type="number" placeholder-style="color:#BDBDBD" placeholder="请输入验证码" />
-                <view class="getCode" catchtap="sendCode">{{codeText}}</view>
+                <view class="getCode {{!sendAgain?'active': ' '}}" catchtap="sendCode">{{codeText}}</view>
             </view>
     </view>
     <view class="agree_box">
