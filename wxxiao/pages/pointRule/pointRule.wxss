@@ -1,1 +1,26 @@
 /* pages/pointRule/pointRule.wxss */
+.rule_box{
+    position: relative;
+    background: #fff;
+    padding-left: 30rpx;
+    margin-top: 128rpx;
+}
+.rule_item{
+    padding: 30rpx 30rpx 30rpx 0;
+    border-bottom: 2rpx solid #EFEFEF;
+}
+.rule_item:last-child{
+    border-bottom: none;
+}
+.rule_title{
+    height:36rpx;
+    font-size:24rpx;
+    color:rgba(249,100,50,1);
+    line-height:36rpx;
+}
+.rule_context{
+    font-size:24rpx;
+    color:rgba(102,102,102,1);
+    line-height:36rpx;
+    margin-top: 10rpx;
+}

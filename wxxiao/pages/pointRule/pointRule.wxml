@@ -1,5 +1,28 @@
 <!--pages/pointRule/pointRule.wxml-->
 <header title="积分规则"></header>
-<view class="container">
-    12333
+<view class="rule_box">
+  <view class="rule_item">
+      <view class="rule_title">Q1． 如何获取加油积分？</view>
+      <view class="rule_context">
+            用户在兆方石油属下自营加油站加油，通过“兆方石油”小程序使用“兆方车上付”支付油款即可获得加油积分。 
+      </view>
+  </view>
+  <view class="rule_item">
+        <view class="rule_title">Q2． 积分获取规则</view>
+        <view class="rule_context">
+            用户使用“兆方车上付”方式付款，根据所加油量每升油可产生1积分（加油量不足1升的部分按四舍五入计算积分），但使用“微信支付”方式付款不产生积分。 
+        </view>
+    </view> 
+    <view class="rule_item">
+        <view class="rule_title">Q3． 积分有效期多长？</view>
+        <view class="rule_context">
+            积分有效期为2年，如2017年产生的全部积分在2020年1月1日零时失效。 
+        </view>
+    </view> 
+    <view class="rule_item">
+        <view class="rule_title">Q4． 如何查询积分数量</view>
+        <view class="rule_context">
+            用户可以通过进入“兆方石油”小程序「我的」­「积分查询」查看当前持有的积分数量。 
+        </view>
+    </view> 
 </view>
