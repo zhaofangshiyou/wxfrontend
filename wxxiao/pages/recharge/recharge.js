@@ -19,9 +19,15 @@ Page({
     });
   },
   input_money: function(e) {
-    this.setData({
-      money_num: e.detail.value
-    })
+    if(e.detail.value.length == 0) {
+      this.setData({
+        money_num: 5000
+      })
+    }else{
+      this.setData({
+        money_num: e.detail.value
+      })
+    }
   },
   rechargeSubmit: function() {
       wx.request({

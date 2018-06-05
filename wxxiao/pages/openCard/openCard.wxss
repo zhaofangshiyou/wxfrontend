@@ -143,3 +143,33 @@
 .showSex{ 
     display: block;
 }
+
+.agree_box{
+    width: 100%;
+    overflow: hidden;
+    padding-left: 30rpx;
+    height: 30rpx;
+    margin-top: 30rpx;
+    font-size: 0;
+}
+.agree_icon{
+    width: 30rpx;
+    height: 30rpx;
+    vertical-align: top;
+}
+.agree_text, .agree_name{
+    font-size: 24rpx;
+    vertical-align: top;
+    height: 30rpx;
+    line-height: 30rpx;
+}
+.agree_text{
+    margin-left: 10rpx;
+   color:rgba(153,153,153,1);
+}
+.agree_name{
+    color:#333333;  
+}
+.toggleAgreement{
+    display: inline-block;
+}

@@ -43,7 +43,7 @@
 }
 .account_box{
     width: 100%;
-    padding: 20rpx 30rpx;
+    padding: 20rpx 40rpx;
     box-sizing: border-box;
     margin-bottom: 80rpx;
 }

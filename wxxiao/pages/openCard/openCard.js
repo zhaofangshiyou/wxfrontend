@@ -9,6 +9,7 @@ Page({
    */
   data: {
     station_list: [],
+    isAgree: true,
     userInfo: {
       realName: '',
       ID: '',
@@ -139,6 +140,11 @@ Page({
       })
     }
   },
+  agree: function() {
+    this.setData({
+      isAgree: !this.data.isAgree
+    })
+  },
   sexShow: function() {
     this.setData({
       "show.sexToggle": true
@@ -148,6 +154,14 @@ Page({
     this.setData({
       "show.sexToggle": false
     })
+  },
+  checkPhoneErroe: function(event) {
+    if(!this.isPoneAvailable(event.detail.value)) {
+      this.warnMsg('请输入正确的手机号'); 
+      this.setData({
+        "check.checkPhone": false
+      })
+    }
   },
   //判断是否输入正确
   checkMsg: function(event) {
@@ -198,16 +212,20 @@ Page({
         }
         break;
       case 'phone':
-        if(!this.isPoneAvailable(event.detail.value)) {
-          this.warnMsg('请输入正确的手机号'); 
-          this.setData({
-            "check.checkPhone": false
-          })
-        }else {
-          this.setData({
-            "userInfo.phone": event.detail.value,
-            "check.checkPhone": true
-          })
+        if(event.detail.value.length == 11) {
+          if(!this.isPoneAvailable(event.detail.value)) {
+            this.warnMsg('请输入正确的手机号'); 
+            this.setData({
+              "check.checkPhone": false
+            })
+          }else {
+            this.setData({
+              "userInfo.phone": event.detail.value,
+              "check.checkPhone": true
+            })
+          }
+        }else{
+
         }
         break;
       case 'code':

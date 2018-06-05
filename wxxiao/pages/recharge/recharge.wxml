@@ -7,7 +7,7 @@
             <view class="rechage_number">
                 <view class="rechage_notice">
                     <view class="rechage_text">¥ </view>
-                    <input bindblur="input_money" value="{{inputTxt}}" class="input" type="number" placeholder-class="placeholder_size"  placeholder-style="color:#BDBDBD;" placeholder="请输入其他充值金额" />
+                    <input bindinput="input_money" value="{{inputTxt}}" class="input" type="number" placeholder-class="placeholder_size"  placeholder-style="color:#BDBDBD;" placeholder="请输入其他充值金额" />
                 </view>
             </view>
             <view class="choose_money">
@@ -35,7 +35,7 @@
                 <image class="right_icon" src="{{img_url}}/home_icon_enter.png"></image>
             </view>
         </view> -->
-        <view class="agree_box">
+        <!-- <view class="agree_box">
             <view bindtap="agree" class="toggleAgreement">
                 <image wx:if="{{isAgree}}" class="agree_icon"  src="{{img_url}}/icon_choice.png"></image>
                 <image  wx:if="{{!isAgree}}" class="agree_icon"  src="{{img_url}}/icon_normal.png"></image>
@@ -44,7 +44,7 @@
             <navigator url="../../pages/agreement/agreement" style="display:inline-block">
                 <text class="agree_name">《兆方卡用户协议》</text>
             </navigator>
-        </view>
+        </view> -->
         <view class="sure_btn" wx:if="{{isAgree}}">
             <sureBtn text="确认充值" bind:sureEvent="rechargeSubmit"></sureBtn>
         </view>
