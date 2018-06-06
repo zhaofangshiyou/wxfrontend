@@ -38,6 +38,10 @@
 }
 .distance_num{
     color: #F96432;
+    font-size:24rpx;
+    height: 24rpx;
+    line-height: 24rpx;
+    margin-top: 18rpx;
 }
 .oil_change{
     flex:0 0 160rpx;

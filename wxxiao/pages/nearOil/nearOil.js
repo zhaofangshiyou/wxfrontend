@@ -36,6 +36,11 @@ Page({
             })
           }
         })
+      },
+      cancel: function() {
+        if(that.data.station_list.length === 0) {
+          that.getStation();
+        }
       }
     })
   },

@@ -8,7 +8,8 @@
             </view>
             <view class="oil_mess">
                 <view class="oil_title">{{oil.station}}</view>
-                <view class="oil_distance">距离您<text class="distance_num">{{oil.distance}}</text>公里</view>
+                <view class="oil_distance" wx:if="{{oil.distance}}">距离您<text class="distance_num">{{oil.distance}}</text>公里</view>
+                <view class="distance_num" wx:if="{{!oil.distance}}">无法获取当前油站，请手动选择</view>
             </view>
             <view class="oil_change" bindtap="changeStation">
                 <view class="change_text">更改加油站</view>
@@ -64,5 +65,5 @@
             <image class="right_icon" wx:if="{{img_url}}" src="{{img_url}}/home_icon_enter.png"></image>
         </view>
     </view> -->
-    <view class="sureBtn"><sureBtn text="完成" bind:sureEvent="nextSubmit"></sureBtn></view>
+    <view class="sureBtn"><sureBtn text="下一步" bind:sureEvent="nextSubmit"></sureBtn></view>
 </view>

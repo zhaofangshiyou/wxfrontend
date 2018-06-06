@@ -78,32 +78,44 @@ Page({
     wx.getLocation({
       type: 'wgs84',
       success: function(res) {
+        // that.setData({
+        //   latitude: res.latitude,
+        //   longitude: res.longitude
+        // })
+        that.getStation(res.latitude,res.longitude);
+        
+      },
+      cancel: function() {
+        if(that.data.station_list.length === 0) {
+          that.getStation();
+        }
+      }
+    })
+  },
+
+  //获取油站函数
+  getStation: function(lat,lon) {
+    var that = this;
+    let url = app.config.host + '/station';
+    let data = {};
+    let params = {
+      'lat': lat,
+      'lon': lon
+    };
+    let method = 'GET';
+    httpService.sendRrquest(url,data,params,method).then(res => {
+      if(res.data.status === 0) {
+        that.data.station_list = res.data.data.stations;
+        let temp = [];
+        for(let i=1; i< parseInt(res.data.data.stations[0].oil_gum_nums)+1; i++ ) {
+          temp.push(i);
+        }
         that.setData({
-          latitude: res.latitude,
-          longitude: res.longitude
-        })
-        let url = app.config.host + '/station';
-        let data = {};
-        let params = {
-          'lat': res.latitude,
-          'lon': res.longitude
-        };
-        let method = 'GET';
-        httpService.sendRrquest(url,data,params,method).then(res => {
-          if(res.data.status === 0) {
-            that.data.station_list = res.data.data.stations;
-            let temp = [];
-            for(let i=1; i< parseInt(res.data.data.stations[0].oil_gum_nums)+1; i++ ) {
-              temp.push(i);
-            }
-            that.setData({
-              "oil.station" : res.data.data.stations[0].name,
-              "oil.distance": res.data.data.stations[0].distance/1000,
-              "grapList": temp,
-              "type": res.data.data.stations[0].type,
-              "oil.station_id": res.data.data.stations[0].id
-            })
-          }
+          "oil.station" : res.data.data.stations[0].name,
+          "oil.distance": res.data.data.stations[0].distance/1000,
+          "grapList": temp,
+          "type": res.data.data.stations[0].type,
+          "oil.station_id": res.data.data.stations[0].id
         })
       }
     })
