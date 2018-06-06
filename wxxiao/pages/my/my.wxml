@@ -10,6 +10,7 @@
             <view class="user_id">兆方VIP会员</view>
         </view>
    </view>
+   <!-- <button open-type='getUserInfo' >获取授权</button> -->
    <view class="enter_box">
        <view class="enter_list" >
            <view class="enter_item" data-link="../../pages/chooseGrap/chooseGrap" bindtap="goNext">

@@ -1,4 +1,32 @@
 /* pages/completeMess/completeMess.wxss */
+.warn{
+    height: 100rpx;
+    box-sizing: border-box;
+    padding:0 30rpx;
+    line-height:100rpx;
+}
+.warn_icon{
+    width: 32rpx;
+    height: 32rpx;
+    line-height: 32rpx;
+    display: inline-block;
+    vertical-align: middle;
+    border: 1rpx solid #F96432;
+    border-radius: 50%;
+    text-align: center;
+    font-size:24rpx;
+    font-family:PingFangSC-Regular;
+    color:rgba(249,100,50,1);
+    margin-right: 10rpx;
+}
+.warn_text{
+    height:32rpx; 
+    font-size:24rpx;
+    font-family:PingFangSC-Regular;
+    color:rgba(153,153,153,1);
+    line-height:32rpx; 
+    color: #999999; 
+}
 .form_box{
     background: #fff;
     padding: 0 0 0 30rpx;

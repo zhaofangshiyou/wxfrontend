@@ -1,6 +1,10 @@
 <!--pages/completeMess/completeMess.wxml-->
 <header title="完善资料"></header>
 <view class="container">
+    <view class="warn">
+        <text class="warn_icon">!</text>
+        <text class="warn_text">为保障您的用卡安全及后续权益，请保证资料的真实性</text>
+    </view>
     <view class="form_box">
         <view class="section">
             <view class="section_title">真实姓名</view>

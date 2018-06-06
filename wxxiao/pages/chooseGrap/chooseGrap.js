@@ -89,6 +89,11 @@ Page({
         if(that.data.station_list.length === 0) {
           that.getStation();
         }
+      },
+      fail: function() {
+        if(that.data.station_list.length === 0) {
+          that.getStation();
+        }
       }
     })
   },

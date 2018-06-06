@@ -1,10 +1,6 @@
 <!--pages/openCard/openCard.wxml-->
 <header title="新用户开卡"></header>
 <view class="container">
-    <!-- <view class="warn">
-        <text class="warn_icon">!</text>
-        <text class="warn_text">实名信息错误无法办理清户退款，请如实填写</text>
-    </view> -->
     <view class="form_box">
             <view class="section choose_box" bindtap="getOil">
                 <view class="section_title">取票油站</view>

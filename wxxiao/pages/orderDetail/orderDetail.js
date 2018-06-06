@@ -175,7 +175,8 @@ Page({
       'station_id': this.data.station_id,
       'gun_id': this.data.gun_id,
       'write_money': this.data.write_money,
-      'oil_id': this.data.oil_id
+      'oil_id': this.data.oil_id,
+      'user_id': wx.getStorageSync('user_id')
     };
     let method = 'GET';
     httpService.sendRrquest(url,data,params,method).then(res => {

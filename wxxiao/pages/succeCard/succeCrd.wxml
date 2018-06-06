@@ -18,5 +18,9 @@
             </view>
         </view>
     </view>
+    <view class="warn">
+        <text class="warn_icon">!</text>
+        <text class="warn_text">为保障您的用卡安全及后续权益，请及时完善个人资料</text>
+    </view>
     <sureBtn text="完成" bind:sureEvent="finishSubmi" wx:if="{{type==6}}"></sureBtn>
 </view>

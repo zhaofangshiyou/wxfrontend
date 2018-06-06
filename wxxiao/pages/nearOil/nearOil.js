@@ -17,16 +17,31 @@ Page({
     wx.getLocation({
       type: 'wgs84',
       success: function(res) {
-        console.log(res);
-        that.setData({
-          latitude: res.latitude,
-          longitude: res.longitude
-        })
-        let url = app.config.host + '/station';
+        // that.setData({
+        //   latitude: res.latitude,
+        //   longitude: res.longitude
+        // })
+        that.getStation(res.latitude,res.longitude);
+      },
+      cancel: function() {
+        if(that.data.oil_list.length === 0) {
+          that.getStation();
+        }
+      },
+      fail: function() {
+        if(that.data.oil_list.length === 0) {
+          that.getStation();
+        }
+      }
+    })
+  },
+  getStation: function(lat,lon) {
+    var that = this;
+    let url = app.config.host + '/station';
         let data = {};
         let params = {
-          'lat': res.latitude,
-          'lon': res.longitude
+          'lat': lat,
+          'lon': lon
         };
         let method = 'GET';
         httpService.sendRrquest(url,data,params,method).then(res => {
@@ -36,13 +51,6 @@ Page({
             })
           }
         })
-      },
-      cancel: function() {
-        if(that.data.station_list.length === 0) {
-          that.getStation();
-        }
-      }
-    })
   },
   goOilStation: function(e) {
     wx.showModal({

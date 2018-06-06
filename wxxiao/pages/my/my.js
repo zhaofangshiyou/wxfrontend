@@ -27,6 +27,9 @@ Page({
         that.setData({
           userInfo: res.userInfo
         })
+      },
+      fail: res => {
+        console.log(res);
       }
     })
   },
