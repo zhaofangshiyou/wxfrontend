@@ -21,7 +21,7 @@ var sendRrquest = function (url,data,params,method) {
            complete: function(res) {
              setTimeout(res =>{
               wx.hideLoading()
-             },1000)
+             },500)
            }
        })
     });

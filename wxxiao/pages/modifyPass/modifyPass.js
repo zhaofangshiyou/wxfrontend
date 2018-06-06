@@ -35,8 +35,10 @@ Page({
         setTimeout( () => {
           wx.navigateBack();
         },2000);
+      }else if(res.data.status === 2){
+        util.warnMsg('验证码错误');
       }else{
-        util.warnMsg(res.data.msg);
+        util.warnMsg('其他错误');
       }
     })
   },
@@ -53,8 +55,10 @@ Page({
         if(res.data.status === 0) {
           this.countDown(60);
           this.warnMsg('验证码已发送'); 
+        }else if(res.data.status === 2){
+          this.warnMsg('请输入正确的手机号'); 
         }else{
-          this.warnMsg('验证码已发送失败'); 
+          this.warnMsg('发送验证码失败'); 
         }
       })
     }else if(!this.data.sendAgain){

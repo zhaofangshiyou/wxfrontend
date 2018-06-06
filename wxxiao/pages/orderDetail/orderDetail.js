@@ -129,8 +129,20 @@ Page({
               wx.navigateTo({
                 url: '../../pages/payOrder/payOrder?orderDetail='+orderDetail
               })
+            }else if(res.data.status === 2){
+              util.warnMsg('支付失败');
+            }else if(res.data.status === 3) {
+              util.warnMsg('付款失败，余额不足');
+            }else if(res.data.status === 4) {
+              util.warnMsg('无流水信息');
+            }else if(res.data.status === 5) {
+              util.warnMsg('密码错误,请重试');
+            }else if(res.data.status === 6) {
+              util.warnMsg('有枪选择错误');
+            }else if(res.data.status === 7) {
+              util.warnMsg('油站选择错误');
             }else{
-              util.warnMsg(res.data.msg);
+              util.warnMsg('其他错误');
             }
           })
         }
@@ -171,8 +183,14 @@ Page({
         this.setData({
           orderDetail: res.data.data
         })
-      }else{
-        util.warnMsg(res.data.msg);
+      }else if(res.data.status === 2){
+        util.warnMsg('油站选择错误');
+      }else if(res.data.status === 3) {
+        util.warnMsg('油枪选择错误');
+      }else if(res.data.status === 4) {
+        util.warnMsg('无流水信息');
+      }else {
+        util.warnMsg('其他错误');
       }
     })
 

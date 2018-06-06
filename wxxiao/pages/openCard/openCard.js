@@ -61,8 +61,10 @@ Page({
         wx.navigateTo({
           url: '../../pages/succeCard/succeCrd?title=开卡成功&type=0&'
         })
-      }else{
-        this.warnMsg(res.data.msg);
+      }else if(res.data.status === 2){
+        this.warnMsg('请输入正确的手机号');
+      }else if(res.data.status === 3) {
+        this.warnMsg('请输入正确的验证码');
       }
     })
     
@@ -87,8 +89,10 @@ Page({
         if(res.data.status === 0) {
           this.countDown(60);
           this.warnMsg('验证码已发送'); 
+        }else if(res.data.status === 2){
+          this.warnMsg('请输入正确的手机号'); 
         }else{
-          this.warnMsg('验证码已发送失败'); 
+          this.warnMsg('发送验证码失败'); 
         }
       })
     }else if(!this.data.sendAgain){

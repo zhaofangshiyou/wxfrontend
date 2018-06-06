@@ -14,7 +14,7 @@
                 </view>
                 <view class="meaasge_item">
                     <view class="name">油品类型</view>
-                    <view class="amount">{{orderDetail.Oiltype}}(V)</view>
+                    <view class="amount">{{orderDetail.Oiltype}}</view>
                 </view>
                 <view class="meaasge_item" wx:if="{{orderDetail.station_type==1}}">
                     <view class="name">加油升数</view>
