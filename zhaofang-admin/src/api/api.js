@@ -127,3 +127,6 @@ export const refundApply = params => { return instance.post(`${url}/v1/backen/us
 
 //认退款  /refund/confirm
 export const confirmApply = params => { return instance.post(`${url}/v1/backen/users/refund/confirm`, qs.stringify(params)); };
+
+//获取用户消费明细列表  /consume/detail
+export const getUserConsume= (params) => { return instance.get(`${url}/v1/backen/users/consume/detail`, { params: params }); };
