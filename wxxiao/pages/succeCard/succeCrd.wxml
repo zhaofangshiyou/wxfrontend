@@ -1,5 +1,4 @@
 <!--pages/succeCard/succeCrd.wxml-->
-<wxs module="dateFr" src="../../filter/dateFilter.wxs"></wxs>
 <header title="{{title}}"></header>
 <view class="container">
     <view class="header" wx:if="{{type==0 || type==6}}">
@@ -14,7 +13,7 @@
         <view class="account_cont">
             <view class="text">卡内余额</view>
             <view class="balance">
-                <view class="money">¥{{dateFr.toFix(balance)}}</view>
+                <view class="money">¥{{balance}}</view>
                 <view class="recharge" wx:if="{{type != 2}}" bindtap="recharge">充值</view>
             </view>
         </view>

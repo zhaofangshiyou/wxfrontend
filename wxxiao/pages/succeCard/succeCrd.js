@@ -37,8 +37,9 @@ Page({
               var temp_number = this.joinCard(res.data.data.card.card_prefix,res.data.data.card.id.toString());
               that.setData({
                 card_num: temp_number,
-                balance: parseInt(res.data.data.card.person_balance)
+                balance: res.data.data.card.person_balance
               })
+              console.log(res.data.data.card.person_balance);
             }else if(this.data.type == 2) {
               that.setData({
                 card_num: '1001 8888',

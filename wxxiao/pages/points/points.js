@@ -1,14 +1,20 @@
 // pages/points/points.js
 const app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    img_url: app.config.img_url
+    img_url: app.config.img_url,
+    page: 1,
+    num: 10
   },
 
+  getList: function() {
+    
+  },
   goBack: function() {
     wx.navigateBack();
   },
