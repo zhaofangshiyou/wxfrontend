@@ -27,6 +27,9 @@
       });
     },
     methods: {
+      initContent(content) {
+        return this.editor.setContent(content); // 确保UE加载完成后，放入内容。
+      },
       getUEContent() { // 获取内容方法
         return this.editor.getContent()
       }

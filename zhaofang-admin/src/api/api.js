@@ -130,3 +130,9 @@ export const confirmApply = params => { return instance.post(`${url}/v1/backen/u
 
 //获取用户消费明细列表  /consume/detail
 export const getUserConsume= (params) => { return instance.get(`${url}/v1/backen/users/consume/detail`, { params: params }); };
+
+//获取优惠规则文案
+export const discountDocEdit= (params) => { return instance.get(`${url}/v1/backen/discount/doc/`, { params: params }); };
+
+//修改优惠规则文案 
+export const updateDoc = (params,id) => { return instance.put(`${url}/v1/backen/discount/doc/upd/${id}`, qs.stringify(params)); };
