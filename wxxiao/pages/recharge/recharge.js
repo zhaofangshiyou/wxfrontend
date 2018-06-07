@@ -66,6 +66,11 @@ Page({
       isAgree: !this.data.isAgree
     })
   },
+  goDisconutDoc: function() {
+    wx.navigateTo({
+      url: '../../pages/discountDoc/discountDoc'
+    })
+  },
   openInvoice: function() {
     wx.navigateTo({
       url: '../../pages/invoices/invoices'

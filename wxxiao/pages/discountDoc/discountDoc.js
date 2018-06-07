@@ -1,27 +1,30 @@
-// pages/points/points.js
+// pages/discountDoc/discountDoc.js
+import httpService from '../../http/http.js';
+const WxParse= require('../../wxParse/wxParse.js');
 const app = getApp();
-
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    img_url: app.config.img_url,
-    page: 1,
-    num: 10
+    title: '',
+    content: ''
   },
 
-  getList: function() {
-    let url = app.config.host + '/pay/card';
+  getDiscountDoc: function() {
+    var that= this; 
+    let url = app.config.host + '/backen/discount/doc';
     let data = {};
-    let params = {
-      
-    };
+    let params = {};
     let method = 'GET';
-  },
-  goBack: function() {
-    wx.navigateBack();
+    httpService.sendRrquest(url,data,params,method).then(res => {
+      if(res.data.status === 0) {
+        let content = res.data.data.discount_doc_list[0].content;
+        let title = res.data.data.discount_doc_list[0].title;
+        WxParse.wxParse('content', 'html', content,that, 5);
+      }
+    })
   },
 
   /**
@@ -35,7 +38,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    this.getDiscountDoc();
   },
 
   /**
