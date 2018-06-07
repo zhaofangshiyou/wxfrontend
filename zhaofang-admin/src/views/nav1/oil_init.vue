@@ -45,7 +45,9 @@
 			</el-table-column>
 			<el-table-column prop="province" label="省份" width="150">
 			</el-table-column>
-			<el-table-column prop="name" label="站点名称" width="150">
+			<el-table-column prop="name" label="站点名称" width="200">
+			</el-table-column>
+            <el-table-column prop="station_type" label="油站类型" width="150">
 			</el-table-column>
 			<el-table-column prop="id" label="站点ID" width="150">
 			</el-table-column>
@@ -419,7 +421,7 @@
             },
             //导出表格
             outExcelTable() {
-                window.open('https://api.zfsyonline.com/v1/backen/station/excel', '_blank');
+                window.open('https://api.zfsyonline.com/v1/backen/station?act=export&province_id='+this.provice+'&id='+this.station, '_blank');
             }
         },
     }

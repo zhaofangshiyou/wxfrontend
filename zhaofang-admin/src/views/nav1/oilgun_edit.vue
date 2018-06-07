@@ -25,7 +25,7 @@
         <!--列表-->
         <el-col :span="24" class="tab_header">
             <div class="tab_head_title">油站分布列表</div>
-            <el-button type="success" size="small">&nbsp;&nbsp;导出&nbsp;&nbsp;</el-button>
+            <el-button type="success" size="small" @click="outExcelTable">&nbsp;&nbsp;导出&nbsp;&nbsp;</el-button>
             <el-button type="danger" size="small" @click="batchRemove">批量删除</el-button>
         </el-col>
         <!--表格-->
@@ -364,6 +364,10 @@
             handleCurrentChange(val) {
                 this.page_num = val;
                 this.getList(this.oil_station,this.page_num,this.num);
+            },
+            //导出表格
+            outExcelTable() {
+                window.open('https://api.zfsyonline.com/v1/backen/oil/gum?act=export&station_id='+ this.oil_station, '_blank');
             }
          }
      }

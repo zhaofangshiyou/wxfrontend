@@ -45,8 +45,8 @@
 
         <!--列表-->
         <el-col :span="24" class="tab_header">
-            <div class="tab_head_title">油品价格列表</div>
-            <el-button type="success" size="small">&nbsp;&nbsp;导出&nbsp;&nbsp;</el-button>
+            <div class="tab_head_title">优惠信息列表</div>
+            <el-button type="success" size="small" @click="outExcelTable">&nbsp;&nbsp;导出&nbsp;&nbsp;</el-button>
             <el-button type="danger" size="small"  @click="batchRemove">批量删除</el-button>
         </el-col>
         <el-table :data="initList" highlight-current-row v-loading="listLoading" @selection-change="selsChange" style="width: 100%">
@@ -56,7 +56,7 @@
 			</el-table-column>
             <el-table-column prop="province" label="省份" >
             </el-table-column>
-            <el-table-column prop="station_name" label="油站名称" >
+            <el-table-column prop="station_name" label="油站名称" width="200">
             </el-table-column>
             <el-table-column prop="discount_days" label="有效天数" >
             </el-table-column>
@@ -361,7 +361,9 @@
                 num: 15,
                 tableData: [],
                 oilCols: [],
-                del_ids:[]
+                del_ids:[],
+                begin_time: '',
+                end_time: ''
             }
         },
         filters: {
@@ -619,6 +621,12 @@
 				}).catch(() => {
 
 				});
+            },
+                //导出表格
+            outExcelTable() {
+                console.log(this.begin_time);
+                let data = '&province_id='+ this.provice_id + '&station_id=' + this.station_id + '&begin_time='+ this.begin_time + '&end_time=' + this.end_time; 
+                window.open('https://api.zfsyonline.com/v1/backen/discount?act=export'+data, '_blank');
             }
         }
     }

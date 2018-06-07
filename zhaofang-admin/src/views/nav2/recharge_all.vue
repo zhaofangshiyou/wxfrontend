@@ -32,7 +32,7 @@
      <!--列表-->
     <el-col :span="24" class="tab_header">
         <div class="tab_head_title">消费列表</div>
-        <el-button type="success" size="small">&nbsp;&nbsp;导出&nbsp;&nbsp;</el-button>
+        <el-button type="success" size="small" @click="outExcelTable">&nbsp;&nbsp;导出&nbsp;&nbsp;</el-button>
     </el-col>
     <el-col :span="24" class="tab_header">
         <div class="tab_head_title">总计</div>
@@ -133,6 +133,11 @@
             messageWarn(res.data.msg)
           }
         })
+      },
+      //导出表格
+      outExcelTable() {
+        let data = '&province_id='+ this.province_id + '&station_id=' + this.station_id; 
+        window.open('https://api.zfsyonline.com/v1/backen/recharge?act=export'+data, '_blank');
       }
     }
   }

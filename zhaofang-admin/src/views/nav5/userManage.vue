@@ -15,7 +15,7 @@
      <!--列表-->
     <el-col :span="24" class="tab_header">
         <div class="tab_head_title">消费列表</div>
-        <el-button type="success" size="small">&nbsp;&nbsp;导出&nbsp;&nbsp;</el-button>
+        <el-button type="success" size="small" @click="outExcelTable">&nbsp;&nbsp;导出&nbsp;&nbsp;</el-button>
     </el-col>
     <el-table :data="initList" highlight-current-row v-loading="listLoading" style="width: 100%;">
         <el-table-column type="index" label="序号" width="100">
@@ -184,6 +184,11 @@
 				}).catch(() => {
 
 				});
+      },
+      //导出表格
+      outExcelTable() {
+        let data = '&card_no='+ this.card_no; 
+        window.open('https://api.zfsyonline.com/v1/backen/users?act=export'+data, '_blank');
       }
     }
   }

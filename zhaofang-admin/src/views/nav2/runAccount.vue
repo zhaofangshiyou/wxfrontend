@@ -22,7 +22,7 @@
 
     <el-col :span="24" class="tab_header">
         <div class="tab_head_title">往来账列表</div>
-        <el-button type="success" size="small">&nbsp;&nbsp;导出&nbsp;&nbsp;</el-button>
+        <el-button type="success" size="small" @click="outExcelTable(item.id)">&nbsp;&nbsp;导出&nbsp;&nbsp;</el-button>
     </el-col>
     <el-table :data="initList" highlight-current-row v-loading="listLoading" style="width: 100%;">
         <el-table-column v-for="col in cols" :prop="col.prop" :label="col.label">
@@ -102,7 +102,12 @@
         handleClick(tab) {
             this.oil_id = tab.name;
             this.getList(this.oil_id,this.begin_time,this.end_time);
-        }
+        },
+        //导出表格
+      outExcelTable() {
+        let data = '&oil_id='+ this.oil_id + '&begin_time='+ this.begin_time + '&end_time=' + this.end_time; 
+        window.open('https://api.zfsyonline.com/v1/backen/accounts?act=export'+data, '_blank');
+      }
 
 
         }
