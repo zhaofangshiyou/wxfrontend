@@ -4,11 +4,10 @@
     width: 100%;
     overflow: hidden;
     box-sizing: border-box;
-    padding:0 20rpx;
+    padding:20rpx;
     position: relative;
     margin-top: 128rpx;
     font-size: 24rpx;
     color:rgba(102,102,102,1);
-    line-height: 36rpx;
     margin-bottom: 30rpx;
 }

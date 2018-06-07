@@ -1,6 +1,6 @@
 <!--pages/discountDoc/discountDoc.wxml-->
 <import src="../../wxParse/wxParse.wxml" />
-<header title="兆方卡用户协议"></header>
+<header title="优惠说明"></header>
 <view class="agreement_container">
     <template is="wxParse" data="{{wxParseData:content.nodes}}" />
 </view>

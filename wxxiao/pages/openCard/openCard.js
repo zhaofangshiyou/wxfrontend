@@ -39,11 +39,13 @@ Page({
       checkPassword: false,
       checkPhone: false,
       checkComPassword: false,
-      checkCode: false
+      checkCode: false,
+      isAuth: true
     },
     codeText: '获取验证码',
     sendAgain: true,
-    img_url: app.config.img_url
+    img_url: app.config.img_url,
+    isAuth: true
   },
   submitRegister(){
     let url = app.config.host+'/card';
@@ -282,18 +284,26 @@ Page({
     wx.getLocation({
       type: 'wgs84',
       success: function(res) {
-        that.setData({
-          latitude: res.latitude,
-          longitude: res.longitude
-        })
-        let url = app.config.host + '/station';
+        that.getData(res.latitude,res.longitude);
+      },
+      fail: (res) => {
+        that.getData();
+      }
+    })
+  },
+
+//获取数据
+getData: function(lat,lon) {
+  let that = this;
+  let url = app.config.host + '/station';
         let data = {};
         let params = {
-          'lat': res.latitude,
-          'lon': res.longitude
+          'lat': lat,
+          'lon': lon
         };
         let method = 'GET';
         httpService.sendRrquest(url,data,params,method).then(res => {
+          console.log(res);
           if(res.data.status === 0) {
             that.data.station_list = res.data.data.stations;
             let temp = [];
@@ -306,9 +316,7 @@ Page({
             })
           }
         })
-      }
-    })
-  },
+},
   /**
    * 生命周期函数--监听页面加载
    */
@@ -320,7 +328,46 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.getInitData();
+    let that = this;
+    wx.getSetting({
+      success: (res) => {
+        if (res.authSetting['scope.userLocation'] != undefined && res.authSetting['scope.userLocation'] != true) { 
+          wx.showModal({
+            title: '微信授权',
+            content: '需要获取您的地理位置，请确认授权，否则地图功能将无法使用',
+            success: (res) => {
+              if (res.cancel) {
+
+              }else if(res.confirm) {
+                wx.openSetting({
+                  success: (data) => {
+                    if (data.authSetting["scope.userLocation"] == true) {
+                      wx.showToast({
+                        title: '授权成功',
+                        icon: 'success',
+                        duration: 1000
+                      })
+                      that.data.isAuth = false;
+                      that.getInitData();
+                    }else{
+                      wx.showToast({
+                        title: '授权失败',
+                        icon: 'success',
+                        duration: 5000
+                      })
+                    }
+                  }
+                })
+              }
+            }
+          })
+        }
+      }
+    })
+    if(this.data.isAuth) {
+      this.getInitData();
+    }
+    
   },
 
   /**

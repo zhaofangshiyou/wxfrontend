@@ -8,7 +8,7 @@
     <view class="content">
        <view class="box">
             <image class="pay_bg"  src="{{img_url}}/pay.png"></image>
-            <view class="oil_name">华富加油站</view>
+            <view class="oil_name">{{orderDetail.name}}</view>
             <view class="money">¥{{orderDetail.PayMount}}</view>
             <view class="detail_box">
             <view class="message" wx:if="{{orderDetail.station_type==1}}">
