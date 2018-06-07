@@ -97,7 +97,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 1rpx solid #efefef;
+    border-top: 2rpx solid #efefef;
 }
 .recharge_list:first-child{
     border: none;

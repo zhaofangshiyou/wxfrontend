@@ -9,7 +9,8 @@ Page({
    */
   data: {
     userInfo: {},
-    img_url: app.config.img_url
+    img_url: app.config.img_url,
+    isAuth: true
   },
   goNext: function(event) {
     wx.navigateTo({
@@ -21,17 +22,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    wx.getUserInfo({
-      success: res => {
-        that.setData({
-          userInfo: res.userInfo
-        })
-      },
-      fail: res => {
 
-      }
-    })
+    
   },
 //../../pages/recharge/recharge
   goRecharge: function() {
@@ -75,6 +67,7 @@ Page({
                         icon: 'success',
                         duration: 1000
                       })
+                      this.data.isAuth = false;
                       wx.getUserInfo({
                         success: res => {
                           that.setData({
@@ -100,6 +93,20 @@ Page({
         }
       }
     })
+
+    if(this.data.isAuth) {
+      console.log(this.data.isAuth);
+      wx.getUserInfo({
+        success: res => {
+          that.setData({
+            userInfo: res.userInfo
+          })
+        },
+        fail: res => {
+  
+        }
+      })
+    }
   },
 
   /**
