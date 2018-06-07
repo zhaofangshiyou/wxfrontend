@@ -128,7 +128,7 @@
 }
 
 .noData{
-    padding-top: 150rpx;
+    padding-top: 202rpx;
     text-align: center;
 }
 .noData_image{

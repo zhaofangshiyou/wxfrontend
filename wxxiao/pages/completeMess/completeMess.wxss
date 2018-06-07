@@ -37,7 +37,7 @@
     height: 100rpx;
     display: flex;
     align-items: center;
-    border-bottom: 1rpx solid #EFEFEF;
+    border-bottom: 2rpx solid #EFEFEF;
 }
 .section:last-child{
     border-bottom: 0;

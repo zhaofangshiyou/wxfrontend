@@ -33,7 +33,7 @@
         </view>
         <view class="noMore" wx:if="{{noMoreData}}">没有更多记录～</view>
         <view class="noData" wx:if="{{noData}}">
-            <image class="noData_image"  src="{{img_url}}/icon_trade.png"></image>
+            <image class="noData_image"  src="{{img_url}}/points.png"></image>
             <view class="noDataText">暂无积分记录</view>
         </view>
     </scroll-view>
