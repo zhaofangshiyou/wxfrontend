@@ -29,7 +29,7 @@ Page({
         })
       },
       fail: res => {
-        console.log(res);
+
       }
     })
   },
@@ -56,7 +56,50 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+    let that = this;
+    wx.getSetting({
+      success: (res) => {
+        if (res.authSetting['scope.userInfo'] != undefined && res.authSetting['scope.userInfo'] != true) { 
+          wx.showModal({
+            title: '微信授权',
+            content: '需要获取您的昵称，头像等信息',
+            success: (res) => {
+              if (res.cancel) {
+
+              }else if(res.confirm) {
+                wx.openSetting({
+                  success: (data) => {
+                    if (data.authSetting["scope.userInfo"] == true) {
+                      wx.showToast({
+                        title: '授权成功',
+                        icon: 'success',
+                        duration: 1000
+                      })
+                      wx.getUserInfo({
+                        success: res => {
+                          that.setData({
+                            userInfo: res.userInfo
+                          })
+                        },
+                        fail: res => {
+                          
+                        }
+                      })
+                    }else{
+                      wx.showToast({
+                        title: '授权失败',
+                        icon: 'success',
+                        duration: 5000
+                      })
+                    }
+                  }
+                })
+              }
+            }
+          })
+        }
+      }
+    })
   },
 
   /**

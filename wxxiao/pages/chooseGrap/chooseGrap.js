@@ -193,8 +193,43 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.getInitData();
+    let that = this;
+    wx.getSetting({
+      success: (res) => {
+        if (res.authSetting['scope.userLocation'] != undefined && res.authSetting['scope.userLocation'] != true) { 
+          wx.showModal({
+            title: '微信授权',
+            content: '需要获取您的地理位置，请确认授权，否则地图功能将无法使用',
+            success: (res) => {
+              if (res.cancel) {
+
+              }else if(res.confirm) {
+                wx.openSetting({
+                  success: (data) => {
+                    if (data.authSetting["scope.userLocation"] == true) {
+                      wx.showToast({
+                        title: '授权成功',
+                        icon: 'success',
+                        duration: 1000
+                      })
+                      this.getInitData();
+                    }else{
+                      wx.showToast({
+                        title: '授权失败',
+                        icon: 'success',
+                        duration: 5000
+                      })
+                    }
+                  }
+                })
+              }
+            }
+          })
+        }
+      }
+    })
     this.getOil();
+    this.getInitData();
   },
 
   /**

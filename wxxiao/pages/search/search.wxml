@@ -36,7 +36,7 @@
         <view class="recharge_box">   
             <view class="recharge_list" wx:for="{{comsumeList}}" wx:for-index="index">
                 <view class="text_message">
-                    <view class="text_title">华富油站</view>
+                    <view class="text_title">{{item.name}}---({{item.oil_type}})</view>
                     <view class="text_tip">{{dateFr.getDate(item.created_at,'-')}}</view>
                 </view>
                 <view class="reduce_number">-{{item.money}}</view>

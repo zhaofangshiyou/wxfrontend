@@ -186,19 +186,19 @@ Page({
   changeType: function(e) {
     if(e.currentTarget.dataset.index == 0) {
       this.setData({
-        typeValue: 0,
+        typeValue: 2,
         typeName: '全部',
         showClassify: false,
       })
     }else if(e.currentTarget.dataset.index == 1) {
       this.setData({
-        typeValue: 1,
+        typeValue: 0,
         typeName: '个人',
         showClassify: false,
       })
     }else{
       this.setData({
-        typeValue: 2,
+        typeValue: 1,
         typeName: '单位',
         showClassify: false,
       })
