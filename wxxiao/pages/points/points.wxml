@@ -1,4 +1,5 @@
 <!--pages/points/points.wxml-->
+<wxs module="dateFr" src="../../filter/dateFilter.wxs"></wxs>
 <view class="page_content">
     <view class="header_box">
         <view class="header">
@@ -12,7 +13,7 @@
                 <image class="avatar" src="{{img_url}}/point_avatar.png"></image>
                 <view class="header_notice">
                     <view class="curr_points">当前积分</view>
-                    <view class="point_number">2000<text class="point_text">积分</text></view>
+                    <view class="point_number">{{score || 0}}<text class="point_text">积分</text></view>
                 </view>
             </view>
             <navigator url="../../pages/pointRule/pointRule" hover-class="none">
@@ -20,41 +21,20 @@
             </navigator>    
         </view>
     </view>
-    <scroll-view class="point_box">
+    <scroll-view class="point_box" scroll-y="true" bindscrolltolower="loadMoreCharge">
         <view class="point_list">
-            <view class="point_item">
+            <view class="point_item"  wx:for="{{pointList}}">
                <view>
-                   <view class="pay_type">兆方卡支付</view>
-                   <view class="pay_time">2018-04-16 12:12:12</view>
+                   <view class="pay_type">{{item.description}}</view>
+                   <view class="pay_time">{{dateFr.getDate(item.created_at,'-')}}</view>
                </view>
-               <view class="pay_point">+30</view>
+               <view class="pay_point">{{item.score_description}}</view>
             </view>
-            <view class="point_item">
-                <view>
-                    <view class="pay_type">兆方卡支付</view>
-                    <view class="pay_time">2018-04-16 12:12:12</view>
-                </view>
-                <view class="pay_point">+30</view>
-             </view>
-             <view class="point_item">
-                <view>
-                    <view class="pay_type">兆方卡支付</view>
-                    <view class="pay_time">2018-04-16 12:12:12</view>
-                </view>
-                <view class="pay_point">+30</view>
-             </view>
-             <view class="point_item">
-                <view>
-                    <view class="pay_type">兆方卡支付</view>
-                    <view class="pay_time">2018-04-16 12:12:12</view>
-                </view>
-                <view class="pay_point">+30</view>
-             </view>
+        </view>
+        <view class="noMore" wx:if="{{noMoreData}}">没有更多记录～</view>
+        <view class="noData" wx:if="{{noData}}">
+            <image class="noData_image"  src="{{img_url}}/icon_trade.png"></image>
+            <view class="noDataText">暂无积分记录</view>
         </view>
     </scroll-view>
-    
-    <view class="noData" hidden="{{noData}}">
-        <image class="noData_image"  src="{{img_url}}/icon_trade.png"></image>
-        <view class="noDataText">暂无积分记录</view>
-    </view>
 </view>

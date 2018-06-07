@@ -1,4 +1,6 @@
 // pages/points/points.js
+import httpService from '../../http/http.js';
+import util from '../../utils/util.js'
 const app = getApp();
 
 Page({
@@ -9,16 +11,52 @@ Page({
   data: {
     img_url: app.config.img_url,
     page: 1,
-    num: 10
+    num: 10,
+    score: 0,
+    pointList: [],
+    noMoreData: false,
+    
   },
-
-  getList: function() {
-    let url = app.config.host + '/pay/card';
-    let data = {};
+  loadMoreCharge: function() {
+    if(!this.data.noMoreData) {
+      ++this.data.page;
+      this.getList(this.data.page,this.data.num);
+    }
+  },
+  getList: function(page,limit) {
+    let url = app.config.host + '/query/score';
+    let data = {userId: wx.getStorageSync('user_id')};
     let params = {
-      
+      page: page,
+      limit: limit
     };
     let method = 'GET';
+    httpService.sendRrquest(url,data,params,method).then( res => {
+      if(res.data.status === 0) {
+        this.setData({
+          score: parseInt(res.data.data.score)
+        });
+        let list = res.data.data.score_flow;
+        if(list.length === 0) {
+          if(this.data.pointList.length > 0) {
+            this.setData({
+              noMoreData: true
+            })
+          }else{
+            this.setData({
+              noData: true
+            })
+          }
+        }else{
+          let newArr = this.data.pointList.concat(list);
+          this.setData({
+            pointList: newArr
+          })
+        }
+      }else{
+        util.warnMsg('修改成功');
+      }
+    })
   },
   goBack: function() {
     wx.navigateBack();
@@ -35,7 +73,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    this.getList(this.data.page,this.data.num);
   },
 
   /**

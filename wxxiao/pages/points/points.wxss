@@ -126,3 +126,29 @@
     font-size:30rpx;
     color:rgba(249,100,50,1);
 }
+
+.noData{
+    padding-top: 150rpx;
+    text-align: center;
+}
+.noData_image{
+    width:180rpx;
+    height: 180rpx;
+    margin: 0 auto;
+}
+.noDataText{
+    font-size:30rpx;
+    color:rgba(153,153,153,1);
+    margin-top: 30rpx;
+}
+
+.noMore{
+    width: 100%;
+    overflow: hidden;
+    height: 100rpx;
+    background: #f5f5f5;
+    text-align: center;
+    line-height: 100rpx;
+    font-size: 24rpx;
+    color: #bdbdbd;
+}
