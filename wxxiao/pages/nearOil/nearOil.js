@@ -10,7 +10,8 @@ Page({
   data: {
     tipText: '',
     oil_list:[],
-    img_url: app.config.img_url
+    img_url: app.config.img_url,
+    isAuth: true
   },
   getData: function() {
     var that = this;
@@ -119,6 +120,7 @@ Page({
                         icon: 'success',
                         duration: 1000
                       })
+                      this.data.isAuth = false;
                       this.getData();
                     }else{
                       wx.showToast({
@@ -135,7 +137,9 @@ Page({
         }
       }
     })
-    this.getData();
+    if(this.data.isAuth) {
+      this.getData();
+    }
   },
 
   /**
