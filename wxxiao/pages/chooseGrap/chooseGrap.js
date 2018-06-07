@@ -43,24 +43,47 @@ Page({
     }
   },
   nextSubmit: function() {
-    if(this.data.oil.type == 1) {
-      this.data.conMoney = '';
-      this.data.oil_index = '';
-      wx.navigateTo({
-        url: '../../pages/orderDetail/orderDetail?station_id='+this.data.oil.station_id+'&gun_id='+this.data.chooseIndex+'&write_money='+this.data.conMoney+'&oil_id='+this.data.oil_index
-      })
-    }else{
-      if(this.data.conMoney.length > 0) {
-        this.data.chooseIndex = '';
-        wx.navigateTo({
-          url: '../../pages/orderDetail/orderDetail?station_id='+this.data.oil.station_id+'&gun_id='+this.data.chooseIndex+'&write_money='+this.data.conMoney+'&oil_id='+this.data.oil_index
-        })
-      }else{
-        this.warnMsg('请输入充值金额');
-        return false;
+    let url = app.config.host + '/pay/flow/order';
+    let data = {};
+    let params = {
+      'station_id': this.data.oil.station_id,
+      'gun_id': this.data.chooseIndex,
+      'write_money': this.data.conMoney,
+      'oil_id': this.data.oil_index,
+      'user_id': wx.getStorageSync('user_id')
+    };
+    let method = 'GET';
+    httpService.sendRrquest(url,data,params,method).then(res => {
+      if(res.data.status === 0) {
+        if(this.data.oil.type == 1) {
+          this.data.conMoney = '';
+          this.data.oil_index = '';
+          wx.navigateTo({
+            url: '../../pages/orderDetail/orderDetail?station_id='+this.data.oil.station_id+'&gun_id='+this.data.chooseIndex+'&write_money='+this.data.conMoney+'&oil_id='+this.data.oil_index
+          })
+        }else{
+          if(this.data.conMoney.length > 0) {
+            this.data.chooseIndex = '';
+            wx.navigateTo({
+              url: '../../pages/orderDetail/orderDetail?station_id='+this.data.oil.station_id+'&gun_id='+this.data.chooseIndex+'&write_money='+this.data.conMoney+'&oil_id='+this.data.oil_index
+            })
+          }else{
+            this.warnMsg('请输入充值金额');
+            return false;
+          }
+        }
+      }else if(res.data.status === 2){
+        util.warnMsg('油站选择错误');
+      }else if(res.data.status === 3) {
+        util.warnMsg('油枪选择错误');
+      }else if(res.data.status === 4) {
+        util.warnMsg('无流水信息');
+      }else {
+        util.warnMsg('其他错误');
       }
-    }
+    })
   },
+
   otherPay:function() {
     wx.navigateTo({
       url: '../../pages/zhaofangCardPay/zhaofangCardPay'
