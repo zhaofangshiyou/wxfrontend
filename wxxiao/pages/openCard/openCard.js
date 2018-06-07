@@ -119,7 +119,7 @@ Page({
         clearTimeout(timer);
       }else{
         this.setData({
-          codeText: "重新发送(" + timeout + ")",
+          codeText: timeout + "s后重发",
           sendAgain: false
         })
         timeout--;

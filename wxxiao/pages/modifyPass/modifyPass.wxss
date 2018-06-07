@@ -15,6 +15,9 @@
     display: flex;
     align-items: center;
 }
+.section:last-child{
+    border-bottom: none;
+}
 .section_title{
     flex: 0 0 120rpx;
     text-align: justify;

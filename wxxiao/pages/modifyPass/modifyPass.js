@@ -57,7 +57,10 @@ Page({
           this.warnMsg('验证码已发送'); 
         }else if(res.data.status === 2){
           this.warnMsg('请输入正确的手机号'); 
-        }else{
+        }else if(res.data.status === 3){
+          this.warnMsg('发送验证码超过5次'); 
+        }
+        else{
           this.warnMsg('发送验证码失败'); 
         }
       })
@@ -98,7 +101,7 @@ Page({
         clearTimeout(timer);
       }else{
         this.setData({
-          codeText: "重新发送(" + timeout + ")",
+          codeText:  timeout + "s后重发",
           sendAgain: false
         })
         timeout--;
