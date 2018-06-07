@@ -11,7 +11,7 @@
 .section{
     width: 100%;
     height: 100rpx;
-    border-bottom: 1rpx solid #efefef;
+    border-bottom: 2rpx solid #efefef;
     display: flex;
     align-items: center;
 }
@@ -47,4 +47,9 @@
     font-size:26rpx;
     color:rgba(249,100,50,1);
     margin-right: 30rpx;
+}
+
+.code.active{
+    color: #999999;
+    border: 2rpx solid #BDBDBD;
 }

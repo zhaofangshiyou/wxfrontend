@@ -72,7 +72,9 @@ Page({
     let method = 'PUT';
     httpService.sendRrquest(url,data,params,method).then( res => {
       if(res.data.status === 0) {
-        this.warnMsg('修改成功');
+        setTimeout(() => {
+          this.warnMsg('修改成功');
+        },500)
         this.getUserInfo();
       }
     })

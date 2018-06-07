@@ -34,7 +34,7 @@
             
             <view class="enter_item" data-link="../../pages/modifyPass/modifyPass" bindtap="goNext">
                     <image class="enter_img" src="{{img_url}}/password.png"></image>
-                    <text class="enter_name">找回密码</text>
+                    <text class="enter_name">修改密码</text>
             </view>
             <view class="enter_item" data-link="../../pages/completeMess/completeMess" bindtap="goNext">
                     <image class="enter_img" src="{{img_url}}/my_copy.png"></image>

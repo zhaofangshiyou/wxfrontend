@@ -17,10 +17,10 @@ Page({
     wx.getLocation({
       type: 'wgs84',
       success: function(res) {
-        // that.setData({
-        //   latitude: res.latitude,
-        //   longitude: res.longitude
-        // })
+        that.setData({
+          latitude: res.latitude,
+          longitude: res.longitude
+        })
         that.getStation(res.latitude,res.longitude);
       },
       cancel: function() {

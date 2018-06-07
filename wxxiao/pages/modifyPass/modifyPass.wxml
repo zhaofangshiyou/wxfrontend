@@ -11,7 +11,7 @@
             <view class="section">
                 <view class="section_title">验证码</view>
                 <input type="number" data-flag="2" bindinput="checkForm" class="input_text" name="code" placeholder="请输入验证码" placeholder-style="color:#BDBDBD" />
-                <view class="code" bindtap="sendCode">{{codeText}}</view>
+                <view class="code {{!sendAgain?'active': ' '}}" bindtap="sendCode">{{codeText}}</view>
             </view>
             <view class="section">
                 <view class="section_title">新密码</view>

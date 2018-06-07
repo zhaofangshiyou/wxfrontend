@@ -17,7 +17,7 @@
             </view>
             <view class="message">
                 <view class="mess_name">油品类型</view>
-                <view class="detail_name">{{orderDetail.Oiltype}}(V)</view>
+                <view class="detail_name">{{orderDetail.Oiltype}}</view>
             </view>
             <view class="message">
                 <view class="mess_name">加油时间</view>
