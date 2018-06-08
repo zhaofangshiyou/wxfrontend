@@ -1,6 +1,6 @@
 // pages/discountDoc/discountDoc.js
 import httpService from '../../http/http.js';
-const WxParse= require('../../wxParse/wxParse.js');
+var WxParse= require('../../wxParse/wxParse.js');
 const app = getApp();
 Page({
 
@@ -8,8 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    title: '',
-    content: ''
+ 
   },
 
   getDiscountDoc: function() {
@@ -20,8 +19,8 @@ Page({
     let method = 'GET';
     httpService.sendRrquest(url,data,params,method).then(res => {
       if(res.data.status === 0) {
-        let content = res.data.data.discount_doc_list[0].content;
-        let title = res.data.data.discount_doc_list[0].title;
+        var content = res.data.data.discount_doc_list[0].content;
+        var title = res.data.data.discount_doc_list[0].title;
         WxParse.wxParse('content', 'html', content,that, 5);
       }
     })

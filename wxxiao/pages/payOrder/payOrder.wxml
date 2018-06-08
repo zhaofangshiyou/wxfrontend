@@ -1,4 +1,5 @@
 <!--pages/payOrder/payOrder.wxml-->
+<wxs module="dateFr" src="../../filter/dateFilter.wxs"></wxs>
 <header title="支付订单"></header>
 <view class="container">
     <view class="title">
@@ -21,7 +22,7 @@
             </view>
             <view class="message">
                 <view class="mess_name">加油时间</view>
-                <view class="detail_name">2018-04-16 12:12:12</view>
+                <view class="detail_name">{{dateFr.getDate(orderDetail.time,'-')}}</view>
             </view>
             <view class="message" wx:if="{{orderDetail.station_type==1}}">
                 <view class="mess_name">加油升数</view>
