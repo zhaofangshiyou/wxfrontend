@@ -54,7 +54,7 @@
             <view class="title">消费金额</view>
             <view class="number">
                 <text class="sign">¥</text>
-                <input class="input_number" cursor-spacing ='0' placeholder-class="placeholder_size"  type="number" placeholder-style="color:#BDBDBD"  bindinput="bindKeyInput" placeholder="请输入消费金额"/>
+                <input class="input_number" value="{{conMoney}}" cursor-spacing ='0' placeholder-class="placeholder_size"  type="number" placeholder-style="color:#BDBDBD"  bindinput="bindKeyInput" placeholder="请输入消费金额"/>
             </view>
         </view>
     </view>

@@ -237,7 +237,9 @@ Page({
    */
   onShow: function () {
     this.data.oil_index = '1';
-    this.data.conMoney = '';
+    this.setData({
+      conMoney: this.data.conMoney
+    })
   },
 
   /**
