@@ -12,7 +12,7 @@ Page({
     img_url: app.config.img_url,
     showBoard: false,
     passwordArr: [],
-    payWay: 1,
+    payWay: 0,
     station_id: '',
     gun_id: '',
     oil_id: '',
@@ -26,13 +26,13 @@ Page({
     })
   },
   changePay: function() {
-    if(this.data.payWay==1) {
-      this.data.payWay = 2;
+    if(this.data.payWay==0) {
+      this.data.payWay = 3;
       this.setData({
         payWay: this.data.payWay
       })
     }else{
-      this.data.payWay = 1;
+      this.data.payWay = 0;
       this.setData({
         payWay: this.data.payWay
       })
@@ -40,7 +40,7 @@ Page({
   },
   paySubmit: function() {
     var self = this;
-    if(this.data.payWay == 2) {
+    if(this.data.payWay == 3) {
         wx.request({
           url: app.config.host+'/pay/unifiedorder',
           data: {
@@ -120,7 +120,7 @@ Page({
             'user_id': wx.getStorageSync('user_id'),
             'new_password': tempPass,
             'discount': this.data.orderDetail.discount,
-            'pay_channel': 1
+            'pay_channel': 0
           };
           let method = 'POST';
           httpService.sendRrquest(url,data,params,method).then(res => {
