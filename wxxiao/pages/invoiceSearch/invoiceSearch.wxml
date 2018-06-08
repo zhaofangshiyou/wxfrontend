@@ -15,7 +15,7 @@
         <view class="box">
             <view class="recharge_list" wx:for="{{notOpenInvoice}}">
                 <view class="text_message">
-                    <view class="text_title">华富加油站</view>
+                    <view class="text_title">{{item.name}}</view>
                     <view class="text_tip">{{dateFr.getDate(item.created_at,'-')}}</view>
                 </view>
                 <view class="reduce_number">{{item.money}}</view>
@@ -29,9 +29,9 @@
             <view class="recharge_list" wx:for="{{openInvoice}}">
                 <view class="text_message">
                     <view class="text_title">线上充值</view>
-                    <view class="text_tip">2018-04-16 12:12:12</view>
+                    <view class="text_tip">{{dateFr.getDate(item.created_at,'-')}}</view>
                 </view>
-                <view class="reduce_number">+3000</view>
+                <view class="reduce_number">+{{item.money}}</view>
             </view>
         </view>
         <view class="noMore" wx:if="{{noMore}}">没有更多记录～</view>
