@@ -35,9 +35,9 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   //NProgress.start();
   if (to.path == '/login') {
-    sessionStorage.removeItem('user');
+    localStorage.removeItem('user_id');
   }
-  let user = JSON.parse(sessionStorage.getItem('user'));
+  let user = localStorage.getItem('user_id');
   if (!user && to.path != '/login') {
     next({ path: '/login' })
   } else {
