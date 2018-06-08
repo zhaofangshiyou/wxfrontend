@@ -25,7 +25,7 @@
         <view class="point_list">
             <view class="point_item"  wx:for="{{pointList}}">
                <view>
-                   <view class="pay_type">{{item.station_name}}</view>
+                   <view class="pay_type">{{item.description}}</view>
                    <view class="pay_time">{{dateFr.getDate(item.created_at,'-')}}</view>
                </view>
                <view class="pay_point">{{item.score_description}}</view>
