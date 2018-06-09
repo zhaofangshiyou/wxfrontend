@@ -95,7 +95,6 @@ Page({
     })
 
     if(this.data.isAuth) {
-      console.log(this.data.isAuth);
       wx.getUserInfo({
         success: res => {
           that.setData({

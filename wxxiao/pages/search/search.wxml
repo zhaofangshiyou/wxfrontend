@@ -26,7 +26,7 @@
                     <view class="text_title">线上充值</view>
                     <view class="text_tip">{{dateFr.getDate(item.created_at,'-')}}</view>
                 </view>
-                <view class="add_number">+{{item.money}}</view>
+                <view class="add_number">+{{item.money}}元</view>
             </view>
         </view>
         <view class="noMore" wx:if="{{noMore}}">没有更多记录～</view>
@@ -39,7 +39,7 @@
                     <view class="text_title">{{item.station_name}}({{item.oil_type}})</view>
                     <view class="text_tip">{{dateFr.getDate(item.created_at,'-')}}</view>
                 </view>
-                <view class="reduce_number">-{{item.money}}</view>
+                <view class="reduce_number">-{{item.money}}元</view>
             </view>
         </view>
         <view class="noMore" wx:if="{{noMore}}">没有更多记录～</view>

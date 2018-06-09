@@ -74,7 +74,7 @@ Page({
       if(res.data.status === 0) {
         setTimeout(() => {
           this.warnMsg('修改成功');
-        },500)
+        },1000)
         this.getUserInfo();
       }
     })
