@@ -13,7 +13,6 @@ Page({
    },
    subType: function(event) {
      this.data.brand = event.currentTarget.dataset.brand;
-     console.log(this.data.brand);
      this.setData({
       showSub: true,
       subArr: event.currentTarget.dataset.sub
@@ -56,7 +55,6 @@ Page({
         sortCar[carList[i].L].push(carList[i]);
       }    
     }
-    console.log(JSON.stringify(sortCar));
   },
    onReady: function () {
     // 生命周期函数--监听页面初次渲染完成
@@ -128,7 +126,6 @@ Page({
     });
     //判断选择区域,只有在选择区才会生效
     if (y > offsettop && y < height) {
-     // console.log((y-offsettop)/lineHeight)
      var num = parseInt((y - offsettop) / lineHeight);
      endWords = cityarr[num];
      // 这里 把endWords 绑定到this 上，是为了手指离开事件获取值
@@ -137,7 +134,6 @@ Page({
     //去除重复，为了防止每次移动都赋值 ,这里限制值有变化后才会有赋值操作，
     //DOTO 这里暂时还有问题，还是比较卡，待优化
     if (isNum != num) {
-     // console.log(isNum);
      isNum = num;
      that.setData({
       showwords: that.endWords

@@ -159,7 +159,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
     this.data.station_id = options.station_id;
     this.data.gun_id = options.gun_id;
     this.data.write_money = options.write_money;

@@ -39,7 +39,6 @@ Page({
                 card_num: temp_number,
                 balance: res.data.data.card.person_balance
               })
-              console.log(res.data.data.card.person_balance);
             }else if(this.data.type == 2) {
               that.setData({
                 card_num: '1001 8888',
