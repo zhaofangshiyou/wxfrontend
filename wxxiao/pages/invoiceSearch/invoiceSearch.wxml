@@ -28,7 +28,7 @@
         <view class="box">
             <view class="recharge_list" wx:for="{{openInvoice}}">
                 <view class="text_message">
-                    <view class="text_title">线上充值</view>
+                    <view class="text_title">{{item.station_name}}</view>
                     <view class="text_tip">{{dateFr.getDate(item.created_at,'-')}}</view>
                 </view>
                 <view class="reduce_number">+{{item.money}}</view>
