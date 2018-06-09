@@ -11,7 +11,7 @@ Page({
   data: {
     img_url: app.config.img_url,
     page: 1,
-    num: 10,
+    num: 15,
     score: 0,
     pointList: [],
     noMoreData: false,

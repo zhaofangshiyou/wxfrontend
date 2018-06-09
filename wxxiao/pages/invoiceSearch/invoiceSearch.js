@@ -14,7 +14,7 @@ Page({
     openInvoice: [],
     page1: 1,
     page2: 1,
-    limit: 10,
+    limit: 15,
     is_invoicing: 1,
     noDataText: '暂无可开发票',
     noMore: false,
