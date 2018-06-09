@@ -11,7 +11,7 @@ Page({
     showClassify: false,
     tabIndex: 1,
     typeName: '全部',
-    typeValue: 0,
+    typeValue: 2,
     rechageList: [],
     comsumeList: [],
     page2: 1,
@@ -173,7 +173,7 @@ Page({
       this.setData({
         tabIndex: 2,
         showClassify: false,
-        typeValue: 0,
+        typeValue: 2,
         typeName: '全部',
         noDataText: '暂无消费记录'
       })
