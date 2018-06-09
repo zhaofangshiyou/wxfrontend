@@ -303,7 +303,7 @@ getData: function(lat,lon) {
         };
         let method = 'GET';
         httpService.sendRrquest(url,data,params,method).then(res => {
-          console.log(res);
+          // console.log(res);
           if(res.data.status === 0) {
             that.data.station_list = res.data.data.stations;
             let temp = [];

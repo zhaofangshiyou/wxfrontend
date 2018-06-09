@@ -120,7 +120,8 @@ Page({
             'user_id': wx.getStorageSync('user_id'),
             'new_password': tempPass,
             'discount': this.data.orderDetail.discount,
-            'pay_channel': 0
+            'pay_channel': 0,
+            'oil_id': this.data.oil_id
           };
           let method = 'POST';
           httpService.sendRrquest(url,data,params,method).then(res => {
