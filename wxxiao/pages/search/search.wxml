@@ -32,7 +32,7 @@
         <view class="noMore" wx:if="{{noMore}}">没有更多记录～</view>
     </scroll-view>
     <!-- 消费记录 -->
-    <scroll-view scroll-y="true" scroll-top="{{scrollTop}}" bindscrolltolower="loadMoreComsume"  class="recharge" hidden="{{tabIndex==1}}">
+    <scroll-view scroll-y="true" bindscrolltolower="loadMoreComsume"  class="recharge" hidden="{{tabIndex==1}}">
         <view class="recharge_box">   
             <view class="recharge_list" wx:for="{{comsumeList}}" wx:for-index="index">
                 <view class="text_message">

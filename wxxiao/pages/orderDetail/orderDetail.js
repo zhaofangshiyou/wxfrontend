@@ -165,7 +165,6 @@ Page({
     // this.data.write_money = options.write_money;
     this.data.oil_id = options.oil_id
     // this.getDetail();
-    console.log(options);
     this.setData({
       orderDetail: JSON.parse(options.order_detail)
     })

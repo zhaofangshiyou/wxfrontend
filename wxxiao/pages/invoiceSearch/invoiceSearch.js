@@ -29,6 +29,7 @@ Page({
         is_invoicing: 1,
         noMore: false
       })
+      this.data.openInvoice.length = 0;
     }else{
       this.setData({
         tabIndex: 2,
@@ -37,10 +38,12 @@ Page({
         is_invoicing: 0,
         noMore: false
       })
-      if(this.data.openInvoice.length == 0) {
-        this.getDataList(this.data.page2,this.data.limit,this.data.is_invoicing);
-      }
+      this.data.notOpenInvoice.length = 0;
+      // if(this.data.openInvoice.length == 0) {
+        
+      // }
     }
+    this.getDataList(this.data.page2,this.data.limit,this.data.is_invoicing);
   },
 
   /**
