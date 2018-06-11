@@ -59,7 +59,7 @@
 				<el-form-item label="站点名称">
 					<el-select v-model="addForm.station_id" clearable size="100" placeholder="请选择" @change="stationChange($event)">
                         <el-option
-                        v-for="(item,index) in station_list" v-if="index > 0"
+                        v-for="item in station_list"
                         :key="item.id"
                         :label="item.name"
                         :value="item.id">
