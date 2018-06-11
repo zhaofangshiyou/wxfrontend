@@ -7,7 +7,10 @@ Page({
    */
   data: {
     img_url: app.config.img_url,
-    orderDetail: {}
+    orderDetail: {},
+    actualMonney: '',
+    discountMoney: ''
+
   },
   paySubmi: function() {
     wx.reLaunch({
@@ -21,7 +24,9 @@ Page({
   onLoad: function (options) {
     let orderDetail = JSON.parse(options.orderDetail);
     this.setData({
-      orderDetail: orderDetail
+      orderDetail: orderDetail,
+      actualMonney: options.actualMonney,
+      discountMoney: options.discountMoney
     })
    
   },

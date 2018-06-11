@@ -10,7 +10,7 @@
        <view class="box">
             <image class="pay_bg"  src="{{img_url}}/pay.png"></image>
             <view class="oil_name">{{orderDetail.name}}</view>
-            <view class="money">¥{{orderDetail.PayMount}}</view>
+            <view class="money">¥{{actualMonney}}</view>
             <view class="detail_box">
             <view class="message" wx:if="{{orderDetail.station_type==1}}">
                 <view class="mess_name">油枪号码</view>
@@ -30,7 +30,7 @@
             </view>
             <view class="message">
                 <view class="mess_name">优惠金额</view>
-                <view class="detail_name">{{orderDetail.discount}}元</view>
+                <view class="detail_name">{{discountMoney}}元</view>
             </view>
         </view>
        </view> 

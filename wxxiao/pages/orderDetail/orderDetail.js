@@ -69,9 +69,10 @@ Page({
                           //     icon: 'success',
                           //     duration: 2000
                           // })
+                          console.log(res);
                           let orderDetail = JSON.stringify(self.data.orderDetail);
                           wx.navigateTo({
-                            url: '../../pages/payOrder/payOrder?orderDetail='+orderDetail
+                            url: '../../pages/payOrder/payOrder?orderDetail='+orderDetail + '&actualMonney=' + self.data.actualMonney + '&discountMoney=' + self.data.discountMoney
                           })
                       },
                       'fail': function (res) {
@@ -134,7 +135,7 @@ Page({
             if(res.data.status === 0) {
               let orderDetail = JSON.stringify(this.data.orderDetail);
               wx.navigateTo({
-                url: '../../pages/payOrder/payOrder?orderDetail='+orderDetail
+                url: '../../pages/payOrder/payOrder?orderDetail='+orderDetail + '&actualMonney=' + this.data.actualMonney + '&discountMoney=' + this.data.discountMoney
               })
             }else if(res.data.status === 2){
               util.warnMsg('支付失败');
