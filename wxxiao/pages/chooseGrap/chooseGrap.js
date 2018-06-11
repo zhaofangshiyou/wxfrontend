@@ -79,7 +79,10 @@ Page({
           util.warnMsg('油站选择错误');
         }else if(res.data.status === 3) {
           util.warnMsg('油枪选择错误');
-        }else if(res.data.status === 4) {
+        }else if(res.data.status === 5) {
+          util.warnMsg('无此记录');
+        }
+        else if(res.data.status === 4) {
           util.warnMsg('无流水信息');
         }else {
           util.warnMsg('其他错误');
