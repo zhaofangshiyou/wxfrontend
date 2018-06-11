@@ -50,7 +50,7 @@ Page({
       this.goNextFunc();
     }else{
       if(this.data.conMoney.length > 0) {
-        this.data.chooseIndex = '';
+        // this.data.chooseIndex = '';
         this.goNextFunc();
       }else{
         this.warnMsg('请输入充值金额');
