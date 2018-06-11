@@ -47,7 +47,20 @@ Page({
     if(this.data.oil.type == 1) {
       this.data.conMoney = '';
       this.data.oil_index = '';
-      let url = app.config.host + '/pay/flow/order';
+      this.goNextFunc();
+    }else{
+      if(this.data.conMoney.length > 0) {
+        this.data.chooseIndex = '';
+        this.goNextFunc();
+      }else{
+        this.warnMsg('请输入充值金额');
+        return false;
+      }
+    }
+  },
+
+  goNextFunc: function() {
+    let url = app.config.host + '/pay/flow/order';
       let data = {};
       let params = {
         'station_id': this.data.oil.station_id,
@@ -60,7 +73,7 @@ Page({
       httpService.sendRrquest(url,data,params,method).then(res => {
         if(res.data.status === 0) {
           wx.navigateTo({
-            url: '../../pages/orderDetail/orderDetail?station_id='+this.data.oil.station_id+'&gun_id='+this.data.chooseIndex+'&write_money='+this.data.conMoney+'&oil_id='+this.data.oil_index
+            url: '../../pages/orderDetail/orderDetail?order_detail='+ JSON.stringify(res.data.data) + '&oil_id=' + this.data.oil_index
           })
         }else if(res.data.status === 2){
           util.warnMsg('油站选择错误');
@@ -72,17 +85,6 @@ Page({
           util.warnMsg('其他错误');
         }
       })
-    }else{
-      if(this.data.conMoney.length > 0) {
-        this.data.chooseIndex = '';
-        wx.navigateTo({
-          url: '../../pages/orderDetail/orderDetail?station_id='+this.data.oil.station_id+'&gun_id='+this.data.chooseIndex+'&write_money='+this.data.conMoney+'&oil_id='+this.data.oil_index
-        })
-      }else{
-        this.warnMsg('请输入充值金额');
-        return false;
-      }
-    }
   },
 
   otherPay:function() {

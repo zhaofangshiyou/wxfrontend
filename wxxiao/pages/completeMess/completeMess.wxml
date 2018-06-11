@@ -12,7 +12,7 @@
         </view>
         <view class="section">
             <view class="section_title">身份证号</view>
-            <input class="input"  value="{{IDcard}}" type="idcard" data-flag="ID" bindblur="checkMsg" name="id" placeholder-style="color:#BDBDBD" placeholder="请输入您的身份证号码" />
+            <input class="input"  value="{{IDcard}}" type="idcard" data-flag="ID" bindinput="saveID" bindblur="checkMsg" name="id" placeholder-style="color:#BDBDBD" placeholder="请输入您的身份证号码" />
         </view>
         <view class="section">
             <view class="section_title">性别</view>

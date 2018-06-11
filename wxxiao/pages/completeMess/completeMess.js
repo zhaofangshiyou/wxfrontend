@@ -98,6 +98,13 @@ Page({
         break;
     }
   },
+  saveID: function(event) {
+    if(this.ValidatID(event.detail.value)) {
+      this.data.IDcard = event.detail.value;
+    }else if(event.detail.value.length == 0) {
+      this.data.IDcard = '';
+    }
+  },
   changeSex: function(e) {
     if(e.currentTarget.dataset.sex==1){
       this.setData({
