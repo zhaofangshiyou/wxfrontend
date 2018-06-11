@@ -114,8 +114,8 @@ Page({
           let url = app.config.host + '/pay/card';
           let data = {};
           let params = {
-            'station_id': this.data.station_id,
-            'gun_id': this.data.gun_id,
+            'station_id': this.data.orderDetail.station_id,
+            'gun_id': this.data.orderDetail.gun_id,
             'pay_money': this.data.orderDetail.PayMount,
             'user_id': wx.getStorageSync('user_id'),
             'new_password': tempPass,
@@ -160,11 +160,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.data.station_id = options.station_id;
-    this.data.gun_id = options.gun_id;
-    this.data.write_money = options.write_money;
+    // this.data.station_id = options.station_id;
+    // this.data.gun_id = options.gun_id;
+    // this.data.write_money = options.write_money;
     this.data.oil_id = options.oil_id
-    this.getDetail();
+    // this.getDetail();
+    console.log(options);
+    this.setData({
+      orderDetail: JSON.parse(options.order_detail)
+    })
   },
 
   //获取订单详情信息
