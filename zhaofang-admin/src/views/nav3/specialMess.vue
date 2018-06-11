@@ -64,7 +64,7 @@
             </el-table-column>
             <el-table-column prop="discount_end_time" label="结束时间" width="180">
             </el-table-column>
-            <el-table-column prop="amount_start" label="阈值" >
+            <el-table-column prop="amount_start" label="阈值" width="120">
             </el-table-column>
             <el-table-column prop="oil_92" label="92号" >
             </el-table-column>

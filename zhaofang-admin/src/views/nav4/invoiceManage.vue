@@ -20,7 +20,7 @@
     <el-table :data="initList" highlight-current-row v-loading="listLoading" style="width: 100%;">
         <el-table-column type="index" label="序号" width="100">
         </el-table-column>
-        <el-table-column prop="station_name" label="站点名称">
+        <el-table-column prop="station_name" label="站点名称" width="250">
         </el-table-column>
         <el-table-column prop="card_no" label="卡号" width="150">
         </el-table-column>

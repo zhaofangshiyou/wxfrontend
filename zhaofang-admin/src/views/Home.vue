@@ -2,11 +2,11 @@
 	<el-row class="container">
 		<el-col :span="24" class="header">
 			<el-col :span="10" class="logo" :class="collapsed?'logo-collapse-width':'logo-width'">
-				{{collapsed?'':sysName}}
+				<img v-show="!collapsed" width="100%" src="../assets/logo.png" />
 			</el-col>
 			<el-col :span="10">
 				<div class="tools" @click.prevent="collapse">
-					<i class="fa fa-align-justify"></i>
+					<span class="toggleIcon iconfont icon-other"></span>
 				</div>
 			</el-col>
 			<el-col :span="4" class="userinfo">
@@ -89,6 +89,7 @@
 					resource: '',
 					desc: ''
 				},
+				logoImg: '',
 				authId: [10,11,12,20,21,22,23,24,30,31,40,50,51]
 			}
 		},
@@ -185,9 +186,9 @@
 				border-right-width: 1px;
 				border-right-style: solid;
 				img {
-					width: 40px;
+					width: 160px;
 					float: left;
-					margin: 10px 10px 10px 18px;
+					margin: 10px 10px 10px 10px;
 				}
 				.txt {
 					color:#fff;
@@ -197,7 +198,7 @@
 				width:230px;
 			}
 			.logo-collapse-width{
-				width:60px
+				width:60px;
 			}
 			.tools{
 				padding: 0px 23px;
@@ -205,6 +206,9 @@
 				height: 60px;
 				line-height: 60px;
 				cursor: pointer;
+				.toggleIcon{
+					font-size: 36px;
+				}
 			}
 		}
 		.main {

@@ -39,7 +39,7 @@ let routes = [
         path: '/',
         component: Home,
         name: '油站管理',
-        iconCls: 'el-icon-message',//图标样式class
+        iconCls: 'iconfont icon-manage',//图标样式class
         children: [
             { path: '/main', component: Main, name: '主页', hidden: true },
             { path: '/oil_init', component: OilInit, name: '油站初始化', id: 10},
@@ -54,7 +54,7 @@ let routes = [
         path: '/',
         component: Home,
         name: '财务管理',
-        iconCls: 'fa fa-id-card-o',
+        iconCls: 'iconfont icon-createtask',
         children: [
             { path: '/consumer_detail', component: consumerDetail, name: '消费明细', id: 20 },
             { path: '/consumer_all', component: consumerAll, name: '消费汇总', id: 21 },
@@ -67,7 +67,7 @@ let routes = [
         path: '/',
         component: Home,
         name: '优惠信息',
-        iconCls: 'fa fa-address-card',
+        iconCls: 'iconfont icon-coupons',
         // leaf: true,//只有一个节点
         children: [
             { path: '/special_mess', component: specialMess, name: '优惠信息', id: 30},
@@ -78,7 +78,7 @@ let routes = [
         path: '/',
         component: Home,
         name: '',
-        iconCls: 'fa fa-address-card',
+        iconCls: 'iconfont icon-document',
         leaf: true,//只有一个节点
         children: [
             { path: '/invoice_manage', component: invoiceManage, name: '发票管理', id: 40 }
@@ -88,7 +88,7 @@ let routes = [
         path: '/',
         component: Home,
         name: '用户管理',
-        iconCls: 'fa fa-id-card-o',
+        iconCls: 'iconfont icon-addressbook',
         children: [
             { path: '/user_manage', component: userManage, name: '用户管理', id: 50 },
             { path: '/user_consumer_detail', component: userConsumerDetail, name: '用户消费明细', id: 51},

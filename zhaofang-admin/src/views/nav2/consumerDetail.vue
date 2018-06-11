@@ -138,7 +138,7 @@
         station_site:[],
         oil_list: [],
         consume_total: {},
-        pay_way: [{'type':1,'name': '个人卡'},{'type': 2,'name': '单位卡'},{'type': 3, 'name': '微信支付'}],
+        pay_way: [{'type':0,'name': '个人卡'},{'type': 1,'name': '单位卡'},{'type': 3, 'name': '微信支付'}],
        // args:[page_num,num,province_id,station_id,oil_id,begin_time,end_time,vol_min,vol_max,pay_channel]
       }
     },

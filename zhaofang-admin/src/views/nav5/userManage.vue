@@ -28,7 +28,7 @@
         </el-table-column>
         <el-table-column prop="type" label="用户类型">
         </el-table-column>
-        <el-table-column prop="deposit_money" label="当前余额">
+        <el-table-column prop="deposit_money" label="当前余额" width="100">
         </el-table-column>
         <el-table-column prop="refund" label="退款状态">
         </el-table-column>
