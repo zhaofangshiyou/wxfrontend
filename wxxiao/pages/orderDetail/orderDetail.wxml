@@ -28,12 +28,12 @@
                     <view class="name">优惠金额
                         <!-- <image class="help_icon" src="{{img_url}}/gathering_icon_help.png"></image> -->
                     </view>
-                    <view class="amount">{{orderDetail.discount}}元</view>
+                    <view class="amount">{{discountMoney}}元</view>
                 </view>
             </view>
             <view class="payment">
                 <view class="payment_title">实际支付金额</view>
-                <view class="payment_num">¥{{orderDetail.PayMount}}</view>
+                <view class="payment_num">¥{{actualMonney}}</view>
             </view>
         </view>
     </view>

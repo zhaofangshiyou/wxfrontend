@@ -18,6 +18,8 @@ Page({
     oil_id: '',
     write_money: '',
     orderDetail: {},
+    actualMonney: '',
+    discountMoney: ''
 
   },
   forgetPass: function() {
@@ -29,12 +31,16 @@ Page({
     if(this.data.payWay==0) {
       this.data.payWay = 3;
       this.setData({
-        payWay: this.data.payWay
+        payWay: this.data.payWay,
+        actualMonney: this.data.orderDetail.OilMount,
+        discountMoney: '0.00'
       })
     }else{
       this.data.payWay = 0;
       this.setData({
-        payWay: this.data.payWay
+        payWay: this.data.payWay,
+        actualMonney: this.data.orderDetail.PayMount,
+        discountMoney: this.data.orderDetail.discount
       })
     }
   },
@@ -46,7 +52,7 @@ Page({
           data: {
               openid: wx.getStorageSync('open_id'),  // 这里正常项目不会只有openid一个参数
               pay_target: 'pay',
-              total_fee: this.data.orderDetail.PayMount
+              total_fee: this.data.actualMonney
           },
           success: function(res){
               if(res.data.status == 100){
@@ -116,7 +122,7 @@ Page({
           let params = {
             'station_id': this.data.orderDetail.station_id,
             'gun_id': this.data.orderDetail.gun_id,
-            'pay_money': this.data.orderDetail.PayMount,
+            'pay_money': this.data.actualMonney,
             'user_id': wx.getStorageSync('user_id'),
             'new_password': tempPass,
             'discount': this.data.orderDetail.discount,
@@ -164,9 +170,12 @@ Page({
     // this.data.gun_id = options.gun_id;
     // this.data.write_money = options.write_money;
     this.data.oil_id = options.oil_id
+    let tempDetail = JSON.parse(options.order_detail);
     // this.getDetail();
     this.setData({
-      orderDetail: JSON.parse(options.order_detail)
+      orderDetail: tempDetail,
+      actualMonney: tempDetail.PayMount,
+      discountMoney: tempDetail.discount
     })
   },
 
