@@ -9,6 +9,8 @@
 
 .iconfont {
   font-family:"iconfont" !important;
+  display: inline-block;
+  vertical-align: top;
   font-size:18px;
   font-style:normal;
   -webkit-font-smoothing: antialiased;

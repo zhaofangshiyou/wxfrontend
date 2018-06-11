@@ -94,15 +94,15 @@ let routes = [
             { path: '/user_consumer_detail', component: userConsumerDetail, name: '用户消费明细', id: 51},
         ]
     },
-    {
-        path: '/',
-        component: Home,
-        name: 'Charts',
-        iconCls: 'fa fa-bar-chart',
-        children: [
-            { path: '/echarts', component: echarts, name: 'echarts' }
-        ]
-    },
+    // {
+    //     path: '/',
+    //     component: Home,
+    //     name: 'Charts',
+    //     iconCls: 'fa fa-bar-chart',
+    //     children: [
+    //         { path: '/echarts', component: echarts, name: 'echarts' }
+    //     ]
+    // },
     {
         path: '*',
         hidden: true,
