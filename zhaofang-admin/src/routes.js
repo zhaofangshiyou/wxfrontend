@@ -22,6 +22,7 @@ import echarts from './views/charts/echarts.vue'
 
 
 let routes = [
+    
     {
         path: '/login',
         component: Login,

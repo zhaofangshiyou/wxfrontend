@@ -35,10 +35,10 @@
             <text class="agree_name">《兆方卡用户协议》</text>
         </navigator>
     </view>
-    <view class="sureSubmit" wx:if="{{check.checkCode && check.checkComPassword && check.checkPassword && check.checkPhone && isAgree}}">
-        <sureBtn text="确认开卡" bind:sureEvent="submitRegister"></sureBtn>
+    <view class="sureSubmit" wx:if="{{check.checkCode && check.checkComPassword && check.checkPassword && check.checkPhone && isAgree && clickBtn}}">
+        <sureBtn text="确认开卡"  bind:sureEvent="submitRegister"></sureBtn>
     </view>
-    <view class="sureSubmit"  wx:if="{{!check.checkCode || !check.checkComPassword || !check.checkPassword || !check.checkPhone || !isAgree}}">
+    <view class="sureSubmit"  wx:if="{{!check.checkCode || !check.checkComPassword || !check.checkPassword || !check.checkPhone || !isAgree || !clickBtn}}">
         <disable text="确认开卡"></disable>
     </view>
 </view>

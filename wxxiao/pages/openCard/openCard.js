@@ -45,9 +45,13 @@ Page({
     codeText: '获取验证码',
     sendAgain: true,
     img_url: app.config.img_url,
-    isAuth: true
+    isAuth: true,
+    clickBtn: true
   },
   submitRegister(){
+    this.setData({
+      clickBtn: false
+    })
     let url = app.config.host+'/card';
     let params = {
       'user_id': wx.getStorageSync('user_id'),
@@ -62,11 +66,16 @@ Page({
       if(res.data.status === 0) {
         wx.navigateTo({
           url: '../../pages/succeCard/succeCrd?title=开卡成功&type=0&'
+        });
+      }else{
+        this.setData({
+          clickBtn: true
         })
-      }else if(res.data.status === 2){
-        this.warnMsg('请输入正确的手机号');
-      }else if(res.data.status === 3) {
-        this.warnMsg('请输入正确的验证码');
+        if(res.data.status === 2){
+          this.warnMsg('请输入正确的手机号');
+        }else if(res.data.status === 3) {
+          this.warnMsg('请输入正确的验证码');
+        }
       }
     })
     
