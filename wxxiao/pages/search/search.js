@@ -162,7 +162,7 @@ Page({
       this.setData({
         tabIndex: 1,
         showClassify: false,
-        typeValue: 0,
+        typeValue: 2,
         typeName: '全部',
         noDataText: '暂无充值记录'
       })

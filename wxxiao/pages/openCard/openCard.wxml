@@ -3,7 +3,7 @@
 <view class="container">
     <view class="form_box">
             <view class="section choose_box" bindtap="getOil">
-                <view class="section_title">取票油站</view>
+                <view class="section_title">常用油站</view>
                 <view class="choose choose_text">{{userInfo.oilStation}}</view>
                 <image class="right_icon" src="{{img_url}}/home_icon_enter.png"></image> 
             </view>
