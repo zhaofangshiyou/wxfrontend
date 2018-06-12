@@ -21,11 +21,11 @@
             <view class="grap_title">请选择您加油使用的油枪号</view>
             <view class="grap_notice">建议与工作人员核对油枪号</view>
             <view class="grap_number">
-                <view class="grap_list" wx:for="{{grapList}}" wx:for-index="key" hidden="{{key > max_show}}" data-index="{{item}}" bindtap="chooseGrap">
+                <view class="grap_list" wx:for="{{grapList}}" wx:for-index="key" data-index="{{item}}" bindtap="chooseGrap">
                     <view class="grap_item {{chooseIndex==item?'active':''}}">{{item}}号</view>
                 </view>
             </view>
-            <view class="more" bindtap="toggleDrap">{{grapText}}</view>
+            <!-- <view class="more" bindtap="toggleDrap">{{grapText}}</view> -->
         </view>
     </view>
     <view class="no_gun" wx:if="{{oil.type==2}}">
