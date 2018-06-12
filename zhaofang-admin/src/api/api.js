@@ -26,6 +26,14 @@ export const editUser = params => { return axios.get(`${base}/user/edit`, { para
 export const addUser = params => { return axios.get(`${base}/user/add`, { params: params }); };
 
 //后台接口
+
+//用户登录
+export const login = params => { return instance.post(`${url}/v1/backen/auth/login`, qs.stringify(params)); };
+
+//获取用户数据
+export const getUserMess = params => { return instance.get(`${url}/v1/backen/auth/user`, { params: params }); };
+
+
 //获取油站列表
 export const getStation = params => { return instance.get(`${url}/v1/backen/station`, { params: params }); };
 

@@ -11,7 +11,7 @@
 			</el-col>
 			<el-col :span="4" class="userinfo">
 				<el-dropdown trigger="hover">
-					<span class="el-dropdown-link userinfo-inner"><img :src="this.sysUserAvatar" /> {{sysUserName}}</span>
+					<span class="el-dropdown-link userinfo-inner"><img src="../assets/user.png" /> {{sysUserName}}</span>
 					<el-dropdown-menu slot="dropdown">
 						<el-dropdown-item>我的消息</el-dropdown-item>
 						<el-dropdown-item>设置</el-dropdown-item>
@@ -72,6 +72,8 @@
 </template>
 
 <script>
+	import { getUserMess } from '../api/api';
+  	import { messageWarn } from '../common/js/commonMethod';
 	export default {
 		data() {
 			return {
@@ -90,10 +92,28 @@
 					desc: ''
 				},
 				logoImg: '',
-				authId: [10,11,12,20,21,22,23,24,30,31,40,50,51]
+				userMess: {},
+				authId: []
 			}
 		},
+		created: function() {
+			this.getUserMess();
+		},
 		methods: {
+			getUserMess() {
+				let id = localStorage.getItem('user_id');
+				let params = {
+					id: id
+				}
+				getUserMess(params).then(res => {
+					if(res.data.status === 0) {
+						this.authId = JSON.parse(res.data.data.authId);
+						this.sysUserName = res.data.data.name || 'admin';
+					}else{
+						messageWarn(res.data.msg);
+					}
+				})
+			},
 			onSubmit() {
 				console.log('submit!');
 			},
@@ -111,7 +131,7 @@
 				this.$confirm('确认退出吗?', '提示', {
 					//type: 'warning'
 				}).then(() => {
-					sessionStorage.removeItem('user');
+					localStorage.removeItem('user_id');
 					_this.$router.push('/login');
 				}).catch(() => {
 
@@ -135,12 +155,12 @@
 			}
 		},
 		mounted() {
-			var user = localStorage.getItem('user_id');
-			if (user) {
-				user = JSON.parse(user);
-				this.sysUserName = user.name || 'admin';
-				this.sysUserAvatar = user.avatar || 'https://raw.githubusercontent.com/taylorchen709/markdown-images/master/vueadmin/user.png';
-			}
+			// var user = localStorage.getItem('user_id');
+			// if (user) {
+			// 	user = JSON.parse(user);
+			// 	this.sysUserName = user.name || 'admin';
+			// 	this.sysUserAvatar = user.avatar || 'https://raw.githubusercontent.com/taylorchen709/markdown-images/master/vueadmin/user.png';
+			// }
 
 		}
 	}

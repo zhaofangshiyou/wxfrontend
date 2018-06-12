@@ -16,15 +16,16 @@
 </template>
 
 <script>
-  import { requestLogin } from '../api/api';
+  import { login } from '../api/api';
+  import { messageWarn } from '../common/js/commonMethod';
   //import NProgress from 'nprogress'
   export default {
     data() {
       return {
         logining: false,
         ruleForm2: {
-          account: 'admin',
-          checkPass: '123456'
+          account: '',
+          checkPass: ''
         },
         rules2: {
           account: [
@@ -44,8 +45,19 @@
       },
       handleSubmit2(ev) {
         var _this = this;
-        localStorage.setItem('user_id', '1');
-        _this.$router.push({ path: '/oil_init' });
+        let params = {
+          login: this.ruleForm2.account,
+          password:  this.ruleForm2.checkPass
+        }
+        login(params).then(res => {
+          if(res.data.status === 0) {
+            localStorage.setItem('user_id', res.data.data.id);
+             _this.$router.push({ path: '/oil_init' });
+          }else{
+            messageWarn(res.data.msg)
+          }
+        })
+        
         // this.$refs.ruleForm2.validate((valid) => {
 
         //   if (valid) {
