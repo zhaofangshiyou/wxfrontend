@@ -146,7 +146,7 @@ Page({
         }
         that.setData({
           "oil.station" : res.data.data.stations[0].name,
-          "oil.distance": res.data.data.stations[0].distance/1000,
+          "oil.distance": Math.floor(res.data.data.stations[0].distance/1000),
           "oil.type": res.data.data.stations[0].type,
           "grapList": temp,
           "type": res.data.data.stations[0].type,

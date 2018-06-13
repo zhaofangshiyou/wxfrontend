@@ -1,4 +1,5 @@
 <!--pages/nearOil/nearOil.wxml-->
+<wxs module="dateFr" src="../../filter/dateFilter.wxs"></wxs>
 <view style="background: #fff">
     <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14"  show-location="true"
     style="width: 100%; height: 50vh;">
@@ -17,7 +18,7 @@
                     </view>
                     <view class="oil_right">
                         <image class="nav_image"  src="{{img_url}}/nav.png"></image>
-                        <view class="distance">{{item.distance/1000}}km</view>
+                        <view class="distance">{{dateFr.floor(item.distance)}}km</view>
                     </view>
             </view>
         </view> 
