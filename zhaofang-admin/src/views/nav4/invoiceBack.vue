@@ -42,7 +42,7 @@
         </el-table-column>
         <el-table-column label="操作" width="150">
             <template scope="scope">
-                <el-button size="small" :disabled="scope.row.is_invoicing==1? false: true" type="primary" @click="handleEdit(scope.$index, scope.row)">确认开票</el-button>
+                <el-button size="small" type="primary" @click="handleEdit(scope.$index, scope.row)">撤销开票</el-button>
             </template>
         </el-table-column>
     </el-table>
@@ -89,7 +89,7 @@
         let params = {
           cc_flow_id: cc_flow_id,
           user_id: user_id,
-          act: 'open'
+          act: 'revoke'
         }
         operatorInvoice(params).then(res => {
           if(res.data.status === 0) {
@@ -103,7 +103,8 @@
         let params = {
           card_no: card_no,
           page_num: page_num,
-          num: num
+          num: num,
+          type: 0
         }
         getInvoice(params).then(res => {
           if(res.data.status === 0) {

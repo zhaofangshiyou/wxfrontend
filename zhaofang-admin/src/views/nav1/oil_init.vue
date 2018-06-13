@@ -45,6 +45,8 @@
 			</el-table-column>
 			<el-table-column prop="province" label="省份" width="150">
 			</el-table-column>
+            <el-table-column prop="address" label="地址" width="200">
+			</el-table-column>
 			<el-table-column prop="name" label="站点名称" width="200">
 			</el-table-column>
             <el-table-column prop="station_type" label="油站类型" width="150">
@@ -137,6 +139,9 @@
 				</el-form-item>
 				<el-form-item label="枪数">
 					<el-input v-model="editForm.oil_gum_nums" size="100" auto-complete="off"></el-input>
+				</el-form-item>
+                <el-form-item label="地址">
+					<el-input v-model="editForm.address" size="100" auto-complete="off"></el-input>
 				</el-form-item>
                 <el-form-item label="油品信息">
                     <el-select v-model="editForm.oil_list" multiple placeholder="请选择" size="100">

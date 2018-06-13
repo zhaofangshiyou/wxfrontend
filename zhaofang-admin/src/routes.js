@@ -16,6 +16,7 @@ import runAccount from './views/nav2/runAccount.vue'
 import specialMess from './views/nav3/specialMess.vue'
 import discountUE from './views/nav3/discountUE.vue'
 import invoiceManage from './views/nav4/invoiceManage'
+import invoiceBack from './views/nav4/invoiceBack'
 import userManage from './views/nav5/userManage.vue'
 import userConsumerDetail from './views/nav5/userConsumerDetail.vue'
 import echarts from './views/charts/echarts.vue'
@@ -78,11 +79,12 @@ let routes = [
     {
         path: '/',
         component: Home,
-        name: '',
+        name: '发票管理',
         iconCls: 'iconfont icon-document',
-        leaf: true,//只有一个节点
+        // leaf: true,//只有一个节点invoiceBack
         children: [
-            { path: '/invoice_manage', component: invoiceManage, name: '发票管理', id: 40 }
+            { path: '/invoice_manage', component: invoiceManage, name: '发票管理', id: 40 },
+            { path: '/invoice_back', component: invoiceBack, name: '已开票撤销', id: 41 }
         ]
     },
     {
