@@ -19,7 +19,8 @@ Page({
     write_money: '',
     orderDetail: {},
     actualMonney: '',
-    discountMoney: ''
+    discountMoney: '',
+    isDetails: false
 
   },
   forgetPass: function() {

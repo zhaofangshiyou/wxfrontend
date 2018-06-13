@@ -26,7 +26,7 @@ Page({
     
   },
 //../../pages/recharge/recharge
-  goRecharge: function() {
+  goRecharge: function(event) {
     var that = this;
     httpService.sendRrquest(app.config.host+'/card',{userId: wx.getStorageSync('user_id')},{},'GET')
       .then(res => {
@@ -37,8 +37,8 @@ Page({
             }) 
           }else{
             wx.navigateTo({
-              url: '../../pages/recharge/recharge'
-            }) 
+              url: event.currentTarget.dataset.link
+            })
           }
         }
       })

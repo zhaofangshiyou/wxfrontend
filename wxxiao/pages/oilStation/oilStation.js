@@ -20,7 +20,7 @@ Page({
     prevPage.setData({
 　　　　"oil.station": event.currentTarget.dataset.name,
         "oil.address": event.currentTarget.dataset.address,
-        "oil.distance": event.currentTarget.dataset.distance/1000,
+        "oil.distance": Math.floor(event.currentTarget.dataset.distance/1000),
         "oil.station_id": event.currentTarget.dataset.id,
         "oil.type":  event.currentTarget.dataset.type,
         "grapList": list,

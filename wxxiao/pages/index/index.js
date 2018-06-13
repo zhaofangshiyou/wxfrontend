@@ -52,8 +52,26 @@ Page({
   },
   
   goNext(event) {
-    wx.navigateTo({
-      url: event.currentTarget.dataset.link
-    })
+      if(event.currentTarget.dataset.index == 0) {
+        var that = this;
+        httpService.sendRrquest(app.config.host+'/card',{userId: wx.getStorageSync('user_id')},{},'GET')
+          .then(res => {
+            if(res.data.status === 0) {
+              if(JSON.stringify(res.data.data.card) == 'null') {
+                wx.navigateTo({
+                  url: '../../pages/openCard/openCard'
+                }) 
+              }else{
+                wx.navigateTo({
+                  url: event.currentTarget.dataset.link
+                })
+              }
+            }
+          })
+      }else{
+        wx.navigateTo({
+          url: event.currentTarget.dataset.link
+        })
+      }
   },
 })

@@ -157,6 +157,7 @@ Page({
   },
 
   selectOil: function(e) {
+    console.log(e.currentTarget.dataset.index);
     this.setData({
       oil_index: e.currentTarget.dataset.index
     })

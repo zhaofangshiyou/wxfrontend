@@ -13,7 +13,7 @@
    <!-- <button open-type='getUserInfo' >获取授权</button> -->
    <view class="enter_box">
        <view class="enter_list" >
-           <view class="enter_item" data-link="../../pages/chooseGrap/chooseGrap" bindtap="goNext">
+           <view class="enter_item" data-link="../../pages/chooseGrap/chooseGrap" bindtap="goRecharge">
                 <image class="enter_img" src="{{img_url}}/zf_pay.png"></image>
                 <text class="enter_name">兆方车上付</text>
            </view>
@@ -27,7 +27,7 @@
            </view>
        </view>
        <view class="enter_list enter_top">
-            <view class="enter_item"  bindtap="goRecharge">
+            <view class="enter_item" data-link="../../pages/recharge/recharge" bindtap="goRecharge">
                     <image class="enter_img" src="{{img_url}}/add_copy.png"></image>
                     <text class="enter_name">兆方卡充值</text>
             </view>

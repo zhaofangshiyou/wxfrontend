@@ -16,7 +16,7 @@
           </swiper>
         </view>
     </view>
-    <view class="home_list" wx:for="{{listArr}}" wx:for-index="index" wx:for-item="item" data-link="{{item.link}}" bindtap="goNext">
+    <view class="home_list" wx:for="{{listArr}}" wx:for-index="index" wx:for-item="item" data-index="{{index}}" data-link="{{item.link}}" bindtap="goNext">
       <view class="list_box">
         <view class="list-left">
             <image class="pay_icon" src="{{item.iconUrl}}"></image>
