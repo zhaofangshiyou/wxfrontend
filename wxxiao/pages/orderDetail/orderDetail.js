@@ -19,8 +19,7 @@ Page({
     write_money: '',
     orderDetail: {},
     actualMonney: '',
-    discountMoney: '',
-    isDetails: false
+    discountMoney: ''
 
   },
   forgetPass: function() {
@@ -53,7 +52,8 @@ Page({
           data: {
               openid: wx.getStorageSync('open_id'),  // 这里正常项目不会只有openid一个参数
               pay_target: 'pay',
-              total_fee: this.data.actualMonney
+              total_fee: this.data.actualMonney,
+              Fluid:  this.data.orderDetail.trade_no
           },
           success: function(res){
               if(res.data.status == 100){
@@ -129,7 +129,8 @@ Page({
             'new_password': tempPass,
             'discount': this.data.orderDetail.discount,
             'pay_channel': 0,
-            'oil_id': this.data.oil_id
+            'oil_id': this.data.oil_id,
+            'Fluid':  this.data.orderDetail.trade_no
           };
           let method = 'POST';
           httpService.sendRrquest(url,data,params,method).then(res => {

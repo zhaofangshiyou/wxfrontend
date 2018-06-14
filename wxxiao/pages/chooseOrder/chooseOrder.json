@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "sureBtn": "../../components/SureBtn/sureBtn",
+        "header": "../../components/header/header"
+    }
+}

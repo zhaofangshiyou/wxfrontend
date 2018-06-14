@@ -25,7 +25,8 @@
     "pages/discount/discount",
     "pages/points/points",
     "pages/pointRule/pointRule",
-    "pages/discountDoc/discountDoc"
+    "pages/discountDoc/discountDoc",
+    "pages/chooseOrder/chooseOrder"
   ],
   "window": {
     "backgroundTextStyle": "light",

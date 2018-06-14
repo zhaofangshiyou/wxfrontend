@@ -1,0 +1,23 @@
+<!--pages/chooseOrder/chooseOrder.wxml-->
+<header title="订单选择"></header>
+<view class="container">
+    <view class="order_list">
+        <view class="order_bg" wx:for="{{orderList}}" wx:for-index="key" data-index="{{key}}" bindtap="chooseOrder">
+            <view class="order_item">
+                <view class="order_mess_box">
+                    <view class="order_gun_num">{{gun_id}}号油枪</view>
+                    <view class="order_create_time">加油时间<text class="right_padding">{{item.Finishtime}}</text></view>
+                    <view class="order_oil_num">加油升数<text class="right_padding">{{item.Lit}}L</text></view>
+                </view>
+                <view class="order_pay_choose">
+                    <view class="order_pay_money">订单金额<text class="order_total_money">￥{{item.OilMount}}</text></view>
+                    <view class="order_choose_icon">
+                        <image  wx:if="{{detail_indx == key}}" class="choose_icon" src="{{img_url}}/icon_choice.png"></image>
+                        <image wx:if="{{detail_indx != key}}" class="choose_icon" src="{{img_url}}/icon_normal.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <sureBtn text="下一步" bind:sureEvent="nextSubmit"></sureBtn>
+</view>

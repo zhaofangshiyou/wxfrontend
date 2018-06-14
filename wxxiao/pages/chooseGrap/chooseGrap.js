@@ -47,7 +47,9 @@ Page({
     if(this.data.oil.type == 1) {
       this.data.conMoney = '';
       this.data.oil_index = '';
-      this.goNextFunc();
+      wx.navigateTo({
+        url: '../../pages/chooseOrder/chooseOrder?station_id='+ this.data.oil.station_id + '&gun_id=' +this.data.chooseIndex
+      })
     }else{
       if(this.data.conMoney.length > 0) {
         // this.data.chooseIndex = '';
@@ -60,7 +62,7 @@ Page({
   },
 
   goNextFunc: function() {
-    let url = app.config.host + '/pay/flow/order';
+      let url = app.config.host + '/pay/flow/order';
       let data = {};
       let params = {
         'station_id': this.data.oil.station_id,

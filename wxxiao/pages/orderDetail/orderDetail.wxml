@@ -1,6 +1,6 @@
 <!--pages/orderDetail/orderDetail.wxml-->
 <header title="订单详情"></header>
-<view class="container" wx:if="{{!isDetails}}">
+<view class="container">
     <view class="content">
         <view class="detail_box">
             <view class="detail_title">
@@ -63,11 +63,7 @@
     <sureBtn text="确认支付" bind:sureEvent="paySubmit"></sureBtn>
 </view>
 
-<!-- 订单列表不止一个的时候展示 -->
-<view class="container" wx:if="{{isDetails}}">
 
-hhhhhhh
-</view>
 
 <!-- 输入支付密码键盘 -->
 <view class="keyboard_box" wx:if="{{showBoard}}">
