@@ -18,7 +18,10 @@
                     <view class="text_title">{{item.station_name}}</view>
                     <view class="text_tip">{{dateFr.getDate(item.created_at,'-')}}</view>
                 </view>
-                <view class="reduce_number">{{item.money}}元</view>
+                <view class="card_box">
+                    <view class="reduce_number">{{item.money}}元</view>
+                    <view class="card_num">卡号:{{item.card_no}}</view>
+                </view>
             </view>
         </view>
         <view class="noMore" wx:if="{{noMore}}">没有更多记录～</view>
@@ -31,7 +34,10 @@
                     <view class="text_title">{{item.station_name}}</view>
                     <view class="text_tip">{{dateFr.getDate(item.created_at,'-')}}</view>
                 </view>
-                <view class="reduce_number">{{item.money}}元</view>
+                <view class="card_box">
+                    <view class="reduce_number">{{item.money}}元</view>
+                    <view class="card_num">卡号:{{item.card_no}}</view>
+                </view>
             </view>
         </view>
         <view class="noMore" wx:if="{{noMore}}">没有更多记录～</view>

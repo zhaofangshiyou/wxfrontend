@@ -47,9 +47,7 @@ Page({
     if(this.data.oil.type == 1) {
       this.data.conMoney = '';
       this.data.oil_index = '';
-      wx.navigateTo({
-        url: '../../pages/chooseOrder/chooseOrder?station_id='+ this.data.oil.station_id + '&gun_id=' +this.data.chooseIndex
-      })
+      this.getOrders(this.data.oil.station_id,this.data.chooseIndex);
     }else{
       if(this.data.conMoney.length > 0) {
         // this.data.chooseIndex = '';
@@ -61,7 +59,40 @@ Page({
     }
   },
 
-  goNextFunc: function() {
+  getOrders: function(station_id,gun_id) {
+    var that = this;
+    let url = app.config.host + '/pay/flow/orders';
+    let data = {};
+    let params = {
+      station_id: station_id,
+      gun_id: gun_id
+    };
+    let method = 'GET';
+    httpService.sendRrquest(url,data,params,method).then(res => {
+      if(res.data.status === 0) {
+        if(res.data.data.flow.length > 1) {
+          wx.navigateTo({
+            url: '../../pages/chooseOrder/chooseOrder?station_id='+ this.data.oil.station_id + '&gun_id=' +this.data.chooseIndex
+          })
+        }else{
+          that.goNextFunc(res.data.data.flow[0].Fluid);
+        }
+      }else if(res.data.status === 2){
+        util.warnMsg('油站选择错误');
+      }else if(res.data.status === 3) {
+        util.warnMsg('油枪选择错误');
+      }else if(res.data.status === 5) {
+        util.warnMsg('无此记录');
+      }
+      else if(res.data.status === 4) {
+        util.warnMsg('无流水信息');
+      }else {
+        util.warnMsg('其他错误');
+      }
+    })
+  },
+
+  goNextFunc: function(Fluid) {
       let url = app.config.host + '/pay/flow/order';
       let data = {};
       let params = {
@@ -69,7 +100,8 @@ Page({
         'gun_id': this.data.chooseIndex,
         'write_money': this.data.conMoney,
         'oil_id': this.data.oil_index,
-        'user_id': wx.getStorageSync('user_id')
+        'user_id': wx.getStorageSync('user_id'),
+        'Fluid': Fluid
       };
       let method = 'GET';
       httpService.sendRrquest(url,data,params,method).then(res => {
