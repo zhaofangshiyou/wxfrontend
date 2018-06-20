@@ -67,11 +67,18 @@
          total: 0,
          card_no: '',
          page_num: 1,
-         num: 15
+         num: 15,
+         station_id: ''
       }
     },
     created: function() {
-      this.getList(this.card_no,this.page_num,this.num);
+      let tempId = localStorage.getItem('station_id');
+      if(tempId > 0) {
+        this.station_id = tempId;
+        this.getList(this.card_no,this.page_num,this.num, this.station_id);
+      }else{
+        this.getList(this.card_no,this.page_num,this.num, this.station_id);
+      }
     },
     methods: {
       handleEdit(index,row) {
@@ -93,17 +100,18 @@
         }
         operatorInvoice(params).then(res => {
           if(res.data.status === 0) {
-            this.getList(this.card_no,this.page_num,this.num);
+            this.getList(this.card_no,this.page_num,this.num, this.station_id);
           }else{
             messageWarn(res.data.msg);
           }
         })
       },
-      getList: function(card_no, page_num, num) {
+      getList: function(card_no, page_num, num, station_id) {
         let params = {
           card_no: card_no,
           page_num: page_num,
-          num: num
+          num: num,
+          station_id: station_id
         }
         getInvoice(params).then(res => {
           if(res.data.status === 0) {
@@ -116,14 +124,14 @@
       },
       handleCurrentChange(val) {
         this.page_num = val;
-        this.getList(this.card_no,this.page_num,this.num);
+        this.getList(this.card_no,this.page_num,this.num, this.station_id);
       },
       search() {
-        this.getList(this.card_no,this.page_num,this.num);
+        this.getList(this.card_no,this.page_num,this.num, this.station_id);
       },
       //导出表格
       outExcelTable() {
-        let data = '&card_no='+ this.card_no; 
+        let data = '&card_no='+ this.card_no + '&station_id=' + this.station_id; 
         window.open('https://api.zfsyonline.com/v1/backen/invoice?act=export'+data, '_blank');
       }
     }

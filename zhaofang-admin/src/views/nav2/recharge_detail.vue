@@ -4,7 +4,7 @@
 		<el-col :span="24" class="toolbar" style="padding-bottom: 0px;">
 			<el-form :inline="true">
 				<el-form-item label="省份">
-            <el-select v-model="province_id" clearable placeholder="请选择" @change="selectSite($event)">
+            <el-select v-model="province_id" clearable :disabled="showStation" placeholder="请选择" @change="selectSite($event)">
                 <el-option
                 v-for="item in provinces"
                 :key="item.id"
@@ -14,7 +14,7 @@
             </el-select>
                 </el-form-item>
                 <el-form-item label="站点名称">
-                  <el-select v-model="station_id"  clearable placeholder="请选择">
+                  <el-select v-model="station_id" :disabled="showStation" clearable placeholder="请选择">
                     <el-option
                     v-for="item in station_site"
                     :key="item.id"
@@ -97,12 +97,25 @@
         num: 15,
         recharge_total: {},
         provinces: [],
-        station_site: []
+        station_site: [],
+        showStation: false
       }
     },
     created: function() {
-      this.getList(this.province_id,this.station_id,this.begin_time,this.end_time,this.card_no,this.page_num,this.num);
-      this.getProvince();
+      let tempId = localStorage.getItem('station_id');
+      if(tempId > 0) {
+        this.showStation = true;
+        getStationList({}).then(res => {
+          if(res.data.status === 0) {
+            this.station_site = res.data.data.station_site;
+          }
+          this.station_id = parseInt(localStorage.getItem('station_id'));
+        })
+        this.getList(this.province_id,tempId,this.begin_time,this.end_time,this.card_no,this.page_num,this.num);
+      }else{
+        this.getList(this.province_id,this.station_id,this.begin_time,this.end_time,this.card_no,this.page_num,this.num);
+        this.getProvince();
+      } 
     },
     methods: {
       search: function() {

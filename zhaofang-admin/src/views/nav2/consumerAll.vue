@@ -5,7 +5,7 @@
 		<el-col :span="24" class="toolbar" style="padding-bottom: 0px;">
 			<el-form :inline="true">
 				<el-form-item label="省份">
-					<el-select clearable v-model="province_id" placeholder="请选择" @change="selectSite($event)">
+					<el-select clearable v-model="province_id" :disabled="showStation" placeholder="请选择" @change="selectSite($event)">
 						<el-option
 						v-for="item in provinces"
 						:key="item.id"
@@ -15,7 +15,7 @@
 					</el-select>
 				</el-form-item>
         		<el-form-item label="站点名称">
-					<el-select clearable v-model="station_id" placeholder="请选择">
+					<el-select clearable v-model="station_id" :disabled="showStation" placeholder="请选择">
 						<el-option
 						v-for="item in station_site"
 						:key="item.id"
@@ -80,7 +80,7 @@
 		<el-col :span="24" class="toolbar" style="padding-bottom: 0px;">
 			<el-form :inline="true">
 				<el-form-item label="省份">
-					<el-select clearable v-model="differ_province_id" placeholder="请选择" @change="selectSite($event)">
+					<el-select clearable v-model="differ_province_id" :disabled="showStation" placeholder="请选择" @change="selectSite($event)">
 						<el-option
 						v-for="item in provinces"
 						:key="item.id"
@@ -90,7 +90,7 @@
 					</el-select>
 				</el-form-item>
         		<el-form-item label="站点名称">
-					<el-select clearable v-model="differ_station_id" placeholder="请选择">
+					<el-select clearable v-model="differ_station_id" :disabled="showStation" placeholder="请选择">
 						<el-option
 						v-for="item in station_site"
 						:key="item.id"
@@ -197,11 +197,26 @@
 				end_time: '',	
 				oil_list: [],
 				num: 15,
+				showStation: false
       };
 		},
 		created: function() {
-			this.getNotDifferOil(this.province_id,this.station_id,this.begin_time,this.end_time,this.page_num,this.num);
-			this.getDifferOil(this.differ_province_id,this.differ_station_id,this.differ_begin_time,this.differ_end_time,this.differ_page_num,this.num,this.oil_id);
+			let tempId = localStorage.getItem('station_id');
+			if(tempId > 0) {
+					this.showStation = true;
+          getStationList({}).then(res => {
+          	if(res.data.status === 0) {
+            	this.station_site = res.data.data.station_site;
+          	}
+					this.station_id = parseInt(tempId);
+					this.differ_station_id = parseInt(tempId);
+        })
+				this.getNotDifferOil(this.province_id,tempId);
+				this.getDifferOil(this.differ_province_id,tempId);
+			}else{
+				this.getNotDifferOil(this.province_id,this.station_id,this.begin_time,this.end_time,this.page_num,this.num);
+				this.getDifferOil(this.differ_province_id,this.differ_station_id,this.differ_begin_time,this.differ_end_time,this.differ_page_num,this.num,this.oil_id);
+			}
 			this.getProvince();
 			this.getOil();
 		},
