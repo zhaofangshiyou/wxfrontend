@@ -76,6 +76,8 @@
           <span>升数(升)：{{consume_total.vol_total}}</span>
           <span style="margin-left: 50px">应收金额(元)：{{consume_total.money_total}}</span>
           <span style="margin-left: 50px">实收金额(元)：{{consume_total.actual_money_total}}</span>
+          <span style="margin-left: 50px">手续费(元)：{{consume_total.poundage_total}}</span>
+          <span style="margin-left: 50px">实际到账(元)：{{consume_total.wallet_recv_total}}</span>
         </div>
     </el-col>
 		<el-table :data="initList" highlight-current-row v-loading="listLoading"  style="width: 100%;">
@@ -100,6 +102,8 @@
       <el-table-column prop="discount" label="优惠金额">
 			</el-table-column>
       <el-table-column prop="poundage" label="手续费" >
+			</el-table-column>
+      <el-table-column prop="wallet_recv" label="实际到账">
 			</el-table-column>
       <el-table-column prop="actual_money" label="实收金额">
 			</el-table-column>

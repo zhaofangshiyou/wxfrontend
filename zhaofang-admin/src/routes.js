@@ -23,7 +23,12 @@ import echarts from './views/charts/echarts.vue'
 
 
 let routes = [
-    
+    {
+        path: '/',
+        name: '',
+        redirect: '/oil_init',
+        hidden: true
+    }, 
     {
         path: '/login',
         component: Login,

@@ -50,7 +50,9 @@
           <span>升数(升)：{{comsumer_total.vol_total}}</span>
           <span style="margin-left: 50px">应收金额(元)：{{comsumer_total.money_total}}</span>
           <span style="margin-left: 50px">实收金额(元)：{{comsumer_total.actual_money_total}}</span>
-        </div>
+					<span style="margin-left: 50px">手续费(元)：{{comsumer_total.poundage_total}}</span>
+          <span style="margin-left: 50px">实际到账(元)：{{comsumer_total.wallet_recv_total}}</span>
+				</div>
     </el-col>
 	  <el-table :data="notDifferOilList" highlight-current-row v-loading="listLoading" style="width: 100%;">
 			<el-table-column type="index" label="序号" width="100">
@@ -64,6 +66,10 @@
 			<el-table-column prop="money" label="应收金额" >
 			</el-table-column>
 			<el-table-column prop="actual_money" label="实收金额">
+			</el-table-column>
+			<el-table-column prop="poundage" label="手续费">
+			</el-table-column>
+			<el-table-column prop="wallet_recv" label="实际到账">
 			</el-table-column>
 			<el-table-column prop="currrent_time" label="汇总时间" >
 			</el-table-column>
@@ -135,7 +141,9 @@
           <span>升数(升)：{{differ_comsumer_total.vol_total}}</span>
           <span style="margin-left: 50px">应收金额(元)：{{differ_comsumer_total.money_total}}</span>
           <span style="margin-left: 50px">实收金额(元)：{{differ_comsumer_total.actual_money_total}}</span>
-        </div>
+					<span style="margin-left: 50px">手续费(元)：{{comsumer_total.poundage_total}}</span>
+          <span style="margin-left: 50px">实际到账(元)：{{comsumer_total.wallet_recv_total}}</span>
+				</div>
     </el-col>
 	  <el-table :data="differOilList" highlight-current-row v-loading="listLoading"  style="width: 100%;">
 			<el-table-column type="index" label="序号" width="100">
@@ -151,6 +159,10 @@
 			<el-table-column prop="money" label="应收金额" >
 			</el-table-column>
 			<el-table-column prop="actual_money" label="实收金额">
+			</el-table-column>
+			<el-table-column prop="poundage" label="手续费">
+			</el-table-column>
+			<el-table-column prop="wallet_recv" label="实际到账">
 			</el-table-column>
 			<el-table-column prop="currrent_time" label="汇总时间" >
 			</el-table-column>
