@@ -19,6 +19,8 @@ import invoiceManage from './views/nav4/invoiceManage'
 import invoiceBack from './views/nav4/invoiceBack'
 import userManage from './views/nav5/userManage.vue'
 import userConsumerDetail from './views/nav5/userConsumerDetail.vue'
+import roleManage from './views/nav6/roleManage'
+import operatorManage from './views/nav6/operatorManage'
 import echarts from './views/charts/echarts.vue'
 
 
@@ -100,6 +102,16 @@ let routes = [
         children: [
             { path: '/user_manage', component: userManage, name: '用户管理', id: 50 },
             { path: '/user_consumer_detail', component: userConsumerDetail, name: '用户消费明细', id: 51},
+        ]
+    },
+    {
+        path: '/',
+        component: Home,
+        name: '权限管理',
+        iconCls: 'iconfont icon-addressbook',
+        children: [
+            { path: '/role_manage', component: roleManage, name: '角色管理', id: 60 },
+            { path: '/operator_manage', component: operatorManage, name: '操作员管理', id: 61},
         ]
     },
     // {
