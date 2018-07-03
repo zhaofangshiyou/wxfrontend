@@ -19,6 +19,7 @@ import invoiceManage from './views/nav4/invoiceManage'
 import invoiceBack from './views/nav4/invoiceBack'
 import userManage from './views/nav5/userManage.vue'
 import userConsumerDetail from './views/nav5/userConsumerDetail.vue'
+import userBaseMeaasge from './views/nav5/userBaseMessage'
 import roleManage from './views/nav6/roleManage'
 import operatorManage from './views/nav6/operatorManage'
 import echarts from './views/charts/echarts.vue'
@@ -48,6 +49,7 @@ let routes = [
         path: '/',
         component: Home,
         name: '油站管理',
+        id: 1,
         iconCls: 'iconfont icon-manage',//图标样式class
         children: [
             { path: '/main', component: Main, name: '主页', hidden: true },
@@ -102,6 +104,7 @@ let routes = [
         children: [
             { path: '/user_manage', component: userManage, name: '用户管理', id: 50 },
             { path: '/user_consumer_detail', component: userConsumerDetail, name: '用户消费明细', id: 51},
+            { path: '/user_base_message', component: userBaseMeaasge, name: '用户基本信息', id: 52},
         ]
     },
     {
