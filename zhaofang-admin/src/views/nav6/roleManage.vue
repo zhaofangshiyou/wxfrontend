@@ -98,7 +98,7 @@
 </template>
 
 <script>
-    import { getRole, roleAdd, getRoleList,editRole,deleteInitOil } from '../../api/api';
+    import { getRole, roleAdd, getRoleList,editRole } from '../../api/api';
     import { messageWarn } from '../../common/js/commonMethod';
     export default {
         data() {
@@ -292,8 +292,8 @@
             },
             //导出表格
             outExcelTable() {
-                 let data = '&id='+ this.role_id; 
-                window.open('https://api.zfsyonline.com/v1/backen/roles/list?act=export'+data, '_blank');
+                let data = '&id='+ this.role_id; 
+                window.open('ttps://api.zfsyonline.com/v1/backen/roles/list?act=export'+data, '_blank');
             }
         },
     }

@@ -160,3 +160,14 @@ export const getRoleList= (params) => { return instance.get(`${url}/backen/roles
 //修改角色     /upd/:id
 export const editRole = (params,id) => { return instance.put(`${url}/backen/roles/upd/${id}`, qs.stringify(params)); };
 
+//后台用户用户接口 
+
+//新增用户  /add
+export const adminAdd = params => { return instance.post(`${url}/backen/users/add`, qs.stringify(params)); };
+
+//用户页面初始化 /list
+export const getAdmin= (params) => { return instance.get(`${url}/backen/users/list`, { params: params }); };
+
+//修改用户     /upd/:id
+export const editAdmin = (params,id) => { return instance.put(`${url}/backen/users/upd/${id}`, qs.stringify(params)); };
+

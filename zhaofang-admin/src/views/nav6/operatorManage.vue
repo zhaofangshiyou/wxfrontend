@@ -4,7 +4,7 @@
 		<el-col :span="24" class="toolbar" style="padding-bottom: 0px;">
 			<el-form :inline="true">
 				<el-form-item label="角色">
-					<el-select v-model="role" clearable placeholder="请选择" >
+					<el-select v-model="role_id" clearable placeholder="请选择" >
                         <el-option
                         v-for="item in role_list"
                         :key="item.id"
@@ -14,12 +14,12 @@
                     </el-select>
 				</el-form-item>
                 <el-form-item label="账号">
-                    <el-input v-model="addForm.role" placeholder="请输入油站名称" auto-complete="off"></el-input>
+                    <el-input v-model="login" placeholder="请输入油站名称" auto-complete="off"></el-input>
                 </el-form-item>
                 <el-form-item label="状态">
-					<el-select v-model="role" clearable placeholder="请选择" >
+					<el-select v-model="status" clearable placeholder="请选择" >
                         <el-option
-                        v-for="item in role_list"
+                        v-for="item in status_list"
                         :key="item.id"
                         :label="item.name"
                         :value="item.id">
@@ -39,27 +39,27 @@
         <el-col :span="24" class="tab_header">
             <div class="tab_head_title">列表</div>
             <el-button type="success" size="small" @click="outExcelTable">&nbsp;&nbsp;导出&nbsp;&nbsp;</el-button>
-            <el-button type="danger" size="small"  @click="batchRemove">批量删除</el-button>
+            <!-- <el-button type="danger" size="small"  @click="batchRemove">批量删除</el-button> -->
         </el-col>
 		<el-table :data="initList" highlight-current-row v-loading="listLoading" @selection-change="selsChange" style="width: 100%;">
 			<el-table-column type="selection" width="55">
 			</el-table-column>
 			<el-table-column type="index" label="序号" width="100">
 			</el-table-column>
-			<el-table-column prop="province" label="操作员名称" width="200">
+			<el-table-column prop="name" label="操作员名称" width="200">
 			</el-table-column>
-            <el-table-column prop="province" label="登入账号">
+            <el-table-column prop="login" label="登入账号">
 			</el-table-column>
-            <el-table-column prop="province" label="操作员角色">
+            <el-table-column prop="role_name" label="操作员角色">
 			</el-table-column>
-            <el-table-column prop="province" label="状态">
+            <el-table-column prop="status_name" label="状态">
 			</el-table-column>
-            <el-table-column prop="province" label="创建时间">
+            <el-table-column prop="created_time" label="创建时间">
 			</el-table-column>
 			<el-table-column label="操作" width="150">
 				<template scope="scope">
 					<el-button size="small" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
-                    <el-button type="danger" size="small" @click="handleDel(scope.$index, scope.row)">删除</el-button>
+                    <el-button type="danger" size="small" @click="handleDel(scope.$index, scope.row)">{{scope.row.status == 1? '禁用' : '启用'}}</el-button>
                 </template>
 			</el-table-column>
 		</el-table>
@@ -73,18 +73,18 @@
 		<el-dialog title="新增" v-model="addFormVisible" :close-on-click-modal="false">
 			<el-form :model="addForm" label-width="120px" ref="addForm">
 				<el-form-item label="操作员名称">
-					<el-input v-model="addForm.role" size="100" placeholder="请输入油站名称" auto-complete="off"></el-input>
+					<el-input v-model="addForm.name" size="100" placeholder="请输入名称" auto-complete="off"></el-input>
 				</el-form-item>
                 <el-form-item label="登入账号">
-					<el-input v-model="addForm.role" size="100" placeholder="请输入油站名称" auto-complete="off"></el-input>
+					<el-input v-model="addForm.login" size="100" placeholder="请输入登入账号" auto-complete="off"></el-input>
 				</el-form-item>
                 <el-form-item label="登入密码">
-					<el-input v-model="addForm.role" size="100" placeholder="请输入油站名称" auto-complete="off"></el-input>
+					<el-input v-model="addForm.password" size="100" type="password" placeholder="请输入登入密码" auto-complete="off"></el-input>
 				</el-form-item>
                 <el-form-item label="操作员角色">
-                    <el-select v-model="addForm.menu_list" multiple placeholder="请选择" size="100">
+                    <el-select v-model="addForm.role" placeholder="请选择" size="100">
                         <el-option
-                        v-for="item in allMenu"
+                        v-for="item in role_list"
                         :key="item.id"
                         :label="item.name"
                         :value="item.id">
@@ -92,14 +92,14 @@
                     </el-select>
                 </el-form-item>
                 <el-form-item label="范围选择">
-                    <el-select v-model="addForm.menu_list" multiple placeholder="请选择" size="100">
+                    <el-select v-model="addForm.station_list" multiple placeholder="请选择" size="100">
                         <el-option
-                        v-for="item in allMenu"
-                        :key="item.id"
-                        :label="item.name"
-                        :value="item.id">
+                            v-for="item in station_list"
+                            :key="item.id"
+                            :label="item.name"
+                            :value="item.id">
                         </el-option>
-                    </el-select>
+                        </el-select>
                 </el-form-item>
 			</el-form>
 			<div slot="footer" class="dialog-footer">
@@ -110,14 +110,30 @@
 
         <!--编辑界面-->
 		<el-dialog title="编辑" v-model="editFormVisible" :close-on-click-modal="false">
-			<el-form :model="editForm" label-width="80px" ref="addForm">
-				<el-form-item label="角色名称">
-					<el-input v-model="editForm.role" size="100" placeholder="请输入油站名称" auto-complete="off"></el-input>
+			<el-form :model="editForm" label-width="120px" ref="addForm">
+				<el-form-item label="操作员名称">
+					<el-input v-model="editForm.name" size="100" placeholder="请输入名称" auto-complete="off"></el-input>
 				</el-form-item>
-                <el-form-item label="权限设置">
-                    <el-select v-model="editForm.menu_list" multiple placeholder="请选择" size="100">
+                <el-form-item label="登入账号">
+					<el-input v-model="editForm.login" size="100" placeholder="请输入登入账号" auto-complete="off"></el-input>
+				</el-form-item>
+                <el-form-item label="登入密码">
+					<el-input v-model="editForm.password" size="100" type="password" placeholder="******" auto-complete="off"></el-input>
+				</el-form-item>
+                <el-form-item label="操作员角色">
+                    <el-select v-model="editForm.role_id" placeholder="请选择" size="100">
                         <el-option
-                        v-for="item in allMenu"
+                        v-for="item in role_list"
+                        :key="item.id"
+                        :label="item.name"
+                        :value="item.id">
+                        </el-option>
+                    </el-select>
+                </el-form-item>
+                <el-form-item label="范围选择">
+                    <el-select v-model="editForm.list" multiple placeholder="请选择" size="100">
+                        <el-option
+                        v-for="item in station_list"
                         :key="item.id"
                         :label="item.name"
                         :value="item.id">
@@ -135,7 +151,7 @@
 </template>
 
 <script>
-    import { getOilProduct,getStation, addStation, getProvince, editInitOil,deleteInitOil } from '../../api/api';
+    import { getRoleList,getStation, adminAdd, getAdmin, editAdmin,deleteInitOil } from '../../api/api';
     import { messageWarn } from '../../common/js/commonMethod';
     export default {
         data() {
@@ -148,10 +164,15 @@
                 addLoading: false,
                 //del_ids
                 del_ids: [],
+                station_list: [],
                 role: '',
 				addForm: {
+                    name: '',
+                    login: '',
+                    password: '',
                     role: '',
-                    menu_list: []
+                    station_id: '',
+                    station_list: []
                 },
                 editFormVisible: false,//编辑界面是否显示
 				editLoading: false,
@@ -159,78 +180,80 @@
 				editForm: {
                     id: '',
                     name: '',
-                    account: '',
+                    login: '',
                     password: '',
-                    role: '',
-                    station_list: []
+                    role_id: '',
+                    list: [],
 				},
                 total: 0,
                 page_num: 1,
                 num: 10,
-                allMenu:[
-                    
-                    {name: '油站初始化', id: 10},
-                    {name: '油枪油品设置', id: 11},
-                    {name: '油品价格设置', id: 12},
-                    {name: '消费明细', id: 20},
-                    {name: '消费汇总', id: 21},
-                    {name: '充值明细', id: 22},
-                    {name: '充值汇总', id: 23},
-                    {name: '往来账', id: 24},
-                    {name: '优惠信息', id: 30},
-                    {name: '优惠规则文案表', id: 31},
-                    {name: '发票管理', id: 40},
-                    {name: '已开票撤销', id: 41},
-                    {name: '用户管理', id: 50},
-                    {name: '用户消费明细', id: 51},
-                    {name: '用户基本信息', id: 52},
-                    {name: '角色管理', id: 60},
-                    {name: '操作员管理', id: 61},
-                ]
+                status_list: [
+                    {id: 1, name: '启用'},
+                    {id: 0,name: '禁用'}
+                ],
+                role_id: '',
+                login: '',
+                status: ''
             }
         },
         created:function() {
-            
+            this.getRoleList();
+            this.getStation();
+            this.getList(this.role_id,this.login,this.status,this.page_num,this.num);
         },
         methods: {
-
-            getList(province_id,id,page_num,num) {
-                this.listLoading = true;
-                let params = {
-                    province_id: province_id,
-                    id: id,
-                    page_num: page_num,
-                    num: num
-                };
-                getStation(params).then(res => {
-                    this.listLoading = false;
+            //获取油站列表
+            getStation() {
+                getStation({}).then(res => {
                     if(res.data.status===0) {
-                        this.initList = res.data.data.station_list;
-                        this.pro_list = res.data.data.province_list;
-                        this.total = res.data.data.station_num;
+                        this.station_list = res.data.data.station_list;
                     }else{
                         messageWarn(res.data.msg);
                     }
                 })
             },
-            addStation(province_id,name,oil_gum_nums,address,province,oil_list,type,avatar_url,city) {
+            //获取角色列表
+            getRoleList() {
+                getRoleList({}).then(res => {
+                    if(res.data.status === 0) {
+                        this.role_list = res.data.data.role_list;
+                    }else{
+                        messageWarn(res.data.msg);
+                    }
+                })
+            },
+            getList(role_id,login,status,page_num,num) {
                 let params = {
-                    id: '',
-                    province_id: province_id,
+                    role_id: role_id,
+                    login: login,
+                    status: status,
+                    page_num: page_num,
+                    num: num
+                };
+                getAdmin(params).then(res => {
+                    if(res.data.status === 0) {
+                        this.initList = res.data.data.backen_user_list;
+                        this.total = res.data.data.backen_user_cnt;
+                    }else{
+                        messageWarn(res.data.msg);
+                    }
+                })
+                
+            },
+            adminAdd(name,login,password,role,station_id) {
+                let params = {
                     name: name,
-                    oil_gum_nums: oil_gum_nums,
-                    province: province,
-                    address: address,
-                    oil_list: oil_list,
-                    avatar_url: this.editForm.avatar_url,
-                    city: this.editForm.city,
-                    type: type
+                    login: login,
+                    password: password,
+                    role: role,
+                    station_id: station_id
                 }
-                addStation(params).then(res =>{
+                adminAdd(params).then(res =>{
                     if(res.data.status === 0) {
                         messageWarn('添加成功');
                         this.addFormVisible = false;
-                        this.getList(this.provice,this.station,this.page_num,this.num);
+                        this.getList(this.role_id,this.login,this.status,this.page_num,this.num);
                     }else{
                         messageWarn(res.data.msg);
                     }
@@ -238,53 +261,58 @@
             },
             //提交新增
             addSubmit: function() {
-                let  oil_list = this.addForm.oil_list.join(',');
-                this.addStation(this.addForm.province_id,this.addForm.name,this.addForm.oil_gum_nums,this.addForm.address,this.addForm.province,oil_list,this.addForm.type);
+                let  station_id = this.addForm.station_list.join(',');
+                this.adminAdd(this.addForm.name,this.addForm.login,this.addForm.password,this.addForm.role,station_id);
 
             },
             //显示新增界面
 			handleAdd: function () {
 				this.addFormVisible = true;
 				this.addForm = {
+                    name: '',
+                    login: '',
+                    password: '',
                     role: '',
-                    menu_list: []
-                };
+                    station_id: '',
+                    station_list: []
+                }
             },
             //查询
             searchList: function() {
                 this.page_num = 1;
-                this.getList(this.provice,this.station,this.page_num,this.num); 
+                this.getList(this.role_id,this.login,this.status,this.page_num,this.num); 
             },
             //编辑
             handleEdit(index, row) {
                 this.editFormVisible = true;
-                this.editForm = Object.assign({}, row);
-                let temp_arr = [];
-                for(let i=0; i<row.oil_id_list.length; i++) {
-                    temp_arr.push(row.oil_id_list[i].oil_id);
+                this.editForm.list.length = 0;
+                this.editForm.id = row.id;
+                this.editForm.name = row.name;
+                this.editForm.login = row.login;
+                this.editForm.password = '';
+                this.editForm.role_id = Number(row.role_id);
+                var tempStation = row.station_id.split(',');
+                for(let i=0; i<tempStation.length; i++) {
+                    this.editForm.list.push(Number(tempStation[i]));
                 }
-                this.editForm.oil_list = temp_arr;
+                
             },
 
             //编辑提交
             editSubmit() {
-                let oil_list = this.editForm.oil_list.join(',');
+                let list = this.editForm.list.join(',');
                 let param = {
-                    province_id: this.editForm.province_id,
                     name: this.editForm.name,
-                    oil_gum_nums: this.editForm.oil_gum_nums,
-                    address: this.editForm.address,
-                    province: this.editForm.province,
-                    oil_list: oil_list,
-                    avatar_url: this.editForm.avatar_url,
-                    city: this.editForm.city,
-                    type: this.editForm.type
+                    login: this.editForm.login,
+                    password: this.editForm.password,
+                    role: this.editForm.role_id,
+                    station_id: list
                 }
-               editInitOil(param,this.editForm.id).then(res => {
+               editAdmin(param,this.editForm.id).then(res => {
                    if(res.data.status === 0) {
                        messageWarn('编辑成功');
                        this.editFormVisible = false;
-                       this.getList();
+                       this.getList(this.role_id,this.login,this.status,this.page_num,this.num); 
                    }else{
                        messageWarn(res.data.msg); 
                    }
@@ -326,11 +354,44 @@
             },
             handleCurrentChange(val) {
                 this.page_num = val;
-                this.getList(this.province,this.station,this.page_num,this.num);
+                this.getList(this.role_id,this.login,this.status,this.page_num,this.num);
+            },
+            handleDel: function(index,row) {
+                 this.$confirm('是否修改用户状态?', '提示', {
+					type: 'warning'
+				}).then(() => {
+                    this.listLoading = true;
+                    let status = "";
+                    if(row.status == 0) {
+                        status = 1;
+                    }else{
+                        status = 0;
+                    }
+                    
+                    let params = {
+                        status: status
+                    }
+					editAdmin(params,row.id).then((res) => {
+						this.listLoading = false;
+                        //NProgress.done();
+                            if(res.data.status === 0){
+                                this.$message({
+                                message: '修改成功',
+                                type: 'success'
+                            });
+                            this.getList(this.role_id,this.login,this.status,this.page_num,this.num);
+                        }else{
+                            messageWarn(res.data.msg);
+                        }
+					});
+				}).catch(() => {
+
+				});
             },
             //导出表格
             outExcelTable() {
-                window.open('https://api.zfsyonline.com/v1/backen/station?act=export&province_id='+this.provice+'&id='+this.station, '_blank');
+                let data = '&id='+ this.role_id + '&login=' + this.login + '&status=' + this.status; 
+                window.open('ttps://api.zfsyonline.com/v1/backen/users/list?act=export'+data, '_blank');
             }
         },
     }
