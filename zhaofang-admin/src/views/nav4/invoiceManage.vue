@@ -72,13 +72,7 @@
       }
     },
     created: function() {
-      let tempId = localStorage.getItem('station_id');
-      if(tempId > 0) {
-        this.station_id = tempId;
         this.getList(this.card_no,this.page_num,this.num, this.station_id);
-      }else{
-        this.getList(this.card_no,this.page_num,this.num, this.station_id);
-      }
     },
     methods: {
       handleEdit(index,row) {

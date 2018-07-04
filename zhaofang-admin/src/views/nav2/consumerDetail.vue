@@ -4,7 +4,7 @@
 		<el-col :span="24" class="toolbar" style="padding-bottom: 0px;">
 			<el-form :inline="true">
 				<el-form-item label="省份">
-					<el-select v-model="province_id" :disabled="showStation" clearable placeholder="请选择省份" @change="selectSite($event)">
+					<el-select v-model="province_id"  clearable placeholder="请选择省份" @change="selectSite($event)">
             <el-option
               v-for="item in provinces"
               :key="item.id"
@@ -15,7 +15,7 @@
           </el-select>
 				</el-form-item>
         <el-form-item label="站点名称">
-					<el-select v-model="station_id" :disabled="showStation" clearable placeholder="请选择站点名称">
+					<el-select v-model="station_id"  clearable placeholder="请选择站点名称">
             <el-option
               v-for="item in station_site"
               :key="item.id"
@@ -144,24 +144,12 @@
         oil_list: [],
         consume_total: {},
         pay_way: [{'type':0,'name': '个人卡'},{'type': 1,'name': '单位卡'},{'type': 3, 'name': '微信支付'}],
-        showStation: false
        // args:[page_num,num,province_id,station_id,oil_id,begin_time,end_time,vol_min,vol_max,pay_channel]
       }
     },
     created: function() {
-        if(localStorage.getItem('station_id') > 0) {
-          this.showStation = true;
-          getStationList({}).then(res => {
-            if(res.data.status === 0) {
-              this.station_site = res.data.data.station_site;
-            }
-            this.station_id = parseInt(localStorage.getItem('station_id'));
-          })
-          this.getList(this.page_num,this.num,this.province_id,localStorage.getItem('station_id'));
-        }else{
-          this.getProvince();
-          this.getList(this.page_num,this.num,this.province_id,this.station_id,this.oil_id,this.begin_time,this.end_time,this.vol_min,this.vol_max,this.pay_channel);
-        }
+        this.getProvince();
+        this.getList(this.page_num,this.num,this.province_id,this.station_id,this.oil_id,this.begin_time,this.end_time,this.vol_min,this.vol_max,this.pay_channel);
         this.getOil();
     },
     methods: {

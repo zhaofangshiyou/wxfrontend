@@ -72,7 +72,7 @@
 </template>
 
 <script>
-	import { getUserMess } from '../api/api';
+	import { getUserMess, logout } from '../api/api';
   	import { messageWarn } from '../common/js/commonMethod';
 	export default {
 		data() {
@@ -131,8 +131,16 @@
 				this.$confirm('确认退出吗?', '提示', {
 					//type: 'warning'
 				}).then(() => {
-					localStorage.removeItem('user_id');
-					_this.$router.push('/login');
+					logout({}).then(res => {
+						if(res.data.status === 0 ) {
+							localStorage.removeItem('user_id');
+							_this.$router.push('/login');
+						}else{
+							messageWarn(res.data.msg);
+						}
+					})
+					
+					
 				}).catch(() => {
 
 				});

@@ -5,9 +5,11 @@ let base = '';
 let instance = axios.create({
     headers: {
       'content-type': 'application/x-www-form-urlencoded'
-    }
-    
+    },
+    withCredentials: true
   })
+
+  //axios.defaults.withCredentials = true
 
 // let url = 'https://api.zfsyonline.com/v1';
 let url = 'http://192.168.1.118:8080/v1';
@@ -30,6 +32,9 @@ export const addUser = params => { return axios.get(`${base}/user/add`, { params
 
 //用户登录
 export const login = params => { return instance.post(`${url}/backen/auth/login`, qs.stringify(params)); };
+
+//登出接口
+export const logout = params => { return instance.post(`${url}/backen/auth/logout`, qs.stringify(params)); };
 
 //获取用户数据
 export const getUserMess = params => { return instance.get(`${url}/backen/auth/user`, { params: params }); };
