@@ -367,7 +367,7 @@
             },
             //导出表格
             outExcelTable() {
-                window.open('https://api.zfsyonline.com/v1/backen/oil/gum?act=export&station_id='+ this.oil_station, '_blank');
+                window.open(this.GLOBAL.url + '/backen/oil/gum?act=export&station_id='+ this.oil_station, '_blank');
             }
          }
      }

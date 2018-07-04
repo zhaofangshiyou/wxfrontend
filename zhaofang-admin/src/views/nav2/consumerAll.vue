@@ -329,12 +329,12 @@
 			//不区分油品导出
 			outExcelTable() {
 				let data = '&type=1&province_id=' + this.province_id + '&station_id=' + this.station_id + '&begin_time=' + this.begin_time + '&end_time='+ this.end_time;
-				window.open('https://api.zfsyonline.com/v1/backen/consume?act=export'+ data, '_blank');
+				window.open(this.GLOBAL.url + '/backen/consume?act=export'+ data, '_blank');
 			},
 			//区分油品
 			differ_outExcelTable() {
 				let data = '&type=2&oil_id='+this.oil_id+'province_id=' + this.differ_province_id + '&station_id=' + this.differ_station_id + '&begin_time=' + this.differ_begin_time + '&end_time='+ this.differ_end_time;
-				window.open('https://api.zfsyonline.com/v1/backen/consume?act=export'+ data, '_blank');
+				window.open(this.GLOBAL.url + '/backen/consume?act=export'+ data, '_blank');
 			}
     }
   };

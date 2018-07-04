@@ -421,7 +421,7 @@
             },
             //导出表格
             outExcelTable() {
-                window.open('https://api.zfsyonline.com/v1/backen/oil/price?act=export&province_id='+ this.provice_id, '_blank');
+                window.open(this.GLOBAL.url + '/backen/oil/price?act=export&province_id='+ this.provice_id, '_blank');
             }
         }
     }

@@ -626,7 +626,7 @@
             outExcelTable() {
                 console.log(this.begin_time);
                 let data = '&province_id='+ this.provice_id + '&station_id=' + this.station_id + '&begin_time='+ this.begin_time + '&end_time=' + this.end_time; 
-                window.open('https://api.zfsyonline.com/v1/backen/discount?act=export'+data, '_blank');
+                window.open(this.GLOBAL.url + '/backen/discount?act=export'+data, '_blank');
             }
         }
     }

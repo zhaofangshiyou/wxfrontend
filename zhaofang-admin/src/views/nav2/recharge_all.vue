@@ -137,7 +137,7 @@
       //导出表格
       outExcelTable() {
         let data = '&province_id='+ this.province_id + '&station_id=' + this.station_id; 
-        window.open('https://api.zfsyonline.com/v1/backen/recharge?act=export'+data, '_blank');
+        window.open(this.GLOBAL.url + '/backen/recharge?act=export'+data, '_blank');
       }
     }
   }

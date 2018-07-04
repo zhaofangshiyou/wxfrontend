@@ -293,7 +293,7 @@
             //导出表格
             outExcelTable() {
                 let data = '&id='+ this.role_id; 
-                window.open('ttps://api.zfsyonline.com/v1/backen/roles/list?act=export'+data, '_blank');
+                window.open(this.GLOBAL.url + '/backen/roles/list?act=export'+data, '_blank');
             }
         },
     }

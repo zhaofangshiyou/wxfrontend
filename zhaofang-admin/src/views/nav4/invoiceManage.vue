@@ -126,7 +126,7 @@
       //导出表格
       outExcelTable() {
         let data = '&card_no='+ this.card_no + '&station_id=' + this.station_id; 
-        window.open('https://api.zfsyonline.com/v1/backen/invoice?act=export'+data, '_blank');
+        window.open(this.GLOBAL.url + '/backen/invoice?act=export'+data, '_blank');
       }
     }
   }

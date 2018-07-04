@@ -1,5 +1,6 @@
 import axios from 'axios';
 import qs from 'qs';
+import _global from '../config/GLOBAL'
 
 let base = '';
 let instance = axios.create({
@@ -10,9 +11,8 @@ let instance = axios.create({
   })
 
   //axios.defaults.withCredentials = true
-
-// let url = 'https://api.zfsyonline.com/v1';
-let url = 'http://192.168.1.118:8080/v1';
+  
+let url = _global.url;
 
 export const requestLogin = params => { return axios.post(`${base}/login`, params).then(res => res.data); };
 

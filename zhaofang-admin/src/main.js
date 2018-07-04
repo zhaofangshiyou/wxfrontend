@@ -22,12 +22,14 @@ import '../static/UE/ueditor.config.js'
 import '../static/UE/ueditor.all.min.js'
 import '../static/UE/lang/zh-cn/zh-cn.js'
 import '../static/UE/ueditor.parse.min.js'
+import global_ from './config/GLOBAL'//引用文件
 
 Vue.use(ElementUI)
 Vue.use(VueRouter)
 Vue.use(Vuex)
 
 //NProgress.configure({ showSpinner: false });
+Vue.prototype.GLOBAL = global_
 
 const router = new VueRouter({
   routes

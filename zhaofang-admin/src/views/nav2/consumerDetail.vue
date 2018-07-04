@@ -225,7 +225,7 @@
       //导出表格
       outExcelTable() {
         let data = '&province_id='+ this.province_id + '&station_id=' + this.station_id + '&oil_id=' + this.oil_id + '&begin_time='+ this.begin_time + '&end_time=' + this.end_time + '&vol_min=' + this.vol_min + '&vol_max=' + this.vol_max + '&pay_channel=' + this.pay_channel; 
-        window.open('https://api.zfsyonline.com/v1/backen/consume/detail?act=export'+data, '_blank');
+        window.open(this.GLOBAL.url + '/backen/consume/detail?act=export'+data, '_blank');
       }
     }
   }

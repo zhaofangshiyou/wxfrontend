@@ -391,7 +391,7 @@
             //导出表格
             outExcelTable() {
                 let data = '&id='+ this.role_id + '&login=' + this.login + '&status=' + this.status; 
-                window.open('ttps://api.zfsyonline.com/v1/backen/users/list?act=export'+data, '_blank');
+                window.open(this.GLOBAL.url + '/backen/users/list?act=export'+data, '_blank');
             }
         },
     }

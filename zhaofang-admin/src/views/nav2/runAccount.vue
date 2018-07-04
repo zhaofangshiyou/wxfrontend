@@ -106,7 +106,7 @@
         //导出表格
       outExcelTable() {
         let data = '&oil_id='+ this.oil_id + '&begin_time='+ this.begin_time + '&end_time=' + this.end_time; 
-        window.open('https://api.zfsyonline.com/v1/backen/accounts?act=export'+data, '_blank');
+        window.open(this.GLOBAL.url + '/backen/accounts?act=export'+data, '_blank');
       }
 
 
