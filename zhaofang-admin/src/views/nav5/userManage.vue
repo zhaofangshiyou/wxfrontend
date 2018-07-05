@@ -116,7 +116,7 @@
             //NProgress.done();
             if(res.data.status === 0){
                 this.$message({
-                message: '删除成功',
+                message: '注销成功',
                 type: 'success'
             });
                 this.getList(this.card_no,this.page_num,this.num);

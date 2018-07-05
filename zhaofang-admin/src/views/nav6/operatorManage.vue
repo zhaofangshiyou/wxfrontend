@@ -48,11 +48,13 @@
 			</el-table-column>
 			<el-table-column prop="name" label="操作员名称" width="200">
 			</el-table-column>
-            <el-table-column prop="login" label="登入账号">
+            <el-table-column prop="login" label="登入账号" width="200">
 			</el-table-column>
             <el-table-column prop="role_name" label="操作员角色">
 			</el-table-column>
-            <el-table-column prop="status_name" label="状态">
+            <el-table-column prop="station_name" label="可操作油站">
+			</el-table-column>
+            <el-table-column prop="status_name" label="状态" width="100">
 			</el-table-column>
             <el-table-column prop="created_time" label="创建时间">
 			</el-table-column>
@@ -151,7 +153,7 @@
 </template>
 
 <script>
-    import { getRoleList,getStation, adminAdd, getAdmin, editAdmin,deleteInitOil } from '../../api/api';
+    import { getRoleList,getStation, getStationList,adminAdd, getAdmin, editAdmin,deleteInitOil } from '../../api/api';
     import { messageWarn } from '../../common/js/commonMethod';
     export default {
         data() {
@@ -205,9 +207,12 @@
         methods: {
             //获取油站列表
             getStation() {
-                getStation({}).then(res => {
+                let params = {
+                    src: 'all'
+                }
+                getStationList(params).then(res => {
                     if(res.data.status===0) {
-                        this.station_list = res.data.data.station_list;
+                        this.station_list = res.data.data.station_site;
                     }else{
                         messageWarn(res.data.msg);
                     }

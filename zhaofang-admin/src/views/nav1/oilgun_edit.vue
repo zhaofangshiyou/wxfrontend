@@ -299,6 +299,7 @@
 				};
 			},
             handleEdit(index,row) {
+                this.stationChange(row.id);
                 this.editFormVisible = true;
 				this.editForm = Object.assign({}, row);
             },

@@ -25,7 +25,7 @@
 				<!--导航菜单-->
 				<el-menu :default-active="$route.path" class="el-menu-vertical-demo" @open="handleopen" @close="handleclose" @select="handleselect"
 					 unique-opened router v-if="!collapsed">
-					<template v-for="(item,index) in $router.options.routes" v-if="!item.hidden">
+					<template v-for="(item,index) in $router.options.routes" v-if="!item.hidden && showMain(item.children)">
 						<el-submenu :index="index+''" v-if="!item.leaf">
 							<template slot="title"><i :class="item.iconCls"></i>{{item.name}}</template>
 							<el-menu-item v-for="child in item.children" :index="child.path" :key="child.path" v-if="!child.hidden && showNav(child.id)">{{child.name}}</el-menu-item>
@@ -100,6 +100,18 @@
 			this.getUserMess();
 		},
 		methods: {
+			//顶级菜单是否显示
+			showMain(item) {
+				for(let i=0; i< item.length; i++) {
+					if(item[0].id) {
+						for(let j=0; j< this.authId.length; j++) {
+							if(item[0].id == this.authId[j]) {
+								return true;
+							}
+						}
+					}
+				}
+			},
 			getUserMess() {
 				let id = localStorage.getItem('user_id');
 				let params = {
@@ -115,7 +127,7 @@
 				})
 			},
 			onSubmit() {
-				console.log('submit!');
+
 			},
 			handleopen() {
 				//console.log('handleopen');
