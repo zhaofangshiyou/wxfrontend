@@ -1,6 +1,6 @@
 import axios from 'axios';
 import qs from 'qs';
-import _global from '../config/GLOBAL'
+import _global from '../config/GLOBAL';
 
 let base = '';
 let instance = axios.create({
@@ -10,7 +10,16 @@ let instance = axios.create({
     withCredentials: true
   })
 
-  //axios.defaults.withCredentials = true
+  instance.interceptors.response.use(res => {
+    if(res.data.status === 401 || res.data.status === 402) {
+      localStorage.removeItem('user_id');
+      window.location.href = '/login';
+    } 
+    return res;
+  },function (error)  {
+    return Promise.reject(error)
+  }
+);
   
 let url = _global.url;
 

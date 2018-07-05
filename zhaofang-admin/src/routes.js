@@ -52,13 +52,13 @@ let routes = [
         id: 1,
         iconCls: 'iconfont icon-manage',//图标样式class
         children: [
-            { path: '/main', component: Main, name: '主页', hidden: true },
+            // { path: '/main', component: Main, name: '主页', hidden: true, id: 13 },
             { path: '/oil_init', component: OilInit, name: '油站初始化', id: 10},
             { path: '/oilgun_edit', component: OilgunEdit, name: '油枪油品设置', id: 11 },
             { path: '/oil_price', component: OilPrice, name: '油品价格设置', id: 12 },
-            { path: '/table', component: Table, name: 'Table' },
-            { path: '/form', component: Form, name: 'Form',  },
-            { path: '/user', component: user, name: '列表' },
+            // { path: '/table', component: Table, name: 'Table' },
+            // { path: '/form', component: Form, name: 'Form',  },
+            // { path: '/user', component: user, name: '列表' },
         ]
     },
     {
