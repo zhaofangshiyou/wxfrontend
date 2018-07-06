@@ -63,7 +63,7 @@
         login(params).then(res => {
           if(res.data.status === 0) {
             localStorage.setItem('user_id', res.data.data.id);
-             _this.$router.push({ path: '/oil_init' });
+             _this.$router.push({ path: '/welcome' });
           }else{
             messageWarn(res.data.msg)
           }

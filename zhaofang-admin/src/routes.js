@@ -23,13 +23,14 @@ import userBaseMeaasge from './views/nav5/userBaseMessage'
 import roleManage from './views/nav6/roleManage'
 import operatorManage from './views/nav6/operatorManage'
 import echarts from './views/charts/echarts.vue'
+import welcome from './views/welcome/welcome'
 
 
 let routes = [
     {
         path: '/',
         name: '',
-        redirect: '/oil_init',
+        redirect: '/welcome',
         hidden: true
     }, 
     {
@@ -39,10 +40,15 @@ let routes = [
         hidden: true
     },
     {
-        path: '/404',
-        component: NotFound,
-        name: '',
-        hidden: true
+        path: '/',
+        component: Home,
+        hidden: true,
+        name: '欢迎页面',
+        iconCls: 'iconfont icon-coupons',
+        // leaf: true,//只有一个节点
+        children: [
+            { path: '/welcome', component: welcome, name: '欢迎页面', id: 0},
+        ]
     },
     //{ path: '/main', component: Main },
     {
