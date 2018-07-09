@@ -48,7 +48,7 @@
 			</el-table-column>
 			<el-table-column prop="name" label="操作员名称" width="200">
 			</el-table-column>
-            <el-table-column prop="login" label="登入账号" width="200">
+            <el-table-column prop="login" label="账号" width="200">
 			</el-table-column>
             <el-table-column prop="role_name" label="操作员角色">
 			</el-table-column>

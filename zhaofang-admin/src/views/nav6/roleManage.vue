@@ -181,6 +181,13 @@
                             {label: '操作员管理', id: 61}, 
                         ]
                     },
+                    {
+                        id: 7,
+                        label: '全局配置',
+                        children: [
+                            {label: '全局配置', id: 70}, 
+                        ]
+                    },
                 ],
                     defaultProps: {
                         children: 'children',

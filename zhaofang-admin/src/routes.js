@@ -24,6 +24,7 @@ import roleManage from './views/nav6/roleManage'
 import operatorManage from './views/nav6/operatorManage'
 import echarts from './views/charts/echarts.vue'
 import welcome from './views/welcome/welcome'
+import global from './views/nav7/global'
 
 
 let routes = [
@@ -117,10 +118,19 @@ let routes = [
         path: '/',
         component: Home,
         name: '权限管理',
-        iconCls: 'iconfont icon-addressbook',
+        iconCls: 'iconfont icon-lock',
         children: [
             { path: '/role_manage', component: roleManage, name: '角色管理', id: 60 },
             { path: '/operator_manage', component: operatorManage, name: '操作员管理', id: 61},
+        ]
+    },
+    {
+        path: '/',
+        component: Home,
+        name: '全局配置',
+        iconCls: 'iconfont icon-setup',
+        children: [
+            { path: '/global', component: global, name: '全局配置', id: 70 },
         ]
     },
     // {
