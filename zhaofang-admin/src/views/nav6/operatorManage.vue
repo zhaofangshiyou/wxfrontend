@@ -94,7 +94,7 @@
                     </el-select>
                 </el-form-item>
                 <el-form-item label="范围选择">
-                    <el-select v-model="addForm.station_list" multiple placeholder="请选择" size="100">
+                    <el-select v-model="addForm.station_list" multiple placeholder="请选择" @change="handleAddSelect" size="100">
                         <el-option
                             v-for="item in station_list"
                             :key="item.id"
@@ -133,7 +133,7 @@
                     </el-select>
                 </el-form-item>
                 <el-form-item label="范围选择">
-                    <el-select v-model="editForm.list" multiple placeholder="请选择" size="100">
+                    <el-select v-model="editForm.list" multiple placeholder="请选择" @change="handleEditSelect" size="100">
                         <el-option
                         v-for="item in station_list"
                         :key="item.id"
@@ -166,7 +166,7 @@
                 addLoading: false,
                 //del_ids
                 del_ids: [],
-                station_list: [],
+                station_list: [{id: 0, name: '全选'}],
                 role: '',
 				addForm: {
                     name: '',
@@ -205,6 +205,26 @@
             this.getList(this.role_id,this.login,this.status,this.page_num,this.num);
         },
         methods: {
+            //编辑范围选择变化
+            handleEditSelect() {
+                let index_id_0 = this.editForm.list.indexOf(0);
+                if(index_id_0 > -1){
+                    this.editForm.list.length = 0;
+                    for(let i=1; i < this.station_list.length; i++) {
+                        this.editForm.list.push(this.station_list[i].id);
+                    }
+                }
+            },
+            //新增范围选择变化
+            handleAddSelect() {
+                let index_id_0 = this.addForm.station_list.indexOf(0);
+                if(index_id_0 > -1){
+                    this.addForm.station_list.length = 0;
+                    for(let i=1; i < this.station_list.length; i++) {
+                        this.addForm.station_list.push(this.station_list[i].id);
+                    }
+                }
+            },
             //获取油站列表
             getStation() {
                 let params = {
@@ -212,7 +232,7 @@
                 }
                 getStationList(params).then(res => {
                     if(res.data.status===0) {
-                        this.station_list = res.data.data.station_site;
+                        this.station_list = this.station_list.concat(res.data.data.station_site);
                     }else{
                         messageWarn(res.data.msg);
                     }
@@ -266,6 +286,10 @@
             },
             //提交新增
             addSubmit: function() {
+                if(this.addForm.station_list.length === 0) {
+                     messageWarn('范围选择不能为空');
+                     return;
+                }
                 let  station_id = this.addForm.station_list.join(',');
                 this.adminAdd(this.addForm.name,this.addForm.login,this.addForm.password,this.addForm.role,station_id);
 
@@ -296,16 +320,33 @@
                 this.editForm.login = row.login;
                 this.editForm.password = '';
                 this.editForm.role_id = Number(row.role_id);
-                var tempStation = row.station_id.split(',');
-                for(let i=0; i<tempStation.length; i++) {
-                    this.editForm.list.push(Number(tempStation[i]));
-                }
+                 var tempStation = [];
+                if(row.station_id == '*') {
+                    for(let j=1;j < this.station_list.length; j++) {
+                        this.editForm.list.push(Number(this.station_list[j].id));
+                    }
+                }else{
+                   tempStation = row.station_id.split(',');
+                   for(let i=0; i<tempStation.length; i++) {
+                        this.editForm.list.push(Number(tempStation[i]));
+                    }
+                } 
                 
             },
 
             //编辑提交
             editSubmit() {
-                let list = this.editForm.list.join(',');
+                let list = '';
+                if(this.editForm.list.length === 0){
+                    messageWarn('范围选择不能为空');
+                    return;
+                }
+
+                if(this.editForm.list.length == this.station_list.length) {
+                    list = '*';
+                }else{
+                    list = this.editForm.list.join(',');
+                }
                 let param = {
                     name: this.editForm.name,
                     login: this.editForm.login,

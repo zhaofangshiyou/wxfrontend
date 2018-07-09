@@ -87,7 +87,7 @@
 			</el-table-column>
 			<el-table-column prop="station_name" label="站点名称" width="180">
 			</el-table-column>
-      <el-table-column prop="cc_flow_id" label="流水号">
+      <el-table-column prop="trade_no" label="流水号">
 			</el-table-column>
 			<el-table-column prop="card_no" label="卡号" width="180">
 			</el-table-column>
