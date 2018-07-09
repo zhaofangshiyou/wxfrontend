@@ -1,13 +1,15 @@
 <!--pages/my/my.wxml-->
 <view class="content">
    <view class="header">
-        <image class="header_bg" src="{{img_url}}/bg.png"></image>
-        <view class="header_mess">
-            <view class="avatar_box">
-                <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
-            </view>
-            <view class="user_name">{{userInfo.nickName}}</view>
-            <view class="user_id">兆方VIP会员</view>
+        <view class="header_box">
+                <view class="header_mess">
+                        <view class="avatar_box">
+                                <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+                        </view>
+                        <view class="user_name">{{userInfo.nickName}}</view>
+                        <view class="user_id">兆方VIP会员</view>
+                </view>
+                <image class="header_bottom_bg" src="{{img_url}}/header_bottom_bg.png"></image>
         </view>
    </view>
    <!-- <button open-type='getUserInfo' >获取授权</button> -->

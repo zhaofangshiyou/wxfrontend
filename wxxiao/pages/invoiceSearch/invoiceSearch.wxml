@@ -1,6 +1,5 @@
 <!--pages/invoiceSearch/invoiceSearch.wxml-->
 <wxs module="dateFr" src="../../filter/dateFilter.wxs"></wxs>
-<header title="发票管理"></header>
 <view class="container">
     <view class="tab">
         <view class="tab_item" data-tabIndex="1" bindtap="changeTab">

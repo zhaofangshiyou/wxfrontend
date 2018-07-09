@@ -10,30 +10,12 @@
     z-index: 10000;
     width: 100%;
     box-sizing: border-box;
-    height: 312rpx;
-    padding: 68rpx 30rpx 0 30rpx;
-    background:linear-gradient(135deg,rgba(249,100,50,1),rgba(253,146,70,1));
-}
-.header{
-   padding-top: 10rpx;
-}
-.header_title{
-    height: 34rpx;
-    line-height: 34rpx;
-    font-size:34rpx;
-    color:rgba(255,255,255,1);
-    text-align: center;
-    width: 100%;
-}
-.goBack{
-    position: absolute;
-    top: 50rpx;
-    left: 10rpx;
-    padding: 20rpx;
-}
-.left_icon{
-    width: 15rpx;
-    height: 30rpx;
+    height: 184rpx;
+    padding: 0rpx 30rpx;
+    background: -webkit-linear-gradient(#F96432, #FD9246); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#F96432, #FD9246); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#F96432, #FD9246); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#F96432, #FD9246); /* 标准的语法 */
 }
 
 .header_msg{
@@ -92,7 +74,7 @@
     flex-direction:column;
     overflow:hidden;
     background: #f5f5f5;
-    padding-top: 332rpx;
+    padding-top: 184rpx;
 }
 .point_list{
     background: #fff;

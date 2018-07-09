@@ -3,7 +3,8 @@ import httpService from './http/http.js';
 const app = getApp();
 App({
   config: {
-    host: 'https://api.zfsyonline.com/v1',
+    //  host: 'https://api.zfsyonline.com/v1', //线上环境
+    host: 'https://test.zfsyonline.com/v1', //测试环境
     img_url: 'https://api.zfsyonline.com/images',
     header: ` {
       'Content-Type": "application/x-www-form-urlencoded'
@@ -14,7 +15,7 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        httpService.sendRrquest('https://api.zfsyonline.com/v1/user',{},{code: res.code},'POST')
+        httpService.sendRrquest(this.config.host + '/user',{},{code: res.code},'POST')
         .then((res) => {
           if(res.data.status===0) {
             wx.setStorageSync('user_id', res.data.data.user.id);

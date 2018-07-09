@@ -2,12 +2,6 @@
 <wxs module="dateFr" src="../../filter/dateFilter.wxs"></wxs>
 <view class="page_content">
     <view class="header_box">
-        <view class="header">
-            <view class="goBack" bindtap="goBack">
-                <image class="left_icon" src="{{img_url}}/left.png"></image>
-            </view>
-            <view class="header_title">积分查询</view> 
-        </view>
         <view class="header_msg">
             <view class="header_msg_left">
                 <image class="avatar" src="{{img_url}}/point_avatar.png"></image>

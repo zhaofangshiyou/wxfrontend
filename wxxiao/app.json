@@ -28,11 +28,11 @@
     "pages/discountDoc/discountDoc",
     "pages/chooseOrder/chooseOrder"
   ],
-  "window": {
+  "window":{
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F96432",
     "navigationBarTitleText": "兆方石油",
     "navigationBarTextStyle": "#fff",
-    "navigationStyle": "custom"
+    "navigationStyle": "default"
   }
 }

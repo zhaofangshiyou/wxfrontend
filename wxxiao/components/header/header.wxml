@@ -1,7 +1,7 @@
 <!--components/header/header.wxml-->
-<view class="header">
+<!-- <view class="header">
   <view class="goBack" bindtap="goBack" hidden="{{showBack}}">
     <image class="left_icon" src="{{img_url}}/left.png"></image>
   </view>
   <view class="header_title">{{title}}</view>  
-</view>
+</view> -->

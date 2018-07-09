@@ -1,6 +1,5 @@
 <!--pages/search/search.wxml-->
 <wxs module="dateFr" src="../../filter/dateFilter.wxs"></wxs>
-<header title="交易查询"></header>
 <view class="container">
     <view class="header_box">
         <view class="tab">

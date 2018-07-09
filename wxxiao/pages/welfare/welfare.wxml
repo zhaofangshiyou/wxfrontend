@@ -1,9 +1,6 @@
 <!--pages/welfare/welfare.wxml-->
 <view class="welfare_bg" wx:if="{{img_url}}">
-    <view class="back" bindtap="goBack">
-        <image class="back_icon" src="{{img_url}}/Shape@2x.png"></image>
-    </view>
-    <image class="bg_icon" src="http://123.207.109.73/upload/weChat/gy_bg.png" mode="widthFix"></image>
+    <image class="bg_icon" src="{{img_url}}/gy_bg.png" mode="widthFix"></image>
     <view class="welfare_content">
         <view class="gy_notice">
             <image class="title_icon" src="{{img_url}}/gy_title.png" widthFix></image>

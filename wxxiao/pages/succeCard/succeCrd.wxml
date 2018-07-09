@@ -16,6 +16,7 @@
                 <view class="money">¥{{balance}}</view>
                 <view class="recharge" wx:if="{{type != 2}}" bindtap="recharge">充值</view>
             </view>
+            <view class="text monOil">本月累计优惠升数：180升</view>
         </view>
     </view>
     <view class="warn">

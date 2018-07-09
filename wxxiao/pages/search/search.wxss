@@ -10,8 +10,6 @@
     color: #bdbdbd;
 }
 .header_box{
-    position: fixed;
-    top: 128rpx;
     width: 100%;
     z-index: 999;
     background: #f5f5f5;
@@ -41,7 +39,7 @@
     color: #F96432;
 }
 .noData{
-    margin-top: 420rpx;
+    margin-top: 212rpx;
     box-sizing: border-box;
     text-align: center;
     position:relative;
@@ -135,7 +133,7 @@
     position: fixed;
     width: 100%;
     box-sizing: border-box;
-    top: 330rpx;
+    top: 110rpx;
     bottom: 0;
     background:rgba(51,51,51,0.3);
     z-index: 99999;

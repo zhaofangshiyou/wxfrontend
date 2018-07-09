@@ -1,6 +1,6 @@
 <!--pages/catType/carType.wxml-->
 <header title="车型信息"></header>
-<scroll-view scroll-y="true" style="height: {{winHeight}}px;margin-top:128rpx;" scroll-into-view="{{scrollTopId}}" class="city_list">
+<scroll-view scroll-y="true" style="height: {{winHeight}}px;" scroll-into-view="{{scrollTopId}}" class="city_list">
     <view wx:for="{{carList}}" wx:for-index="idx" wx:for-item="ABC">
         <view id="{{idx}}" class="list_tit">{{idx}}</view>
         <view wx:for="{{ABC}}" data-sub="{{item.List}}" data-brand="{{item.N}}" bindtap="subType">

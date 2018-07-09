@@ -1,5 +1,4 @@
 <!--index.wxml-->
-<header showBack="false"></header>
 <view class="container">
   <view class="content">
     <image class="banner"  src="{{img_url}}/home_banner.png" mode="widthFix">  

@@ -1,4 +1,5 @@
 {
+    "navigationBarTitleText": "发票管理",
     "usingComponents": {
         "header": "../../components/header/header"
     }

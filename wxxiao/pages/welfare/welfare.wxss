@@ -23,22 +23,11 @@
     z-index: 10;
 }
 
-.back{
-    position: absolute;
-    z-index: 10;
-    padding: 20rpx;
-    top: 30rpx;
-    left: 10rpx;
-}
-.back_icon{
-    width: 15rpx;
-    height: 30rpx;
-}
 .welfare_content{
     width: 100%;
     position: absolute;
     z-index: 20;
-    top: 740rpx;
+    top: 642rpx;
     padding: 30rpx;
     box-sizing: border-box;
 }
@@ -68,7 +57,7 @@
     color:rgba(249,100,50,1); 
 }
 .welfare_acount{
-    margin-top: 48rpx;
+    margin-top: 40rpx;
     display: flex;
     justify-content: space-between;
 }
