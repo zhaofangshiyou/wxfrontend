@@ -14,6 +14,7 @@ Page({
     haveCard: true,
     haveMenuCard: true,
     balance: 0,
+    discount_vol: '0.00',
     img_url: app.config.img_url
   },
   finishSubmi: function() {
@@ -35,9 +36,16 @@ Page({
           if(res.data.status === 0) {
             if(this.data.type == 1 || this.data.type == 6 || this.data.type == 0) {
               var temp_number = this.joinCard(res.data.data.card.card_prefix,res.data.data.card.id.toString());
+              let temp_vol = '';
+              if(JSON.stringify(res.data.data.discount_vol) == 'null') {
+                temp_vol = '0.00'
+              }else{
+                temp_vol = res.data.data.discount_vol;
+              }
               that.setData({
                 card_num: temp_number,
-                balance: res.data.data.card.person_balance
+                balance: res.data.data.card.person_balance,
+                discount_vol: temp_vol
               })
             }else if(this.data.type == 2) {
               that.setData({
