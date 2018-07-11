@@ -13,7 +13,7 @@
             <view class="choose_money">
                 <view class="accounce_box {{money_num==5000?'show_notice':'hide_notice'}}" bindtap="goDisconutDoc">
                     <image class="accounce_icon"   src="{{img_url}}/home_icon_inform.png"></image>
-                    <text class="accounce_text">最高优惠1.2元/升，点击了解详情</text>
+                    <text class="accounce_text">最高优惠0.8元/升，点击了解详情</text>
                 </view>
                 <view class="money_list">
                     <view data-moneyNum="500" bindtap="select_money" class="choose_item {{money_num==500?'active':''}}">¥500</view>
@@ -22,7 +22,7 @@
                     <view data-moneyNum="5000" bindtap="select_money" class="choose_item {{money_num==5000?'active':''}}">
                         ¥5000
                         <view class="discount">
-                            <image class="discount_icon"  src="{{img_url}}/discount.png"></image>
+                            <image class="discount_icon"  src="{{img_url}}/tuijian.png"></image>
                         </view>
                     </view>
                 </view>
