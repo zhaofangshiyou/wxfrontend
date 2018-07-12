@@ -32,7 +32,7 @@ Page({
             total_fee: this.data.money_num
         },
         success: function(res){
-            if(res.data.status == 100){
+            if(res.data.status === 0){
                 var payModel = res.data;
                 wx.requestPayment({
                     'timeStamp': payModel.timestamp,
@@ -54,6 +54,10 @@ Page({
                       util.warnMsg(res.err_desc);
                     }
                 })
+            }else if(res.data.status === 3) {
+              wx.navigateTo({
+                url: '../../pages/openCard/openCard'
+              })
             }
         },
         fail: function(){

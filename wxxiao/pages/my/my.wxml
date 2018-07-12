@@ -19,7 +19,7 @@
                 <image class="enter_img" src="{{img_url}}/zf_pay.png"></image>
                 <text class="enter_name">兆方车上付</text>
            </view>
-           <view class="enter_item" data-link="../../pages/myCard/myCard" bindtap="goNext">
+           <view class="enter_item" data-link="../../pages/succeCard/succeCrd?title=个人卡&type=1" bindtap="goRecharge">
                 <image class="enter_img" src="{{img_url}}/zf_card.png"></image>
                 <text class="enter_name">我的兆方卡</text>
            </view>
@@ -31,7 +31,7 @@
        <view class="enter_list enter_top">
             <view class="enter_item" data-link="../../pages/recharge/recharge" bindtap="goRecharge">
                     <image class="enter_img" src="{{img_url}}/add_copy.png"></image>
-                    <text class="enter_name">兆方卡充值</text>
+                    <text class="enter_name">我要充值</text>
             </view>
             
             <view class="enter_item" data-link="../../pages/modifyPass/modifyPass" bindtap="goNext">
