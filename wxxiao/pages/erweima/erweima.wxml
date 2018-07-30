@@ -1,2 +1,6 @@
 <!--pages/erweima/erweima.wxml-->
-<text>pages/erweima/erweima.wxml</text>
+<view class="erweima">
+  <view class="code_box">
+    <canvas style="width: 200px; height: 200px;" canvas-id="myQrcode"></canvas>
+  </view>
+</view>

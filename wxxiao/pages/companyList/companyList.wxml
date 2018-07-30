@@ -1,0 +1,61 @@
+<!--pages/companyList/companyList.wxml-->
+<view class="company">
+  <scroll-view scroll-y="true" class="list">
+    <view class="item">
+      <view class="compony-mess">
+        <image class="company_icon" src="{{img_url}}/company_icon.png"></image>
+        <view class="company-name">深圳市兆方石油化工股份有限公司</view>
+        <image class="right_icon"  src="{{img_url}}/home_icon_enter.png"></image>
+      </view>
+      <view class="btn-box">
+        <view class="edit">编辑</view>
+        <view class="delete">删除</view>
+      </view>
+    </view>
+    <view class="item">
+        <view class="compony-mess">
+          <image class="company_icon" src="{{img_url}}/home_icon_inform.png"></image>
+          <view class="company-name">深圳市兆方石油化工股份有限公司</view>
+          <image class="right_icon"  src="{{img_url}}/home_icon_enter.png"></image>
+        </view>
+        <view class="btn-box">
+          <view class="edit">编辑</view>
+          <view class="delete">删除</view>
+        </view>
+      </view>
+      <view class="item">
+          <view class="compony-mess">
+            <image class="company_icon" src="{{img_url}}/company_icon.png"></image>
+            <view class="company-name">深圳市兆方石油化工股份有限公司</view>
+            <image class="right_icon"  src="{{img_url}}/home_icon_enter.png"></image>
+          </view>
+          <view class="btn-box">
+            <view class="edit">编辑</view>
+            <view class="delete">删除</view>
+          </view>
+        </view>
+        <view class="item">
+            <view class="compony-mess">
+              <image class="company_icon" src="{{img_url}}/home_icon_inform.png"></image>
+              <view class="company-name">深圳市兆方石油化工股份有限公司</view>
+              <image class="right_icon"  src="{{img_url}}/home_icon_enter.png"></image>
+            </view>
+            <view class="btn-box">
+              <view class="edit">编辑</view>
+              <view class="delete">删除</view>
+            </view>
+          </view>
+          <view class="item">
+              <view class="compony-mess">
+                <image class="company_icon" src="{{img_url}}/home_icon_inform.png"></image>
+                <view class="company-name">深圳市兆方石油化工股份有限公司</view>
+                <image class="right_icon"  src="{{img_url}}/home_icon_enter.png"></image>
+              </view>
+              <view class="btn-box">
+                <view class="edit">编辑</view>
+                <view class="delete">删除</view>
+              </view>
+            </view>
+  </scroll-view>
+  <view class="add_btn">+ 添加发票抬头</view>
+</view>

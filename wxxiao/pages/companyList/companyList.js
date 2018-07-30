@@ -1,32 +1,26 @@
-// pages/erweima/erweima.js
-import drawQrcode from '../../utils/weapp.qrcode.esm.js'
-
+// pages/companyList/companyList.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    img_url: app.config.img_url
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    drawQrcode({
-      width: 200,
-      height: 200,
-      canvasId: 'myQrcode',
-      text: ' https://test.zfsyonline.com/v1/backen/invoice?page_num=1&num=10'
-    })
+  
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+  
   },
 
   /**

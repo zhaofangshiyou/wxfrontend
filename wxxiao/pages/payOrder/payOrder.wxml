@@ -36,4 +36,7 @@
        </view> 
     </view>
     <sureBtn text="完成" bind:sureEvent="paySubmi"></sureBtn>
+    <view class="goBilling">
+      <view class="billing_btn">打印发票</view>
+    </view>
 </view>
