@@ -1,0 +1,11 @@
+<!--pages/succeCard/scanSuccess.wxml-->
+<!--pages/erweima/erweima.wxml-->
+<view class="erweima">
+  <view class="code_box">
+    <image class="success_icon"  src="{{img_url}}/icon_success@2x.png"></image>
+    <view class="title">{{title}}</view>
+    <view class="note">{{note}}</view>
+    <view class="goBack">返回首页</view>
+  </view>
+</view>
+

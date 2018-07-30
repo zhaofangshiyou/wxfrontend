@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/succeCard/scanSuccess",
     "pages/invoiceDetail/invoiceDetail",
     "pages/invoiceTitle/invoiceTitle",
     "pages/index/index",
