@@ -15,10 +15,10 @@ Page({
    */
   onLoad: function (options) {
     drawQrcode({
-      width: 200,
-      height: 200,
+      width: 250,
+      height: 250,
       canvasId: 'myQrcode',
-      text: ' https://test.zfsyonline.com/v1/backen/invoice?page_num=1&num=10'
+      text: 'http://www.baidu.com'
     })
   },
 

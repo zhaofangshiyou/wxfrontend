@@ -14,4 +14,17 @@
   height: 870rpx;
   background: #FFF;
   text-align: center;
+  padding-top: 94rpx;
+}
+.code_title{
+  font-size:36rpx;
+  color:rgba(51,51,51,1);
+  display: block;
+}
+.code_mess{
+  margin-top: 80rpx;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
