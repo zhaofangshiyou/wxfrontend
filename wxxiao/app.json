@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/erweima/erweima",
     "pages/index/index",
     "pages/openCard/openCard",
     "pages/welfare/welfare",
@@ -28,7 +29,7 @@
     "pages/discountDoc/discountDoc",
     "pages/chooseOrder/chooseOrder"
   ],
-  "window":{
+  "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F96432",
     "navigationBarTitleText": "兆方石油",
