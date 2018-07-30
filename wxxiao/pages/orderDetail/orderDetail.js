@@ -56,7 +56,7 @@ Page({
               Fluid:  this.data.orderDetail.trade_no
           },
           success: function(res){
-              if(res.data.status == 100){
+              if(res.data.status === 0){
                   var payModel = res.data;
                   wx.requestPayment({
                       'timeStamp': payModel.timestamp,
@@ -70,7 +70,6 @@ Page({
                           //     icon: 'success',
                           //     duration: 2000
                           // })
-                          console.log(res);
                           let orderDetail = JSON.stringify(self.data.orderDetail);
                           wx.navigateTo({
                             url: '../../pages/payOrder/payOrder?orderDetail='+orderDetail + '&actualMonney=' + self.data.actualMonney + '&discountMoney=' + self.data.discountMoney

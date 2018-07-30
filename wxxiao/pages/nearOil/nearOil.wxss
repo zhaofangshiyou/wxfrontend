@@ -19,14 +19,15 @@
 .oil_item{
     display: flex;
     padding: 30rpx 30rpx 30rpx 0;
-    height: 150rpx;
+    /* height: 150rpx; */
     box-sizing: border-box;
     justify-content: space-between;
     border-bottom: 1rpx solid #efefef;
 }
 .oil_left{
     display: flex;
-    align-items: center;
+    align-items: top;
+    width:100%;
 }
 .address_image{
     width: 90rpx;
@@ -34,10 +35,20 @@
 }
 .message{
     margin-left: 20rpx;
+    margin-top: 8rpx;
+    flex: 1;
 }
 .title{
-    font-size:30rpx;
     color:rgba(36,39,43,1);
+    font-size: 0;
+    line-height: 30rpx;
+    height: 30rpx;
+    display: flex;
+    justify-content: space-between;
+}
+.oil_station_name{
+    vertical-align: middle;
+    font-size: 30rpx;
 }
 .address{
     font-size:24rpx;
@@ -46,15 +57,54 @@
 }
 .oil_right{
     text-align: right;
+    vertical-align:middle;
+
 }
 .nav_image{
-    width: 32rpx;
-    height: 32rpx;
-    padding-right: 23rpx;
+    width: 26rpx;
+    height: 26rpx;
+    display: inline-block;
+    /* padding-right: 23rpx; */
 
 }
 .distance{
+    display: inline-block;
     font-size:24rpx;
     color:rgba(249,100,50,1);
-    margin-top: 16rpx;
+}
+.discount_list{
+    padding-right:80rpx;
+
+}
+
+.discount_item{
+    margin-top: 20rpx;
+    font-size: 0;
+    display: inline-block;
+    margin-left: 20rpx;
+}
+.discount_item:nth-child(3n+1){
+    margin-left: 0;
+}
+.oil_message{
+    font-size:22rpx;
+    color:rgba(51,51,51,1);
+    display: inline-block;
+    vertical-align: middle;
+}
+.icon_down{
+    width: 14rpx;
+    height: 20rpx;
+    display: inline-block;
+    vertical-align: middle;
+}
+.discount_num{
+    display: inline-block;
+    vertical-align: middle;
+    padding: 6rpx 8rpx;
+    text-align: center;
+    font-size:20rpx;
+    color:rgba(255,255,255,1);
+    background:linear-gradient(135deg,rgba(249,100,50,1),rgba(253,146,70,1));
+    border-radius:30rpx;
 }

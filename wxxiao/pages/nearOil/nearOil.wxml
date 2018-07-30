@@ -12,13 +12,32 @@
                     <view class="oil_left">
                         <image class="address_image" src="{{img_url}}/img01.png"></image>
                         <view class="message">
-                            <view class="title">{{item.name}}</view>
+                            <view class="title">
+                                <view class="oil_station_name">{{item.name}}</view>
+                                <view class="oil_right">
+                                    <view class="distance">{{dateFr.floor(item.distance)}}km</view>
+                                    <image class="nav_image"  src="{{img_url}}/nav.png"></image>
+                                </view>
+                            </view>
                             <view class="address">{{item.address}}</view>
+                            <!-- <view class="discount_list">
+                                <view class="discount_item">
+                                    <view class="oil_message">92#</view>
+                                    <image class="icon_down" src="{{img_url}}/icon_down.png"></image>
+                                    <view class="discount_num">0.8元/升</view>
+                                </view>
+                                <view class="discount_item">
+                                    <view class="oil_message">92#</view>
+                                    <image class="icon_down" src="{{img_url}}/icon_down.png"></image>
+                                    <view class="discount_num">0.8元/升</view>
+                                </view>
+                                <view class="discount_item">
+                                    <view class="oil_message">92#</view>
+                                    <image class="icon_down" src="{{img_url}}/icon_down.png"></image>
+                                    <view class="discount_num">0.8元/升</view>
+                                </view>
+                            </view> -->
                         </view>
-                    </view>
-                    <view class="oil_right">
-                        <image class="nav_image"  src="{{img_url}}/nav.png"></image>
-                        <view class="distance">{{dateFr.floor(item.distance)}}km</view>
                     </view>
             </view>
         </view> 
