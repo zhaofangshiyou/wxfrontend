@@ -1,6 +1,7 @@
 {
   "pages": [
-    "pages/erweima/erweima",
+    "pages/invoiceDetail/invoiceDetail",
+    "pages/invoiceTitle/invoiceTitle",
     "pages/index/index",
     "pages/companyList/companyList",
     "pages/payOrder/payOrder",
@@ -16,7 +17,6 @@
     "pages/modifyPass/modifyPass",
     "pages/nearOil/nearOil",
     "pages/recharge/recharge",
-    "pages/invoiceTitle/invoiceTitle",
     "pages/invoices/invoices",
     "pages/succeCard/succeCrd",
     "pages/carType/carType",
@@ -28,6 +28,7 @@
     "pages/points/points",
     "pages/pointRule/pointRule",
     "pages/discountDoc/discountDoc",
+    "pages/erweima/erweima",
     "pages/chooseOrder/chooseOrder"
   ],
   "window": {
