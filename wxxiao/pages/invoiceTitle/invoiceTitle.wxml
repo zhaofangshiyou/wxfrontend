@@ -1,6 +1,6 @@
 <!--pages/invoiceTitle/invoiceTitle.wxml-->
 <view class="container box_padding">
-    <view class="wxImport_box">
+    <view class="wxImport_box" bindtap="importTitle">
       <view class="wx_title">微信导入</view>
       <image  class="go_icon"  src="{{img_url}}/home_icon_enter.png"></image>
     </view>
@@ -52,23 +52,23 @@
                      </view>
                      <view class="section2">
                          <view class="section2_title">税号</view>
-                         <input data-flag="2" bindinput="special_invoice_input" class="person_text" name="special_tax" placeholder="请输入抬头名称" placeholder-style="color:#BDBDBD " />
+                         <input data-flag="2" bindinput="special_invoice_input" class="person_text" name="special_tax" placeholder="请输入纳税人识别号" placeholder-style="color:#BDBDBD " />
                      </view>
                      <view class="section2">
                         <view class="section2_title">单位地址</view>
-                        <input data-flag="3" bindinput="special_invoice_input" class="person_text" name="special_address" placeholder="请输入抬头名称" placeholder-style="color:#BDBDBD " />
+                        <input data-flag="3" bindinput="special_invoice_input" class="person_text" name="special_address" placeholder="请输入所填单位的地址" placeholder-style="color:#BDBDBD " />
                     </view>
                     <view class="section2">
                         <view class="section2_title">电话号码</view>
-                        <input data-flag="4" bindblur="checkPhone" bindinput="special_invoice_input" class="person_text" name="special_phone" placeholder="请输入抬头名称" placeholder-style="color:#BDBDBD " />
+                        <input data-flag="4" bindblur="checkPhone" bindinput="special_invoice_input" class="person_text" name="special_phone" placeholder="请输入登记的电话号码" placeholder-style="color:#BDBDBD " />
                     </view>
                     <view class="section2">
                         <view class="section2_title">开户银行</view>
-                        <input data-flag="5" bindinput="special_invoice_input" class="person_text" name="special_bank" placeholder="请输入抬头名称" placeholder-style="color:#BDBDBD " />
+                        <input data-flag="5" bindinput="special_invoice_input" class="person_text" name="special_bank" placeholder="请输入开户行名称" placeholder-style="color:#BDBDBD " />
                     </view>
                     <view class="section2">
                         <view class="section2_title">银行账户</view>
-                        <input data-flag="6" bindinput="special_invoice_input" class="person_text" name="special_account" placeholder="请输入抬头名称" placeholder-style="color:#BDBDBD " />
+                        <input data-flag="6" bindinput="special_invoice_input" class="person_text" name="special_account" placeholder="请输入开户行的银行账号" placeholder-style="color:#BDBDBD " />
                     </view>
                 </view>
                  <view class="btn_area">

@@ -46,28 +46,15 @@ Page({
       })
     }
   },
-  //公司发票分类切换
-  companyTabChange: function(e) {
-    if(e.currentTarget.dataset.tabindex==1) {
-      this.setData({
-        "showCompany.normal": true,
-        "showCompany.add_normal": false,
-        "showCompany.add_special": false
-      })
-    }else if(e.currentTarget.dataset.tabindex==2) {
-      this.setData({
-        "showCompany.normal": false,
-        "showCompany.add_normal": true,
-        "showCompany.add_special": false
-      })
-    }else{
-      this.setData({
-        "showCompany.normal": false,
-        "showCompany.add_normal": false,
-        "showCompany.add_special": true
-      })
-    }
+
+  importTitle: function() {
+    wx.chooseInvoiceTitle({
+      success(res) {
+        console.log(res);
+      }
+    })
   },
+
   //个人发票提交
   personSubmit: function(e) {
     wx.navigateBack();
