@@ -9,15 +9,15 @@
   <view class="invoice_mess">
     <view class="item">
       <view class="item_left">抬头类型</view>
-      <view class="item_right">单位</view>
+      <view class="item_right">{{com_list[0].type==0?'个人':'单位'}}</view>
     </view>
     <view class="item">
       <view class="item_left">抬头名称</view>
-      <view class="item_right">深圳市兆方石油化工股份有限公司</view>
+      <view class="item_right">{{com_list[0].title}}</view>
     </view>
     <view class="item">
       <view class="item_left">税号</view>
-      <view class="item_right">91440300590738709G</view>
+      <view class="item_right">{{com_list[0].tax_number}}</view>
     </view>
     <view class="item">
       <view class="item_left">发票内容</view>
@@ -35,19 +35,19 @@
     <view class="more_item_box" wx:if="{{showMore}}">
         <view class="more_item">
           <view class="item_left">单位地址</view>
-          <view class="item_right">深圳市福田区彩田南路中深花园大厦A座 </view>
+          <view class="item_right">{{com_list[0].address}}</view>
         </view>
         <view class="more_item">
           <view class="item_left">电话号码</view>
-          <view class="item_right">0755-83454205 </view>
+          <view class="item_right">{{com_list[0].phone}}</view>
         </view>
         <view class="more_item">
           <view class="item_left">开户银行</view>
-          <view class="item_right">中国银行福田支行</view>
+          <view class="item_right">{{com_list[0].bank_name}}</view>
         </view>
         <view class="more_item">
           <view class="item_left">银行账户</view>
-          <view class="item_right">622066810722189</view>
+          <view class="item_right">{{com_list[0].bank_account}}</view>
         </view>
     </view>
   </view>

@@ -1,4 +1,6 @@
 // pages/invoiceDetail/invoiceDetail.js
+import httpService from '../../http/http.js';
+import util from '../../utils/util.js'
 const app = getApp();
 Page({
 
@@ -8,7 +10,8 @@ Page({
   data: {
     img_url: app.config.img_url,
     showMore: false,
-    type: 1
+    type: 1,
+    com_list: []
   },
 
   showMoreMess: function() {
@@ -31,7 +34,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.getDetail(options.id);
+  },
+
+  getDetail: function(id) {
+    let url = app.config.host + '/invoice';
+    let data = {};
+    let params = {
+      user_id: wx.getStorageSync('user_id'),
+      id: id
+    };
+    let method = 'GET';
+    httpService.sendRrquest(url,data,params,method).then(res => {
+      if(res.data.status === 0) {
+        this.setData({
+          com_list: res.data.data
+        })
+        console.log(this.data.com_list);
+      }else{
+        util.warnMsg(res.data.msg);
+      }
+    })
   },
 
   /**

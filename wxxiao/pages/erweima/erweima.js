@@ -18,7 +18,7 @@ Page({
       width: 250,
       height: 250,
       canvasId: 'myQrcode',
-      text: 'http://www.baidu.com'
+      text: 'skfjdkhljklkjk'
     })
   },
 
