@@ -21,7 +21,7 @@
                             </view>
                             <view class="address">{{item.address}}</view>
                             <view class="discount_list">
-                                <view class="discount_item" wx:for="{{item.discount}}" wx:for-item="child">
+                                <view class="discount_item" wx:for="{{item.discount}}" wx:for-item="child" wx:if="{{child.value}}">
                                     <view class="oil_message">{{child.name}}</view>
                                     <image class="icon_down" src="{{img_url}}/icon_down.png"></image>
                                     <view class="discount_num">{{child.value}}元/升</view>

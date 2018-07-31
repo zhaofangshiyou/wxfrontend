@@ -56,6 +56,7 @@ Page({
                 that.data.oil_list[i].discount.push({name: '0#', value: res.data.data.stations[i].discount_rule.oil_0});
                 that.data.oil_list[i].discount.push({name: '10#', value: res.data.data.stations[i].discount_rule.oil_10});
                 that.data.oil_list[i].discount.push({name: '98#', value: res.data.data.stations[i].discount_rule.oil_98});
+                that.data.oil_list[i].discount.push({name: '20#', value: res.data.data.stations[i].discount_rule.oil_20});
               }
             }
             that.setData({
