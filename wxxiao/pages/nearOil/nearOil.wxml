@@ -8,7 +8,7 @@
         <view class="section_title">附近兆方油站</view>
         <view scroll-y style="height:35vh;overflow-y:scroll" >
         <view class="oil_box">
-            <view class="oil_item" wx:for="{{oil_list}}" data-address="{{item.address}}" data-name="{{item.name}}" data-lon="{{item.longitude}}" data-lat="{{item.latitude}}" bindtap="goOilStation">
+            <view class="oil_item" wx:for="{{oil_list}}" wx:for-item="item" data-address="{{item.address}}" data-name="{{item.name}}" data-lon="{{item.longitude}}" data-lat="{{item.latitude}}" bindtap="goOilStation">
                     <view class="oil_left">
                         <image class="address_image" src="{{img_url}}/img01.png"></image>
                         <view class="message">
@@ -20,23 +20,13 @@
                                 </view>
                             </view>
                             <view class="address">{{item.address}}</view>
-                            <!-- <view class="discount_list">
-                                <view class="discount_item">
-                                    <view class="oil_message">92#</view>
+                            <view class="discount_list">
+                                <view class="discount_item" wx:for="{{item.discount}}" wx:for-item="child">
+                                    <view class="oil_message">{{child.name}}</view>
                                     <image class="icon_down" src="{{img_url}}/icon_down.png"></image>
-                                    <view class="discount_num">0.8元/升</view>
+                                    <view class="discount_num">{{child.value}}元/升</view>
                                 </view>
-                                <view class="discount_item">
-                                    <view class="oil_message">92#</view>
-                                    <image class="icon_down" src="{{img_url}}/icon_down.png"></image>
-                                    <view class="discount_num">0.8元/升</view>
-                                </view>
-                                <view class="discount_item">
-                                    <view class="oil_message">92#</view>
-                                    <image class="icon_down" src="{{img_url}}/icon_down.png"></image>
-                                    <view class="discount_num">0.8元/升</view>
-                                </view>
-                            </view> -->
+                            </view>
                         </view>
                     </view>
             </view>

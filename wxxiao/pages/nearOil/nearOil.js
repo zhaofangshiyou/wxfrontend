@@ -47,6 +47,17 @@ Page({
         let method = 'GET';
         httpService.sendRrquest(url,data,params,method).then(res => {
           if(res.data.status === 0) {
+            that.data.oil_list = res.data.data.stations;
+            for(let i=0; i< res.data.data.stations.length; i++) {
+              that.data.oil_list[i].discount = [];
+              if(res.data.data.stations[i].discount_rule) {
+                that.data.oil_list[i].discount.push({name: '92#', value: res.data.data.stations[i].discount_rule.oil_92});
+                that.data.oil_list[i].discount.push({name: '95#', value: res.data.data.stations[i].discount_rule.oil_95});
+                that.data.oil_list[i].discount.push({name: '0#', value: res.data.data.stations[i].discount_rule.oil_0});
+                that.data.oil_list[i].discount.push({name: '10#', value: res.data.data.stations[i].discount_rule.oil_10});
+                that.data.oil_list[i].discount.push({name: '98#', value: res.data.data.stations[i].discount_rule.oil_98});
+              }
+            }
             that.setData({
               oil_list: res.data.data.stations
             })
