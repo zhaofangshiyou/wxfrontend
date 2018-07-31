@@ -11,6 +11,11 @@ Page({
     note: '发票打印中，请耐心等待'
   },
 
+  paySubmi: function() {
+    wx.reLaunch({
+      url: '../../pages/index/index'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

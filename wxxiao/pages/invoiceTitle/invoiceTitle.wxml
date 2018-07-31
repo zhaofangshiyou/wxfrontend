@@ -1,26 +1,38 @@
 <!--pages/invoiceTitle/invoiceTitle.wxml-->
 <view class="container box_padding">
+    <view class="wxImport_box">
+      <view class="wx_title">微信导入</view>
+      <image  class="go_icon"  src="{{img_url}}/home_icon_enter.png"></image>
+    </view>
     <view class="tab">
-        <view class="tabType">抬头类型</view>
-        <view class="tab_item" data-index="1" bindtap="changeTab">
-            <image wx:if="{{showPerson}}" class="choose_icon"   src="{{img_url}}/icon_choice.png"></image>
-            <image wx:if="{{!showPerson}}" class="choose_icon"  src="{{img_url}}/icon_normal.png"></image>
-            <view class="tab_text">个人</view>
-        </view>
-        <view class="tab_item company" data-index="2" bindtap="changeTab">
-            <image wx:if="{{!showPerson}}" class="choose_icon"  src="{{img_url}}/icon_choice.png"></image>
-            <image wx:if="{{showPerson}}" class="choose_icon"  src="{{img_url}}/icon_normal.png"></image>
-            <text class="tab_text">公司</text>
+        <view class="tab_box">
+          <view class="tabType">抬头类型</view>
+          <view class="tab_item" data-index="1" bindtap="changeTab">
+              <image wx:if="{{showPerson}}" class="choose_icon"   src="{{img_url}}/icon_choice.png"></image>
+              <image wx:if="{{!showPerson}}" class="choose_icon"  src="{{img_url}}/icon_normal.png"></image>
+              <view class="tab_text">个人</view>
+          </view>
+          <view class="tab_item company" data-index="2" bindtap="changeTab">
+              <image wx:if="{{!showPerson}}" class="choose_icon"  src="{{img_url}}/icon_choice.png"></image>
+              <image wx:if="{{showPerson}}" class="choose_icon"  src="{{img_url}}/icon_normal.png"></image>
+              <text class="tab_text">公司</text>
+          </view>
         </view>
     </view>
 
     <!-- 个人抬头start -->
     <view class="person_box" wx:if="{{showPerson}}">
         <form bindsubmit="personSubmit">
-                <view class="section">
-                    <view class="section_title">抬头名称</view>
-                    <input bindinput="personInput" class="person_text" name="person_input" placeholder="请输入抬头名称" placeholder-style="color:#BDBDBD " />
-                </view>
+              <view class="setion_box">
+                  <view class="section">
+                      <view class="section_title">抬头名称</view>
+                      <input bindinput="personInput" class="person_text" name="person_input" placeholder="请输入抬头名称" placeholder-style="color:#BDBDBD " />
+                  </view>
+                  <view class="section">
+                      <view class="section_title">手机号码</view>
+                      <input bindinput="personInput" class="person_text" name="person_input" placeholder="请输入您的手机号码" placeholder-style="color:#BDBDBD " />
+                  </view>
+              </view>
                 <view class="btn_area">
                     <button disabled="{{personDisable}}" style="border: 0px;box-shadow: 0px 4rpx 10rpx 0px rgba(249,100,50,0.3);line-height: 90rpx;font-size: 30rpx;color: #fff;height: 90rpx;border-radius: 45rpx;width: 100%;background: linear-gradient(135deg,rgba(249,100,50,1),rgba(253,146,70,1))" formType="submit"  >保存</button>
                 </view>
@@ -30,49 +42,8 @@
 
     <!--公司发票start-->
     <view class="company_box" wx:if="{{!showPerson}}">
-       <view class="invoice_type">
-           <text class="invoice_text">发票类型</text>
-           <view class="invoice_tab">
-               <view class="invoice_item {{showCompany.normal?'active':''}}" data-tabIndex="1" bindtap="companyTabChange">普通发票</view>
-               <view class="invoice_item {{showCompany.add_normal?'active':''}}" data-tabIndex="2" bindtap="companyTabChange">增值税普通</view>
-               <view class="invoice_item {{showCompany.add_special?'active':''}}" data-tabIndex="3" bindtap="companyTabChange">增值税专票</view>
-           </view>
-       </view>
-
-       <!--普通发票-->
-       <view class="normal_invoice" wx:if="{{showCompany.normal}}">
-            <form bindsubmit="normalSubmit">
-                <view class="section">
-                    <view class="section_title">抬头名称</view>
-                    <input bindinput="normalInput" class="person_text" name="normal_input" placeholder="请输入抬头名称" placeholder-style="color:#BDBDBD " />
-                </view>
-                <view class="btn_area">
-                    <button disabled="{{normalDisable}}" style="border: 0px;box-shadow: 0px 4rpx 10rpx 0px rgba(249,100,50,0.3);line-height: 90rpx;font-size: 30rpx;color: #fff;height: 90rpx;border-radius: 45rpx;width: 100%;background: linear-gradient(135deg,rgba(249,100,50,1),rgba(253,146,70,1))" formType="submit"  >保存</button>
-                </view>
-            </form>
-       </view>
-
-       <!-- 增值税发票 -->
-       <view class="add_tax"  wx:if="{{showCompany.add_normal}}">
-           <form bindsubmit="addSubmit">
-               <view class="section_box">
-                    <view class="section2">
-                        <view class="section2_title">抬头名称</view>
-                        <input data-addflag="1" bindinput="add_invoice_input" class="person_text" name="add_invoice_input" placeholder="请输入抬头名称" placeholder-style="color:#BDBDBD " />
-                    </view>
-                    <view class="section2">
-                        <view class="section2_title">税号</view>
-                        <input data-addflag="2" bindinput="add_invoice_input" class="person_text" name="normal_tax_input" placeholder="请输入纳税人识别号" placeholder-style="color:#BDBDBD " />
-                    </view>
-                </view>
-                <view class="btn_area">
-                    <button disabled="{{addDisable}}" style="border: 0px;box-shadow: 0px 4rpx 10rpx 0px rgba(249,100,50,0.3);line-height: 90rpx;font-size: 30rpx;color: #fff;height: 90rpx;border-radius: 45rpx;width: 100%;background: linear-gradient(135deg,rgba(249,100,50,1),rgba(253,146,70,1))" formType="submit"  >保存</button>
-                </view>
-           </form>
-       </view>
-
        <!--增值税专票-->
-       <view class="add_tax" wx:if="{{showCompany.add_special}}">
+       <view class="add_tax">
             <form bindsubmit="specialSubmit">
                 <view class="section_box">
                      <view class="section2">

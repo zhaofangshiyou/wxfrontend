@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/invoiceTitle/invoiceTitle",
     "pages/succeCard/scanSuccess",
     "pages/invoiceDetail/invoiceDetail",
-    "pages/invoiceTitle/invoiceTitle",
     "pages/index/index",
     "pages/companyList/companyList",
     "pages/payOrder/payOrder",
