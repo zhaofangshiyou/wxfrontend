@@ -32,18 +32,21 @@ Page({
     },
     img_url: app.config.img_url,
     com_list: [],
-    personPhon: false
+    personPhon: false,
+    isAdd: true
   },
   onLoad: function (options) {
     if(options.id) {
+      this.data.isAdd = false;
       if(options.type==1) {
         this.setData({
           showPerson: false,
           specialDisable: false,
         })
       }else{
+        this.data.personPhon = true;
         this.setData({
-          personDisable: false
+          personDisable: false,
         })
       }
       this.getDetail(options.id);
@@ -92,16 +95,39 @@ Page({
   },
 
   importTitle: function() {
+    let that = this;
     wx.chooseInvoiceTitle({
       success(res) {
-        console.log(res);
+        let temObject = {
+          title:res.title,
+          phone: res.telephone,
+          tax_number: res.taxNumber,
+          address:  res.companyAddress,
+          bank_name: res.bankName,
+          bank_account: res.bankAccount
+        }
+        that.data.com_list.length = 0;
+        that.data.com_list.push(temObject);
+        if(res.type==1) {
+          that.setData({
+            showPerson: true,
+            com_list: that.data.com_list,
+            personDisable: false
+          })
+        }else{
+          that.setData({
+            showPerson: false,
+            com_list: that.data.com_list,
+            specialDisable: false
+          })
+        }
       }
     })
   },
 
   //个人发票提交
   personSubmit: function(e) {
-    if(this.data.com_list.length > 0) {
+    if(!this.data.isAdd) {
       this.editInvoice(e.detail.value.person_input,0,e.detail.value.phone);
     }else{
       this.addInvoice(e.detail.value.person_input,0,e.detail.value.phone);
@@ -127,6 +153,14 @@ Page({
       if(res.data.status === 0) {
         util.warnMsg('添加成功');
         setTimeout(() => {
+          var pages = getCurrentPages();//得到当前所有的页面
+          if(pages.length > 1){
+              var prePage = pages[pages.length - 2];//-1的话就是当前页
+              prePage.setData({
+                com_list :[]
+              })
+              prePage.getCompany();
+          }
           wx.navigateBack();
         },1000)
       }else{
@@ -156,6 +190,14 @@ Page({
       if(res.data.status === 0) {
         util.warnMsg('修改成功');
         setTimeout(() => {
+          var pages = getCurrentPages();//得到当前所有的页面
+          if(pages.length > 1){
+              var prePage = pages[pages.length - 2];//-1的话就是当前页
+              prePage.setData({
+                com_list :[]
+              })
+              prePage.getCompany();
+          }
           wx.navigateBack();
         },1000)
       }else{
@@ -166,8 +208,7 @@ Page({
 
   //增值税专票提交
   specialSubmit: function(e) {
-    console.log(e);
-    if(this.data.com_list.length > 0) {
+    if(!this.data.isAdd) {
       this.editInvoice(e.detail.value.special_title,1,e.detail.value.special_phone,e.detail.value.special_tax,e.detail.value.special_address,e.detail.value.special_bank,e.detail.value.special_account);
     }else{
       this.addInvoice(e.detail.value.special_title,1,e.detail.value.special_phone,e.detail.value.special_tax,e.detail.value.special_address,e.detail.value.special_bank,e.detail.value.special_account);
@@ -239,11 +280,19 @@ Page({
     }
   },
   personInput: function(e) {
-    if(e.currentTarget.dataset.flag==1 && this.isPoneAvailable(e.detail.value)) {
-      this.setData({
-        personDisable: false,
-      })
-      this.data.personPhon = true;
+
+    if(e.currentTarget.dataset.flag==1) {
+      if(this.isPoneAvailable(e.detail.value)){
+        this.setData({
+          personDisable: false,
+        })
+        this.data.personPhon = true;
+      }else{
+        this.setData({
+          personDisable: true,
+        })
+        this.data.personPhon = false;
+      }  
     }else if(e.currentTarget.dataset.flag==0 && e.detail.value && this.data.personPhon){
       this.setData({
         personDisable: false
@@ -252,7 +301,6 @@ Page({
       this.setData({
         personDisable: true
       })
-      this.data.personPhon = false;
     }
   },
 

@@ -11,7 +11,8 @@ Page({
     img_url: app.config.img_url,
     showMore: false,
     type: 1,
-    com_list: []
+    com_list: [],
+    emailValue: ''
   },
 
   showMoreMess: function() {
@@ -34,6 +35,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options);
     this.getDetail(options.id);
   },
 
@@ -50,11 +52,47 @@ Page({
         this.setData({
           com_list: res.data.data
         })
-        console.log(this.data.com_list);
       }else{
         util.warnMsg(res.data.msg);
       }
     })
+  },
+  checkEmail: function(e) {
+    this.data.emailValue = e.detail.value;
+    if(this.isEmailAvailable(this.data.emailValue)) {
+      return true;
+    }else{
+      util.warnMsg('请输入正确的邮箱号');
+      return false;
+    }
+  },
+  //提交
+  nextSubmit: function() {
+    if(this.data.type == 1) {
+      console.log('纸质发票');
+      //纸质发票
+    }else{
+      //电子邮箱
+      console.log(this.isEmailAvailable(this.data.emailValue));
+      if(this.isEmailAvailable(this.data.emailValue)) {
+         //发送邮件
+         console.log('电子发票');
+      }else{
+        util.warnMsg('请输入正确的邮箱号');
+        return;
+      }
+    }
+  },
+
+  //验证邮箱
+   //验证手机号
+   isEmailAvailable(email) {
+    let myreg = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
+    if (!myreg.test(email)) {
+     return false;
+    } else {
+     return true;
+    }
   },
 
   /**

@@ -1,10 +1,10 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/companyList/companyList",
     "pages/invoiceTitle/invoiceTitle",
     "pages/succeCard/scanSuccess",
     "pages/invoiceDetail/invoiceDetail",
-    "pages/companyList/companyList",
     "pages/payOrder/payOrder",
     "pages/openCard/openCard",
     "pages/welfare/welfare",

@@ -54,7 +54,7 @@
   <view class="email_box" wx:if="{{type==2}}">
       <view class="more_item">
         <view class="item_left">收件邮箱</view>
-        <input class="input_email" placeholder="请填写您的电子发票收件邮箱"/>
+        <input class="input_email" bindblur="checkEmail" placeholder="请填写您的电子发票收件邮箱"/>
       </view>
   </view>
   <view class="sureBtn"><sureBtn text="确认" bind:sureEvent="nextSubmit"></sureBtn></view>
