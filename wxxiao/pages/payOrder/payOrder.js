@@ -20,10 +20,8 @@ Page({
 
   printInvoice: function() {
     let trade_no = this.data.orderDetail.trade_no;
-    let PayMount = this.data.orderDetail.PayMount;
-    let oil_type = this.data.orderDetail.Oiltype;
     wx.navigateTo({
-      url: '../../pages/companyList/companyList?trade_no=' + trade_no + '&PayMount=' +PayMount+ '&oil_type=' + oil_type
+      url: '../../pages/companyList/companyList?trade_no=' + trade_no
     })
   },
 

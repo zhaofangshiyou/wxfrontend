@@ -21,11 +21,11 @@
     </view>
     <view class="item">
       <view class="item_left">发票内容</view>
-      <view class="item_right">汽油92#</view>
+      <view class="item_right">{{orderDetail.good_name}}</view>
     </view>
     <view class="item">
       <view class="item_left">发票金额</view>
-      <view class="item_right">200.00元</view>
+      <view class="item_right">{{orderDetail.pay_mount}}元</view>
     </view>
     <view class="item more_item" bindtap="showMoreMess">
         <view class="item_left">更多信息</view>

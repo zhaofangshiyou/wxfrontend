@@ -3,7 +3,7 @@
     "pages/index/index",
     "pages/companyList/companyList",
     "pages/invoiceTitle/invoiceTitle",
-    "pages/succeCard/scanSuccess",
+    "pages/scanSuccess/scanSuccess",
     "pages/invoiceDetail/invoiceDetail",
     "pages/payOrder/payOrder",
     "pages/openCard/openCard",

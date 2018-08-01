@@ -47,7 +47,7 @@ Page({
   goDetail: function(e) {
     let id = e.currentTarget.dataset.id;
     let type = e.currentTarget.dataset.type;
-    let params = '?id=' + id + '&trade_no=' +this.data.trade_no + '&oil_type=' + this.data.oil_type + '&PayMount=' + this.data.PayMount;
+    let params = '?id=' + id + '&trade_no=' +this.data.trade_no;
     if(e.currentTarget.dataset.flag == 1) {
       wx.navigateTo({
         url: '../../pages/invoiceDetail/invoiceDetail' + params
@@ -101,8 +101,6 @@ Page({
    */
   onLoad: function (options) {
     this.data.trade_no = options.trade_no;
-    this.data.oil_type = options.oil_type;
-    this.data.PayMount = options.PayMount;
   },
 
   /**

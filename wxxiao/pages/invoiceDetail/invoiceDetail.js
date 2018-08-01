@@ -12,7 +12,9 @@ Page({
     showMore: false,
     type: 1,
     com_list: [],
-    emailValue: ''
+    emailValue: '',
+    orderDetail: {},
+
   },
 
   showMoreMess: function() {
@@ -35,8 +37,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
     this.getDetail(options.id);
+    this.getOrder(options.trade_no);
+  },
+
+  //获取订单详情
+  getOrder: function(trade_no) {
+    let url = app.config.host + '/order/detail';
+    let data = {
+      tradeNo: trade_no
+    };
+    let params = {};
+    let method = 'GET';
+    httpService.sendRrquest(url,data,params,method).then(res => {
+      if(res.data.status === 0) {
+        this.setData({
+          orderDetail: res.data.data.order
+        })
+      }else{
+        util.warnMsg(res.data.msg);
+      }
+    })
   },
 
   getDetail: function(id) {
@@ -69,8 +90,9 @@ Page({
   //提交
   nextSubmit: function() {
     if(this.data.type == 1) {
-      console.log('纸质发票');
-      //纸质发票
+      wx.navigateTo({
+        url: '../../pages/erweima/erweima'
+      })
     }else{
       //电子邮箱
       console.log(this.isEmailAvailable(this.data.emailValue));
