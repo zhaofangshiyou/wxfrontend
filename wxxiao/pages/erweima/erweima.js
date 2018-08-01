@@ -1,50 +1,32 @@
-// pages/payOrder/payOrder.js
-const app = getApp();
+// pages/erweima/erweima.js
+import drawQrcode from '../../utils/weapp.qrcode.esm.js'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    img_url: app.config.img_url,
-    orderDetail: {},
-    actualMonney: '',
-    discountMoney: ''
-
-  },
-  paySubmi: function() {
-    wx.reLaunch({
-      url: '../../pages/index/index'
-    })
-  },
-
-  printInvoice: function() {
-    let trade_no = this.data.orderDetail.trade_no;
-    let PayMount = this.data.orderDetail.PayMount;
-    let oil_type = this.data.orderDetail.Oiltype;
-    wx.navigateTo({
-      url: '../../pages/companyList/companyList?trade_no=' + trade_no + '&PayMount=' +PayMount+ '&oil_type=' + oil_type
-    })
+  
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let orderDetail = JSON.parse(options.orderDetail);
-    this.setData({
-      orderDetail: orderDetail,
-      actualMonney: options.actualMonney,
-      discountMoney: options.discountMoney
+    drawQrcode({
+      width: 250,
+      height: 250,
+      canvasId: 'myQrcode',
+      text: 'skfjdkhljklkjk'
     })
-   
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    
   },
 
   /**

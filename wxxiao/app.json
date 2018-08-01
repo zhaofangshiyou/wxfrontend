@@ -1,6 +1,11 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/companyList/companyList",
+    "pages/invoiceTitle/invoiceTitle",
+    "pages/succeCard/scanSuccess",
+    "pages/invoiceDetail/invoiceDetail",
+    "pages/payOrder/payOrder",
     "pages/openCard/openCard",
     "pages/welfare/welfare",
     "pages/invoiceSearch/invoiceSearch",
@@ -10,11 +15,9 @@
     "pages/search/search",
     "pages/zhaofangCardPay/zhaofangCardPay",
     "pages/orderDetail/orderDetail",
-    "pages/payOrder/payOrder",
     "pages/modifyPass/modifyPass",
     "pages/nearOil/nearOil",
     "pages/recharge/recharge",
-    "pages/invoiceTitle/invoiceTitle",
     "pages/invoices/invoices",
     "pages/succeCard/succeCrd",
     "pages/carType/carType",
@@ -26,9 +29,10 @@
     "pages/points/points",
     "pages/pointRule/pointRule",
     "pages/discountDoc/discountDoc",
+    "pages/erweima/erweima",
     "pages/chooseOrder/chooseOrder"
   ],
-  "window":{
+  "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F96432",
     "navigationBarTitleText": "兆方石油",

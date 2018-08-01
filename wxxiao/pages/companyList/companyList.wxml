@@ -1,0 +1,17 @@
+<!--pages/companyList/companyList.wxml-->
+<view class="company">
+  <scroll-view scroll-y="true" class="list">
+    <view class="item" wx:for="{{com_list}}" bindtap="goDetail" data-id="{{item.id}}" data-flag="1">
+      <view class="compony-mess">
+        <image class="company_icon" src="{{img_url}}/company_icon.png"></image>
+        <view class="company-name">{{item.title}}</view>
+        <image class="right_icon"  src="{{img_url}}/home_icon_enter.png"></image>
+      </view>
+      <view class="btn-box">
+        <view class="edit" catchtap="goDetail" data-id="{{item.id}}" data-flag="2" data-type="{{item.type}}">编辑</view>
+        <view class="delete" catchtap="deleteItem" data-id="{{item.id}}" data-title="{{item.title}}">删除</view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="add_btn" bindtap="addTitle">+ 添加发票抬头</view>
+</view>

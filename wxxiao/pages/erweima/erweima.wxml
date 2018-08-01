@@ -1,0 +1,9 @@
+<!--pages/erweima/erweima.wxml-->
+<view class="erweima">
+  <view class="code_box">
+    <text class="code_title">请将二维码对准刷码口</text>
+    <view class="code_mess">
+      <canvas style="width: 250px; height: 250px;" canvas-id="myQrcode"></canvas>
+    </view>
+  </view>
+</view>

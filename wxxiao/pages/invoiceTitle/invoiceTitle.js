@@ -1,4 +1,6 @@
 // pages/invoiceTitle/invoiceTitle.js
+import httpService from '../../http/http.js';
+import util from '../../utils/util.js'
 const app = getApp();
 Page({
 
@@ -28,7 +30,52 @@ Page({
       add_normal: false,
       add_special: false
     },
-    img_url: app.config.img_url
+    img_url: app.config.img_url,
+    com_list: [],
+    personPhon: false,
+    isAdd: true
+  },
+  onLoad: function (options) {
+    if(options.id) {
+      this.data.isAdd = false;
+      if(options.type==1) {
+        this.setData({
+          showPerson: false,
+          specialDisable: false,
+        })
+      }else{
+        this.data.personPhon = true;
+        this.setData({
+          personDisable: false,
+        })
+      }
+      this.getDetail(options.id);
+    }
+  },
+
+  getDetail: function(id) {
+    let url = app.config.host + '/invoice';
+    let data = {};
+    let params = {
+      user_id: wx.getStorageSync('user_id'),
+      id: id
+    };
+    let method = 'GET';
+    httpService.sendRrquest(url,data,params,method).then(res => {
+      if(res.data.status === 0) {
+        this.data.special.special_title = res.data.data[0].title;
+        this.data.special.special_tax = res.data.data[0].tax_number;
+        this.data.special.special_address = res.data.data[0].address;
+        this.data.special.special_phone = res.data.data[0].phone;
+        this.data.special.special_bank = res.data.data[0].bank_name;
+        this.data.special.special_account = res.data.data[0].bank_account;
+        this.setData({
+          com_list: res.data.data
+        })
+      }else{
+        util.warnMsg(res.data.msg);
+      }
+    })
   },
   //切换个人、公司导航
   changeTab: function(e) {
@@ -46,52 +93,132 @@ Page({
       })
     }
   },
-  //公司发票分类切换
-  companyTabChange: function(e) {
-    if(e.currentTarget.dataset.tabindex==1) {
-      this.setData({
-        "showCompany.normal": true,
-        "showCompany.add_normal": false,
-        "showCompany.add_special": false
-      })
-    }else if(e.currentTarget.dataset.tabindex==2) {
-      this.setData({
-        "showCompany.normal": false,
-        "showCompany.add_normal": true,
-        "showCompany.add_special": false
-      })
-    }else{
-      this.setData({
-        "showCompany.normal": false,
-        "showCompany.add_normal": false,
-        "showCompany.add_special": true
-      })
-    }
+
+  importTitle: function() {
+    let that = this;
+    wx.chooseInvoiceTitle({
+      success(res) {
+        let temObject = {
+          title:res.title,
+          phone: res.telephone,
+          tax_number: res.taxNumber,
+          address:  res.companyAddress,
+          bank_name: res.bankName,
+          bank_account: res.bankAccount
+        }
+        that.data.com_list.length = 0;
+        that.data.com_list.push(temObject);
+        if(res.type==1) {
+          that.setData({
+            showPerson: true,
+            com_list: that.data.com_list,
+            personDisable: false
+          })
+        }else{
+          that.setData({
+            showPerson: false,
+            com_list: that.data.com_list,
+            specialDisable: false
+          })
+        }
+      }
+    })
   },
+
   //个人发票提交
   personSubmit: function(e) {
-    wx.navigateBack();
+    if(!this.data.isAdd) {
+      this.editInvoice(e.detail.value.person_input,0,e.detail.value.phone);
+    }else{
+      this.addInvoice(e.detail.value.person_input,0,e.detail.value.phone);
+    }
   },
-  //普通发票提交
-  normalSubmit: function(e) {
-    
+
+  //新增
+  addInvoice: function(title,type,phone,tax_number,address,bank_name,bank_account,user_id) {
+    let url = app.config.host + '/invoice/add';
+    let data = {};
+    let params = {
+      title: title,
+      type: type,
+      phone: phone,
+      tax_number: tax_number,
+      address: address,
+      bank_name: bank_name,
+      bank_account: bank_account,
+      user_id: wx.getStorageSync('user_id')
+    }
+    let method = 'POST';
+    httpService.sendRrquest(url,data,params,method).then(res => {
+      if(res.data.status === 0) {
+        util.warnMsg('添加成功');
+        setTimeout(() => {
+          var pages = getCurrentPages();//得到当前所有的页面
+          if(pages.length > 1){
+              var prePage = pages[pages.length - 2];//-1的话就是当前页
+              prePage.setData({
+                com_list :[]
+              })
+              prePage.getCompany();
+          }
+          wx.navigateBack();
+        },1000)
+      }else{
+        util.warnMsg(res.data.msg);
+      }
+    })
   },
-  //增值税普通发票
-  addSubmit: function(e) {
-    
+
+  //编辑
+  editInvoice: function(title,type,phone,tax_number,address,bank_name,bank_account,user_id) {
+    let url = app.config.host + '/invoice';
+    let data = {
+      upd: this.data.com_list[0].id
+    };
+    let params = {
+      title: title,
+      type: type,
+      phone: phone,
+      tax_number: tax_number,
+      address: address,
+      bank_name: bank_name,
+      bank_account: bank_account,
+      user_id: wx.getStorageSync('user_id')
+    }
+    let method = 'PUT';
+    httpService.sendRrquest(url,data,params,method).then(res => {
+      if(res.data.status === 0) {
+        util.warnMsg('修改成功');
+        setTimeout(() => {
+          var pages = getCurrentPages();//得到当前所有的页面
+          if(pages.length > 1){
+              var prePage = pages[pages.length - 2];//-1的话就是当前页
+              prePage.setData({
+                com_list :[]
+              })
+              prePage.getCompany();
+          }
+          wx.navigateBack();
+        },1000)
+      }else{
+        util.warnMsg(res.data.msg);
+      }
+    })
   },
+
   //增值税专票提交
   specialSubmit: function(e) {
-    
+    if(!this.data.isAdd) {
+      this.editInvoice(e.detail.value.special_title,1,e.detail.value.special_phone,e.detail.value.special_tax,e.detail.value.special_address,e.detail.value.special_bank,e.detail.value.special_account);
+    }else{
+      this.addInvoice(e.detail.value.special_title,1,e.detail.value.special_phone,e.detail.value.special_tax,e.detail.value.special_address,e.detail.value.special_bank,e.detail.value.special_account);
+    }
   },
   //验证专票表单是否输入完整
   checkSpecial: function() {
     if((this.data.special.special_title.length > 0) && 
     (this.data.special.special_tax.length > 0) &&
-    (this.data.special.special_address.length > 0) && 
-    (this.isPoneAvailable(this.data.special.special_phone)) && 
-    (this.data.special.special_bank.length > 0) && 
-    (this.data.special.special_account.length > 0)
+    (this.isPoneAvailable(this.data.special.special_phone)) 
   ) {
       return true;
     }else {
@@ -125,48 +252,9 @@ Page({
           specialDisable: true
         });
       }
-    }else if(e.currentTarget.dataset.flag==3) {
-      this.setData({
-        "special.special_address": e.detail.value
-      });
-      if(this.checkSpecial()) {
-        this.setData({
-          specialDisable: false
-        });
-      }else{
-        this.setData({
-          specialDisable: true
-        });
-      }
     }else if(e.currentTarget.dataset.flag==4) {
       this.setData({
         "special.special_phone": e.detail.value
-      });
-      if(this.checkSpecial()) {
-        this.setData({
-          specialDisable: false
-        });
-      }else{
-        this.setData({
-          specialDisable: true
-        });
-      }
-    }else if(e.currentTarget.dataset.flag==5) {
-      this.setData({
-        "special.special_bank": e.detail.value
-      });
-      if(this.checkSpecial()) {
-        this.setData({
-          specialDisable: false
-        });
-      }else{
-        this.setData({
-          specialDisable: true
-        });
-      }
-    }else {
-      this.setData({
-        "special.special_account": e.detail.value
       });
       if(this.checkSpecial()) {
         this.setData({
@@ -191,35 +279,21 @@ Page({
       return false;
     }
   },
-  add_invoice_input: function(e) {
-    if(e.currentTarget.dataset.addflag==1) {
-        if((this.data.add.add_tax.length > 0) && (e.detail.value.length > 0)) {
-          this.setData({
-            addDisable: false,
-            "add.add_title": e.detail.value
-          })
-        }else{
-          this.setData({
-            addDisable: true,
-            "add.add_title": e.detail.value
-          })
-        }
-    }else{
-      if((this.data.add.add_title.length > 0) && (e.detail.value.length > 0) && this.isTax(e.detail.value)){
+  personInput: function(e) {
+
+    if(e.currentTarget.dataset.flag==1) {
+      if(this.isPoneAvailable(e.detail.value)){
         this.setData({
-          addDisable: false,
-          "add.add_tax": e.detail.value
+          personDisable: false,
         })
+        this.data.personPhon = true;
       }else{
         this.setData({
-          addDisable: true,
-          "add.add_tax": e.detail.value
+          personDisable: true,
         })
-      }
-    }
-  },
-  personInput: function(e) {
-    if(e.detail.value.length > 0) {
+        this.data.personPhon = false;
+      }  
+    }else if(e.currentTarget.dataset.flag==0 && e.detail.value && this.data.personPhon){
       this.setData({
         personDisable: false
       })
@@ -229,17 +303,7 @@ Page({
       })
     }
   },
-  normalInput: function(e) {
-    if(e.detail.value.length > 0) {
-      this.setData({
-        normalDisable: false
-      })
-    }else{
-      this.setData({
-        normalDisable: true
-      })
-    }
-  },
+
   //验证税号
   isTax: function(tax_number) {
     let myreg = /^[0-9a-zA-Z]*$/g;
@@ -261,9 +325,6 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
- 
-  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
