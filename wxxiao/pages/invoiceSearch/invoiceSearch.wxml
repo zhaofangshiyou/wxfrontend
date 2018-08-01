@@ -19,7 +19,7 @@
                 </view>
                 <view class="card_box">
                     <view class="reduce_number">{{item.money}}元</view>
-                    <view class="card_num">卡号:{{item.card_no}}</view>
+                    <!-- <view class="card_num">卡号:{{item.card_no}}</view> -->
                 </view>
             </view>
         </view>
