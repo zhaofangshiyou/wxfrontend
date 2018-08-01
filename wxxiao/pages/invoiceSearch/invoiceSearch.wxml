@@ -12,7 +12,7 @@
     <!-- 未开发票 -->
     <scroll-view scroll-y="true" bindscrolltolower="loadMoreInvoice" class="recharge" hidden="{{tabIndex==2}}">
         <view class="box">
-            <view class="recharge_list" wx:for="{{notOpenInvoice}}">
+            <view class="recharge_list" wx:for="{{notOpenInvoice}}" data-trade="{{item.trade_no}}" bindtap="openInvoice">
                 <view class="text_message">
                     <view class="text_title">{{item.station_name}}</view>
                     <view class="text_tip">{{dateFr.getDate(item.created_at,'-')}}</view>

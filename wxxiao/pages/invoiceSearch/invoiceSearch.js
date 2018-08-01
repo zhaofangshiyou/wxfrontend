@@ -53,6 +53,13 @@ Page({
     
   },
 
+  openInvoice: function(e) {
+    let trade_no = e.currentTarget.dataset.trade;
+    wx.navigateTo({
+      url: '../../pages/companyList/companyList?trade_no=' + trade_no
+    })
+  },
+
   //获取发票列表
   getDataList: function(page,limit,is_invoicing) {
     let url = app.config.host+ '/query/flow/consume';

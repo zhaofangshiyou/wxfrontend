@@ -56,7 +56,8 @@ Page({
     httpService.sendRrquest(url,data,params,method).then(res => {
       if(res.data.status === 0) {
         this.setData({
-          orderDetail: res.data.data.order
+          "orderDetail.money": res.data.data.order.money,
+          "orderDetail.oil_type": res.data.data.order.oil_type,
         })
       }else{
         util.warnMsg(res.data.msg);
