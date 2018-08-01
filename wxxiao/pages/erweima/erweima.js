@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    time: 120
   },
 
   /**
@@ -15,12 +15,37 @@ Page({
    */
   onLoad: function (options) {
     this.getStatus(120);
+    this.countDown(10);
     drawQrcode({
-      width: 250,
-      height: 250,
+      width: 200,
+      height: 200,
       canvasId: 'myQrcode',
       text: 'skfjdkhljklkjk'
     })
+  },
+
+  //验证码倒计时
+  countDown(timeout) {
+    let timer;
+    if(timer) {
+      clearTimeout(timer);
+    }else{
+      timer = setTimeout(() => {
+        this.countDown(timeout);
+      },1000);
+      if(timeout===0) {
+        clearTimeout(timer);
+        this.setData({
+          time: 0 + "s",
+        })
+        wx.navigateBack();
+      }else{
+        this.setData({
+          time: timeout + "s",
+        })
+        timeout--;
+      }
+    }
   },
 
      //每隔5秒查询一次
@@ -36,8 +61,7 @@ Page({
         clearTimeout(timer);
       }else{
         console.log('发送请求');
-        if(timeout==100){
-          console.log('发送请求');
+        if(timeout==120){
           clearTimeout(timer);
         }
         timeout = timeout - 10;

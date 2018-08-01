@@ -14,6 +14,8 @@ Page({
     com_list: [],
     emailValue: '',
     orderDetail: {},
+    trade_no: '',
+    id: ''
 
   },
 
@@ -37,6 +39,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.data.trade_no = options.trade_no;
+    this.data.id = options.id;
     this.getDetail(options.id);
     this.getOrder(options.trade_no);
   },
@@ -90,20 +94,47 @@ Page({
   //提交
   nextSubmit: function() {
     if(this.data.type == 1) {
-      wx.navigateTo({
-        url: '../../pages/erweima/erweima'
-      })
+      this.getKey(this.data.trade_no,this.data.id,1)
     }else{
       //电子邮箱
-      console.log(this.isEmailAvailable(this.data.emailValue));
       if(this.isEmailAvailable(this.data.emailValue)) {
          //发送邮件
-         console.log('电子发票');
+         this.getKey(this.data.trade_no,this.data.id,2,this.data.emailValue)
       }else{
         util.warnMsg('请输入正确的邮箱号');
         return;
       }
     }
+  },
+
+  //获取车益图开票二维码 key 值
+  getKey: function(oil_flow_id,invoiceId,invoiceType,email) {
+    let url = app.config.host + '/order/carutoo/key';
+    let data = {};
+    let params = {
+      user_id: wx.getStorageSync('user_id'),
+      oil_flow_id: oil_flow_id,
+      invoiceId: invoiceId,
+      invoiceType: invoiceType,
+      email: email
+    };
+    let method = 'GET';
+    httpService.sendRrquest(url,data,params,method).then(res => {
+      if(res.data.status === 0) {
+        if(this.data.type == 1) {
+          wx.navigateTo({
+            url: '../../pages/erweima/erweima'
+          })
+        }else{
+          //电子发票
+          wx.navigateTo({
+            url: '../../pages/scanSuccess/scanSuccess?title=提交成功&note=电子发票已发邮箱，请注意查收' 
+          })
+        }
+      }else{
+        util.warnMsg(res.data.msg);
+      }
+    })
   },
 
   //验证邮箱

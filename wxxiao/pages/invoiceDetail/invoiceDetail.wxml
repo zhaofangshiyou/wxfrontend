@@ -3,7 +3,7 @@
   <view class="title">请选择发票类型</view>
   <view class="tab">
     <view class="tab_item {{type==1? 'active': ''}}" bindtap="changeTab" data-type="1">纸质发票</view>
-    <view class="tab_item {{type==2? 'active': ''}}" bindtap="changeTab" data-type="2">纸质发票</view>
+    <view class="tab_item {{type==2? 'active': ''}}" bindtap="changeTab" data-type="2">电子发票</view>
   </view>
   <view class="title">发票详情</view>
   <view class="invoice_mess">

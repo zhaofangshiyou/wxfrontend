@@ -15,6 +15,7 @@
   background: #FFF;
   text-align: center;
   padding-top: 94rpx;
+  position: relative;
 }
 .code_title{
   font-size:36rpx;
@@ -27,4 +28,16 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+}
+.timeOut{
+  position: absolute;
+  bottom: 148rpx;
+  width: 100%;
+  text-align: center;
+  color: #666666;
+  font-size:36rpx;
+}
+
+.time{
+  color: #F96432;
 }

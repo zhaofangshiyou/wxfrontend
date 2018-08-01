@@ -3,7 +3,8 @@
   <view class="code_box">
     <text class="code_title">请将二维码对准刷码口</text>
     <view class="code_mess">
-      <canvas style="width: 250px; height: 250px;" canvas-id="myQrcode"></canvas>
+      <canvas style="width: 200px; height: 200px;" canvas-id="myQrcode"></canvas>
     </view>
+    <view class="timeOut">二维码将在<text class="time">{{time}}</text>后失效</view>
   </view>
 </view>

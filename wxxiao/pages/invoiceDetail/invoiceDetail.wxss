@@ -65,6 +65,7 @@
   text-align:justify;
   text-justify:inter-ideograph;
   vertical-align: middle;
+  flex: 0 0 120rpx;
 }
 .item_left:after {
   content: " ";
@@ -74,8 +75,9 @@
 .item_right{
   display: inline-block;
   margin-left: 40rpx;
-  line-height: 30rpx;
+  line-height: 45rpx;
   vertical-align: middle;
+  flex: 1;
 }
 .toggle_icon{
   width: 24rpx;
@@ -91,6 +93,10 @@
   font-size:30rpx;
   line-height: 0;
   border: 0;
+  display: flex;
+  align-items:top;
+  border-bottom:2rpx solid #efefef;
+
 }
 .sureBtn{
   margin: 60rpx 0 55rpx;
