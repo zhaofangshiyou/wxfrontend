@@ -1,0 +1,57 @@
+<!--pages/invoiced/invoiced.wxml-->
+<view class="invoiced">
+  <view class="invoice_type">
+    <view class="title">发票类型</view>
+    <view class="message">电子发票</view>
+  </view>
+  <view class="invoice_type margin_top">
+    <view class="title">收件信息</view>
+    <view class="content">
+      <view class="item padding_bottom">
+        <view class="note">收件信息：</view>
+        <view class="text">3393026796@qq.com</view>
+      </view>
+    </view>
+  </view>
+  <view class="invoice_type margin_top">
+    <view class="title">发票信息</view>
+    <view class="content">
+      <view class="item">
+        <view class="note">抬头名称：</view>
+        <view class="text">深圳市兆方石油股份有限公司</view>
+      </view>
+      <view class="item">
+        <view class="note">税 号：</view>
+        <view class="text">91440300590738709G</view>
+      </view>
+      <view class="item">
+        <view class="note">发票内容：</view>
+        <view class="text">汽油92#</view>
+      </view>
+      <view class="item">
+        <view class="note">发票金额：</view>
+        <view class="text">500.00元</view>
+      </view>
+      <view class="item">
+        <view class="note">单位地址：</view>
+        <view class="text">深圳市福田区彩田南路中深花园大</view>
+      </view>
+      <view class="item">
+        <view class="note">电话号码：</view>
+        <view class="text">0755-83454205</view>
+      </view>
+      <view class="item">
+        <view class="note">开户银行：</view>
+        <view class="text">中国银行福田支行</view>
+      </view>
+      <view class="item">
+        <view class="note">银行账户：</view>
+        <view class="text">622066810722189</view>
+      </view>
+      <view class="item">
+        <view class="note">申请时间：</view>
+        <view class="text">2018-08-08 12:12:12</view>
+      </view>
+    </view>
+  </view>
+</view>

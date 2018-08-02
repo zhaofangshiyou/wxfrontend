@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/invoiced/invoiced",
     "pages/index/index",
     "pages/companyList/companyList",
     "pages/invoiceTitle/invoiceTitle",
