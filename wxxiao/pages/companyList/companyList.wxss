@@ -14,7 +14,7 @@
   -webkit-box-orient:vertical;
   -webkit-flex-direction:column;
   flex-direction:column;
-  overflow:hidden;
+  overflow:auto;
   padding: 0 30rpx;
   padding-bottom: 100rpx;
   box-sizing: border-box;

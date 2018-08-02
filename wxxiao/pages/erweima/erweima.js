@@ -1,5 +1,8 @@
 // pages/erweima/erweima.js
 import drawQrcode from '../../utils/weapp.qrcode.esm.js'
+import httpService from '../../http/http.js';
+import util from '../../utils/util.js'
+const app = getApp();
 
 Page({
 
@@ -7,20 +10,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-    time: 120
+    time: 120,
+    oil_flow_id: '',
+    fnTimer: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.data.oil_flow_id =  options.oil_flow_id;
     this.getStatus(120);
     this.countDown(120);
     drawQrcode({
       width: 200,
       height: 200,
       canvasId: 'myQrcode',
-      text: options.key
+      // text: options.key
+      text: '125'
     })
   },
 
@@ -50,25 +57,38 @@ Page({
 
      //每隔5秒查询一次
   getStatus:function(timeout) {
-    let timer;
-    if(timer) {
-      clearTimeout(timer);
+    let that = this;
+    this.data.fnTimer = "";
+    if(this.data.fnTimer) {
+      clearTimeout(this.data.fnTimer);
     }else{
-      timer = setTimeout(() => {
+      this.data.fnTimer = setTimeout(() => {
         this.getStatus(timeout)
       },10000)
       if(timeout==0) {
-        clearTimeout(timer);
+        clearTimeout(this.data.fnTimer);
       }else{
-        console.log('发送请求');
-        if(timeout==120){
-          clearTimeout(timer);
-        }
+        let url = app.config.host + '/order';
+        let data = {};
+        let params = {
+          oil_flow_id: that.data.oil_flow_id
+        };
+        let method = 'GET';
+        httpService.sendRrquest(url,data,params,method).then(res => {
+          if(res.data.status === 0) {
+            clearTimeout(this.data.fnTimer);
+            wx.navigateTo({
+              url: '../../pages/scanSuccess/scanSuccess?title=扫码成功&note=发票打印中，请耐心等待' 
+            })
+          }else{
+            util.warnMsg(res.data.msg);
+          }
+        })
         timeout = timeout - 10;
-        console.log(timeout);
       }
     }
   },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -95,7 +115,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+    clearTimeout(this.data.fnTimer);
   },
 
   /**

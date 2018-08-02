@@ -125,11 +125,10 @@ Page({
         if(this.data.type == 1) {
           let key = res.data.data.key;
           wx.navigateTo({
-            url: '../../pages/erweima/erweima?key=' + key
+            url: '../../pages/erweima/erweima?key=' + key + '&oil_flow_id=' + this.data.trade_no
           })
         }else{
           //电子发票
-          console.log(124);
           wx.navigateTo({
             url: '../../pages/scanSuccess/scanSuccess?title=提交成功&note=电子发票已发邮箱，请注意查收' 
           })
