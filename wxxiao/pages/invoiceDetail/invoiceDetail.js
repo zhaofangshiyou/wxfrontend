@@ -109,12 +109,12 @@ Page({
   },
 
   //获取车益图开票二维码 key 值
-  getKey: function(oil_flow_id,invoiceId,invoiceType,email) {
+  getKey: function(cc_flow_id,invoiceId,invoiceType,email) {
     let url = app.config.host + '/order/carutoo/key';
     let data = {};
     let params = {
       user_id: wx.getStorageSync('user_id'),
-      oil_flow_id: oil_flow_id,
+      cc_flow_id: cc_flow_id,
       invoiceId: invoiceId,
       invoiceType: invoiceType,
       email: email
@@ -123,11 +123,13 @@ Page({
     httpService.sendRrquest(url,data,params,method).then(res => {
       if(res.data.status === 0) {
         if(this.data.type == 1) {
+          let key = res.data.data.key;
           wx.navigateTo({
-            url: '../../pages/erweima/erweima'
+            url: '../../pages/erweima/erweima?key=' + key
           })
         }else{
           //电子发票
+          console.log(124);
           wx.navigateTo({
             url: '../../pages/scanSuccess/scanSuccess?title=提交成功&note=电子发票已发邮箱，请注意查收' 
           })

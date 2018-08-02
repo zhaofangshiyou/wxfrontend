@@ -15,12 +15,12 @@ Page({
    */
   onLoad: function (options) {
     this.getStatus(120);
-    this.countDown(10);
+    this.countDown(120);
     drawQrcode({
       width: 200,
       height: 200,
       canvasId: 'myQrcode',
-      text: 'skfjdkhljklkjk'
+      text: options.key
     })
   },
 

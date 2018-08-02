@@ -44,13 +44,6 @@
   padding-left: 30rpx;
   background: #fff;
 }
-.item{
-  border-bottom: 2rpx solid #EFEFEF;
-  padding: 36rpx 0;
-  font-size:30rpx;
-  line-height: 0;
-  position: relative;
-}
 
 .item:last-child{
   border-bottom: 0;
@@ -60,7 +53,7 @@
 .item_left{
   display: inline-block;
   height: 30rpx;
-  line-height: 30rpx;
+  line-height: 45rpx;
   width: 120rpx;
   text-align:justify;
   text-justify:inter-ideograph;
@@ -98,6 +91,10 @@
   border-bottom:2rpx solid #efefef;
 
 }
+.more_item_left{
+  height: 30rpx;
+  line-height: 30rpx;
+}
 .sureBtn{
   margin: 60rpx 0 55rpx;
 }
@@ -112,4 +109,22 @@
   vertical-align: middle;
   padding-left: 30rpx;
   width:420rpx;
+}
+
+.email_item{
+  display: flex;
+  align-items: center;
+  height: 100rpx;
+}
+.email_left{
+  flex: 0 0 120rpx;
+  width: 120rpx;
+  font-size:30rpx;
+  color:rgba(51,51,51,1);
+}
+.email_input{
+  flex: 1;
+  font-size:30rpx;
+  padding-left: 40rpx;
+  color:rgba(189,189,189,1);
 }
