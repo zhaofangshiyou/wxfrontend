@@ -75,6 +75,8 @@ Page({
           this.warnMsg('请输入正确的手机号');
         }else if(res.data.status === 3) {
           this.warnMsg('请输入正确的验证码');
+        }else if(res.data.status === 4) {
+          this.warnMsg('该号码已被使用');
         }
       }
     })
