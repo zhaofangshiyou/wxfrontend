@@ -109,12 +109,12 @@ Page({
   },
 
   //获取车益图开票二维码 key 值
-  getKey: function(cc_flow_id,invoiceId,invoiceType,email) {
+  getKey: function(tradeNo,invoiceId,invoiceType,email) {
     let url = app.config.host + '/order/carutoo/key';
     let data = {};
     let params = {
       user_id: wx.getStorageSync('user_id'),
-      cc_flow_id: cc_flow_id,
+      tradeNo: tradeNo,
       invoiceId: invoiceId,
       invoiceType: invoiceType,
       email: email
