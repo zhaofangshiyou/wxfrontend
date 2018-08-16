@@ -126,5 +126,5 @@
   flex: 1;
   font-size:30rpx;
   padding-left: 40rpx;
-  color:rgba(189,189,189,1);
+  color:rgba(51,51,51,1);
 }

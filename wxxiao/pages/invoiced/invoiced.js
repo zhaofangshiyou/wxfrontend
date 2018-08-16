@@ -1,18 +1,40 @@
 // pages/invoiced/invoiced.js
+import httpService from '../../http/http.js';
+import util from '../../utils/util.js'
+const app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    detail: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.getDetail(options.trade_no);
+  },
+
+  getDetail(trade_no) {
+    let url = app.config.host + '/query/invoice/flow';
+        let data = {
+          tradeNo: trade_no
+        };
+        let params = {};
+        let method = 'GET';
+        httpService.sendRrquest(url,data,params,method).then(res => {
+          if(res.data.status === 0) {
+            this.setData({
+              detail: res.data.data.invoiceFlow
+            })
+          }else{
+            util.warnMsg(res.data.msg);
+          }
+        })
   },
 
   /**

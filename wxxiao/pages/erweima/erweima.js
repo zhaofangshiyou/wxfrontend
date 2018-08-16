@@ -26,8 +26,7 @@ Page({
       width: 200,
       height: 200,
       canvasId: 'myQrcode',
-      // text: options.key
-      text: '125'
+      text: options.key
     })
   },
 
@@ -76,10 +75,12 @@ Page({
         let method = 'GET';
         httpService.sendRrquest(url,data,params,method).then(res => {
           if(res.data.status === 0) {
-            clearTimeout(this.data.fnTimer);
-            wx.navigateTo({
-              url: '../../pages/scanSuccess/scanSuccess?title=扫码成功&note=发票打印中，请耐心等待' 
-            })
+            if(res.data.data.is_invoicing == 2) {
+              clearTimeout(this.data.fnTimer);
+              wx.navigateTo({
+                url: '../../pages/scanSuccess/scanSuccess?title=扫码成功&note=发票打印中，请耐心等待' 
+              })
+            }
           }else{
             util.warnMsg(res.data.msg);
           }

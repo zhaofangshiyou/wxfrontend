@@ -1,15 +1,17 @@
 <!--pages/invoiced/invoiced.wxml-->
+<wxs module="dateFr" src="../../filter/dateFilter.wxs"></wxs>
 <view class="invoiced">
   <view class="invoice_type">
     <view class="title">发票类型</view>
-    <view class="message">电子发票</view>
+    <view class="message" wx:if="{{detail.property==0}}">电子发票</view>
+    <view class="message" wx:if="{{detail.property==1}}">纸质发票</view>
   </view>
-  <view class="invoice_type margin_top">
+  <view class="invoice_type margin_top" wx:if="{{detail.property==0}}">
     <view class="title">收件信息</view>
     <view class="content">
       <view class="item padding_bottom">
         <view class="note">收件信息：</view>
-        <view class="text">3393026796@qq.com</view>
+        <view class="text">{{detail.email}}</view>
       </view>
     </view>
   </view>
@@ -18,39 +20,39 @@
     <view class="content">
       <view class="item">
         <view class="note">抬头名称：</view>
-        <view class="text">深圳市兆方石油股份有限公司</view>
+        <view class="text">{{detail.title}}</view>
       </view>
       <view class="item">
         <view class="note">税 号：</view>
-        <view class="text">91440300590738709G</view>
+        <view class="text">{{detail.tax_number}}</view>
       </view>
       <view class="item">
         <view class="note">发票内容：</view>
-        <view class="text">汽油92#</view>
+        <view class="text">{{detail.invoice_content}}</view>
       </view>
       <view class="item">
         <view class="note">发票金额：</view>
-        <view class="text">500.00元</view>
+        <view class="text">{{detail.invoice_amount}}元</view>
       </view>
       <view class="item">
         <view class="note">单位地址：</view>
-        <view class="text">深圳市福田区彩田南路中深花园大</view>
+        <view class="text">{{detail.address}}</view>
       </view>
       <view class="item">
         <view class="note">电话号码：</view>
-        <view class="text">0755-83454205</view>
+        <view class="text">{{detail.phone}}</view>
       </view>
       <view class="item">
         <view class="note">开户银行：</view>
-        <view class="text">中国银行福田支行</view>
+        <view class="text">{{detail.bank_name}}</view>
       </view>
       <view class="item">
         <view class="note">银行账户：</view>
-        <view class="text">622066810722189</view>
+        <view class="text">{{detail.bank_account}}</view>
       </view>
       <view class="item">
         <view class="note">申请时间：</view>
-        <view class="text">2018-08-08 12:12:12</view>
+        <view class="text">{{dateFr.getDate(detail.created_at,'-')}}</view>
       </view>
     </view>
   </view>

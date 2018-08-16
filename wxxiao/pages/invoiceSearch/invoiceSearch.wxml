@@ -12,7 +12,7 @@
     <!-- 未开发票 -->
     <scroll-view scroll-y="true" bindscrolltolower="loadMoreInvoice" class="recharge" hidden="{{tabIndex==2}}">
         <view class="box">
-            <view class="recharge_list" wx:for="{{notOpenInvoice}}" data-trade="{{item.trade_no}}" bindtap="openInvoice">
+            <view class="recharge_list" wx:for="{{notOpenInvoice}}" data-trade="{{item.trade_no}}" data-flag="1" bindtap="openInvoice">
                 <view class="text_message">
                     <view class="text_title">{{item.station_name}}</view>
                     <view class="text_tip">{{dateFr.getDate(item.created_at,'-')}}</view>
@@ -28,14 +28,14 @@
     <!-- 已开发票 -->
     <scroll-view scroll-y="true" bindscrolltolower="loadMoreInvoice" class="recharge" hidden="{{tabIndex==1}}">
         <view class="box">
-            <view class="recharge_list" wx:for="{{openInvoice}}">
+            <view class="recharge_list" wx:for="{{openInvoice}}" data-trade="{{item.trade_no}}" data-flag="2" bindtap="openInvoice">
                 <view class="text_message">
                     <view class="text_title">{{item.station_name}}</view>
                     <view class="text_tip">{{dateFr.getDate(item.created_at,'-')}}</view>
                 </view>
                 <view class="card_box">
                     <view class="reduce_number">{{item.money}}元</view>
-                    <view class="card_num">卡号:{{item.card_no}}</view>
+                    <!-- <view class="card_num">卡号:{{item.card_no}}</view> -->
                 </view>
             </view>
         </view>

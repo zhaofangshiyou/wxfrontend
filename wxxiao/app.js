@@ -1,6 +1,7 @@
 //app.js
 import httpService from './http/http.js';
 const app = getApp();
+
 App({
   config: {
     //  host: 'https://api.zfsyonline.com/v1', //线上环境

@@ -55,9 +55,15 @@ Page({
 
   openInvoice: function(e) {
     let trade_no = e.currentTarget.dataset.trade;
-    wx.navigateTo({
-      url: '../../pages/companyList/companyList?trade_no=' + trade_no
-    })
+    if(e.currentTarget.dataset.flag == 1) {
+      wx.navigateTo({
+        url: '../../pages/companyList/companyList?trade_no=' + trade_no
+      })
+    }else{
+      wx.navigateTo({
+        url: '../../pages/invoiced/invoiced?trade_no=' + trade_no
+      })
+    }
   },
 
   //获取发票列表

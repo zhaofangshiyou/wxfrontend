@@ -97,6 +97,7 @@
     height: 20rpx;
     display: inline-block;
     vertical-align: middle;
+    margin: 0 4rpx;
 }
 .discount_num{
     display: inline-block;
