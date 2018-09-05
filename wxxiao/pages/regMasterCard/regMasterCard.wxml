@@ -1,0 +1,70 @@
+<!--pages/regMasterCard/regMasterCard.wxml-->
+<view class="container">
+  <view class="company_wrapper">
+    <view class="section" bindtap="getOil">
+      <view class="name">售后油站</view>
+      <view class="contnet">
+        <text class="text">{{userInfo.oilStation}}</text>
+        <image class="right_icon" src="{{img_url}}/home_icon_enter.png"></image> 
+      </view>
+    </view>
+    <view class="section">
+      <view class="name">单位全称</view>
+      <view class="contnet">
+        <input class="text" data-flag="unit" bindinput="checkAvaliable" placeholder-style="color:#BDBDBD" placeholder="请输入单位全称"  />
+      </view>
+    </view>
+    <view class="section">
+      <view class="name">营业执照</view>
+      <view class="contnet">
+        <input class="text" data-flag="licence" bindblur="handleBlur" bindinput="checkAvaliable" placeholder-style="color:#BDBDBD" placeholder="请输入营业执照注册号"  />
+      </view>
+    </view>
+    <view class="section">
+      <view class="name">联系人</view>
+      <view class="contnet">
+        <input class="text" data-flag="name" bindinput="checkAvaliable" placeholder-style="color:#BDBDBD" placeholder="请输入联系人名称"  />
+      </view>
+    </view>
+    <view class="section no-border">
+      <view class="name">身份证</view>
+      <view class="contnet">
+        <input class="text" data-flag="ID" bindblur="handleBlur" bindinput="checkAvaliable" placeholder-style="color:#BDBDBD" placeholder="请输入联系人身份证号码"  />
+      </view>
+    </view>
+  </view>
+
+  <view class="company_wrapper">
+    <view class="section">
+      <view class="name">手机号</view>
+      <view class="contnet">
+        <input class="text" data-flag="phone" bindblur="handleBlur" bindinput="checkAvaliable" placeholder-style="color:#BDBDBD" placeholder="请输入您的手机号码"  />
+      </view>
+    </view>
+    <view class="section no-border">
+      <view class="name">验证码</view>
+      <view class="contnet">
+        <input class="text" data-flag="code" bindinput="checkAvaliable" placeholder-style="color:#BDBDBD" placeholder="请输入验证码"  />
+        <view class="code {{!sendAgain?'active': ' '}}" catchtap="sendCode">{{codeText}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="agree_box">
+    <view bindtap="agree" class="toggleAgreement">
+        <image wx:if="{{isAgree}}" class="agree_icon"  src="{{img_url}}/icon_choice.png"></image>
+        <image  wx:if="{{!isAgree}}" class="agree_icon"  src="{{img_url}}/icon_normal.png"></image>
+        <text class="agree_text">我已阅读并同意</text>
+    </view>
+    <navigator url="../../pages/agreement/agreement" style="display:inline-block">
+        <text class="agree_name">《兆方卡用户协议》</text>
+    </navigator>
+  </view>
+
+  <view class="sureSubmit" wx:if="{{isSubmit}}">
+      <sureBtn text="确认开卡" bind:sureEvent="submitRegister"></sureBtn>
+  </view>
+  <view class="sureSubmit" wx:if="{{!isSubmit}}">
+      <disable text="确认开卡"></disable>
+  </view>
+</view>

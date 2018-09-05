@@ -1,5 +1,4 @@
 <!--pages/agreement/agreement.wxml-->
-<header title="兆方卡用户协议"></header>
 <view class="agreement_container">
     <view class="title">兆方卡用户协议</view>
     <view>本协议是使用兆方卡服务的会员（以下简称“用户”）与深圳市兆方石油化工有限公司（以下简称“兆方公司”）之间就用户使用兆方所提供的兆方卡服务相关事宜所订立的契约。为保障用户的合法权益，请用户仔细阅读本协议，勾选"我已阅读并同意"后，即视为同意本协议的全部内容，本协议即对双方有法律约束力。</view>

@@ -1,5 +1,4 @@
 <!--pages/openCard/openCard.wxml-->
-<header title="新用户开卡"></header>
 <view class="container">
     <view class="form_box">
             <view class="section choose_box" bindtap="getOil">

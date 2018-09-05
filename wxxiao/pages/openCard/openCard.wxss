@@ -149,7 +149,6 @@
 }
 
 .agree_box{
-    width: 100%;
     overflow: hidden;
     padding-left: 30rpx;
     height: 30rpx;

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "sureBtn": "../../components/SureBtn/sureBtn",
+    "disable": "../../components/Disable/disable"  
+  },
+  "navigationBarTitleText": "主卡申请"
+}

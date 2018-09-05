@@ -9,6 +9,16 @@
         <image class="card_icon"  src="{{img_url}}/zfcard.png" mode="aspectFit"></image>
         <view class="card_num">{{card_num}}</view>
     </view>
+    <view class="unit_card_wrapper">
+      <view class="unit_card_contnet_box">
+        <view class="unit_top">
+          <image class="zf_logo"  src="{{img_url}}/zf_logo.png"></image>
+          <view class="unit_card_name">主卡</view>
+        </view>
+        <view class="unit_number">1001 00000008</view>
+        <view class="unit_company">深圳市兆方石油股份有限公司</view>
+      </view>
+    </view>
     <view class="account_box">
         <view class="account_cont">
             <view class="text">卡内余额</view>

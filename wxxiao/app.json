@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/unitCard/unitCard",
     "pages/index/index",
+    "pages/regMasterCard/regMasterCard",
     "pages/invoiced/invoiced",
     "pages/companyList/companyList",
     "pages/invoiceTitle/invoiceTitle",
@@ -32,7 +32,8 @@
     "pages/pointRule/pointRule",
     "pages/discountDoc/discountDoc",
     "pages/erweima/erweima",
-    "pages/chooseOrder/chooseOrder"
+    "pages/chooseOrder/chooseOrder",
+    "pages/unitCard/unitCard"
   ],
   "window": {
     "backgroundTextStyle": "light",
