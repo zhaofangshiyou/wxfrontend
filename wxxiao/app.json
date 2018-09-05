@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/unitCard/unitCard",
     "pages/index/index",
     "pages/invoiced/invoiced",
     "pages/companyList/companyList",
