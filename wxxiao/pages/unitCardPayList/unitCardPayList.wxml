@@ -1,0 +1,31 @@
+<!--pages/unitCardPayList/unitCardPayList.wxml-->
+<view class="container">
+  <view class="content-wrapper">
+    <view class="list">
+      <view class="item">
+        <view class="title">深圳市中兴石油股份有限公司</view>
+        <view class="setDefault">
+          <image class="choose_icon" src="{{img_url}}/icon_choice.png"></image>
+          <image class="choose_icon" src="{{img_url}}/icon_normal.png"></image>
+          <text class="default_text">设为默认</text>
+        </view>
+      </view>
+      <view class="item">
+        <view class="title">深圳市中兴石油股份有限公司</view>
+        <view class="setDefault">
+          <image class="choose_icon" src="{{img_url}}/icon_choice.png"></image>
+          <image class="choose_icon" src="{{img_url}}/icon_normal.png"></image>
+          <text class="default_text">设为默认</text>
+        </view>
+      </view>
+      <view class="item">
+        <view class="title">深圳市中兴石油股份有限公司</view>
+        <view class="setDefault">
+          <image class="choose_icon" src="{{img_url}}/icon_choice.png"></image>
+          <image class="choose_icon" src="{{img_url}}/icon_normal.png"></image>
+          <text class="default_text">设为默认</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

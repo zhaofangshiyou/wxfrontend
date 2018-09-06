@@ -1,0 +1,38 @@
+/* pages/unitCardPayList/unitCardPayList.wxss */
+.content-wrapper{
+  background: #fff;
+  padding-left: 34rpx;
+}
+.item{
+  border-bottom: 2rpx solid #efefef;
+  padding: 34rpx 34rpx 34rpx 0;
+}
+.item:last-child{
+  border: none;
+}
+.title{
+  height:30rpx;
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(36,39,43,1);
+  line-height:30rpx;
+}
+.setDefault{
+  margin-top: 20rpx;
+}
+.choose_icon{
+  width: 36rpx;
+  height: 36rpx;
+  vertical-align: middle;
+}
+.default_text{
+  height: 36rpx;
+  line-height: 36rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(153,153,153,1);
+  vertical-align: middle;
+  font-size: 26rpx;
+  margin-left: 10rpx;
+}
