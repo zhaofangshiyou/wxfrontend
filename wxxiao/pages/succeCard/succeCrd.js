@@ -2,6 +2,13 @@
 import httpService from '../../http/http.js';
 
 const app = getApp();
+/**
+type = 0: 个人开卡成功
+type = 1: 个人进入卡详情
+type = 6: 个人卡充值成功
+type = 2: 单位卡进入卡详情
+type = 3: 主卡开卡成功
+**/
 Page({
 
   /**
@@ -10,12 +17,10 @@ Page({
   data: {
     title: '',
     type: '',
-    card_num: '',
-    haveCard: true,
-    haveMenuCard: true,
-    balance: 0,
-    discount_vol: '0.00',
-    img_url: app.config.img_url
+    cardMess: {},
+    img_url: app.config.img_url,
+    money: '',
+    recharge_type: 1
   },
   finishSubmi: function() {
     wx.reLaunch({
@@ -24,35 +29,63 @@ Page({
   },
   recharge: function() {
     wx.navigateTo({
-      url: '../../pages/recharge/recharge'
+      url: '../../pages/recharge/recharge?type=' + this.data.recharge_type
     })
   },
 
-    //获取卡信息
-    getCardInfo: function() {
+   /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (res) {
+    var that = this;
+    that.setData({
+      // balance: parseInt(res.balance),
+      title: res.title,
+      type: res.type
+      // card_num: res.card_number
+    })
+    wx.setNavigationBarTitle({
+      title: res.title//页面标题为路由参数
+    })
+
+    if(res.type == 1 || res.type == 6 || res.type==0) {
+      this.data.recharge_type = 1;
       var that = this;
-      httpService.sendRrquest(app.config.host+'/card',{userId: wx.getStorageSync('user_id')},{},'GET')
+      let param = {
+        type: 0
+      }
+      httpService.sendRrquest(app.config.host+'/card',{userId: wx.getStorageSync('user_id')}, param,'GET')
         .then(res => {
           if(res.data.status === 0) {
-            if(this.data.type == 1 || this.data.type == 6 || this.data.type == 0) {
-              var temp_number = this.joinCard(res.data.data.card.card_prefix,res.data.data.card.id.toString());
-              let temp_vol = '';
-              if(JSON.stringify(res.data.data.discount_vol) == 'null') {
-                temp_vol = '0.00'
-              }else{
-                temp_vol = res.data.data.discount_vol;
-              }
-              that.setData({
-                card_num: temp_number,
-                balance: res.data.data.card.person_balance,
-                discount_vol: temp_vol
+            this.getCardInfo(res.data.data.card[0].id)
+          }
+        })
+    } else {
+      //单位卡
+      this.data.recharge_type = 2;
+      this.getCardInfo(res.id)
+    }
+  },
+
+    //获取卡详情信息
+    getCardInfo: function(id) {
+      var that = this;
+      httpService.sendRrquest(app.config.host+'/card',{cardId: id},{},'GET')
+        .then(res => {
+          if (res.data.status === 0) {
+            if (res.data.data.card.unit_card_type == 0) {
+              this.setData({
+                money: res.data.data.card.person_balance
               })
-            }else if(this.data.type == 2) {
-              that.setData({
-                card_num: '1001 8888',
-                balance: parseInt(res.data.data.card.company_balance)
+            } else {
+              this.setData({
+                money: res.data.data.card.company_balance
               })
             }
+            this.setData({
+              cardMess: res.data.data.card,
+              "cardMess.num": that.joinCard(res.data.data.card.card_prefix, res.data.data.card.id)
+            })
           }
         })
     },
@@ -71,23 +104,10 @@ Page({
 
 
   /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (res) {
-    var that = this;
-    that.setData({
-      // balance: parseInt(res.balance),
-      title: res.title,
-      type: res.type
-      // card_num: res.card_number
-    })
-  },
-
-  /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.getCardInfo();
+    
   },
 
   /**

@@ -1,5 +1,5 @@
 {
-    "navigationBarTitleText": "",
+    "navigationBarTitleText": "我的",
     "usingComponents": {
         "footer": "../../components/footer/footer"
     }

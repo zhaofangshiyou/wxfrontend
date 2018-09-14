@@ -25,13 +25,51 @@ Page({
     isSubmit: false,
     codeText: '获取验证码',
     sendAgain: true,
+    isClick: true
+  },
+  //提交表单数据
+  submitRegister() {
+    this.setData({
+      isClick: false
+    })
+    let url = app.config.host+'/card/main';
+    let params = {
+      'user_id': wx.getStorageSync('user_id'),
+      'unit_card_type': 1,
+      'mobile': this.data.userInfo.mobile,
+      'code': this.data.userInfo.code,
+      'station_id': this.data.userInfo.station_id,
+      'company': this.data.userInfo.unit_name,
+      'business_lis': this.data.userInfo.licence,
+      'contract': this.data.userInfo.user_name,
+      'id_card': this.data.userInfo.ID
+    };
+    let method = 'POST';
+    httpService.sendRrquest(url,{},params,method).then(res => {
+      if(res.data.status === 0) {
+        wx.navigateTo({
+          url: '../../pages/succeCard/succeCrd?title=单位卡&type=3&id=' + res.data.data.card_id
+        });
+      }else{
+        this.setData({
+          isClick: true
+        })
+        if(res.data.status === 1){
+          util.warnMsg('请输入正确的手机号');
+        }else if(res.data.status === 2) {
+          util.warnMsg('请输入正确的验证码');
+        } else {
+          util.warnMsg('其他错误');
+        }
+      }
+    })
   },
   //发送验证码
   sendCode() {
     if(this.isPoneAvailable(this.data.userInfo.mobile) && this.data.sendAgain) {
       let url = app.config.host+'/message';
       let params = {
-        'mobile': this.data.userInfo.phone
+        'mobile': this.data.userInfo.mobile
       };
       let method = 'POST'
       httpService.sendRrquest(url,{},

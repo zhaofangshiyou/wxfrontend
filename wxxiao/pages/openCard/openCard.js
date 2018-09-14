@@ -65,7 +65,7 @@ Page({
     httpService.sendRrquest(url,{},params,method).then(res => {
       if(res.data.status === 0) {
         wx.navigateTo({
-          url: '../../pages/succeCard/succeCrd?title=开卡成功&type=0&'
+          url: '../../pages/succeCard/succeCrd?title=开卡成功&type=0'
         });
       }else{
         this.setData({

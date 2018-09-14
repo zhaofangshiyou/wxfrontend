@@ -41,13 +41,8 @@ Page({
                     'signType': 'MD5',
                     'paySign': payModel.paySign,
                     'success': function (res) {
-                        // wx.showToast({
-                        //     title: '支付成功',
-                        //     icon: 'success',
-                        //     duration: 2000
-                        // })
                         wx.navigateTo({
-                          url: '../../pages/succeCard/succeCrd?title=充值成功&type=6&balance=0'
+                          url: '../../pages/succeCard/succeCrd?title=充值成功&type=6'
                         })
                     },
                     'fail': function (res) {
@@ -90,7 +85,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    console.log(options)
   },
 
   /**

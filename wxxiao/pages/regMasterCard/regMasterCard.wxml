@@ -61,10 +61,10 @@
     </navigator>
   </view>
 
-  <view class="sureSubmit" wx:if="{{isSubmit}}">
+  <view class="sureSubmit" wx:if="{{isSubmit && isClick}}">
       <sureBtn text="确认开卡" bind:sureEvent="submitRegister"></sureBtn>
   </view>
-  <view class="sureSubmit" wx:if="{{!isSubmit}}">
+  <view class="sureSubmit" wx:if="{{!isSubmit || !isClick}}">
       <disable text="确认开卡"></disable>
   </view>
 </view>

@@ -9,6 +9,16 @@ var DateFr = {
         var dateTime=d.getFullYear() + sign + month + sign + date + ' ' + hours + ':' + min + ':' + seconds; 
         return dateTime;
     },
+    joinCard: function(prex,id) {
+      var str_id = id.toString();
+      var id_len = str_id.length;
+      var str_0 = '';
+      for(var i=0; i< 8-id_len; i++) {
+        str_0 = str_0 + '0';
+      }
+      var new_num = prex +'  ' + str_0 + str_id;
+      return new_num;
+    },
     toFix: function (value) {
         return value.toFixed(2)
     },
@@ -18,6 +28,7 @@ var DateFr = {
 }
 
 module.exports = {
+    joinCard: DateFr.joinCard,
     getDate: DateFr.getDate,
     toFix: DateFr.toFix,
     floor: DateFr.floor

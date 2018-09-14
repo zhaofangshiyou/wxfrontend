@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/unitCardPayList/unitCardPayList",
     "pages/index/index",
     "pages/regMasterCard/regMasterCard",
+    "pages/unitCardPayList/unitCardPayList",
     "pages/invoiced/invoiced",
     "pages/companyList/companyList",
     "pages/invoiceTitle/invoiceTitle",

@@ -17,7 +17,7 @@ Page({
       url: event.currentTarget.dataset.link
     })
   },
-
+  
   /**
    * 生命周期函数--监听页面加载
    */
@@ -28,10 +28,13 @@ Page({
 //../../pages/recharge/recharge
   goRecharge: function(event) {
     var that = this;
-    httpService.sendRrquest(app.config.host+'/card',{userId: wx.getStorageSync('user_id')},{},'GET')
+    let param = {
+      type: 0
+    }
+    httpService.sendRrquest(app.config.host+'/card',{userId: wx.getStorageSync('user_id')}, param,'GET')
       .then(res => {
         if(res.data.status === 0) {
-          if(JSON.stringify(res.data.data.card) == 'null') {
+          if(res.data.data.card.length == 0) {
             wx.navigateTo({
               url: '../../pages/openCard/openCard'
             }) 

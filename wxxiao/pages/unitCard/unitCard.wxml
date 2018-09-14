@@ -1,45 +1,22 @@
 <!--pages/unitCard/unitCard.wxml-->
+<wxs module="dateFr" src="../../filter/dateFilter.wxs"></wxs>
 <view class="container">
     <view class="content">
         <view class="home_list">
-            <view class="list_box">
+            <view class="list_box" wx:for="{{data}}" bindtap="goDetail" data-id="{{item.id}}">
                 <view class="list-left">
-                    <div class="icon">副</div>
+                    <div class="icon" wx:if="{{item.parent_id}}">副</div>
+                    <div class="icon" wx:if="{{!item.parent_id}}">主</div>
                     <view class="left_text">
-                    <text class="title">1001 88888888</text>
-                    <text class="message">深圳市华富石油股份有限公司</text>
+                    <text class="title">{{dateFr.joinCard(item.card_prefix,item.id)}}</text>
+                    <text class="message" wx:if="{{item.company}}">{{item.company}}</text>
                     </view>
                 </view>
                 <view class="list-right">
                     <image class="right_icon" src="{{img_url}}/home_icon_enter.png"></image> 
                 </view>
             </view>
-            <view class="list_box">
-              <view class="list-left">
-                  <div class="icon">副</div>
-                  <view class="left_text">
-                  <text class="title">1001 88888888</text>
-                  <text class="message">深圳市华富石油股份有限公司</text>
-                  </view>
-              </view>
-              <view class="list-right">
-                  <image class="right_icon" src="{{img_url}}/home_icon_enter.png"></image> 
-              </view>
-          </view>
-          <view class="list_box">
-            <view class="list-left">
-                <div class="icon">副</div>
-                <view class="left_text">
-                <text class="title">1001 88888888</text>
-                <text class="message">深圳市华富石油股份有限公司</text>
-                </view>
-            </view>
-            <view class="list-right">
-                <image class="right_icon" src="{{img_url}}/home_icon_enter.png"></image> 
-            </view>
-        </view>
-
-        <view class="add_unit">+主卡申请</view>
+        <view class="add_unit" wx:if="{{hasMainCard}}" bindtap="regMainCard">+主卡申请</view>
         </view>
     </view>
 </view>
