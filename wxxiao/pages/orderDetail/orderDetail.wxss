@@ -228,3 +228,34 @@
     height: 41rpx;
 }
 
+.unitCard{
+  flex:1;
+  padding: 18rpx 20rpx;
+}
+
+.unitTitle{
+  height:30rpx;
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+  line-height:30rpx;
+}
+.unitCompany{
+  font-size:22rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(102,102,102,1);
+  margin-top: 8rpx;
+}
+.unitNotice{
+  font-size:18rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(249,100,50,1);
+  padding: 4rpx 6rpx;
+  background: #FEDDD5;
+  border-radius:4px;
+  vertical-align: middle;
+  margin-left: 12rpx;
+}

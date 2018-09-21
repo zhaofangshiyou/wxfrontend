@@ -6,14 +6,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    img_url: app.config.img_url
+    img_url: app.config.img_url,
+    list: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    let unitList = JSON.parse(options.unitCard);
+    this.setData({
+      list: unitList
+    })
   },
 
   /**

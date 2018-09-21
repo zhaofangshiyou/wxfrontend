@@ -19,28 +19,59 @@ Page({
     write_money: '',
     orderDetail: {},
     actualMonney: '',
-    discountMoney: ''
-
+    discountMoney: '',
+    unitPayList: [],
+    unitChoose: {}
   },
+
+  //获取单位卡
+   // cardId/userId/:userId  参数：type  0 - 个人 / 1 - 单位   获取卡列表
+   getData() {
+    var that = this;
+    let param = {
+      type: 1
+    }
+    httpService.sendRrquest(app.config.host+'/card',{userId: wx.getStorageSync('user_id')}, param,'GET')
+      .then(res => {
+        if(res.data.status === 0) {
+          this.data.unitPayList = res.data.data.card;
+          console.log(this.data.unitPayList)
+          this.setData({
+            unitChoose: res.data.data.card[0]
+          })
+        }
+      })
+  },
+
+
   forgetPass: function() {
     wx.navigateTo({
       url: '../../pages/modifyPass/modifyPass'
     })
   },
-  changePay: function() {
-    if(this.data.payWay==0) {
-      this.data.payWay = 3;
+  changePay: function(e) {
+    if (e.currentTarget.dataset.index == 3) {
       this.setData({
-        payWay: this.data.payWay,
+        payWay: e.currentTarget.dataset.index,
         actualMonney: this.data.orderDetail.OilMount,
         discountMoney: '0.00'
       })
-    }else{
-      this.data.payWay = 0;
+    } else if(e.currentTarget.dataset.index == 0) {
       this.setData({
-        payWay: this.data.payWay,
+        payWay: e.currentTarget.dataset.index,
         actualMonney: this.data.orderDetail.PayMount,
         discountMoney: this.data.orderDetail.discount
+      })
+    } else {
+      //处理单位卡
+      this.setData({
+        payWay: e.currentTarget.dataset.index,
+        actualMonney: this.data.orderDetail.OilMount,
+        discountMoney: '0.00'
+      })
+      let unitCard = JSON.stringify(this.data.unitPayList);
+      wx.navigateTo({
+        url: '../../pages/unitCardPayList/unitCardPayList?unitCard='+ unitCard
       })
     }
   },
@@ -76,7 +107,8 @@ Page({
                           })
                       },
                       'fail': function (res) {
-                        util.warnMsg(res.err_desc);
+
+                        util.warnMsg(res.errMsg);
                       }
                   })
               }
@@ -215,7 +247,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    this.getData();
   },
 
   /**

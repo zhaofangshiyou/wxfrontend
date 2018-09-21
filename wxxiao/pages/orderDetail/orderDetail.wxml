@@ -39,7 +39,7 @@
     </view>
     <view class="pay_way">支付方式</view>
     <view class="pay_way_box">
-        <view class="pay_item" bindtap="changePay">
+        <view class="pay_item" bindtap="changePay" data-index="0">
             <view class="pay_left">
                 <image class="pay_icon" src="{{img_url}}/carpay.png"></image>
                 <text class="pay_text">兆方车上付</text>
@@ -49,7 +49,7 @@
                 <image wx:if="{{payWay!=0}}" class="choose_icon" src="{{img_url}}/icon_normal.png"></image>
             </view>
         </view>
-        <view class="pay_item" bindtap="changePay">
+        <view class="pay_item" bindtap="changePay" data-index="3">
             <view class="pay_left">
                 <image class="wexin_icon"  src="{{img_url}}/weixin.png"></image>
                 <text class="pay_text">微信支付</text>
@@ -59,6 +59,19 @@
                 <image wx:if="{{payWay!=3}}" class="choose_icon" src="{{img_url}}/icon_normal.png"></image>
             </view>
         </view>
+        <view class="pay_item" bindtap="changePay" data-index="2">
+          <view class="pay_left">
+              <image class="pay_icon" src="{{img_url}}/carpay.png"></image>
+          </view>
+          <view class="unitCard">
+            <view class="unitTitle">兆方车上付<text class="unitNotice">单位卡</text></view>
+            <view class="unitTitle unitCompany">{{unitChoose.company}}</view>
+          </view>
+          <view class="pay_choose">
+              <image wx:if="{{payWay==2}}" class="choose_icon" src="{{img_url}}/icon_choice.png"></image>
+              <image wx:if="{{payWay!=2}}" class="choose_icon" src="{{img_url}}/icon_normal.png"></image>
+          </view>
+      </view>
     </view>
     <sureBtn text="确认支付" bind:sureEvent="paySubmit"></sureBtn>
 </view>
