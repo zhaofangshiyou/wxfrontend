@@ -3,7 +3,7 @@
   <view class="content-wrapper">
     <view class="list">
       <view class="item" wx:for="{{list}}">
-        <view class="title">{{company}}</view>
+        <view class="title">{{item.company}}</view>
         <view class="setDefault">
           <image class="choose_icon" src="{{img_url}}/icon_choice.png"></image>
           <image class="choose_icon" src="{{img_url}}/icon_normal.png"></image>
