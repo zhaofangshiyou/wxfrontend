@@ -4,8 +4,8 @@ const app = getApp();
 
 App({
   config: {
-    //host: 'https://api.zfsyonline.com/v1', //线上环境
-    host: 'https://test.zfsyonline.com/v1', //测试环境
+    host: 'https://api.zfsyonline.com/v1', //线上环境
+    //host: 'https://test.zfsyonline.com/v1', //测试环境
     img_url: 'https://api.zfsyonline.com/images',
     header: ` {
       'Content-Type": "application/x-www-form-urlencoded'

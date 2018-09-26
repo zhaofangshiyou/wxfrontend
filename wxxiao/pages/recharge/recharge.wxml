@@ -14,7 +14,7 @@
                 <view class="accounce_box" bindtap="goDisconutDoc">
                         <!-- <view class="accounce_box {{money_num==5000?'show_notice':'hide_notice'}}" bindtap="goDisconutDoc"> -->
                     <image class="accounce_icon"   src="{{img_url}}/home_icon_inform.png"></image>
-                    <text class="accounce_text">最高优惠0.8元/升，点击了解详情</text>
+                    <text class="accounce_text">最高优惠0.4元/升，点击了解详情</text>
                 </view>
                 <view class="money_list">
                     <view data-moneyNum="500" bindtap="select_money" class="choose_item {{money_num==500?'active':''}}">¥500</view>
