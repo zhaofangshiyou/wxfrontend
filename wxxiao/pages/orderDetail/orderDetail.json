@@ -1,7 +1,6 @@
 {
     "navigationBarTitleText": "订单详情",
     "usingComponents": {
-        "sureBtn": "../../components/SureBtn/sureBtn",
-        "header": "../../components/header/header"
+        "sureBtn": "../../components/SureBtn/sureBtn"
     }
 }

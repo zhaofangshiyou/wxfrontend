@@ -1,5 +1,4 @@
 <!--pages/orderDetail/orderDetail.wxml-->
-<header title="订单详情"></header>
 <view class="container">
     <view class="content">
         <view class="detail_box">

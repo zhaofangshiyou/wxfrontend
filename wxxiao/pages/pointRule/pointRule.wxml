@@ -1,5 +1,4 @@
 <!--pages/pointRule/pointRule.wxml-->
-<header title="积分规则"></header>
 <view class="rule_box">
   <view class="rule_item">
       <view class="rule_title">Q1． 如何获取加油积分？</view>

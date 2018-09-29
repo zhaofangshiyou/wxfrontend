@@ -1,5 +1,4 @@
 <!--pages/zhaofangCardPay/zhaofangCardPay.wxml-->
-<header title="兆方车上付"></header>
 <view class="container">
     <view class="warn">
         <text class="warn_icon">!</text>

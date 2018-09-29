@@ -1,6 +1,5 @@
 <!--pages/payOrder/payOrder.wxml-->
 <wxs module="dateFr" src="../../filter/dateFilter.wxs"></wxs>
-<header title="支付订单"></header>
 <view class="container">
     <view class="title">
         <image class="pay_icon" src="{{img_url}}/icon_succeed.png"></image>

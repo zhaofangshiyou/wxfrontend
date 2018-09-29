@@ -3,7 +3,6 @@
     "usingComponents": {
         "sureBtn": "../../components/SureBtn/sureBtn",
         "disable": "../../components/Disable/disable",
-        "alert": "../../components/Alert/alert",
-        "header": "../../components/header/header"
+        "alert": "../../components/Alert/alert"
     }
 }

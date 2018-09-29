@@ -1,7 +1,6 @@
 {
     "navigationBarTitleText": "支付订单",
     "usingComponents": {
-        "sureBtn": "../../components/SureBtn/sureBtn",
-        "header": "../../components/header/header"
+        "sureBtn": "../../components/SureBtn/sureBtn"
     }
 }

@@ -1,6 +1,3 @@
 {
-    "navigationBarTitleText": "积分查询",
-    "usingComponents": {
-        "header": "../../components/header/header"    
-    }
+    "navigationBarTitleText": "积分查询"
 }

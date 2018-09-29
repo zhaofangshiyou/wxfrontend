@@ -1,7 +1,6 @@
 {
     "navigationBarTitleText": "兆方车上付",
     "usingComponents": {
-        "sureBtn": "../../components/SureBtn/sureBtn",
-        "header": "../../components/header/header"
+        "sureBtn": "../../components/SureBtn/sureBtn"
     }
 }

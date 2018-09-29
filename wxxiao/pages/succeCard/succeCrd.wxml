@@ -1,5 +1,4 @@
 <!--pages/succeCard/succeCrd.wxml-->
-<header title="{{title}}"></header>
 <view class="container">
     <view class="header" wx:if="{{type==0 || type==6}}">
         <image class="success_icon"  src="{{img_url}}/icon_succeed.png"></image>

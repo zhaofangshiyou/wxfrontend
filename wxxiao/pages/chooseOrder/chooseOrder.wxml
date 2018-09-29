@@ -1,5 +1,4 @@
 <!--pages/chooseOrder/chooseOrder.wxml-->
-<header title="订单选择"></header>
 <view class="container">
     <view class="order_list">
         <view class="order_bg" wx:for="{{orderList}}" wx:for-index="key" data-index="{{key}}" bindtap="chooseOrder">

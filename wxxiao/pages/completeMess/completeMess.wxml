@@ -1,5 +1,4 @@
 <!--pages/completeMess/completeMess.wxml-->
-<header title="完善资料"></header>
 <view class="container">
     <view class="warn">
         <text class="warn_icon">!</text>

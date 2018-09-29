@@ -1,6 +1,3 @@
 {
-    "navigationBarTitleText": "优惠说明",
-    "usingComponents": {
-        "header": "../../components/header/header"
-    }
+    "navigationBarTitleText": "优惠说明"
 }

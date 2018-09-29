@@ -1,5 +1,4 @@
 <!--pages/modifyPass/modifyPass.wxml-->
-<header title="修改密码"></header>
 <view class="container">
     <form bindsubmit="formSubmit">
     <view class="content">

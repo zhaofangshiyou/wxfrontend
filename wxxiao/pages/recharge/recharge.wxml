@@ -1,5 +1,4 @@
 <!--pages/recharge/recharge.wxml-->
-<header title="兆方卡充值"></header>
 <view class="container">
     <view class="content">
         <view class="rechage_box">

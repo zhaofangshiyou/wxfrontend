@@ -1,7 +1,6 @@
 {
     "navigationBarTitleText": "我的兆方卡",
     "usingComponents": {
-        "header": "../../components/header/header",
         "sureBtn": "../../components/SureBtn/sureBtn"
     }
 }

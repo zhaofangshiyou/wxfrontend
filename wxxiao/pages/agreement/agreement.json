@@ -1,6 +1,3 @@
 {
-  "navigationBarTitleText": "兆方卡用户协",
-    "usingComponents": {
-        "header": "../../components/header/header"
-    }
+  "navigationBarTitleText": "兆方卡用户协"
 }

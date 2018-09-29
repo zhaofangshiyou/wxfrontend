@@ -1,6 +1,3 @@
 {
-    "navigationBarTitleText": "交易查询",
-    "usingComponents": {
-        "header": "../../components/header/header"
-    }
+    "navigationBarTitleText": "交易查询"
 }

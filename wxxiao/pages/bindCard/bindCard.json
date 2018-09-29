@@ -1,7 +1,6 @@
 {
     "usingComponents": {
-        "sureBtn": "../../components/SureBtn/sureBtn",
-        "header": "../../components/header/header"
+        "sureBtn": "../../components/SureBtn/sureBtn"
     },
     "navigationBarTitleText": "单位卡绑定"  
 }

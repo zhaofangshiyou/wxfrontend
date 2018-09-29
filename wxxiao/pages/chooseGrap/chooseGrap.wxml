@@ -1,5 +1,4 @@
 <!--pages/chooseGrap/chooseGrap.wxml-->
-<header title="兆方车上付"></header>
 <view class="container">
     <view class="oil_station">
         <view class="oil_box">
