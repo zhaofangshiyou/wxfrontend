@@ -20,6 +20,26 @@ Page({
     })
   },
 
+  backPay(e) {
+    var pages = getCurrentPages()
+    var prevPage = pages[pages.length - 2];
+
+    prevPage.setData({
+　　　'card_id': e.currentTarget.dataset.id,
+      'company': e.currentTarget.dataset.company
+　　});
+    wx.navigateBack({//返回
+      delta:1
+    })
+  },
+
+  setDefault(e) {
+    var pages = getCurrentPages()
+    var prevPage = pages[pages.length - 2];
+    prevPage.getData()
+    console.log(e)
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -12,6 +12,7 @@ Page({
     img_url: app.config.img_url,
     showBoard: false,
     passwordArr: [],
+    //0-兆方车上付 2-单位卡支付方式 3-微信支付
     payWay: 0,
     station_id: '',
     gun_id: '',
@@ -21,7 +22,8 @@ Page({
     actualMonney: '',
     discountMoney: '',
     unitPayList: [],
-    unitChoose: {}
+    company: '',
+    card_id: ''
   },
 
   //获取单位卡
@@ -35,9 +37,9 @@ Page({
       .then(res => {
         if(res.data.status === 0) {
           this.data.unitPayList = res.data.data.card;
-          console.log(this.data.unitPayList)
+          this.data.card_id = res.data.data.card[0].id
           this.setData({
-            unitChoose: res.data.data.card[0]
+            company: res.data.data.card[0].company
           })
         }
       })
@@ -150,6 +152,10 @@ Page({
             for(let i=0; i<this.data.passwordArr.length; i++) {
             tempPass += this.data.passwordArr[i];
           }
+          let card_id = '';
+          if (this.data.payWay == 2) {
+            card_id = this.data.card_id;
+          }
           let url = app.config.host + '/pay/card';
           let data = {};
           let params = {
@@ -161,7 +167,8 @@ Page({
             'discount': this.data.orderDetail.discount,
             'pay_channel': 0,
             'oil_id': this.data.oil_id,
-            'Fluid':  this.data.orderDetail.trade_no
+            'Fluid':  this.data.orderDetail.trade_no,
+            'card_id': card_id
           };
           let method = 'POST';
           httpService.sendRrquest(url,data,params,method).then(res => {

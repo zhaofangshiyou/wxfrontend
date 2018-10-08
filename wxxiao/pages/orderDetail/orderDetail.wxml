@@ -64,7 +64,7 @@
           </view>
           <view class="unitCard">
             <view class="unitTitle">兆方车上付<text class="unitNotice">单位卡</text></view>
-            <view class="unitTitle unitCompany">{{unitChoose.company}}</view>
+            <view class="unitTitle unitCompany">{{company}}</view>
           </view>
           <view class="pay_choose">
               <image wx:if="{{payWay==2}}" class="choose_icon" src="{{img_url}}/icon_choice.png"></image>

@@ -9,7 +9,8 @@ Page({
   data: {
     money_num: 5000,
     isAgree: true,
-    img_url: app.config.img_url
+    img_url: app.config.img_url,
+    card_id: ''
   },
   select_money: function(e) {
 
@@ -29,7 +30,8 @@ Page({
         data: {
             pay_target: 'charge',
             openid: wx.getStorageSync('open_id'),  // 这里正常项目不会只有openid一个参数
-            total_fee: this.data.money_num
+            total_fee: this.data.money_num,
+            card_id: this.data.card_id
         },
         success: function(res){
             if(res.data.status === 0){
@@ -85,7 +87,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    if(options.card_id) {
+      this.data.card_id = options.card_id
+    }
   },
 
   /**

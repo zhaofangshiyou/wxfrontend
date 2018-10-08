@@ -20,6 +20,7 @@
 }
 .setDefault{
   margin-top: 20rpx;
+  width: 160rpx;
 }
 .choose_icon{
   width: 36rpx;

@@ -20,7 +20,8 @@ Page({
     cardMess: {},
     img_url: app.config.img_url,
     money: '',
-    recharge_type: 1
+    recharge_type: 1,
+    card_id: ''
   },
   finishSubmi: function() {
     wx.reLaunch({
@@ -29,7 +30,7 @@ Page({
   },
   recharge: function() {
     wx.navigateTo({
-      url: '../../pages/recharge/recharge?type=' + this.data.recharge_type
+      url: '../../pages/recharge/recharge?type=' + this.data.recharge_type + '&card_id=' + this.data.card_id
     })
   },
 
@@ -64,6 +65,7 @@ Page({
       //单位卡
       this.data.recharge_type = 2;
       this.getCardInfo(res.id)
+      this.data.card_id = res.id;
     }
   },
 
