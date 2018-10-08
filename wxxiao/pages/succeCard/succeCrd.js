@@ -6,6 +6,7 @@ const app = getApp();
 type = 0: 个人开卡成功
 type = 1: 个人进入卡详情
 type = 6: 个人卡充值成功
+type = 5: 主卡充值成功
 type = 2: 单位卡进入卡详情
 type = 3: 主卡开卡成功
 **/
@@ -49,7 +50,7 @@ Page({
       title: res.title//页面标题为路由参数
     })
 
-    if(res.type == 1 || res.type == 6 || res.type==0) {
+    if(!res.id) {
       this.data.recharge_type = 1;
       var that = this;
       let param = {
@@ -58,7 +59,8 @@ Page({
       httpService.sendRrquest(app.config.host+'/card',{userId: wx.getStorageSync('user_id')}, param,'GET')
         .then(res => {
           if(res.data.status === 0) {
-            this.getCardInfo(res.data.data.card[0].id)
+            this.getCardInfo(res.data.data.card[0].id);
+            this.data.card_id = res.data.data.card[0].id;
           }
         })
     } else {

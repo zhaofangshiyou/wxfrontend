@@ -44,7 +44,7 @@ Page({
   },
    //发送验证码
    sendCode() {
-    if(this.isPoneAvailable(this.data.formValue.phone) && this.data.sendAgain) {
+    if(util.isPoneAvailable(this.data.formValue.phone) && this.data.sendAgain) {
       let url = app.config.host+'/message';
       let params = {
         'mobile': this.data.formValue.phone
@@ -79,7 +79,7 @@ Page({
   })
   },
   checkPhone: function(e) {
-    if(!this.isPoneAvailable(e.detail.value)) {
+    if(!util.isPoneAvailable(e.detail.value)) {
       this.warnMsg('您输入的手机号码不正确');
     }
   },
@@ -164,7 +164,7 @@ Page({
     }
   },
   checkAll: function() {
-    if(this.isPoneAvailable(this.data.formValue.phone) &&
+    if(util.isPoneAvailable(this.data.formValue.phone) &&
       (this.data.formValue.code.length > 0) &&
       (this.data.formValue.pass.length == 6) && 
       (this.data.formValue.comPass == this.data.formValue.pass)
@@ -173,15 +173,6 @@ Page({
   }else{
     return false;
   }
-  },
-  //验证手机号
-  isPoneAvailable(pone) {
-    let myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
-    if (!myreg.test(pone)) {
-     return false;
-    } else {
-     return true;
-    }
   },
   /**
    * 生命周期函数--监听页面加载

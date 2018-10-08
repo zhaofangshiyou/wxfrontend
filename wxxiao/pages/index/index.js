@@ -66,7 +66,7 @@ Page({
                 }) 
               }else{
                 wx.navigateTo({
-                  url: event.currentTarget.dataset.link
+                  url: event.currentTarget.dataset.link + '?card_id=' + res.data.data.card[0].id
                 })
               }
             }

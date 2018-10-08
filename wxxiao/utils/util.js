@@ -42,9 +42,20 @@ const objectNull = object => {
  return object;
 }
 
+//验证手机号
+const isPoneAvailable = phone => {
+  let myreg = /^[1][3,4,5,6,7,8,9][0-9]{9}$/;
+  if (!myreg.test(phone)) {
+  return false;
+  } else {
+  return true;
+  }
+}
+
 module.exports = {
   formatTime: formatTime,
   warnMsg: warnMsg,
   CheckStr: CheckStr,
-  objectNull: objectNull
+  objectNull: objectNull,
+  isPoneAvailable: isPoneAvailable
 }

@@ -15,9 +15,25 @@ Page({
    */
   onLoad: function (options) {
     let unitList = JSON.parse(options.unitCard);
+    unitList.forEach((item, index) => {
+      unitList[index].card_no = this.joinCard(item.card_prefix, item.id);
+    });
     this.setData({
-      list: unitList
+      list: unitList,
+      card_id: options.card_id
     })
+  },
+
+   //拼接卡号
+   joinCard: function(prex,id) {
+    let str_id = id.toString();
+    let id_len = str_id.length;
+    let str_0 = '';
+    for(let i=0; i< 8-id_len; i++) {
+      str_0 = str_0 + '0';
+    }
+    let new_num = prex +'  ' + str_0 + str_id;
+    return new_num;
   },
 
   backPay(e) {
@@ -31,13 +47,6 @@ Page({
     wx.navigateBack({//返回
       delta:1
     })
-  },
-
-  setDefault(e) {
-    var pages = getCurrentPages()
-    var prevPage = pages[pages.length - 2];
-    prevPage.getData()
-    console.log(e)
   },
 
   /**

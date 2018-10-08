@@ -18,10 +18,7 @@
   color:rgba(36,39,43,1);
   line-height:30rpx;
 }
-.setDefault{
-  margin-top: 20rpx;
-  width: 160rpx;
-}
+
 .choose_icon{
   width: 36rpx;
   height: 36rpx;
@@ -35,5 +32,4 @@
   color:rgba(153,153,153,1);
   vertical-align: middle;
   font-size: 26rpx;
-  margin-left: 10rpx;
 }

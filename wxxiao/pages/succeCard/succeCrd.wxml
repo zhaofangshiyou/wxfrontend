@@ -1,14 +1,14 @@
 <!--pages/succeCard/succeCrd.wxml-->
 <view class="container">
-    <view class="header" wx:if="{{type==0 || type==6}}">
+    <view class="header" wx:if="{{type==0 || type==6 || type==5 || type==3}}">
         <image class="success_icon"  src="{{img_url}}/icon_succeed.png"></image>
-        <view class="title">开发成功</view>
+        <view class="title">{{title}}</view>
     </view>
     <view class="card_box" wx:if="{{type==1 || type==0 || type==6}}">
         <image class="card_icon"  src="{{img_url}}/zfcard.png" mode="aspectFit"></image>
         <view class="card_num">{{cardMess.num}}</view>
     </view>
-    <view class="unit_card_wrapper" wx:if="{{type==2 || type==3}}">
+    <view class="unit_card_wrapper" wx:if="{{type==2 || type==3 || type==5}}">
       <view class="unit_card_contnet_box">
         <view class="unit_top">
           <image class="zf_logo"  src="{{img_url}}/zf_logo.png"></image>
@@ -33,5 +33,5 @@
         <text class="warn_icon">!</text>
         <text class="warn_text">为保障您的用卡安全及后续权益，请及时完善个人资料</text>
     </view>
-    <sureBtn text="完成" bind:sureEvent="finishSubmi" wx:if="{{type==0 || type==6}}"></sureBtn>
+    <sureBtn text="完成" bind:sureEvent="finishSubmi" wx:if="{{type==0 || type==6 || type==5 || type==3}}"></sureBtn>
 </view>

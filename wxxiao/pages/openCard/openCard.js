@@ -1,5 +1,6 @@
 // pages/openCard/openCard.js
 import httpService from '../../http/http.js';
+import util from '../../utils/util.js'
 
 const app = getApp();
 Page({
@@ -91,7 +92,7 @@ Page({
   },
   //发送验证码
   sendCode() {
-    if(this.isPoneAvailable(this.data.userInfo.phone) && this.data.sendAgain) {
+    if(util.isPoneAvailable(this.data.userInfo.phone) && this.data.sendAgain) {
       let url = app.config.host+'/message';
       let params = {
         'mobile': this.data.userInfo.phone
@@ -173,7 +174,7 @@ Page({
     })
   },
   checkPhoneErroe: function(event) {
-    if(!this.isPoneAvailable(event.detail.value)) {
+    if(!util.isPoneAvailable(event.detail.value)) {
       this.warnMsg('请输入正确的手机号'); 
       this.setData({
         "check.checkPhone": false
@@ -230,7 +231,7 @@ Page({
         break;
       case 'phone':
         if(event.detail.value.length == 11) {
-          if(!this.isPoneAvailable(event.detail.value)) {
+          if(!util.isPoneAvailable(event.detail.value)) {
             this.warnMsg('请输入正确的手机号'); 
             this.setData({
               "check.checkPhone": false
@@ -269,15 +270,6 @@ Page({
       return true;
     }else{
       return false;
-    }
-  },
-  //验证手机号
-  isPoneAvailable(pone) {
-    let myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
-    if (!myreg.test(pone)) {
-     return false;
-    } else {
-     return true;
     }
   },
   warnMsg: function(text) {

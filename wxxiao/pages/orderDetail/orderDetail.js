@@ -71,10 +71,12 @@ Page({
         actualMonney: this.data.orderDetail.OilMount,
         discountMoney: '0.00'
       })
-      let unitCard = JSON.stringify(this.data.unitPayList);
-      wx.navigateTo({
-        url: '../../pages/unitCardPayList/unitCardPayList?unitCard='+ unitCard
-      })
+      if(this.data.unitPayList.length > 1) {
+        let unitCard = JSON.stringify(this.data.unitPayList);
+        wx.navigateTo({
+          url: '../../pages/unitCardPayList/unitCardPayList?unitCard='+ unitCard + '&card_id=' + this.data.card_id
+        })
+      }
     }
   },
   paySubmit: function() {

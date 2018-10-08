@@ -58,7 +58,7 @@
                 <image wx:if="{{payWay!=3}}" class="choose_icon" src="{{img_url}}/icon_normal.png"></image>
             </view>
         </view>
-        <view class="pay_item" bindtap="changePay" data-index="2">
+        <view class="pay_item" bindtap="changePay" data-index="2" wx:if="{{company}}">
           <view class="pay_left">
               <image class="pay_icon" src="{{img_url}}/carpay.png"></image>
           </view>

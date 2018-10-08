@@ -48,7 +48,7 @@ Page({
     httpService.sendRrquest(url,{},params,method).then(res => {
       if(res.data.status === 0) {
         wx.navigateTo({
-          url: '../../pages/succeCard/succeCrd?title=单位卡&type=3&id=' + res.data.data.card_id
+          url: '../../pages/succeCard/succeCrd?title=开卡成功&type=3&id=' + res.data.data.card_id
         });
       }else{
         this.setData({
@@ -58,15 +58,18 @@ Page({
           util.warnMsg('请输入正确的手机号');
         }else if(res.data.status === 2) {
           util.warnMsg('请输入正确的验证码');
-        } else {
-          util.warnMsg('其他错误');
+        } else if(res.data.status === 4) {
+          util.warnMsg('手机号已被使用')
+        }
+        else {
+          util.warnMsg(res.data.msg);
         }
       }
     })
   },
   //发送验证码
   sendCode() {
-    if(this.isPoneAvailable(this.data.userInfo.mobile) && this.data.sendAgain) {
+    if(util.isPoneAvailable(this.data.userInfo.mobile) && this.data.sendAgain) {
       let url = app.config.host+'/message';
       let params = {
         'mobile': this.data.userInfo.mobile
@@ -131,7 +134,7 @@ Page({
         }
         break;
       case 'phone':
-        if (!this.isPoneAvailable(this.data.userInfo.mobile)) {
+        if (!util.isPoneAvailable(this.data.userInfo.mobile)) {
           util.warnMsg('请输入正确的号码');
         }
         break;
@@ -168,7 +171,7 @@ Page({
       this.isSlicenceAvailable(this.data.userInfo.licence) &&
       this.data.userInfo.user_name.length > 0 &&
       this.ValidatID(this.data.userInfo.ID) > 0 &&
-      this.isPoneAvailable(this.data.userInfo.mobile) &&
+      util.isPoneAvailable(this.data.userInfo.mobile) &&
       this.data.userInfo.code.length > 0 && 
       this.data.isAgree
     ) {
@@ -212,15 +215,6 @@ ValidatID(id){
     return true;
   }else{
     return false;
-  }
-},
-//验证手机号
-isPoneAvailable(pone) {
-  let myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
-  if (!myreg.test(pone)) {
-   return false;
-  } else {
-   return true;
   }
 },
 

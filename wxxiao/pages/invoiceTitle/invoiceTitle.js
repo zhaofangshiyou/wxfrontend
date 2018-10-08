@@ -79,18 +79,20 @@ Page({
   },
   //切换个人、公司导航
   changeTab: function(e) {
-    if(e.currentTarget.dataset.index==1){
-      this.setData({
-        showPerson: true,
-        "showCompany.normal": false,
-        "showCompany.add_normal": false,
-        "showCompany.add_special": false,
-      })
-    }else{
-      this.setData({
-        showPerson: false,
-        "showCompany.normal": true,
-      })
+    if (this.data.isAdd) {
+      if(e.currentTarget.dataset.index==1){
+        this.setData({
+          showPerson: true,
+          "showCompany.normal": false,
+          "showCompany.add_normal": false,
+          "showCompany.add_special": false,
+        })
+      }else{
+        this.setData({
+          showPerson: false,
+          "showCompany.normal": true,
+        })
+      }
     }
   },
 
@@ -98,13 +100,23 @@ Page({
     let that = this;
     wx.chooseInvoiceTitle({
       success(res) {
+        let id = '';
+        if (!that.data.isAdd) {
+          if (res.type == that.data.com_list[0].type) {
+            util.warnMsg('请导入正确的抬头类型');
+            return;
+          } else {
+            id = that.data.com_list[0].id
+          }
+        }
         let temObject = {
           title:res.title,
           phone: res.telephone,
           tax_number: res.taxNumber,
           address:  res.companyAddress,
           bank_name: res.bankName,
-          bank_account: res.bankAccount
+          bank_account: res.bankAccount,
+          id: id
         }
         that.data.com_list.length = 0;
         that.data.com_list.push(temObject);
@@ -218,7 +230,7 @@ Page({
   checkSpecial: function() {
     if((this.data.special.special_title.length > 0) && 
     (this.data.special.special_tax.length > 0) &&
-    (this.isPoneAvailable(this.data.special.special_phone)) 
+    (util.isPoneAvailable(this.data.special.special_phone)) 
   ) {
       return true;
     }else {
@@ -268,7 +280,7 @@ Page({
     }
   },
   checkPhone: function(e) {
-    if(!this.isPoneAvailable(e.detail.value)){
+    if(!util.isPoneAvailable(e.detail.value)){
       wx.showToast({
         title: "请输入正确的手机号码",
         icon: 'none',
@@ -282,7 +294,7 @@ Page({
   personInput: function(e) {
 
     if(e.currentTarget.dataset.flag==1) {
-      if(this.isPoneAvailable(e.detail.value)){
+      if(util.isPoneAvailable(e.detail.value)){
         this.setData({
           personDisable: false,
         })
@@ -313,15 +325,7 @@ Page({
       return true;
     }
   },
-  //验证手机号
-  isPoneAvailable(pone) {
-    let myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
-    if (!myreg.test(pone)) {
-     return false;
-    } else {
-     return true;
-    }
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */

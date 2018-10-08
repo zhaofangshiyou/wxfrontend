@@ -10,7 +10,8 @@ Page({
     money_num: 5000,
     isAgree: true,
     img_url: app.config.img_url,
-    card_id: ''
+    card_id: '',
+    type: 1
   },
   select_money: function(e) {
 
@@ -25,6 +26,7 @@ Page({
       })
   },
   rechargeSubmit: function() {
+      let that = this;
       wx.request({
         url: app.config.host+'/pay/unifiedorder',
         data: {
@@ -43,8 +45,12 @@ Page({
                     'signType': 'MD5',
                     'paySign': payModel.paySign,
                     'success': function (res) {
+                        let type = 6;
+                        if (that.data.type == 2) {
+                          type = 5;
+                        }
                         wx.navigateTo({
-                          url: '../../pages/succeCard/succeCrd?title=充值成功&type=6'
+                          url: '../../pages/succeCard/succeCrd?title=充值成功&type=' + type + '&id=' + that.data.card_id
                         })
                     },
                     'fail': function (res) {
@@ -90,6 +96,7 @@ Page({
     if(options.card_id) {
       this.data.card_id = options.card_id
     }
+    this.data.type = options.type
   },
 
   /**
